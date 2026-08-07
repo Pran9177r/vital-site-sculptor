@@ -4,6 +4,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ── Teen Harbor design system ───────────────────────────────────────────
+   Layout + palette follow the supplied reference: soft mint sections,
+   indigo/violet primary actions, pink pill eyebrows, deep navy CTA band. */
+
+@theme inline {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-mint: var(--mint);
+  --color-mint-deep: var(--mint-deep);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-pill: var(--pill);
+  --color-pill-foreground: var(--pill-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-sun: var(--sun);
+  --color-sun-foreground: var(--sun-foreground);
+}
+
 /*
  * Design system definition.
  *
