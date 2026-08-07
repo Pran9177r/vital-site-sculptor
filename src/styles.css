@@ -176,5 +176,41 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility eyebrow {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: var(--pill);
+  color: var(--pill-foreground);
+  padding: 0.3rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+@utility card-soft {
+  border-radius: 1rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+@utility rule-line {
+  display: block;
+  width: 5rem;
+  height: 0.3rem;
+  border-radius: 9999px;
+  background-color: var(--brand);
 }
