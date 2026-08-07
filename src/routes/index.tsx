@@ -44,7 +44,29 @@ export const Route = createFileRoute("/")({
           "Safe, structured residential behavioral health treatment for adolescents: individualized therapy, psychiatric support, family involvement and academics.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Teen Harbor | Residential Care for Teens" },
+      {
+        name: "twitter:description",
+        content:
+          "Safe, structured residential behavioral health treatment for adolescents in California.",
+      },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalBusiness",
+          name: "Teen Harbor",
+          description:
+            "Compassionate residential mental health and dual diagnosis care for teens.",
+          medicalSpecialty: "Psychiatric",
+          areaServed: "California",
+        }),
+      },
     ],
   }),
   component: Index,
