@@ -33,6 +33,7 @@ import {
 } from "@/lib/motion";
 import { CareApproachStory } from "@/components/CareApproachStory";
 import heroClinician from "@/assets/hero-clinician.png";
+import heroDots from "@/assets/hero-dots.png.asset.json";
 import servicesTherapy from "@/assets/services-therapy.jpg";
 import groupCircle from "@/assets/group-circle.jpg";
 import education from "@/assets/education.jpg";
