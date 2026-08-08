@@ -307,6 +307,8 @@ function Stars() {
 
 function Index() {
   const scrolled = useScrolled(12);
+  useSmoothScroll();
+  const active = useActiveSection(["home", "about", "services", "treatment", "team", "contact"]);
   const heroImageRef = useParallax<HTMLImageElement>(0.14);
   const card1Ref = useParallax<HTMLDivElement>(0.05);
   const card2Ref = useParallax<HTMLDivElement>(0.09);
@@ -316,23 +318,34 @@ function Index() {
     <div className="page-enter min-h-screen bg-background">
       {/* Nav */}
       <header
-        className={`sticky top-0 z-50 border-b bg-background/90 backdrop-blur transition-[box-shadow,background-color,border-color] duration-300 ${
+        className={`sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md transition-all duration-300 ${
           scrolled
             ? "border-border bg-background/95 shadow-[var(--shadow-card)]"
             : "border-border/60"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3.5">
-          <a href="#home" className="flex items-center gap-2 link-motion">
-            <img src={logo} alt="Teen Harbor logo" width={36} height={36} className="h-9 w-9" />
-            <span className="text-lg font-semibold tracking-tight">Teen Harbor</span>
+        <div
+          className={`mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 transition-all duration-300 ${
+            scrolled ? "py-2" : "py-3.5"
+          }`}
+        >
+          <a href="#home" className="flex items-center link-motion">
+            <img
+              src={logoWordmark}
+              alt="Teen Harbor"
+              width={700}
+              height={222}
+              className="h-auto w-[130px] sm:w-[150px] md:w-[165px]"
+            />
           </a>
           <nav className="hidden items-center gap-7 md:flex">
             {NAV.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                className={`nav-link text-sm font-medium transition-colors hover:text-primary ${
+                  active === item.href.slice(1) ? "text-primary" : "text-muted-foreground"
+                }`}
               >
                 {item.label}
               </a>
@@ -352,76 +365,102 @@ function Index() {
 
       {/* Hero */}
       <section id="home" className="bg-mint">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-20">
-          <div>
-            <Reveal immediate>
-              <h1 className="text-4xl leading-tight md:text-5xl">
-                Compassionate Residential Care for Teens
-              </h1>
-            </Reveal>
-            <Reveal immediate delay={140}>
-              <p className="mt-5 max-w-md text-base text-muted-foreground">
-                Welcoming teens and families to a safe, nurturing environment where healing and
-                growth begin together.
-              </p>
-            </Reveal>
-            <Reveal immediate delay={260}>
-              <div className="mt-8 flex items-center gap-5">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:min-h-[calc(100svh-72px)] md:grid-cols-2 md:gap-16 md:py-0 lg:gap-20">
+          <div className="md:py-16">
+            <h1 className="text-4xl leading-tight md:text-5xl lg:text-[3.4rem]">
+              <span className="hero-line block">Compassionate Residential</span>
+              <span
+                className="hero-line block"
+                style={{ "--enter-delay": "150ms" } as CSSProperties}
+              >
+                Care for Teens
+              </span>
+            </h1>
+            <p
+              className="hero-line mt-5 max-w-md text-base text-muted-foreground"
+              style={{ "--enter-delay": "340ms" } as CSSProperties}
+            >
+              Welcoming teens and families to a safe, nurturing environment where healing and growth
+              begin together.
+            </p>
+            <div className="mt-8 flex items-center gap-5">
               <a
                 href="#contact"
-                className="btn-motion rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
+                className="hero-line btn-motion rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
+                style={{ "--enter-delay": "480ms" } as CSSProperties}
               >
                 Get Started
               </a>
               <a
                 href="#about"
-                className="text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                className="hero-line text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                style={{ "--enter-delay": "600ms" } as CSSProperties}
               >
                 Learn More <span className="arrow-nudge">→</span>
               </a>
-              </div>
-            </Reveal>
+            </div>
           </div>
-          <div className="relative">
-            <Reveal immediate delay={120} variant="right">
-              <img
-                ref={heroImageRef}
-                src={heroClinician}
-                alt="Teen Harbor clinician holding a treatment chart"
-                width={1008}
-                height={1200}
-                className="parallax-y mx-auto max-h-[430px] w-auto object-contain"
-              />
-            </Reveal>
-            <Reveal immediate delay={420}>
+          <div className="relative flex items-end justify-center md:h-[calc(100svh-72px)]">
+            <img
+              ref={heroImageRef}
+              src={heroClinician}
+              alt="Teen Harbor clinician holding a treatment chart"
+              width={1008}
+              height={1200}
+              className="hero-rise parallax-y h-auto w-full max-w-[520px] object-contain object-bottom md:max-h-[86%] md:w-auto lg:max-w-none"
+            />
+            <div
+              className="card-in-left absolute left-0 top-[18%]"
+              style={{ "--enter-delay": "300ms" } as CSSProperties}
+            >
               <div
                 ref={card1Ref}
-                className="float-card absolute left-0 top-6 card-soft px-4 py-2 text-sm font-medium"
+                className="float-a card-soft px-4 py-2 text-sm font-medium"
               >
                 Individualized Care
               </div>
-            </Reveal>
-            <Reveal immediate delay={520}>
+            </div>
+            <div
+              className="card-in-right absolute right-0 top-[36%]"
+              style={{ "--enter-delay": "550ms" } as CSSProperties}
+            >
               <div
                 ref={card2Ref}
-                style={{ "--float-delay": "1.2s" } as CSSProperties}
-                className="float-card absolute right-0 top-24 card-soft px-4 py-3"
+                style={{ "--float-delay": "0.7s" } as CSSProperties}
+                className="float-b card-soft px-4 py-3"
               >
                 <p className="text-lg font-semibold text-primary">24/7</p>
                 <p className="text-xs text-muted-foreground">Supervised Support</p>
               </div>
-            </Reveal>
-            <Reveal immediate delay={620}>
+            </div>
+            <div
+              className="card-in-left absolute bottom-[16%] left-2"
+              style={{ "--enter-delay": "800ms" } as CSSProperties}
+            >
               <div
                 ref={card3Ref}
-                style={{ "--float-delay": "2.4s" } as CSSProperties}
-                className="float-card absolute bottom-8 left-4 card-soft px-4 py-3"
+                style={{ "--float-delay": "1.6s" } as CSSProperties}
+                className="float-c card-soft px-4 py-3"
               >
                 <p className="text-lg font-semibold text-primary">Ages 12–17</p>
                 <p className="text-xs text-muted-foreground">Adolescent Program</p>
               </div>
-            </Reveal>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Trust / credibility */}
+      <section className="border-b border-border/60 bg-background">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
+          {TRUST.map((t, i) => (
+            <Reveal key={t.label} delay={i * 100}>
+              <div className="text-center sm:text-left">
+                <p className="text-3xl font-semibold text-primary">{t.value}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{t.label}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
