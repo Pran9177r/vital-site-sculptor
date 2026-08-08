@@ -181,7 +181,6 @@ export function useSmoothScroll() {
         duration: 1.05,
         smoothWheel: true,
         touchMultiplier: 1.4,
-several: undefined,
       } as never) as never;
       const raf = (time: number) => {
         lenis?.raf(time);
