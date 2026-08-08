@@ -81,7 +81,7 @@ export function CareApproachStory() {
               </div>
               <div className="mt-8 flex items-center gap-4">
                 <p className="text-xs font-semibold tracking-widest text-muted-foreground">
-                  {STAGES[activeIndex].num} / 03
+                  {STAGES[activeIndex]?.num ?? "01"} / 03
                 </p>
                 <span className="h-0.5 flex-1 overflow-hidden rounded-full bg-border">
                   <span
