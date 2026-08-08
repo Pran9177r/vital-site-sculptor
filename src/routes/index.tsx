@@ -405,7 +405,15 @@ function Index() {
               src={heroDots.url}
               alt=""
               aria-hidden="true"
-              className="hero-dots pointer-events-none absolute -right-[20%] top-[18%] z-0 w-[150%] max-w-none select-none opacity-60 mix-blend-multiply md:-right-[28%] md:top-[16%] md:w-[185%] md:opacity-85"
+              className="hero-dots pointer-events-none absolute z-0 max-w-none select-none mix-blend-multiply"
+              style={
+                {
+                  right: "-40%",
+                  top: "12%",
+                  width: "190%",
+                  opacity: 0.85,
+                } as CSSProperties
+              }
             />
             <img
               ref={heroImageRef}
