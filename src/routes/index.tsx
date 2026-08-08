@@ -952,6 +952,61 @@ function Index() {
         </div>
       </section>
 
+      {/* Resources */}
+      <section className="bg-mint py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="max-w-2xl">
+            <Reveal>
+              <span className="eyebrow">Resources</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">Helpful Reading For Families</h2>
+            </Reveal>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {RESOURCES.map(({ icon: Icon, title, body }, i) => (
+              <Reveal key={title} delay={i * 120}>
+                <article className="card-soft group/arrow h-full p-6">
+                  <Icon className="h-6 w-6 text-primary" />
+                  <h3 className="mt-4 text-lg">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                  <a
+                    href="#contact"
+                    className="mt-5 inline-block text-sm font-semibold text-primary"
+                  >
+                    Learn More <span className="arrow-nudge">→</span>
+                  </a>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto max-w-4xl px-5 py-20 md:py-28">
+        <div className="text-center">
+          <Reveal>
+            <span className="eyebrow">FAQ</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">Questions Families Ask Us</h2>
+          </Reveal>
+        </div>
+        <div className="mt-10 space-y-4">
+          {FAQS.map((f, i) => (
+            <Reveal key={f.q} delay={i * 90}>
+              <details className="card-soft group px-6 py-5">
+                <summary className="cursor-pointer list-none text-base font-semibold marker:hidden">
+                  {f.q}
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+              </details>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative isolate overflow-hidden">
         <img
