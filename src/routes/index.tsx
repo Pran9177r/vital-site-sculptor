@@ -4,12 +4,18 @@ import {
   Award,
   BookOpen,
   Brain,
+  CalendarCheck,
+  ClipboardList,
   Clock,
+  Compass,
+  FileText,
+  GraduationCap,
   HeartHandshake,
   Home,
   Mail,
   MessageSquare,
   Phone,
+  ShieldCheck,
   Smile,
   Sparkles,
   Stethoscope,
@@ -17,8 +23,15 @@ import {
   Wallet,
 } from "lucide-react";
 
-import logo from "@/assets/logo.png";
-import { Reveal, useParallax, useScrolled } from "@/lib/motion";
+import logoWordmark from "@/assets/logo-teen-harbor.png";
+import {
+  Reveal,
+  useActiveSection,
+  useParallax,
+  useScrolled,
+  useSmoothScroll,
+} from "@/lib/motion";
+import { CareApproachStory } from "@/components/CareApproachStory";
 import heroClinician from "@/assets/hero-clinician.png";
 import servicesTherapy from "@/assets/services-therapy.jpg";
 import groupCircle from "@/assets/group-circle.jpg";
@@ -181,6 +194,104 @@ const ACCREDITATIONS = [
   { name: "NAMI California", detail: "National Alliance on Mental Illness" },
 ];
 
+const TRUST = [
+  { value: "24/7", label: "Awake overnight supervision" },
+  { value: "12–17", label: "Adolescent-only program" },
+  { value: "1:1", label: "Individualized treatment plans" },
+  { value: "6 beds", label: "Small, home-like setting" },
+];
+
+const JOURNEY = [
+  {
+    icon: Phone,
+    step: "01",
+    title: "Confidential Call",
+    body: "Speak with admissions about your teen's needs, insurance and timing. No pressure — just clear answers.",
+  },
+  {
+    icon: ClipboardList,
+    step: "02",
+    title: "Clinical Assessment",
+    body: "A comprehensive review of mental health, history, academics and family goals determines whether Teen Harbor is the right fit.",
+  },
+  {
+    icon: Home,
+    step: "03",
+    title: "Move-In & Stabilization",
+    body: "A warm welcome into a structured daily routine, with therapy, psychiatric support and school beginning right away.",
+  },
+  {
+    icon: Compass,
+    step: "04",
+    title: "Transition & Aftercare",
+    body: "Discharge planning, family preparation and individualized aftercare recommendations for the return home and to school.",
+  },
+];
+
+const OUTCOMES = [
+  {
+    icon: ShieldCheck,
+    title: "Stability First",
+    body: "Consistent routines, awake overnight supervision and clinical structure create the safety that healing requires.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Academic Momentum",
+    body: "Credits, accommodations and graduation goals stay on track with an on-site credentialed tutor.",
+  },
+  {
+    icon: Users,
+    title: "Stronger Families",
+    body: "Family therapy and ongoing communication rebuild trust so progress holds after treatment ends.",
+  },
+  {
+    icon: Smile,
+    title: "Confidence & Skills",
+    body: "Life skills, wellness and experiential work help teens leave with tools they can actually use.",
+  },
+];
+
+const RESOURCES = [
+  {
+    icon: FileText,
+    title: "A Parent's Guide to Residential Care",
+    body: "What residential treatment is, how it differs from outpatient care, and how to prepare your family.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "What a Day Looks Like",
+    body: "A walk through the daily schedule: therapy, school, wellness, recreation and personal responsibility.",
+  },
+  {
+    icon: Wallet,
+    title: "Insurance & Admissions FAQ",
+    body: "Coverage, verification and what to expect during the first 72 hours after admission.",
+  },
+];
+
+const FAQS = [
+  {
+    q: "Who does Teen Harbor serve?",
+    a: "Adolescents ages 12–17 who need residential support for mental health challenges, and teens experiencing co-occurring substance use concerns alongside a mental health diagnosis.",
+  },
+  {
+    q: "How involved are families in treatment?",
+    a: "Families are part of the journey from day one through family therapy, regular clinical communication and collaborative discharge planning.",
+  },
+  {
+    q: "Will my teen keep up with school?",
+    a: "Yes. An on-site credentialed tutor works with parents, schools and districts on credits, accommodations and graduation goals whenever possible.",
+  },
+  {
+    q: "What does daily life look like?",
+    a: "Each day follows a thoughtfully planned schedule balancing clinical treatment, education, recreation, personal responsibility and time to recharge.",
+  },
+  {
+    q: "Do you accept insurance?",
+    a: "Most major plans are accepted. Our admissions team can verify benefits and explain options during your first call.",
+  },
+];
+
 function Stars() {
   return (
     <div className="flex gap-1 text-sun" aria-hidden="true">
@@ -195,6 +306,8 @@ function Stars() {
 
 function Index() {
   const scrolled = useScrolled(12);
+  useSmoothScroll();
+  const active = useActiveSection(["home", "about", "services", "treatment", "team", "contact"]);
   const heroImageRef = useParallax<HTMLImageElement>(0.14);
   const card1Ref = useParallax<HTMLDivElement>(0.05);
   const card2Ref = useParallax<HTMLDivElement>(0.09);
@@ -204,23 +317,34 @@ function Index() {
     <div className="page-enter min-h-screen bg-background">
       {/* Nav */}
       <header
-        className={`sticky top-0 z-50 border-b bg-background/90 backdrop-blur transition-[box-shadow,background-color,border-color] duration-300 ${
+        className={`sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md transition-all duration-300 ${
           scrolled
             ? "border-border bg-background/95 shadow-[var(--shadow-card)]"
             : "border-border/60"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3.5">
-          <a href="#home" className="flex items-center gap-2 link-motion">
-            <img src={logo} alt="Teen Harbor logo" width={36} height={36} className="h-9 w-9" />
-            <span className="text-lg font-semibold tracking-tight">Teen Harbor</span>
+        <div
+          className={`mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 transition-all duration-300 ${
+            scrolled ? "py-2" : "py-3.5"
+          }`}
+        >
+          <a href="#home" className="flex items-center link-motion">
+            <img
+              src={logoWordmark}
+              alt="Teen Harbor"
+              width={700}
+              height={222}
+              className="h-auto w-[130px] sm:w-[150px] md:w-[165px]"
+            />
           </a>
           <nav className="hidden items-center gap-7 md:flex">
             {NAV.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                className={`nav-link text-sm font-medium transition-colors hover:text-primary ${
+                  active === item.href.slice(1) ? "text-primary" : "text-muted-foreground"
+                }`}
               >
                 {item.label}
               </a>
@@ -240,76 +364,102 @@ function Index() {
 
       {/* Hero */}
       <section id="home" className="bg-mint">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-20">
-          <div>
-            <Reveal immediate>
-              <h1 className="text-4xl leading-tight md:text-5xl">
-                Compassionate Residential Care for Teens
-              </h1>
-            </Reveal>
-            <Reveal immediate delay={140}>
-              <p className="mt-5 max-w-md text-base text-muted-foreground">
-                Welcoming teens and families to a safe, nurturing environment where healing and
-                growth begin together.
-              </p>
-            </Reveal>
-            <Reveal immediate delay={260}>
-              <div className="mt-8 flex items-center gap-5">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:min-h-[calc(100svh-72px)] md:grid-cols-2 md:gap-16 md:py-0 lg:gap-20">
+          <div className="md:py-16">
+            <h1 className="text-4xl leading-tight md:text-5xl lg:text-[3.4rem]">
+              <span className="hero-line block">Compassionate Residential</span>
+              <span
+                className="hero-line block"
+                style={{ "--enter-delay": "150ms" } as CSSProperties}
+              >
+                Care for Teens
+              </span>
+            </h1>
+            <p
+              className="hero-line mt-5 max-w-md text-base text-muted-foreground"
+              style={{ "--enter-delay": "340ms" } as CSSProperties}
+            >
+              Welcoming teens and families to a safe, nurturing environment where healing and growth
+              begin together.
+            </p>
+            <div className="mt-8 flex items-center gap-5">
               <a
                 href="#contact"
-                className="btn-motion rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
+                className="hero-line btn-motion rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
+                style={{ "--enter-delay": "480ms" } as CSSProperties}
               >
                 Get Started
               </a>
               <a
                 href="#about"
-                className="text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                className="hero-line text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                style={{ "--enter-delay": "600ms" } as CSSProperties}
               >
                 Learn More <span className="arrow-nudge">→</span>
               </a>
-              </div>
-            </Reveal>
+            </div>
           </div>
-          <div className="relative">
-            <Reveal immediate delay={120} variant="right">
-              <img
-                ref={heroImageRef}
-                src={heroClinician}
-                alt="Teen Harbor clinician holding a treatment chart"
-                width={1008}
-                height={1200}
-                className="parallax-y mx-auto max-h-[430px] w-auto object-contain"
-              />
-            </Reveal>
-            <Reveal immediate delay={420}>
+          <div className="relative flex items-end justify-center md:h-[calc(100svh-72px)]">
+            <img
+              ref={heroImageRef}
+              src={heroClinician}
+              alt="Teen Harbor clinician holding a treatment chart"
+              width={1008}
+              height={1200}
+              className="hero-rise parallax-y h-auto w-full max-w-[520px] object-contain object-bottom md:max-h-[86%] md:w-auto lg:max-w-none"
+            />
+            <div
+              className="card-in-left absolute left-0 top-[18%]"
+              style={{ "--enter-delay": "300ms" } as CSSProperties}
+            >
               <div
                 ref={card1Ref}
-                className="float-card absolute left-0 top-6 card-soft px-4 py-2 text-sm font-medium"
+                className="float-a card-soft px-4 py-2 text-sm font-medium"
               >
                 Individualized Care
               </div>
-            </Reveal>
-            <Reveal immediate delay={520}>
+            </div>
+            <div
+              className="card-in-right absolute right-0 top-[36%]"
+              style={{ "--enter-delay": "550ms" } as CSSProperties}
+            >
               <div
                 ref={card2Ref}
-                style={{ "--float-delay": "1.2s" } as CSSProperties}
-                className="float-card absolute right-0 top-24 card-soft px-4 py-3"
+                style={{ "--float-delay": "0.7s" } as CSSProperties}
+                className="float-b card-soft px-4 py-3"
               >
                 <p className="text-lg font-semibold text-primary">24/7</p>
                 <p className="text-xs text-muted-foreground">Supervised Support</p>
               </div>
-            </Reveal>
-            <Reveal immediate delay={620}>
+            </div>
+            <div
+              className="card-in-left absolute bottom-[16%] left-2"
+              style={{ "--enter-delay": "800ms" } as CSSProperties}
+            >
               <div
                 ref={card3Ref}
-                style={{ "--float-delay": "2.4s" } as CSSProperties}
-                className="float-card absolute bottom-8 left-4 card-soft px-4 py-3"
+                style={{ "--float-delay": "1.6s" } as CSSProperties}
+                className="float-c card-soft px-4 py-3"
               >
                 <p className="text-lg font-semibold text-primary">Ages 12–17</p>
                 <p className="text-xs text-muted-foreground">Adolescent Program</p>
               </div>
-            </Reveal>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Trust / credibility */}
+      <section className="border-b border-border/60 bg-background">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
+          {TRUST.map((t, i) => (
+            <Reveal key={t.label} delay={i * 100}>
+              <div className="text-center sm:text-left">
+                <p className="text-3xl font-semibold text-primary">{t.value}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{t.label}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -445,6 +595,24 @@ function Index() {
         </div>
       </section>
 
+      {/* Sticky care-approach storytelling */}
+      <CareApproachStory />
+
+      {/* Large centered statement */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-4xl px-5 py-24 text-center md:py-32">
+          <Reveal>
+            <span className="eyebrow">Our Belief</span>
+          </Reveal>
+          <Reveal delay={110}>
+            <p className="mt-6 text-2xl leading-snug md:text-4xl">
+              No two adolescents are alike, and neither are their treatment plans. We treat the whole
+              person — not just the symptoms.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* What makes us different */}
       <section id="about" className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid items-center gap-12 md:grid-cols-2">
@@ -534,6 +702,105 @@ function Index() {
             className="img-zoom w-full rounded-2xl object-cover shadow-[var(--shadow-float)]"
           />
           </Reveal>
+        </div>
+      </section>
+
+      {/* Care journey / how it works */}
+      <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <div className="max-w-2xl">
+          <Reveal>
+            <span className="eyebrow">How It Works</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">The Care Journey, Step By Step</h2>
+          </Reveal>
+          <Reveal delay={170}>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              From the first phone call to life after discharge, families always know what comes
+              next.
+            </p>
+          </Reveal>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {JOURNEY.map(({ icon: Icon, step, title, body }, i) => (
+            <Reveal key={step} delay={i * 120}>
+              <article className="card-soft h-full p-6">
+                <div className="flex items-center justify-between">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-primary">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="text-sm font-semibold tracking-widest text-muted-foreground">
+                    {step}
+                  </span>
+                </div>
+                <h3 className="mt-5 text-lg">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Family support */}
+      <section className="bg-mint py-20 md:py-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
+          <Reveal variant="scale">
+            <img
+              src={groupCircle}
+              alt="Family and clinician talking together in a group session"
+              width={1200}
+              height={900}
+              loading="lazy"
+              className="img-zoom w-full rounded-3xl object-cover shadow-[var(--shadow-float)]"
+            />
+          </Reveal>
+          <div>
+            <Reveal>
+              <span className="eyebrow">Family Support</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">Families Heal Together</h2>
+            </Reveal>
+            <span className="rule-line mt-5" />
+            <Reveal delay={150}>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                Individual therapy, family therapy and ongoing communication help adolescents and
+                their loved ones strengthen relationships and build lasting skills. Families are part
+                of the journey from day one — included in the healing rather than waiting outside it.
+              </p>
+            </Reveal>
+            <Reveal delay={220}>
+              <a
+                href="#contact"
+                className="btn-motion mt-8 inline-block rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
+              >
+                Talk With Admissions <span className="arrow-nudge">→</span>
+              </a>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Outcomes / benefits */}
+      <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <span className="eyebrow">Outcomes</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">What Teens Take Home With Them</h2>
+          </Reveal>
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {OUTCOMES.map(({ icon: Icon, title, body }, i) => (
+            <Reveal key={title} delay={i * 110}>
+              <article className="card-soft h-full p-6">
+                <Icon className="h-6 w-6 text-primary" />
+                <h3 className="mt-4 text-lg">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -684,6 +951,61 @@ function Index() {
         </div>
       </section>
 
+      {/* Resources */}
+      <section className="bg-mint py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="max-w-2xl">
+            <Reveal>
+              <span className="eyebrow">Resources</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">Helpful Reading For Families</h2>
+            </Reveal>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {RESOURCES.map(({ icon: Icon, title, body }, i) => (
+              <Reveal key={title} delay={i * 120}>
+                <article className="card-soft group/arrow h-full p-6">
+                  <Icon className="h-6 w-6 text-primary" />
+                  <h3 className="mt-4 text-lg">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                  <a
+                    href="#contact"
+                    className="mt-5 inline-block text-sm font-semibold text-primary"
+                  >
+                    Learn More <span className="arrow-nudge">→</span>
+                  </a>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto max-w-4xl px-5 py-20 md:py-28">
+        <div className="text-center">
+          <Reveal>
+            <span className="eyebrow">FAQ</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">Questions Families Ask Us</h2>
+          </Reveal>
+        </div>
+        <div className="mt-10 space-y-4">
+          {FAQS.map((f, i) => (
+            <Reveal key={f.q} delay={i * 90}>
+              <details className="card-soft group px-6 py-5">
+                <summary className="cursor-pointer list-none text-base font-semibold marker:hidden">
+                  {f.q}
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+              </details>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative isolate overflow-hidden">
         <img
@@ -719,10 +1041,14 @@ function Index() {
       <footer className="bg-navy text-navy-foreground">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2">
-              <img src={logo} alt="" width={32} height={32} className="h-8 w-8" loading="lazy" />
-              <span className="text-lg font-semibold">Teen Harbor</span>
-            </div>
+            <img
+              src={logoWordmark}
+              alt="Teen Harbor"
+              width={700}
+              height={222}
+              loading="lazy"
+              className="h-auto w-[160px]"
+            />
             <p className="mt-4 text-sm opacity-75">
               Compassionate residential behavioral health care for adolescents and their families.
             </p>

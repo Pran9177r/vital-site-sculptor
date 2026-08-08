@@ -390,3 +390,149 @@ a:hover > .arrow-nudge {
     transform: none;
   }
 }
+
+/* ── Hero entrance + suspended card motion ─────────────────────────────── */
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 1250ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+@keyframes hero-line {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-line {
+  animation: hero-line 900ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+@keyframes card-in-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-140px, 0, 0) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes card-in-right {
+  from {
+    opacity: 0;
+    transform: translate3d(140px, 0, 0) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.card-in-left,
+.card-in-right {
+  animation-duration: 950ms;
+  animation-timing-function: cubic-bezier(0.16, 0.84, 0.28, 1);
+  animation-fill-mode: both;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+.card-in-left {
+  animation-name: card-in-left;
+}
+
+.card-in-right {
+  animation-name: card-in-right;
+}
+
+/* Independent suspended float patterns (translate + rotate only) */
+@keyframes float-a {
+  from {
+    translate: 0 calc(var(--parallax-y, 0px) - 8px);
+    rotate: -0.6deg;
+  }
+  to {
+    translate: 5px calc(var(--parallax-y, 0px) + 8px);
+    rotate: 0.5deg;
+  }
+}
+
+@keyframes float-b {
+  from {
+    translate: 0 calc(var(--parallax-y, 0px) - 10px);
+    rotate: 0.7deg;
+  }
+  to {
+    translate: -6px calc(var(--parallax-y, 0px) + 10px);
+    rotate: -0.5deg;
+  }
+}
+
+@keyframes float-c {
+  from {
+    translate: 0 calc(var(--parallax-y, 0px) - 7px);
+    rotate: 0.4deg;
+  }
+  to {
+    translate: 4px calc(var(--parallax-y, 0px) + 8px);
+    rotate: -0.7deg;
+  }
+}
+
+@utility float-a {
+  animation: float-a 4.5s ease-in-out infinite alternate;
+  animation-delay: var(--float-delay, 0s);
+  will-change: translate, rotate;
+}
+
+@utility float-b {
+  animation: float-b 5.5s ease-in-out infinite alternate;
+  animation-delay: var(--float-delay, 0s);
+  will-change: translate, rotate;
+}
+
+@utility float-c {
+  animation: float-c 4.8s ease-in-out infinite alternate;
+  animation-delay: var(--float-delay, 0s);
+  will-change: translate, rotate;
+}
+
+@media (max-width: 767px) {
+  .float-a,
+  .float-b,
+  .float-c {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-line,
+  .card-in-left,
+  .card-in-right,
+  .float-a,
+  .float-b,
+  .float-c {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
