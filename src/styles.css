@@ -523,6 +523,30 @@ a:hover > .arrow-nudge {
   }
 }
 
+@keyframes dots-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-10px, 14px, 0) scale(1.015);
+  }
+}
+
+@utility hero-dots {
+  animation: dots-drift 14s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@media (max-width: 767px) {
+  .hero-dots {
+    animation: none;
+    width: 150%;
+    right: -35%;
+    top: 0;
+    opacity: 0.5;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-rise,
   .hero-line,
@@ -530,7 +554,8 @@ a:hover > .arrow-nudge {
   .card-in-right,
   .float-a,
   .float-b,
-  .float-c {
+  .float-c,
+  .hero-dots {
     animation: none;
     opacity: 1;
     transform: none;
