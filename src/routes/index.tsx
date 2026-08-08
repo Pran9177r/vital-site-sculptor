@@ -408,8 +408,8 @@ function Index() {
               className="hero-dots pointer-events-none absolute z-0 max-w-none select-none mix-blend-multiply"
               style={
                 {
-                  right: "-14%",
-                  top: "30%",
+                  right: "-6%",
+                  top: "27%",
                   width: "215%",
                   opacity: 0.85,
                 } as CSSProperties
