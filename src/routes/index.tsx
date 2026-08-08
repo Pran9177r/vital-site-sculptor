@@ -315,20 +315,28 @@ function Index() {
 
       {/* What we offer */}
       <section className="mx-auto max-w-6xl px-5 py-16 text-center">
-        <span className="eyebrow">What We Offer</span>
-        <h2 className="mx-auto mt-4 max-w-2xl text-3xl md:text-4xl">
-          Comprehensive Care For Every Teen's Needs
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
-          Residential behavioral health services for adolescents in a safe, structured and
-          supportive environment.
-        </p>
+        <Reveal>
+          <span className="eyebrow">What We Offer</span>
+        </Reveal>
+        <Reveal delay={90}>
+          <h2 className="mx-auto mt-4 max-w-2xl text-3xl md:text-4xl">
+            Comprehensive Care For Every Teen's Needs
+          </h2>
+        </Reveal>
+        <Reveal delay={170}>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+            Residential behavioral health services for adolescents in a safe, structured and
+            supportive environment.
+          </p>
+        </Reveal>
         <div className="mt-10 grid gap-5 sm:grid-cols-3 lg:grid-cols-5">
-          {OFFERINGS.map(({ icon: Icon, label }) => (
-            <div key={label} className="card-soft flex flex-col items-center gap-3 px-4 py-7">
-              <Icon className="h-7 w-7 text-primary" />
-              <p className="text-sm font-semibold leading-snug">{label}</p>
-            </div>
+          {OFFERINGS.map(({ icon: Icon, label }, i) => (
+            <Reveal key={label} delay={i * 90}>
+              <div className="card-soft flex flex-col items-center gap-3 px-4 py-7">
+                <Icon className="h-7 w-7 text-primary" />
+                <p className="text-sm font-semibold leading-snug">{label}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -337,28 +345,36 @@ function Index() {
       <section id="services" className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="relative">
+            <Reveal variant="scale">
             <img
               src={notes}
               alt="Therapist taking notes during a session with a teen"
               width={1000}
               height={1000}
               loading="lazy"
-              className="w-2/3 rounded-2xl object-cover"
+              className="img-zoom w-2/3 rounded-2xl object-cover"
             />
+            </Reveal>
+            <Reveal variant="scale" delay={160}>
             <img
               src={servicesTherapy}
               alt="Teen talking with a therapist in a bright living room"
               width={1200}
               height={900}
               loading="lazy"
-              className="absolute -right-2 bottom-0 w-3/5 rounded-2xl border-4 border-background object-cover shadow-[var(--shadow-float)]"
+              className="img-zoom absolute -right-2 bottom-0 w-3/5 rounded-2xl border-4 border-background object-cover shadow-[var(--shadow-float)]"
             />
+            </Reveal>
           </div>
           <div>
-            <span className="eyebrow">Our Services</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">
-              Support For Mental Health And Dual Diagnosis
-            </h2>
+            <Reveal>
+              <span className="eyebrow">Our Services</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">
+                Support For Mental Health And Dual Diagnosis
+              </h2>
+            </Reveal>
             <span className="rule-line mt-5" />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               Teen Harbor provides comprehensive residential behavioral health services for
@@ -390,9 +406,9 @@ function Index() {
             </div>
             <a
               href="#treatment"
-              className="mt-8 inline-block rounded-full bg-sun px-7 py-3 text-sm font-semibold uppercase tracking-wide text-sun-foreground transition-opacity hover:opacity-90"
+              className="btn-motion mt-8 inline-block rounded-full bg-sun px-7 py-3 text-sm font-semibold uppercase tracking-wide text-sun-foreground hover:opacity-90"
             >
-              Learn More
+              Learn More <span className="arrow-nudge">→</span>
             </a>
           </div>
         </div>
@@ -401,21 +417,29 @@ function Index() {
       {/* Treatment */}
       <section id="treatment" className="bg-mint py-16">
         <div className="mx-auto max-w-6xl px-5">
-          <span className="eyebrow">Treatment</span>
-          <h2 className="mt-4 max-w-2xl text-3xl md:text-4xl">
-            Find The Right Support For Your Journey
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-            Evidence-based programs for adolescents and their families, delivered by a
-            multidisciplinary clinical team.
-          </p>
+          <Reveal>
+            <span className="eyebrow">Treatment</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 max-w-2xl text-3xl md:text-4xl">
+              Find The Right Support For Your Journey
+            </h2>
+          </Reveal>
+          <Reveal delay={170}>
+            <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
+              Evidence-based programs for adolescents and their families, delivered by a
+              multidisciplinary clinical team.
+            </p>
+          </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {TREATMENTS.map(({ icon: Icon, title, body }) => (
-              <article key={title} className="card-soft p-6">
-                <Icon className="h-6 w-6 text-primary" />
-                <h3 className="mt-4 text-lg">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-              </article>
+            {TREATMENTS.map(({ icon: Icon, title, body }, i) => (
+              <Reveal key={title} delay={(i % 3) * 110 + Math.floor(i / 3) * 60}>
+                <article className="card-soft p-6">
+                  <Icon className="h-6 w-6 text-primary" />
+                  <h3 className="mt-4 text-lg">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -425,15 +449,20 @@ function Index() {
       <section id="about" className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
-            <span className="eyebrow">Why Choose Us</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">What Makes Us Different</h2>
+            <Reveal>
+              <span className="eyebrow">Why Choose Us</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">What Makes Us Different</h2>
+            </Reveal>
             <p className="mt-4 text-sm text-muted-foreground">
               We combine individualized, evidence-based care with a supportive, home-like
               environment to help adolescents heal, grow and build a foundation for lasting success.
             </p>
             <div className="mt-8 divide-y divide-border">
-              {DIFFERENT.map(({ icon: Icon, title, body }) => (
-                <div key={title} className="flex gap-4 py-5">
+              {DIFFERENT.map(({ icon: Icon, title, body }, i) => (
+                <Reveal key={title} delay={i * 120}>
+                <div className="flex gap-4 py-5">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-primary">
                     <Icon className="h-5 w-5" />
                   </span>
@@ -442,18 +471,22 @@ function Index() {
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 </div>
+                </Reveal>
               ))}
             </div>
           </div>
           <div className="space-y-5">
+            <Reveal variant="scale">
             <img
               src={lifeAtHarbor}
               alt="Teens relaxing on the lawn outside the Teen Harbor residence"
               width={1200}
               height={900}
               loading="lazy"
-              className="w-full rounded-2xl object-cover shadow-[var(--shadow-float)]"
+              className="img-zoom w-full rounded-2xl object-cover shadow-[var(--shadow-float)]"
             />
+            </Reveal>
+            <Reveal delay={140}>
             <div className="card-soft p-6">
               <h3 className="text-xl">Life At Teen Harbor</h3>
               <span className="rule-line mt-3" />
@@ -465,6 +498,7 @@ function Index() {
                 independence.
               </p>
             </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -473,7 +507,9 @@ function Index() {
       <section className="bg-mint py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl md:text-4xl">Educational Support</h2>
+            <Reveal>
+              <h2 className="text-3xl md:text-4xl">Educational Support</h2>
+            </Reveal>
             <span className="rule-line mt-4" />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               At Teen Harbor, we believe that healing and education go hand in hand. A residential
@@ -488,14 +524,16 @@ function Index() {
               needs, credits, accommodations and graduation goals whenever possible.
             </p>
           </div>
+          <Reveal variant="scale" delay={120}>
           <img
             src={education}
             alt="Credentialed tutor working with a student at Teen Harbor"
             width={1000}
             height={750}
             loading="lazy"
-            className="w-full rounded-2xl object-cover shadow-[var(--shadow-float)]"
+            className="img-zoom w-full rounded-2xl object-cover shadow-[var(--shadow-float)]"
           />
+          </Reveal>
         </div>
       </section>
 
@@ -503,24 +541,31 @@ function Index() {
       <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <span className="eyebrow">Testimonials</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">What Families Say About Us</h2>
+            <Reveal>
+              <span className="eyebrow">Testimonials</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">What Families Say About Us</h2>
+            </Reveal>
             <Stars />
             <p className="mt-3 text-sm text-muted-foreground">
               Trusted by families across California.
             </p>
+            <Reveal variant="scale" delay={140}>
             <img
               src={groupCircle}
               alt="Teens in a group therapy circle"
               width={1000}
               height={750}
               loading="lazy"
-              className="mt-6 w-full rounded-2xl object-cover"
+              className="img-zoom mt-6 w-full rounded-2xl object-cover"
             />
+            </Reveal>
           </div>
           <div className="grid gap-5 sm:grid-cols-2">
             {TESTIMONIALS.map((t, i) => (
-              <figure key={i} className="card-soft p-5">
+              <Reveal key={i} delay={i * 110}>
+              <figure className="card-soft p-5">
                 <Stars />
                 <blockquote className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   "{t.quote}"
@@ -530,6 +575,7 @@ function Index() {
                   <span className="block text-xs font-normal text-muted-foreground">{t.role}</span>
                 </figcaption>
               </figure>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -538,24 +584,30 @@ function Index() {
       {/* Team */}
       <section id="team" className="bg-mint py-16">
         <div className="mx-auto max-w-6xl px-5 text-center">
-          <span className="eyebrow">Meet Our Team</span>
-          <h2 className="mt-4 text-3xl md:text-4xl">Get To Know Our Dedicated Professionals</h2>
+          <Reveal>
+            <span className="eyebrow">Meet Our Team</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">Get To Know Our Dedicated Professionals</h2>
+          </Reveal>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {TEAM.map((m) => (
-              <div key={m.name} className="card-soft p-6">
+            {TEAM.map((m, i) => (
+              <Reveal key={m.name} delay={i * 120}>
+              <div className="card-soft p-6">
                 <img
                   src={m.img}
                   alt={m.name}
                   width={640}
                   height={640}
                   loading="lazy"
-                  className="mx-auto h-32 w-32 rounded-full object-cover"
+                  className="img-zoom mx-auto h-32 w-32 rounded-full object-cover"
                 />
                 <h3 className="mt-4 text-base">{m.name}</h3>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-primary">
                   {m.role}
                 </p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -565,18 +617,25 @@ function Index() {
       <section id="contact" className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr]">
           <div>
-            <span className="eyebrow">Accreditations</span>
-            <h2 className="mt-4 text-3xl md:text-4xl">Care You Can Trust</h2>
+            <Reveal>
+              <span className="eyebrow">Accreditations</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">Care You Can Trust</h2>
+            </Reveal>
             <div className="mt-8 grid gap-5 sm:grid-cols-3">
-              {ACCREDITATIONS.map((a) => (
-                <div key={a.name} className="card-soft p-5 text-center">
+              {ACCREDITATIONS.map((a, i) => (
+                <Reveal key={a.name} delay={i * 110}>
+                <div className="card-soft p-5 text-center">
                   <Award className="mx-auto h-7 w-7 text-sun" />
                   <p className="mt-3 text-sm font-semibold">{a.name}</p>
                   <p className="mt-1 text-xs text-muted-foreground">{a.detail}</p>
                 </div>
+                </Reveal>
               ))}
             </div>
           </div>
+          <Reveal delay={140}>
           <div className="card-soft p-6">
             <h3 className="text-xl">Speak With Admissions</h3>
             <p className="mt-2 text-sm text-muted-foreground">
@@ -621,6 +680,7 @@ function Index() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -636,16 +696,22 @@ function Index() {
         />
         <div className="absolute inset-0 bg-navy/80" />
         <div className="relative mx-auto max-w-3xl px-5 py-20 text-center text-navy-foreground">
-          <h2 className="text-3xl md:text-4xl">Take the First Step</h2>
-          <p className="mt-3 text-sm opacity-90">
-            Start your journey towards a healthier and happier life.
-          </p>
-          <a
-            href="#contact"
-            className="mt-7 inline-block rounded-full bg-sun px-8 py-3 text-sm font-semibold uppercase tracking-wide text-sun-foreground transition-opacity hover:opacity-90"
-          >
-            Get Started
-          </a>
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl">Take the First Step</h2>
+          </Reveal>
+          <Reveal delay={110}>
+            <p className="mt-3 text-sm opacity-90">
+              Start your journey towards a healthier and happier life.
+            </p>
+          </Reveal>
+          <Reveal delay={210}>
+            <a
+              href="#contact"
+              className="btn-motion mt-7 inline-block rounded-full bg-sun px-8 py-3 text-sm font-semibold uppercase tracking-wide text-sun-foreground hover:opacity-90"
+            >
+              Get Started
+            </a>
+          </Reveal>
         </div>
       </section>
 
@@ -666,7 +732,7 @@ function Index() {
             <ul className="mt-4 space-y-2 text-sm opacity-75">
               {NAV.map((n) => (
                 <li key={n.label}>
-                  <a href={n.href} className="hover:opacity-100">
+                  <a href={n.href} className="link-motion inline-block hover:opacity-100">
                     {n.label}
                   </a>
                 </li>
