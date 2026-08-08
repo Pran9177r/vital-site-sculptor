@@ -554,10 +554,13 @@ a:hover > .arrow-nudge {
   .card-in-right,
   .float-a,
   .float-b,
-  .float-c,
-  .hero-dots {
+  .float-c {
     animation: none;
     opacity: 1;
+    transform: none;
+  }
+  .hero-dots {
+    animation: none;
     transform: none;
   }
 }
