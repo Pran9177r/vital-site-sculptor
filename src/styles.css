@@ -254,24 +254,25 @@ html {
 }
 
 @utility parallax-y {
-  transform: translate3d(0, var(--parallax-y, 0px), 0);
-  will-change: transform;
+  /* `translate` composes with `transform`, so reveal animations stay intact */
+  translate: 0 var(--parallax-y, 0px);
+  will-change: translate;
 }
 
 @keyframes float-soft {
   0%,
   100% {
-    transform: translate3d(0, calc(var(--parallax-y, 0px) - 3px), 0);
+    translate: 0 calc(var(--parallax-y, 0px) - 3px);
   }
   50% {
-    transform: translate3d(0, calc(var(--parallax-y, 0px) + 3px), 0);
+    translate: 0 calc(var(--parallax-y, 0px) + 3px);
   }
 }
 
 @utility float-card {
   animation: float-soft 6s ease-in-out infinite;
   animation-delay: var(--float-delay, 0s);
-  will-change: transform;
+  will-change: translate;
 }
 
 /* Premium button feel: subtle lift + press, 250-300ms */

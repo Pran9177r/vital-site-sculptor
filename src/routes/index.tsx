@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { CSSProperties } from "react";
 import {
   Award,
   BookOpen,
@@ -291,7 +292,7 @@ function Index() {
             <Reveal immediate delay={520}>
               <div
                 ref={card2Ref}
-                style={{ "--float-delay": "1.2s" } as React.CSSProperties}
+                style={{ "--float-delay": "1.2s" } as CSSProperties}
                 className="float-card absolute right-0 top-24 card-soft px-4 py-3"
               >
                 <p className="text-lg font-semibold text-primary">24/7</p>
@@ -301,7 +302,7 @@ function Index() {
             <Reveal immediate delay={620}>
               <div
                 ref={card3Ref}
-                style={{ "--float-delay": "2.4s" } as React.CSSProperties}
+                style={{ "--float-delay": "2.4s" } as CSSProperties}
                 className="float-card absolute bottom-8 left-4 card-soft px-4 py-3"
               >
                 <p className="text-lg font-semibold text-primary">Ages 12–17</p>
