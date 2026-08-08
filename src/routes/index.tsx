@@ -195,6 +195,104 @@ const ACCREDITATIONS = [
   { name: "NAMI California", detail: "National Alliance on Mental Illness" },
 ];
 
+const TRUST = [
+  { value: "24/7", label: "Awake overnight supervision" },
+  { value: "12–17", label: "Adolescent-only program" },
+  { value: "1:1", label: "Individualized treatment plans" },
+  { value: "6 beds", label: "Small, home-like setting" },
+];
+
+const JOURNEY = [
+  {
+    icon: Phone,
+    step: "01",
+    title: "Confidential Call",
+    body: "Speak with admissions about your teen's needs, insurance and timing. No pressure — just clear answers.",
+  },
+  {
+    icon: ClipboardList,
+    step: "02",
+    title: "Clinical Assessment",
+    body: "A comprehensive review of mental health, history, academics and family goals determines whether Teen Harbor is the right fit.",
+  },
+  {
+    icon: Home,
+    step: "03",
+    title: "Move-In & Stabilization",
+    body: "A warm welcome into a structured daily routine, with therapy, psychiatric support and school beginning right away.",
+  },
+  {
+    icon: Compass,
+    step: "04",
+    title: "Transition & Aftercare",
+    body: "Discharge planning, family preparation and individualized aftercare recommendations for the return home and to school.",
+  },
+];
+
+const OUTCOMES = [
+  {
+    icon: ShieldCheck,
+    title: "Stability First",
+    body: "Consistent routines, awake overnight supervision and clinical structure create the safety that healing requires.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Academic Momentum",
+    body: "Credits, accommodations and graduation goals stay on track with an on-site credentialed tutor.",
+  },
+  {
+    icon: Users,
+    title: "Stronger Families",
+    body: "Family therapy and ongoing communication rebuild trust so progress holds after treatment ends.",
+  },
+  {
+    icon: Smile,
+    title: "Confidence & Skills",
+    body: "Life skills, wellness and experiential work help teens leave with tools they can actually use.",
+  },
+];
+
+const RESOURCES = [
+  {
+    icon: FileText,
+    title: "A Parent's Guide to Residential Care",
+    body: "What residential treatment is, how it differs from outpatient care, and how to prepare your family.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "What a Day Looks Like",
+    body: "A walk through the daily schedule: therapy, school, wellness, recreation and personal responsibility.",
+  },
+  {
+    icon: Wallet,
+    title: "Insurance & Admissions FAQ",
+    body: "Coverage, verification and what to expect during the first 72 hours after admission.",
+  },
+];
+
+const FAQS = [
+  {
+    q: "Who does Teen Harbor serve?",
+    a: "Adolescents ages 12–17 who need residential support for mental health challenges, and teens experiencing co-occurring substance use concerns alongside a mental health diagnosis.",
+  },
+  {
+    q: "How involved are families in treatment?",
+    a: "Families are part of the journey from day one through family therapy, regular clinical communication and collaborative discharge planning.",
+  },
+  {
+    q: "Will my teen keep up with school?",
+    a: "Yes. An on-site credentialed tutor works with parents, schools and districts on credits, accommodations and graduation goals whenever possible.",
+  },
+  {
+    q: "What does daily life look like?",
+    a: "Each day follows a thoughtfully planned schedule balancing clinical treatment, education, recreation, personal responsibility and time to recharge.",
+  },
+  {
+    q: "Do you accept insurance?",
+    a: "Most major plans are accepted. Our admissions team can verify benefits and explain options during your first call.",
+  },
+];
+
 function Stars() {
   return (
     <div className="flex gap-1 text-sun" aria-hidden="true">
