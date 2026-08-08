@@ -1042,10 +1042,14 @@ function Index() {
       <footer className="bg-navy text-navy-foreground">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2">
-              <img src={logo} alt="" width={32} height={32} className="h-8 w-8" loading="lazy" />
-              <span className="text-lg font-semibold">Teen Harbor</span>
-            </div>
+            <img
+              src={logoWordmark}
+              alt="Teen Harbor"
+              width={700}
+              height={222}
+              loading="lazy"
+              className="h-auto w-[160px]"
+            />
             <p className="mt-4 text-sm opacity-75">
               Compassionate residential behavioral health care for adolescents and their families.
             </p>
