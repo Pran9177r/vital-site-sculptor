@@ -193,12 +193,24 @@ function Stars() {
 }
 
 function Index() {
+  const scrolled = useScrolled(12);
+  const heroImageRef = useParallax<HTMLImageElement>(0.14);
+  const card1Ref = useParallax<HTMLDivElement>(0.05);
+  const card2Ref = useParallax<HTMLDivElement>(0.09);
+  const card3Ref = useParallax<HTMLDivElement>(0.07);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="page-enter min-h-screen bg-background">
       {/* Nav */}
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur">
+      <header
+        className={`sticky top-0 z-50 border-b bg-background/90 backdrop-blur transition-[box-shadow,background-color,border-color] duration-300 ${
+          scrolled
+            ? "border-border bg-background/95 shadow-[var(--shadow-card)]"
+            : "border-border/60"
+        }`}
+      >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3.5">
-          <a href="#home" className="flex items-center gap-2">
+          <a href="#home" className="flex items-center gap-2 link-motion">
             <img src={logo} alt="Teen Harbor logo" width={36} height={36} className="h-9 w-9" />
             <span className="text-lg font-semibold tracking-tight">Teen Harbor</span>
           </a>
@@ -207,7 +219,7 @@ function Index() {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                className="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
               >
                 {item.label}
               </a>
@@ -229,17 +241,22 @@ function Index() {
       <section id="home" className="bg-mint">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-20">
           <div>
-            <h1 className="text-4xl leading-tight md:text-5xl">
-              Compassionate Residential Care for Teens
-            </h1>
-            <p className="mt-5 max-w-md text-base text-muted-foreground">
-              Welcoming teens and families to a safe, nurturing environment where healing and growth
-              begin together.
-            </p>
-            <div className="mt-8 flex items-center gap-5">
+            <Reveal immediate>
+              <h1 className="text-4xl leading-tight md:text-5xl">
+                Compassionate Residential Care for Teens
+              </h1>
+            </Reveal>
+            <Reveal immediate delay={140}>
+              <p className="mt-5 max-w-md text-base text-muted-foreground">
+                Welcoming teens and families to a safe, nurturing environment where healing and
+                growth begin together.
+              </p>
+            </Reveal>
+            <Reveal immediate delay={260}>
+              <div className="mt-8 flex items-center gap-5">
               <a
                 href="#contact"
-                className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] transition-opacity hover:opacity-90"
+                className="btn-motion rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
               >
                 Get Started
               </a>
@@ -247,29 +264,50 @@ function Index() {
                 href="#about"
                 className="text-sm font-semibold text-foreground transition-colors hover:text-primary"
               >
-                Learn More →
+                Learn More <span className="arrow-nudge">→</span>
               </a>
-            </div>
+              </div>
+            </Reveal>
           </div>
           <div className="relative">
-            <img
-              src={heroClinician}
-              alt="Teen Harbor clinician holding a treatment chart"
-              width={1008}
-              height={1200}
-              className="mx-auto max-h-[430px] w-auto object-contain"
-            />
-            <div className="absolute left-0 top-6 card-soft px-4 py-2 text-sm font-medium">
-              Individualized Care
-            </div>
-            <div className="absolute right-0 top-24 card-soft px-4 py-3">
-              <p className="text-lg font-semibold text-primary">24/7</p>
-              <p className="text-xs text-muted-foreground">Supervised Support</p>
-            </div>
-            <div className="absolute bottom-8 left-4 card-soft px-4 py-3">
-              <p className="text-lg font-semibold text-primary">Ages 12–17</p>
-              <p className="text-xs text-muted-foreground">Adolescent Program</p>
-            </div>
+            <Reveal immediate delay={120} variant="right">
+              <img
+                ref={heroImageRef}
+                src={heroClinician}
+                alt="Teen Harbor clinician holding a treatment chart"
+                width={1008}
+                height={1200}
+                className="parallax-y mx-auto max-h-[430px] w-auto object-contain"
+              />
+            </Reveal>
+            <Reveal immediate delay={420}>
+              <div
+                ref={card1Ref}
+                className="float-card absolute left-0 top-6 card-soft px-4 py-2 text-sm font-medium"
+              >
+                Individualized Care
+              </div>
+            </Reveal>
+            <Reveal immediate delay={520}>
+              <div
+                ref={card2Ref}
+                style={{ "--float-delay": "1.2s" } as React.CSSProperties}
+                className="float-card absolute right-0 top-24 card-soft px-4 py-3"
+              >
+                <p className="text-lg font-semibold text-primary">24/7</p>
+                <p className="text-xs text-muted-foreground">Supervised Support</p>
+              </div>
+            </Reveal>
+            <Reveal immediate delay={620}>
+              <div
+                ref={card3Ref}
+                style={{ "--float-delay": "2.4s" } as React.CSSProperties}
+                className="float-card absolute bottom-8 left-4 card-soft px-4 py-3"
+              >
+                <p className="text-lg font-semibold text-primary">Ages 12–17</p>
+                <p className="text-xs text-muted-foreground">Adolescent Program</p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
