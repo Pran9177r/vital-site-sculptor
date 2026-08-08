@@ -23,7 +23,6 @@ import {
   Wallet,
 } from "lucide-react";
 
-import logo from "@/assets/logo.png";
 import logoWordmark from "@/assets/logo-teen-harbor.png";
 import {
   Reveal,
