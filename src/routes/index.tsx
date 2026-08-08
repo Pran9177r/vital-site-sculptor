@@ -401,15 +401,21 @@ function Index() {
           </div>
           <div className="relative flex items-end justify-center md:h-[calc(100svh-72px)]">
             <img
+              src={heroDots.url}
+              alt=""
+              aria-hidden="true"
+              className="hero-dots pointer-events-none absolute -right-[18%] top-[4%] z-0 w-[130%] max-w-none select-none opacity-60 mix-blend-multiply md:-right-[22%] md:top-[2%] md:w-[125%] md:opacity-80"
+            />
+            <img
               ref={heroImageRef}
               src={heroClinician}
               alt="Teen Harbor clinician holding a treatment chart"
               width={1008}
               height={1200}
-              className="hero-rise parallax-y h-auto w-full max-w-[520px] object-contain object-bottom md:max-h-[86%] md:w-auto lg:max-w-none"
+              className="hero-rise parallax-y relative z-10 h-auto w-full max-w-[520px] object-contain object-bottom md:max-h-[86%] md:w-auto lg:max-w-none"
             />
             <div
-              className="card-in-left absolute left-0 top-[18%]"
+              className="card-in-left absolute left-0 top-[18%] z-20"
               style={{ "--enter-delay": "300ms" } as CSSProperties}
             >
               <div
@@ -420,7 +426,7 @@ function Index() {
               </div>
             </div>
             <div
-              className="card-in-right absolute right-0 top-[36%]"
+              className="card-in-right absolute right-0 top-[36%] z-20"
               style={{ "--enter-delay": "550ms" } as CSSProperties}
             >
               <div
@@ -433,7 +439,7 @@ function Index() {
               </div>
             </div>
             <div
-              className="card-in-left absolute bottom-[16%] left-2"
+              className="card-in-left absolute bottom-[16%] left-2 z-20"
               style={{ "--enter-delay": "800ms" } as CSSProperties}
             >
               <div
