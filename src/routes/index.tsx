@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import logo from "@/assets/logo.png";
+import { Reveal, useParallax, useScrolled } from "@/lib/motion";
 import heroClinician from "@/assets/hero-clinician.png";
 import servicesTherapy from "@/assets/services-therapy.jpg";
 import groupCircle from "@/assets/group-circle.jpg";
