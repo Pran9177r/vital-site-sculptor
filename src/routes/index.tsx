@@ -408,9 +408,9 @@ function Index() {
               className="hero-dots pointer-events-none absolute z-0 max-w-none select-none mix-blend-multiply"
               style={
                 {
-                  right: "-40%",
-                  top: "12%",
-                  width: "190%",
+                  right: "-14%",
+                  top: "30%",
+                  width: "215%",
                   opacity: 0.85,
                 } as CSSProperties
               }
