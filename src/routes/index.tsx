@@ -706,6 +706,105 @@ function Index() {
         </div>
       </section>
 
+      {/* Care journey / how it works */}
+      <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <div className="max-w-2xl">
+          <Reveal>
+            <span className="eyebrow">How It Works</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">The Care Journey, Step By Step</h2>
+          </Reveal>
+          <Reveal delay={170}>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              From the first phone call to life after discharge, families always know what comes
+              next.
+            </p>
+          </Reveal>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {JOURNEY.map(({ icon: Icon, step, title, body }, i) => (
+            <Reveal key={step} delay={i * 120}>
+              <article className="card-soft h-full p-6">
+                <div className="flex items-center justify-between">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-primary">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="text-sm font-semibold tracking-widest text-muted-foreground">
+                    {step}
+                  </span>
+                </div>
+                <h3 className="mt-5 text-lg">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Family support */}
+      <section className="bg-mint py-20 md:py-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
+          <Reveal variant="scale">
+            <img
+              src={groupCircle}
+              alt="Family and clinician talking together in a group session"
+              width={1200}
+              height={900}
+              loading="lazy"
+              className="img-zoom w-full rounded-3xl object-cover shadow-[var(--shadow-float)]"
+            />
+          </Reveal>
+          <div>
+            <Reveal>
+              <span className="eyebrow">Family Support</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">Families Heal Together</h2>
+            </Reveal>
+            <span className="rule-line mt-5" />
+            <Reveal delay={150}>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                Individual therapy, family therapy and ongoing communication help adolescents and
+                their loved ones strengthen relationships and build lasting skills. Families are part
+                of the journey from day one — included in the healing rather than waiting outside it.
+              </p>
+            </Reveal>
+            <Reveal delay={220}>
+              <a
+                href="#contact"
+                className="btn-motion mt-8 inline-block rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
+              >
+                Talk With Admissions <span className="arrow-nudge">→</span>
+              </a>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Outcomes / benefits */}
+      <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <span className="eyebrow">Outcomes</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">What Teens Take Home With Them</h2>
+          </Reveal>
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {OUTCOMES.map(({ icon: Icon, title, body }, i) => (
+            <Reveal key={title} delay={i * 110}>
+              <article className="card-soft h-full p-6">
+                <Icon className="h-6 w-6 text-primary" />
+                <h3 className="mt-4 text-lg">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
