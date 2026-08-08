@@ -34,10 +34,11 @@ const STAGES = [
 
 function stageStyle(distance: number): CSSProperties {
   const clamped = Math.min(1, Math.abs(distance));
+  const fade = Math.min(1, Math.max(0, 1 - clamped * 1.8));
   return {
-    opacity: 1 - clamped,
+    opacity: fade,
     transform: `translate3d(0, ${distance * 40}px, 0) scale(${1 - clamped * 0.03})`,
-    pointerEvents: clamped > 0.5 ? "none" : "auto",
+    pointerEvents: fade < 0.5 ? "none" : "auto",
   };
 }
 
