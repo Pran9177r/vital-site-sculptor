@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import type { CSSProperties } from "react";
 import {
   Award,
@@ -44,49 +45,7 @@ import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Teen Harbor | Residential Behavioral Health Care for Teens" },
-      {
-        name: "description",
-        content:
-          "Teen Harbor provides compassionate residential mental health and dual diagnosis care for adolescents, with therapy, family involvement and education support.",
-      },
-      { property: "og:title", content: "Teen Harbor | Residential Care for Teens" },
-      {
-        property: "og:description",
-        content:
-          "Safe, structured residential behavioral health treatment for adolescents: individualized therapy, psychiatric support, family involvement and academics.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Teen Harbor | Residential Care for Teens" },
-      {
-        name: "twitter:description",
-        content:
-          "Safe, structured residential behavioral health treatment for adolescents in California.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "MedicalBusiness",
-          name: "Teen Harbor",
-          description:
-            "Compassionate residential mental health and dual diagnosis care for teens.",
-          medicalSpecialty: "Psychiatric",
-          areaServed: "California",
-        }),
-      },
-    ],
-  }),
-  component: Index,
-});
+
 
 const NAV = [
   { label: "Home", href: "#home" },
@@ -305,7 +264,7 @@ function Stars() {
   );
 }
 
-function Index() {
+export default function Page() {
   const scrolled = useScrolled(12);
   useSmoothScroll();
   const active = useActiveSection(["home", "about", "services", "treatment", "team", "contact"]);
@@ -331,7 +290,7 @@ function Index() {
         >
           <a href="#home" className="flex items-center link-motion">
             <img
-              src={logoWordmark}
+              src={logoWordmark.src}
               alt="Teen Harbor"
               width={700}
               height={222}
@@ -417,7 +376,7 @@ function Index() {
             />
             <img
               ref={heroImageRef}
-              src={heroClinician}
+              src={heroClinician.src}
               alt="Teen Harbor clinician holding a treatment chart"
               width={1008}
               height={1200}
@@ -512,7 +471,7 @@ function Index() {
           <div className="relative">
             <Reveal variant="scale">
             <img
-              src={notes}
+              src={notes.src}
               alt="Therapist taking notes during a session with a teen"
               width={1000}
               height={1000}
@@ -522,7 +481,7 @@ function Index() {
             </Reveal>
             <Reveal variant="scale" delay={160}>
             <img
-              src={servicesTherapy}
+              src={servicesTherapy.src}
               alt="Teen talking with a therapist in a bright living room"
               width={1200}
               height={900}
@@ -661,7 +620,7 @@ function Index() {
           <div className="space-y-5">
             <Reveal variant="scale">
             <img
-              src={lifeAtHarbor}
+              src={lifeAtHarbor.src}
               alt="Teens relaxing on the lawn outside the Teen Harbor residence"
               width={1200}
               height={900}
@@ -709,7 +668,7 @@ function Index() {
           </div>
           <Reveal variant="scale" delay={120}>
           <img
-            src={education}
+            src={education.src}
             alt="Credentialed tutor working with a student at Teen Harbor"
             width={1000}
             height={750}
@@ -761,7 +720,7 @@ function Index() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
           <Reveal variant="scale">
             <img
-              src={groupCircle}
+              src={groupCircle.src}
               alt="Family and clinician talking together in a group session"
               width={1200}
               height={900}
@@ -835,7 +794,7 @@ function Index() {
             </p>
             <Reveal variant="scale" delay={140}>
             <img
-              src={groupCircle}
+              src={groupCircle.src}
               alt="Teens in a group therapy circle"
               width={1000}
               height={750}
@@ -877,7 +836,7 @@ function Index() {
               <Reveal key={m.name} delay={i * 120}>
               <div className="card-soft p-6">
                 <img
-                  src={m.img}
+                  src={m.img.src}
                   alt={m.name}
                   width={640}
                   height={640}
@@ -1024,7 +983,7 @@ function Index() {
       {/* CTA */}
       <section className="relative isolate overflow-hidden">
         <img
-          src={houseCta}
+          src={houseCta.src}
           alt="The Teen Harbor residential home at dusk"
           width={1600}
           height={700}
@@ -1057,7 +1016,7 @@ function Index() {
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
           <div>
             <img
-              src={logoWordmark}
+              src={logoWordmark.src}
               alt="Teen Harbor"
               width={700}
               height={222}

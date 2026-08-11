@@ -96,7 +96,7 @@ export function CareApproachStory() {
               {STAGES.map((stage, i) => (
                 <img
                   key={stage.num}
-                  src={stage.img}
+                  src={stage.img.src}
                   alt={stage.alt}
                   width={1200}
                   height={900}
@@ -125,7 +125,7 @@ export function CareApproachStory() {
               <span className="rule-line mt-4" />
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{stage.body}</p>
               <img
-                src={stage.img}
+                src={stage.img.src}
                 alt={stage.alt}
                 width={1200}
                 height={900}
