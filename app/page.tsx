@@ -32,6 +32,28 @@ import {
   useScrolled,
   useSmoothScroll,
 } from "@/lib/motion";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
 import { CareApproachStory } from "@/components/CareApproachStory";
 import heroClinician from "@/assets/hero-clinician.png";
 import heroDots from "@/assets/hero-dots.png.asset.json";
@@ -297,27 +319,99 @@ export default function Page() {
               className="h-auto w-[130px] sm:w-[150px] md:w-[165px]"
             />
           </a>
-          <nav className="hidden items-center gap-7 md:flex">
-            {NAV.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`nav-link text-sm font-medium transition-colors hover:text-primary ${
-                  active === item.href.slice(1) ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          <div className="hidden items-center gap-7 md:flex">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {NAV.map((item) => (
+                  <NavigationMenuItem key={item.label}>
+                    {item.label === "Services" || item.label === "Treatment" ? (
+                      <>
+                        <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent nav-link text-sm font-medium transition-colors hover:text-primary text-muted-foreground px-4 py-2">{item.label}</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-background border rounded-md">
+                            {item.label === "Services" ? (
+                              OFFERINGS.map((offer) => (
+                                <li key={offer.label}>
+                                  <NavigationMenuLink asChild>
+                                    <a
+                                      href={item.href}
+                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    >
+                                      <div className="text-sm font-medium leading-none flex items-center gap-2">
+                                        <offer.icon className="w-4 h-4 text-primary" />
+                                        {offer.label}
+                                      </div>
+                                    </a>
+                                  </NavigationMenuLink>
+                                </li>
+                              ))
+                            ) : (
+                              TREATMENTS.slice(0,4).map((treat) => (
+                                <li key={treat.title}>
+                                  <NavigationMenuLink asChild>
+                                    <a
+                                      href={item.href}
+                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    >
+                                      <div className="text-sm font-medium leading-none">{treat.title}</div>
+                                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
+                                        {treat.body}
+                                      </p>
+                                    </a>
+                                  </NavigationMenuLink>
+                                </li>
+                              ))
+                            )}
+                          </ul>
+                        </NavigationMenuContent>
+                      </>
+                    ) : (
+                      <NavigationMenuLink asChild>
+                        <a
+                          href={item.href}
+                          className={`nav-link text-sm font-medium transition-colors hover:text-primary px-4 py-2 ${
+                            active === item.href.slice(1) ? "text-primary" : "text-muted-foreground"
+                          }`}
+                        >
+                          {item.label}
+                        </a>
+                      </NavigationMenuLink>
+                    )}
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-primary">
-              <Phone className="h-4 w-4" />
-            </span>
-            <div className="hidden leading-tight sm:block">
-              <p className="text-sm font-semibold">Admissions</p>
-              <p className="text-xs text-muted-foreground">(421) 123 8821</p>
-            </div>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="flex items-center gap-3 group text-left">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-destructive text-destructive-foreground transition-transform group-hover:scale-105">
+                    <Phone className="h-4 w-4" />
+                  </span>
+                  <div className="hidden leading-tight sm:block">
+                    <p className="text-sm font-bold text-destructive">Get Help Now</p>
+                    <p className="text-xs text-muted-foreground">(421) 123 8821</p>
+                  </div>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Contact Admissions</DialogTitle>
+                  <DialogDescription>
+                    We're here 24/7. Call us immediately or leave your contact information and we'll reach out to you.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="flex items-center space-x-2">
+                  <div className="grid flex-1 gap-2">
+                    <p className="text-center font-bold text-2xl py-4 text-primary">(421) 123 8821</p>
+                  </div>
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="text-sm text-muted-foreground">Or email us at admissions@teenharbor.com</p>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </header>
@@ -549,23 +643,43 @@ export default function Page() {
               Find The Right Support For Your Journey
             </h2>
           </Reveal>
-          <Reveal delay={170}>
-            <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-              Evidence-based programs for adolescents and their families, delivered by a
-              multidisciplinary clinical team.
-            </p>
-          </Reveal>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {TREATMENTS.map(({ icon: Icon, title, body }, i) => (
-              <Reveal key={title} delay={(i % 3) * 110 + Math.floor(i / 3) * 60}>
-                <article className="card-soft p-6">
-                  <Icon className="h-6 w-6 text-primary" />
-                  <h3 className="mt-4 text-lg">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          
+          <Tabs defaultValue="adolescents" className="mt-10">
+            <Reveal delay={170}>
+              <TabsList className="grid w-full grid-cols-2 md:w-[400px]">
+                <TabsTrigger value="adolescents">Teens & Young Adults</TabsTrigger>
+                <TabsTrigger value="families">Parents & Families</TabsTrigger>
+              </TabsList>
+            </Reveal>
+            
+            <TabsContent value="adolescents" className="mt-8">
+              <div className="grid gap-5 md:grid-cols-3">
+                {TREATMENTS.slice(0, 3).map(({ icon: Icon, title, body }, i) => (
+                  <Reveal key={title} delay={i * 110}>
+                    <article className="card-soft p-6">
+                      <Icon className="h-6 w-6 text-primary" />
+                      <h3 className="mt-4 text-lg">{title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="families" className="mt-8">
+              <div className="grid gap-5 md:grid-cols-3">
+                {TREATMENTS.slice(3, 6).map(({ icon: Icon, title, body }, i) => (
+                  <Reveal key={title} delay={i * 110}>
+                    <article className="card-soft p-6">
+                      <Icon className="h-6 w-6 text-primary" />
+                      <h3 className="mt-4 text-lg">{title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
