@@ -1,5 +1,6 @@
 "use client";
 
+import { CldImage } from "next-cloudinary";
 import type { CSSProperties } from "react";
 import {
   Award,
@@ -172,15 +173,16 @@ const TESTIMONIALS = [
 ];
 
 const TEAM = [
-  { img: team1, name: "Silvia Rios, LMFT", role: "Clinical Director" },
-  { img: team2, name: "Kirandeep Sangha, AMFT", role: "Therapist" },
-  { img: team3, name: "Saby Kirpal, NP", role: "Nurse Practitioner" },
+  { imageId: "SilviaRios_vv8ulc", name: "Silvia Rios, LMFT", role: "Clinical Director" },
+  { imageId: "KirandeepSangha_wj1fss", name: "Kirandeep Sangha, AMFT", role: "Therapist" },
+  { imageId: "SabyKirpal_zlzpkv", name: "Saby Kirpal, NP", role: "Nurse Practitioner" },
 ];
 
 const ACCREDITATIONS = [
-  { name: "The Joint Commission", detail: "Accredited — National Quality Approval" },
-  { name: "CDSS", detail: "California Department of Social Services" },
-  { name: "NAMI California", detail: "National Alliance on Mental Illness" },
+  { name: "The Joint Commission", detail: "Accredited — National Quality Approval", imageId: "Logo-JC-Gold-Seal-of-Approval-Accredited_cpxsyp" },
+  { name: "CDSS", detail: "California Department of Social Services", imageId: "Unknown-3_jiclcm" },
+  { name: "NAMI California", detail: "National Alliance on Mental Illness", imageId: "Unknown-2_wtmy8d" },
+  { name: "Additional Certification", detail: "Additional Certification", imageId: "Unknown_w7qcjr" },
 ];
 
 const TRUST = [
@@ -869,8 +871,8 @@ export default function Page() {
             {TEAM.map((m, i) => (
               <Reveal key={m.name} delay={i * 120}>
               <div className="card-soft p-6">
-                <img
-                  src={m.img.src}
+                <CldImage
+                  src={m.imageId}
                   alt={m.name}
                   width={640}
                   height={640}
@@ -896,13 +898,21 @@ export default function Page() {
         <Reveal delay={90}>
           <h2 className="mt-4 text-3xl md:text-4xl">Care You Can Trust</h2>
         </Reveal>
-        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+        <div className="mt-8 grid gap-8 grid-cols-2 sm:grid-cols-4 items-center">
           {ACCREDITATIONS.map((a, i) => (
             <Reveal key={a.name} delay={i * 110}>
-            <div className="card-soft p-5 text-center h-full">
-              <Award className="mx-auto h-7 w-7 text-sun" />
-              <p className="mt-3 text-sm font-semibold">{a.name}</p>
-              <p className="mt-1 text-xs text-muted-foreground">{a.detail}</p>
+            <div className="flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+              {a.imageId ? (
+                <CldImage
+                  src={a.imageId}
+                  alt={a.name}
+                  width={160}
+                  height={160}
+                  className="mx-auto h-24 w-auto object-contain"
+                />
+              ) : (
+                <Award className="mx-auto h-7 w-7 text-sun" />
+              )}
             </div>
             </Reveal>
           ))}
@@ -966,8 +976,8 @@ export default function Page() {
 
       {/* Bottom Section Wrap (CTA, Form, Footer) */}
       <div className="relative isolate overflow-hidden text-navy-foreground">
-        <img
-          src={houseCta.src}
+        <CldImage
+          src="Footer_fzvnij"
           alt="The Teen Harbor residential home at dusk"
           width={1600}
           height={1400}
