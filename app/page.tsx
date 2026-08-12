@@ -581,7 +581,7 @@ export default function Page() {
       </section>
 
       {/* Treatment */}
-      <section id="treatment" className="bg-mint py-16">
+      <section id="treatment" className="bg-sun/10 py-16">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
             <span className="eyebrow">Treatment</span>
@@ -605,7 +605,7 @@ export default function Page() {
                 {TREATMENTS.slice(0, 3).map(({ icon: Icon, title, body }, i) => (
                   <Reveal key={title} delay={i * 110}>
                     <article className="card-soft p-6">
-                      <Icon className="h-6 w-6 text-primary" />
+                      <Icon className="h-6 w-6 text-navy" />
                       <h3 className="mt-4 text-lg">{title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
                     </article>
@@ -619,7 +619,7 @@ export default function Page() {
                 {TREATMENTS.slice(3, 6).map(({ icon: Icon, title, body }, i) => (
                   <Reveal key={title} delay={i * 110}>
                     <article className="card-soft p-6">
-                      <Icon className="h-6 w-6 text-primary" />
+                      <Icon className="h-6 w-6 text-navy" />
                       <h3 className="mt-4 text-lg">{title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
                     </article>
@@ -667,7 +667,7 @@ export default function Page() {
               {DIFFERENT.map(({ icon: Icon, title, body }, i) => (
                 <Reveal key={title} delay={i * 120}>
                 <div className="flex gap-4 py-5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-primary">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sun/10 text-primary">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
@@ -708,7 +708,7 @@ export default function Page() {
       </section>
 
       {/* Educational support */}
-      <section className="bg-mint py-16">
+      <section className="bg-sun/10 py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
           <div>
             <Reveal>
@@ -762,7 +762,7 @@ export default function Page() {
             <Reveal key={step} delay={i * 120}>
               <article className="card-soft h-full p-6">
                 <div className="flex items-center justify-between">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-primary">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sun/10 text-primary">
                     <Icon className="h-5 w-5" />
                   </span>
                   <span className="text-sm font-semibold tracking-widest text-muted-foreground">
@@ -778,7 +778,7 @@ export default function Page() {
       </section>
 
       {/* Family support */}
-      <section className="bg-mint py-20 md:py-28">
+      <section className="bg-sun/10 py-20 md:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
           <Reveal variant="scale">
             <img
@@ -859,7 +859,7 @@ export default function Page() {
       </section>
 
       {/* Team */}
-      <section id="team" className="bg-mint py-16">
+      <section id="team" className="bg-sun/10 py-16">
         <div className="mx-auto max-w-6xl px-5 text-center">
           <Reveal>
             <span className="eyebrow">Meet Our Team</span>
@@ -920,7 +920,7 @@ export default function Page() {
       </section>
 
       {/* Resources */}
-      <section className="bg-mint py-20 md:py-28">
+      <section className="bg-sun/10 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5">
           <div className="max-w-2xl">
             <Reveal>

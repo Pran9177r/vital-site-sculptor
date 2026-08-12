@@ -21,6 +21,9 @@
   --color-brand-soft: var(--brand-soft);
   --color-sun: var(--sun);
   --color-sun-foreground: var(--sun-foreground);
+  --color-logo-blue: var(--logo-blue);
+  --color-hero-blue-soft: var(--hero-blue-soft);
+  --color-navy-light: var(--navy-light);
 }
 
 /*
@@ -106,7 +109,7 @@
   --mint: oklch(0.945 0.024 175);
   --mint-deep: oklch(0.9 0.035 175);
   --navy: oklch(0.24 0.075 268);
-  --navy-foreground: oklch(0.98 0.005 250);
+  --navy-foreground: oklch(0.98 0.01 268);
   --pill: oklch(0.94 0.045 5);
   --pill-foreground: oklch(0.62 0.19 8);
   --brand: oklch(0.54 0.212 285);
@@ -114,6 +117,9 @@
   --brand-soft: oklch(0.95 0.03 285);
   --sun: oklch(0.72 0.18 55);
   --sun-foreground: oklch(0.99 0.01 55);
+  --logo-blue: oklch(0.92 0.06 230);
+  --hero-blue-soft: oklch(0.95 0.02 268);
+  --navy-light: oklch(0.40 0.075 268);
 
   --shadow-card: 0 12px 34px -18px oklch(0.24 0.075 268 / 0.22);
   --shadow-float: 0 18px 45px -20px oklch(0.24 0.075 268 / 0.3);

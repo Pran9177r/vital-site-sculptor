@@ -48,7 +48,7 @@ export function CareApproachStory() {
   const activeIndex = Math.min(STAGES.length - 1, Math.round(position));
 
   return (
-    <section id="approach" className="bg-mint">
+    <section id="approach" className="bg-sun/10">
       {/* Desktop: pinned storytelling */}
       <div ref={ref} className="hidden md:block" style={{ height: "300vh" }}>
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
