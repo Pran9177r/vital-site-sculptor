@@ -14,6 +14,7 @@ import {
   HeartHandshake,
   Home,
   Mail,
+  MapPin,
   MessageSquare,
   Phone,
   ShieldCheck,
@@ -66,6 +67,12 @@ import notes from "@/assets/notes.jpg";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
+import { ContactCard } from "@/components/ui/contact-card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import TestimonialMarquee from "@/components/ui/testimonial-marquee";
 
 
 
@@ -385,14 +392,8 @@ export default function Page() {
           <div className="flex items-center gap-3">
             <Dialog>
               <DialogTrigger asChild>
-                <button className="flex items-center gap-3 group text-left">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-destructive text-destructive-foreground transition-transform group-hover:scale-105">
-                    <Phone className="h-4 w-4" />
-                  </span>
-                  <div className="hidden leading-tight sm:block">
-                    <p className="text-sm font-bold text-destructive">Get Help Now</p>
-                    <p className="text-xs text-muted-foreground">(421) 123 8821</p>
-                  </div>
+                <button className="flex items-center justify-center gap-3 rounded-full bg-sun px-6 py-2.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-xl">
+                  Get Started
                 </button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-md">
@@ -417,102 +418,47 @@ export default function Page() {
       </header>
 
       {/* Hero */}
-      <section id="home" className="bg-mint">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:min-h-[calc(100svh-72px)] md:grid-cols-2 md:gap-16 md:py-0 lg:gap-20">
-          <div className="md:py-16">
-            <h1 className="text-4xl leading-tight md:text-5xl lg:text-[3.4rem]">
-              <span className="hero-line block">Compassionate Residential</span>
-              <span
-                className="hero-line block"
-                style={{ "--enter-delay": "150ms" } as CSSProperties}
-              >
-                Care for Teens
-              </span>
-            </h1>
-            <p
-              className="hero-line mt-5 max-w-md text-base text-muted-foreground"
-              style={{ "--enter-delay": "340ms" } as CSSProperties}
+      <section id="home" className="relative isolate overflow-hidden">
+        <img
+          src={houseCta.src}
+          alt="The Teen Harbor residential home"
+          width={1600}
+          height={700}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-navy/80" />
+        <div className="relative mx-auto max-w-4xl px-5 py-24 text-center text-navy-foreground md:min-h-[calc(100svh-72px)] flex flex-col items-center justify-center">
+          <h1 className="text-4xl leading-tight md:text-5xl lg:text-7xl font-bold">
+            <span className="hero-line block">Compassionate Residential</span>
+            <span
+              className="hero-line block"
+              style={{ "--enter-delay": "150ms" } as CSSProperties}
             >
-              Welcoming teens and families to a safe, nurturing environment where healing and growth
-              begin together.
-            </p>
-            <div className="mt-8 flex items-center gap-5">
-              <a
-                href="#contact"
-                className="hero-line btn-motion rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
-                style={{ "--enter-delay": "480ms" } as CSSProperties}
-              >
-                Get Started
-              </a>
-              <a
-                href="#about"
-                className="hero-line text-sm font-semibold text-foreground transition-colors hover:text-primary"
-                style={{ "--enter-delay": "600ms" } as CSSProperties}
-              >
-                Learn More <span className="arrow-nudge">→</span>
-              </a>
-            </div>
-          </div>
-          <div className="relative flex items-end justify-center md:h-[calc(100svh-72px)]">
-            <img
-              src={heroDots.url}
-              alt=""
-              aria-hidden="true"
-              className="hero-dots pointer-events-none absolute z-0 max-w-none select-none mix-blend-multiply"
-              style={
-                {
-                  right: "-6%",
-                  top: "27%",
-                  width: "215%",
-                  opacity: 0.85,
-                } as CSSProperties
-              }
-            />
-            <img
-              ref={heroImageRef}
-              src={heroClinician.src}
-              alt="Teen Harbor clinician holding a treatment chart"
-              width={1008}
-              height={1200}
-              className="hero-rise parallax-y relative z-10 h-auto w-full max-w-[520px] object-contain object-bottom md:max-h-[86%] md:w-auto lg:max-w-none"
-            />
-            <div
-              className="card-in-left absolute left-0 top-[18%] z-20"
-              style={{ "--enter-delay": "300ms" } as CSSProperties}
+              Care for Teens
+            </span>
+          </h1>
+          <p
+            className="hero-line mt-6 max-w-xl mx-auto text-lg opacity-90"
+            style={{ "--enter-delay": "340ms" } as CSSProperties}
+          >
+            Welcoming teens and families to a safe, nurturing environment where healing and growth
+            begin together.
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center gap-5 justify-center">
+            <a
+              href="#contact"
+              className="hero-line btn-motion rounded-full bg-sun px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+              style={{ "--enter-delay": "480ms" } as CSSProperties}
             >
-              <div
-                ref={card1Ref}
-                className="float-a card-soft px-4 py-2 text-sm font-medium"
-              >
-                Individualized Care
-              </div>
-            </div>
-            <div
-              className="card-in-right absolute right-0 top-[36%] z-20"
-              style={{ "--enter-delay": "550ms" } as CSSProperties}
+              Get Started
+            </a>
+            <a
+              href="#about"
+              className="hero-line text-sm font-semibold transition-colors hover:text-sun"
+              style={{ "--enter-delay": "600ms" } as CSSProperties}
             >
-              <div
-                ref={card2Ref}
-                style={{ "--float-delay": "0.7s" } as CSSProperties}
-                className="float-b card-soft px-4 py-3"
-              >
-                <p className="text-lg font-semibold text-primary">24/7</p>
-                <p className="text-xs text-muted-foreground">Supervised Support</p>
-              </div>
-            </div>
-            <div
-              className="card-in-left absolute bottom-[16%] left-2 z-20"
-              style={{ "--enter-delay": "800ms" } as CSSProperties}
-            >
-              <div
-                ref={card3Ref}
-                style={{ "--float-delay": "1.6s" } as CSSProperties}
-                className="float-c card-soft px-4 py-3"
-              >
-                <p className="text-lg font-semibold text-primary">Ages 12–17</p>
-                <p className="text-xs text-muted-foreground">Adolescent Program</p>
-              </div>
-            </div>
+              Learn More <span className="arrow-nudge">→</span>
+            </a>
           </div>
         </div>
       </section>
@@ -893,47 +839,21 @@ export default function Page() {
       </section>
 
       {/* Testimonials */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <Reveal>
-              <span className="eyebrow">Testimonials</span>
-            </Reveal>
-            <Reveal delay={90}>
-              <h2 className="mt-4 text-3xl md:text-4xl">What Families Say About Us</h2>
-            </Reveal>
-            <Stars />
+      <section className="py-16 overflow-hidden">
+        <div className="mx-auto max-w-6xl px-5 text-center mb-10">
+          <Reveal>
+            <span className="eyebrow">Testimonials</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">What Families Say About Us</h2>
+          </Reveal>
+          <Reveal delay={140}>
             <p className="mt-3 text-sm text-muted-foreground">
               Trusted by families across California.
             </p>
-            <Reveal variant="scale" delay={140}>
-            <img
-              src={groupCircle.src}
-              alt="Teens in a group therapy circle"
-              width={1000}
-              height={750}
-              loading="lazy"
-              className="img-zoom mt-6 w-full rounded-2xl object-cover"
-            />
-            </Reveal>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={i * 110}>
-              <figure className="card-soft p-5">
-                <Stars />
-                <blockquote className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  "{t.quote}"
-                </blockquote>
-                <figcaption className="mt-4 text-sm font-semibold">
-                  {t.name}
-                  <span className="block text-xs font-normal text-muted-foreground">{t.role}</span>
-                </figcaption>
-              </figure>
-              </Reveal>
-            ))}
-          </div>
+          </Reveal>
         </div>
+        <TestimonialMarquee />
       </section>
 
       {/* Team */}
@@ -968,74 +888,24 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Accreditations + contact */}
-      <section id="contact" className="mx-auto max-w-6xl px-5 py-16">
-        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <Reveal>
-              <span className="eyebrow">Accreditations</span>
-            </Reveal>
-            <Reveal delay={90}>
-              <h2 className="mt-4 text-3xl md:text-4xl">Care You Can Trust</h2>
-            </Reveal>
-            <div className="mt-8 grid gap-5 sm:grid-cols-3">
-              {ACCREDITATIONS.map((a, i) => (
-                <Reveal key={a.name} delay={i * 110}>
-                <div className="card-soft p-5 text-center">
-                  <Award className="mx-auto h-7 w-7 text-sun" />
-                  <p className="mt-3 text-sm font-semibold">{a.name}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">{a.detail}</p>
-                </div>
-                </Reveal>
-              ))}
+      {/* Accreditations */}
+      <section className="mx-auto max-w-4xl px-5 py-16 text-center">
+        <Reveal>
+          <span className="eyebrow">Accreditations</span>
+        </Reveal>
+        <Reveal delay={90}>
+          <h2 className="mt-4 text-3xl md:text-4xl">Care You Can Trust</h2>
+        </Reveal>
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          {ACCREDITATIONS.map((a, i) => (
+            <Reveal key={a.name} delay={i * 110}>
+            <div className="card-soft p-5 text-center h-full">
+              <Award className="mx-auto h-7 w-7 text-sun" />
+              <p className="mt-3 text-sm font-semibold">{a.name}</p>
+              <p className="mt-1 text-xs text-muted-foreground">{a.detail}</p>
             </div>
-          </div>
-          <Reveal delay={140}>
-          <div className="card-soft p-6">
-            <h3 className="text-xl">Speak With Admissions</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Our team is here to answer your questions and help you understand the next step.
-            </p>
-            <div className="mt-6 space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-primary">
-                  <Phone className="h-4 w-4" />
-                </span>
-                <div>
-                  <p className="text-xs text-muted-foreground">Call Us</p>
-                  <p className="text-sm font-semibold">(421) 123 8821</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-primary">
-                  <Mail className="h-4 w-4" />
-                </span>
-                <div>
-                  <p className="text-xs text-muted-foreground">Email Us</p>
-                  <p className="text-sm font-semibold">admissions@teenharbor.com</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-primary">
-                  <Clock className="h-4 w-4" />
-                </span>
-                <div>
-                  <p className="text-xs text-muted-foreground">Hours</p>
-                  <p className="text-sm font-semibold">Admissions available 24/7</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-primary">
-                  <Wallet className="h-4 w-4" />
-                </span>
-                <div>
-                  <p className="text-xs text-muted-foreground">Insurance</p>
-                  <p className="text-sm font-semibold">Most major plans accepted</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          </Reveal>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -1094,18 +964,20 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative isolate overflow-hidden">
+      {/* Bottom Section Wrap (CTA, Form, Footer) */}
+      <div className="relative isolate overflow-hidden text-navy-foreground">
         <img
           src={houseCta.src}
           alt="The Teen Harbor residential home at dusk"
           width={1600}
-          height={700}
+          height={1400}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-navy/80" />
-        <div className="relative mx-auto max-w-3xl px-5 py-20 text-center text-navy-foreground">
+        <div className="absolute inset-0 bg-navy/85" />
+
+        {/* CTA */}
+        <section className="relative mx-auto max-w-3xl px-5 py-20 text-center">
           <Reveal>
             <h2 className="text-3xl md:text-4xl">Take the First Step</h2>
           </Reveal>
@@ -1114,67 +986,107 @@ export default function Page() {
               Start your journey towards a healthier and happier life.
             </p>
           </Reveal>
-          <Reveal delay={210}>
-            <a
-              href="#contact"
-              className="btn-motion mt-7 inline-block rounded-full bg-sun px-8 py-3 text-sm font-semibold uppercase tracking-wide text-sun-foreground hover:opacity-90"
-            >
-              Get Started
-            </a>
-          </Reveal>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="bg-navy text-navy-foreground">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
-          <div>
-            <img
-              src={logoWordmark.src}
-              alt="Teen Harbor"
-              width={700}
-              height={222}
-              loading="lazy"
-              className="h-auto w-[160px]"
-            />
-            <p className="mt-4 text-sm opacity-75">
-              Compassionate residential behavioral health care for adolescents and their families.
-            </p>
+        {/* Contact Form */}
+        <section id="contact" className="relative mx-auto max-w-5xl px-5 py-10 md:py-16">
+          <ContactCard
+            title="Get in touch"
+            description="If you have any questions regarding our Services or need help, please fill out the form here. We do our best to respond within 1 business day."
+            contactInfo={[
+              {
+                icon: Mail,
+                label: 'Email',
+                value: 'admissions@teenharbor.com',
+              },
+              {
+                icon: Phone,
+                label: 'Phone',
+                value: '(421) 123 8821',
+              },
+              {
+                icon: MapPin,
+                label: 'Address',
+                value: 'California, United States',
+                className: 'col-span-2',
+              }
+            ]}
+          >
+            <form action="" className="w-full space-y-4">
+              <div className="flex flex-col gap-2">
+                <Label className="text-white">Name</Label>
+                <Input type="text" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label className="text-white">Email</Label>
+                <Input type="email" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label className="text-white">Phone</Label>
+                <Input type="tel" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label className="text-white">Message</Label>
+                <Textarea className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
+              </div>
+              <Button className="w-full mt-4 rounded-full bg-sun px-8 py-6 text-sm font-semibold uppercase tracking-wide text-sun-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300" type="button">
+                Get Started
+              </Button>
+            </form>
+          </ContactCard>
+        </section>
+
+        {/* Footer */}
+        <footer className="relative mt-10">
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
+            <div>
+              <img
+                src={logoWordmark.src}
+                alt="Teen Harbor"
+                width={700}
+                height={222}
+                loading="lazy"
+                className="h-auto w-[160px] brightness-0 invert"
+              />
+              <p className="mt-4 text-sm opacity-75">
+                Compassionate residential behavioral health care for adolescents and their families.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold">Other Pages</h3>
+              <ul className="mt-4 space-y-2 text-sm opacity-75">
+                {NAV.map((n) => (
+                  <li key={n.label}>
+                    <a href={n.href} className="link-motion inline-block hover:opacity-100">
+                      {n.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold">Services</h3>
+              <ul className="mt-4 space-y-2 text-sm opacity-75">
+                {TREATMENTS.slice(0, 5).map((t) => (
+                  <li key={t.title}>{t.title}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold">Find Us</h3>
+              <ul className="mt-4 space-y-2 text-sm opacity-75">
+                <li>California, United States</li>
+                <li>(421) 123 8821</li>
+                <li>admissions@teenharbor.com</li>
+                <li>Admissions available 24/7</li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <h3 className="text-sm font-semibold">Other Pages</h3>
-            <ul className="mt-4 space-y-2 text-sm opacity-75">
-              {NAV.map((n) => (
-                <li key={n.label}>
-                  <a href={n.href} className="link-motion inline-block hover:opacity-100">
-                    {n.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="border-t border-white/10 py-5 text-center text-xs opacity-70">
+            © {new Date().getFullYear()} Teen Harbor. All Rights Reserved.
           </div>
-          <div>
-            <h3 className="text-sm font-semibold">Services</h3>
-            <ul className="mt-4 space-y-2 text-sm opacity-75">
-              {TREATMENTS.slice(0, 5).map((t) => (
-                <li key={t.title}>{t.title}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold">Find Us</h3>
-            <ul className="mt-4 space-y-2 text-sm opacity-75">
-              <li>California, United States</li>
-              <li>(421) 123 8821</li>
-              <li>admissions@teenharbor.com</li>
-              <li>Admissions available 24/7</li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-white/10 py-5 text-center text-xs opacity-70">
-          © {new Date().getFullYear()} Teen Harbor. All Rights Reserved.
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }
