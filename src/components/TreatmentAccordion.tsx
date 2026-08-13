@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { usePathname, useSearchParams } from "next/navigation";
 
-interface Treatment {
+export interface Treatment {
+  id: string;
   title: string;
   subheader: string;
   description: string;
@@ -16,6 +18,21 @@ interface TreatmentAccordionProps {
 
 export function TreatmentAccordion({ treatments }: TreatmentAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  
+  useEffect(() => {
+    // If there's a hash in the URL, open that accordion
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash.replace('#', '');
+      const index = treatments.findIndex(t => t.id === hash);
+      if (index !== -1) {
+        setOpenIndex(index);
+        // Optional: scroll into view
+        setTimeout(() => {
+          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    }
+  }, [treatments]);
 
   const toggleOpen = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -28,7 +45,8 @@ export function TreatmentAccordion({ treatments }: TreatmentAccordionProps) {
 
         return (
           <motion.div
-            key={index}
+            key={treatment.id}
+            id={treatment.id}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -39,7 +57,7 @@ export function TreatmentAccordion({ treatments }: TreatmentAccordionProps) {
           >
             <button
               onClick={() => toggleOpen(index)}
-              className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
+              className="flex w-full items-center justify-between p-6 text-left focus:outline-none scroll-m-24"
               aria-expanded={isOpen}
             >
               <div className="pr-8">

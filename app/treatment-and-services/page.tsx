@@ -1,29 +1,90 @@
 "use client";
 
 import { Reveal } from "@/lib/motion";
-import { TreatmentAccordion } from "@/components/TreatmentAccordion";
-import { Brain, Users, BookOpen, Sparkles, Home, ShieldCheck } from "lucide-react";
+import { TreatmentAccordion, Treatment } from "@/components/TreatmentAccordion";
+import { BookOpen, Sparkles, Home, ShieldCheck } from "lucide-react";
 
-const TREATMENTS = [
+const TREATMENT_PROGRAMS: Treatment[] = [
   {
-    title: "Dual Diagnosis Treatment",
-    subheader: "Integrated Care for Co-occurring Conditions",
-    description: "Our dual diagnosis program addresses mental health challenges and substance use simultaneously. We understand that these conditions are deeply intertwined, and treating them together provides the strongest foundation for lasting recovery. Through targeted therapy, education, and continuous support, we help teens develop healthier coping mechanisms without relying on substances."
+    id: "residential",
+    title: "Residential Treatment",
+    subheader: "A Safe, Home-like Environment for Healing",
+    description: "Our residential program provides a structured, supportive living environment where adolescents can focus entirely on their recovery. With 24/7 awake overnight supervision, evidence-based care, and a compassionate staff, teens build healthy routines and essential life skills while feeling safe and understood."
   },
   {
-    title: "Mental Health Support",
-    subheader: "Compassionate Care for Emotional Well-being",
-    description: "We provide evidence-based care for a variety of mental health challenges including anxiety, depression, mood disorders, trauma, OCD, and ADHD. Our clinical team utilizes approaches like Cognitive Behavioral Therapy (CBT) and Dialectical Behavior Therapy (DBT) to help teens identify underlying issues, manage overwhelming emotions, and build resilience."
+    id: "education",
+    title: "Teen Holistic Education",
+    subheader: "Academic Continuity During Treatment",
+    description: "Healing shouldn't mean falling behind academically. Our on-site credentialed tutor collaborates with local school districts and parents to ensure each teen stays on track with their credits, accommodations, and graduation goals, keeping academic momentum strong."
   },
   {
-    title: "Individual & Group Therapy",
-    subheader: "A Safe Space to Process and Grow",
-    description: "Therapy is at the core of our program. Through one-on-one sessions, teens receive focused attention to work through personal challenges. Group therapy offers a supportive peer environment where adolescents can share experiences, practice new social skills, and realize they are not alone in their journey."
+    id: "parental-support",
+    title: "Parental Support Therapy",
+    subheader: "Empowering Families for Lasting Change",
+    description: "We believe families heal together. Through dedicated family therapy sessions and regular communication, we provide parents with the tools, understanding, and support they need to foster a healthy environment when their teen transitions back home."
   },
   {
-    title: "Family Involvement",
-    subheader: "Healing Together as a Unit",
-    description: "We believe that family healing is essential. We facilitate regular family therapy sessions and maintain open lines of communication. Our goal is to equip parents and guardians with the tools they need to support their teen during treatment and long after they transition back home."
+    id: "life-skills",
+    title: "Life Skills Therapy",
+    subheader: "Preparing for a Confident Future",
+    description: "Treatment must extend beyond therapy sessions. We teach practical life skills, including personal responsibility, emotional regulation, healthy communication, and daily routines, ensuring teens are prepared to navigate the challenges of everyday life successfully."
+  }
+];
+
+const MENTAL_HEALTH_PROGRAMS: Treatment[] = [
+  {
+    id: "anxiety",
+    title: "Teen Anxiety Treatment",
+    subheader: "Finding Calm and Regaining Control",
+    description: "Anxiety can be overwhelming for adolescents. Our tailored approach helps teens identify triggers, process their feelings, and learn practical coping mechanisms through therapies like CBT, helping them reduce panic and regain control of their daily lives."
+  },
+  {
+    id: "depression",
+    title: "Teen Depression Treatment",
+    subheader: "Rediscovering Hope and Motivation",
+    description: "We provide compassionate support for adolescents struggling with depression and mood disorders. By addressing the root causes and introducing healthy routines, we help teens combat isolation, build self-worth, and rediscover a sense of purpose."
+  },
+  {
+    id: "adhd",
+    title: "Teen ADHD Treatment",
+    subheader: "Focus, Structure, and Understanding",
+    description: "Our program supports teens with ADHD by providing clear structure, behavioral strategies, and individualized attention. We help them harness their energy, improve focus, and develop organizational skills that serve them well academically and personally."
+  },
+  {
+    id: "trauma",
+    title: "Teen Trauma Treatment",
+    subheader: "Safe Healing from Past Experiences",
+    description: "Trauma requires a delicate, specialized approach. Our trauma-informed care environment provides a safe space for adolescents to process difficult past experiences, utilizing evidence-based modalities to foster healing, safety, and emotional resilience."
+  },
+  {
+    id: "art-therapy",
+    title: "Art Therapy",
+    subheader: "Creative Expression for Emotional Processing",
+    description: "Sometimes words aren't enough. Art therapy offers a creative, non-verbal outlet for teens to express complex emotions, process trauma, and explore their identities in a therapeutic and non-judgmental setting."
+  },
+  {
+    id: "experiential",
+    title: "Experiential Therapy",
+    subheader: "Healing Through Action and Engagement",
+    description: "Experiential therapy takes healing outside the traditional session room. Through activities like mindfulness exercises, recreational outings, and interactive challenges, teens learn to overcome obstacles and build confidence in real-world scenarios."
+  },
+  {
+    id: "dbt",
+    title: "Dialectical Behavior Therapy",
+    subheader: "Mastering Emotional Regulation",
+    description: "DBT is a powerful tool for teens struggling with intense emotions or impulsive behaviors. We teach core DBT skills—mindfulness, distress tolerance, emotion regulation, and interpersonal effectiveness—to help adolescents make healthier choices."
+  },
+  {
+    id: "cbt",
+    title: "Cognitive Behavioral Therapy",
+    subheader: "Reframing Negative Thought Patterns",
+    description: "CBT helps teens understand the connection between their thoughts, feelings, and actions. By identifying and challenging negative cognitive distortions, we empower them to develop healthier perspectives and more positive behavioral responses."
+  },
+  {
+    id: "group-therapy",
+    title: "Group Therapy",
+    subheader: "Connection, Empathy, and Shared Growth",
+    description: "Group therapy provides a supportive peer environment where teens realize they are not alone. Guided by our clinical team, these sessions foster empathy, improve social skills, and build a strong sense of community and mutual support."
   }
 ];
 
@@ -67,29 +128,50 @@ export default function TreatmentAndServicesPage() {
         </div>
       </section>
 
-      {/* Treatments Accordion */}
-      <section className="py-20 md:py-32">
+      {/* Treatment Programs Accordion */}
+      <section id="treatment-programs" className="py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Reveal>
-              <span className="eyebrow">Our Services</span>
+              <span className="eyebrow">Our Foundation</span>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">Personalized Treatment Paths</h2>
+              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">Treatment Programs</h2>
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-slate-600">
-                Every adolescent's journey is different. We tailor our services to address specific diagnoses, strengths, and goals, ensuring a holistic approach to healing.
+                Core residential structures designed to foster stability, academic continuity, and familial healing in a supportive setting.
               </p>
             </Reveal>
           </div>
 
-          <TreatmentAccordion treatments={TREATMENTS} />
+          <TreatmentAccordion treatments={TREATMENT_PROGRAMS} />
+        </div>
+      </section>
+
+      {/* Mental Health Programs Accordion */}
+      <section id="mental-health" className="py-20 md:py-32 bg-slate-50 border-y border-slate-100">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <Reveal>
+              <span className="eyebrow">Clinical Excellence</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">Mental Health Programs & Therapies</h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="mt-4 text-slate-600">
+                Evidence-based modalities and specialized approaches tailored to address specific diagnoses, emotional challenges, and behavioral needs.
+              </p>
+            </Reveal>
+          </div>
+
+          <TreatmentAccordion treatments={MENTAL_HEALTH_PROGRAMS} />
         </div>
       </section>
 
       {/* Our Program */}
-      <section className="bg-slate-50 py-20 md:py-32 border-t border-slate-100">
+      <section className="bg-white py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Reveal>
