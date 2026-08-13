@@ -49,7 +49,7 @@ export default function AdmissionsPage() {
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657056/pexels-photo-7176291-1_mtet3m.jpg" 
+            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613189/2152265341_sppmiw.jpg" 
             alt="Admissions Background" 
             className="w-full h-full object-cover"
           />
