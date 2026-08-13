@@ -56,6 +56,8 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import { HeroImageSlider } from "@/components/HeroImageSlider";
+import { AccreditationSection } from "@/components/AccreditationSection";
 import { CareApproachStory } from "@/components/CareApproachStory";
 import heroClinician from "@/assets/hero-clinician.png";
 import heroDots from "@/assets/hero-dots.png.asset.json";
@@ -68,11 +70,6 @@ import notes from "@/assets/notes.jpg";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
-import { ContactCard } from "@/components/ui/contact-card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import TestimonialMarquee from "@/components/ui/testimonial-marquee";
 
 
@@ -306,162 +303,33 @@ export default function Page() {
 
   return (
     <div className="page-enter min-h-screen bg-background">
-      {/* Nav */}
-      <header
-        className={`sticky top-0 z-50 border-b bg-background/90 backdrop-blur-md transition-all duration-300 ${
-          scrolled
-            ? "border-border bg-background/95 shadow-[var(--shadow-card)]"
-            : "border-border/60"
-        }`}
-      >
-        <div
-          className={`mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 transition-all duration-300 ${
-            scrolled ? "py-2" : "py-3.5"
-          }`}
-        >
-          <a href="#home" className="flex items-center link-motion">
-            <img
-              src={logoWordmark.src}
-              alt="Teen Harbor"
-              width={700}
-              height={222}
-              className="h-auto w-[130px] sm:w-[150px] md:w-[165px]"
-            />
-          </a>
-          <div className="hidden items-center gap-7 md:flex">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {NAV.map((item) => (
-                  <NavigationMenuItem key={item.label}>
-                    {item.label === "Services" || item.label === "Treatment" ? (
-                      <>
-                        <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent nav-link text-sm font-medium transition-colors hover:text-primary text-muted-foreground px-4 py-2">{item.label}</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-background border rounded-md">
-                            {item.label === "Services" ? (
-                              OFFERINGS.map((offer) => (
-                                <li key={offer.label}>
-                                  <NavigationMenuLink asChild>
-                                    <a
-                                      href={item.href}
-                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                    >
-                                      <div className="text-sm font-medium leading-none flex items-center gap-2">
-                                        <offer.icon className="w-4 h-4 text-primary" />
-                                        {offer.label}
-                                      </div>
-                                    </a>
-                                  </NavigationMenuLink>
-                                </li>
-                              ))
-                            ) : (
-                              TREATMENTS.slice(0,4).map((treat) => (
-                                <li key={treat.title}>
-                                  <NavigationMenuLink asChild>
-                                    <a
-                                      href={item.href}
-                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                    >
-                                      <div className="text-sm font-medium leading-none">{treat.title}</div>
-                                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
-                                        {treat.body}
-                                      </p>
-                                    </a>
-                                  </NavigationMenuLink>
-                                </li>
-                              ))
-                            )}
-                          </ul>
-                        </NavigationMenuContent>
-                      </>
-                    ) : (
-                      <NavigationMenuLink asChild>
-                        <a
-                          href={item.href}
-                          className={`nav-link text-sm font-medium transition-colors hover:text-primary px-4 py-2 ${
-                            active === item.href.slice(1) ? "text-primary" : "text-muted-foreground"
-                          }`}
-                        >
-                          {item.label}
-                        </a>
-                      </NavigationMenuLink>
-                    )}
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          <div className="flex items-center gap-3">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="flex items-center justify-center gap-3 rounded-full bg-sun px-6 py-2.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-xl">
-                  Get Started
-                </button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                  <DialogTitle>Contact Admissions</DialogTitle>
-                  <DialogDescription>
-                    We're here 24/7. Call us immediately or leave your contact information and we'll reach out to you.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="flex items-center space-x-2">
-                  <div className="grid flex-1 gap-2">
-                    <p className="text-center font-bold text-2xl py-4 text-primary">(421) 123 8821</p>
-                  </div>
-                </div>
-                <div className="mt-4 text-center">
-                  <p className="text-sm text-muted-foreground">Or email us at admissions@teenharbor.com</p>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
-      </header>
+      
 
-      {/* Hero */}
-      <section id="home" className="relative isolate overflow-hidden">
-        <img
-          src={houseCta.src}
-          alt="The Teen Harbor residential home"
-          width={1600}
-          height={700}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-navy/80" />
-        <div className="relative mx-auto max-w-4xl px-5 py-24 text-center text-navy-foreground md:min-h-[calc(100svh-72px)] flex flex-col items-center justify-center">
-          <h1 className="text-4xl leading-tight md:text-5xl lg:text-7xl font-bold">
-            <span className="hero-line block">Compassionate Residential</span>
-            <span
-              className="hero-line block"
-              style={{ "--enter-delay": "150ms" } as CSSProperties}
-            >
-              Care for Teens
-            </span>
-          </h1>
-          <p
-            className="hero-line mt-6 max-w-xl mx-auto text-lg opacity-90"
-            style={{ "--enter-delay": "340ms" } as CSSProperties}
-          >
-            Welcoming teens and families to a safe, nurturing environment where healing and growth
-            begin together.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center gap-5 justify-center">
-            <a
-              href="#contact"
-              className="hero-line btn-motion rounded-full bg-sun px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-              style={{ "--enter-delay": "480ms" } as CSSProperties}
-            >
-              Get Started
-            </a>
-            <a
-              href="#about"
-              className="hero-line text-sm font-semibold transition-colors hover:text-sun"
-              style={{ "--enter-delay": "600ms" } as CSSProperties}
-            >
-              Learn More <span className="arrow-nudge">→</span>
-            </a>
-          </div>
+      {/* Cinematic Rotating Hero */}
+      <section className="relative isolate overflow-hidden min-h-[90vh] flex flex-col justify-center">
+        <HeroImageSlider />
+        <div className="relative z-10 mx-auto max-w-4xl px-5 py-24 text-center text-white flex flex-col items-center justify-center">
+          <Reveal>
+            <h1 className="text-4xl leading-tight md:text-5xl lg:text-7xl font-bold drop-shadow-lg">
+              <span className="hero-line block">Central Valley’s Residential</span>
+              <span className="hero-line block mt-2" style={{ "--enter-delay": "150ms" } as CSSProperties}>Treatment Center for Youth</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="hero-line mt-8 max-w-2xl mx-auto text-lg md:text-xl opacity-95 drop-shadow-md leading-relaxed" style={{ "--enter-delay": "340ms" } as CSSProperties}>
+              Teen Harbor is a compassionate residential program dedicated to supporting teens through mental health challenges with individualized care, structure, and a safe, nurturing environment. We empower adolescents to build resilience, develop healthy coping skills, and rediscover their path toward stability, confidence, and long-term success.
+            </p>
+          </Reveal>
+          <Reveal delay={400}>
+            <div className="mt-10 flex flex-col sm:flex-row items-center gap-5 justify-center">
+              <a href="/contact" className="hero-line btn-motion inline-flex items-center justify-center rounded-full bg-sun px-10 py-4 text-sm font-bold uppercase tracking-widest text-sun-foreground hover:bg-white hover:text-navy transition-all duration-300 shadow-xl" style={{ "--enter-delay": "480ms" } as CSSProperties}>
+                Get Help Now
+              </a>
+              <a href="/about" className="hero-line text-sm font-semibold transition-colors hover:text-sun text-white" style={{ "--enter-delay": "600ms" } as CSSProperties}>
+                Learn More <span className="arrow-nudge inline-block">→</span>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -571,7 +439,7 @@ export default function Page() {
               </div>
             </div>
             <a
-              href="#treatment"
+              href="/treatment-and-services"
               className="btn-motion mt-8 inline-block rounded-full bg-sun px-7 py-3 text-sm font-semibold uppercase tracking-wide text-sun-foreground hover:opacity-90"
             >
               Learn More <span className="arrow-nudge">→</span>
@@ -807,7 +675,7 @@ export default function Page() {
             </Reveal>
             <Reveal delay={220}>
               <a
-                href="#contact"
+                href="/contact"
                 className="btn-motion mt-8 inline-block rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
               >
                 Talk With Admissions <span className="arrow-nudge">→</span>
@@ -891,33 +759,9 @@ export default function Page() {
       </section>
 
       {/* Accreditations */}
-      <section className="mx-auto max-w-4xl px-5 py-16 text-center">
-        <Reveal>
-          <span className="eyebrow">Accreditations</span>
-        </Reveal>
-        <Reveal delay={90}>
-          <h2 className="mt-4 text-3xl md:text-4xl">Care You Can Trust</h2>
-        </Reveal>
-        <div className="mt-8 grid gap-8 grid-cols-2 sm:grid-cols-4 items-center">
-          {ACCREDITATIONS.map((a, i) => (
-            <Reveal key={a.name} delay={i * 110}>
-            <div className="flex flex-col items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
-              {a.imageId ? (
-                <CldImage
-                  src={a.imageId}
-                  alt={a.name}
-                  width={160}
-                  height={160}
-                  className="mx-auto h-24 w-auto object-contain"
-                />
-              ) : (
-                <Award className="mx-auto h-7 w-7 text-sun" />
-              )}
-            </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <div className="bg-white border-t border-slate-100">
+        <AccreditationSection accreditations={ACCREDITATIONS} />
+      </div>
 
       {/* Resources */}
       <section className="bg-sun/10 py-20 md:py-28">
@@ -938,7 +782,7 @@ export default function Page() {
                   <h3 className="mt-4 text-lg">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="mt-5 inline-block text-sm font-semibold text-primary"
                   >
                     Learn More <span className="arrow-nudge">→</span>
@@ -974,129 +818,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Bottom Section Wrap (CTA, Form, Footer) */}
-      <div className="relative isolate overflow-hidden text-navy-foreground">
-        <CldImage
-          src="Footer_fzvnij"
-          alt="The Teen Harbor residential home at dusk"
-          width={1600}
-          height={1400}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-navy/85" />
-
-        {/* CTA */}
-        <section className="relative mx-auto max-w-3xl px-5 py-20 text-center">
-          <Reveal>
-            <h2 className="text-3xl md:text-4xl">Take the First Step</h2>
-          </Reveal>
-          <Reveal delay={110}>
-            <p className="mt-3 text-sm opacity-90">
-              Start your journey towards a healthier and happier life.
-            </p>
-          </Reveal>
-        </section>
-
-        {/* Contact Form */}
-        <section id="contact" className="relative mx-auto max-w-5xl px-5 py-10 md:py-16">
-          <ContactCard
-            title="Get in touch"
-            description="If you have any questions regarding our Services or need help, please fill out the form here. We do our best to respond within 1 business day."
-            contactInfo={[
-              {
-                icon: Mail,
-                label: 'Email',
-                value: 'admissions@teenharbor.com',
-              },
-              {
-                icon: Phone,
-                label: 'Phone',
-                value: '(421) 123 8821',
-              },
-              {
-                icon: MapPin,
-                label: 'Address',
-                value: 'California, United States',
-                className: 'col-span-2',
-              }
-            ]}
-          >
-            <form action="" className="w-full space-y-4">
-              <div className="flex flex-col gap-2">
-                <Label className="text-white">Name</Label>
-                <Input type="text" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="text-white">Email</Label>
-                <Input type="email" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="text-white">Phone</Label>
-                <Input type="tel" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label className="text-white">Message</Label>
-                <Textarea className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
-              </div>
-              <Button className="w-full mt-4 rounded-full bg-sun px-8 py-6 text-sm font-semibold uppercase tracking-wide text-sun-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-300" type="button">
-                Get Started
-              </Button>
-            </form>
-          </ContactCard>
-        </section>
-
-        {/* Footer */}
-        <footer className="relative mt-10">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
-            <div>
-              <img
-                src={logoWordmark.src}
-                alt="Teen Harbor"
-                width={700}
-                height={222}
-                loading="lazy"
-                className="h-auto w-[160px] brightness-0 invert"
-              />
-              <p className="mt-4 text-sm opacity-75">
-                Compassionate residential behavioral health care for adolescents and their families.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold">Other Pages</h3>
-              <ul className="mt-4 space-y-2 text-sm opacity-75">
-                {NAV.map((n) => (
-                  <li key={n.label}>
-                    <a href={n.href} className="link-motion inline-block hover:opacity-100">
-                      {n.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold">Services</h3>
-              <ul className="mt-4 space-y-2 text-sm opacity-75">
-                {TREATMENTS.slice(0, 5).map((t) => (
-                  <li key={t.title}>{t.title}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold">Find Us</h3>
-              <ul className="mt-4 space-y-2 text-sm opacity-75">
-                <li>California, United States</li>
-                <li>(421) 123 8821</li>
-                <li>admissions@teenharbor.com</li>
-                <li>Admissions available 24/7</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/10 py-5 text-center text-xs opacity-70">
-            © {new Date().getFullYear()} Teen Harbor. All Rights Reserved.
-          </div>
-        </footer>
-      </div>
+      
     </div>
   );
 }

@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { Phone } from "lucide-react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,12 +33,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
-      <body className={poppins.className}>
-        <Providers>{children}</Providers>
+      <body className={`${poppins.className} min-h-screen flex flex-col`}>
+        <Providers>
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
 
         {/* Floating Call Button */}
         <a
-          href="tel:4211238821"
+          href="tel:5595895825"
           className="fixed bottom-6 left-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-sun text-sun-foreground shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-primary hover:text-primary-foreground hover:shadow-primary/40 md:bottom-8 md:left-8"
           aria-label="Call Admissions"
         >
