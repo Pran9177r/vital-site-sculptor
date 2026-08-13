@@ -86,13 +86,13 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.24 0.045 271);
+  --foreground: oklch(38.652% 0.07859 270.245);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.24 0.045 271);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.045 271);
-  --primary: oklch(0.54 0.212 285);
-  --primary-foreground: oklch(0.99 0.005 285);
+  --primary: oklch(0.24 0.075 268);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.965 0.012 200);
   --secondary-foreground: oklch(0.3 0.05 271);
   --muted: oklch(0.968 0.008 240);
@@ -103,7 +103,7 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.918 0.012 250);
   --input: oklch(0.918 0.012 250);
-  --ring: oklch(0.54 0.212 285);
+  --ring: oklch(0.24 0.075 268);
 
   /* Brand tokens */
   --mint: oklch(0.945 0.024 175);
@@ -112,9 +112,9 @@
   --navy-foreground: oklch(0.98 0.01 268);
   --pill: oklch(0.94 0.045 5);
   --pill-foreground: oklch(0.62 0.19 8);
-  --brand: oklch(0.54 0.212 285);
-  --brand-foreground: oklch(0.99 0.005 285);
-  --brand-soft: oklch(0.95 0.03 285);
+  --brand: oklch(0.24 0.075 268);
+  --brand-foreground: oklch(1 0 0);
+  --brand-soft: oklch(0.95 0.02 268);
   --sun: oklch(0.72 0.18 55);
   --sun-foreground: oklch(0.99 0.01 55);
   --logo-blue: oklch(0.92 0.06 230);
@@ -146,7 +146,7 @@
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
   --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.24 0.075 268);
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
@@ -265,10 +265,12 @@ html {
 }
 
 @keyframes float-soft {
+
   0%,
   100% {
     translate: 0 calc(var(--parallax-y, 0px) - 3px);
   }
+
   50% {
     translate: 0 calc(var(--parallax-y, 0px) + 3px);
   }
@@ -336,7 +338,7 @@ html {
 }
 
 .group\/arrow:hover .arrow-nudge,
-a:hover > .arrow-nudge {
+a:hover>.arrow-nudge {
   transform: translateX(4px);
 }
 
@@ -355,6 +357,7 @@ a:hover > .arrow-nudge {
     opacity: 0;
     transform: translate3d(0, 8px, 0);
   }
+
   to {
     opacity: 1;
     transform: none;
@@ -403,6 +406,7 @@ a:hover > .arrow-nudge {
     opacity: 0;
     transform: translate3d(0, 60px, 0) scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: none;
@@ -419,6 +423,7 @@ a:hover > .arrow-nudge {
     opacity: 0;
     transform: translate3d(0, 40px, 0);
   }
+
   to {
     opacity: 1;
     transform: none;
@@ -435,6 +440,7 @@ a:hover > .arrow-nudge {
     opacity: 0;
     transform: translate3d(-140px, 0, 0) scale(0.94);
   }
+
   to {
     opacity: 1;
     transform: none;
@@ -446,6 +452,7 @@ a:hover > .arrow-nudge {
     opacity: 0;
     transform: translate3d(140px, 0, 0) scale(0.94);
   }
+
   to {
     opacity: 1;
     transform: none;
@@ -474,6 +481,7 @@ a:hover > .arrow-nudge {
     translate: 0 calc(var(--parallax-y, 0px) - 8px);
     rotate: -0.6deg;
   }
+
   to {
     translate: 5px calc(var(--parallax-y, 0px) + 8px);
     rotate: 0.5deg;
@@ -485,6 +493,7 @@ a:hover > .arrow-nudge {
     translate: 0 calc(var(--parallax-y, 0px) - 10px);
     rotate: 0.7deg;
   }
+
   to {
     translate: -6px calc(var(--parallax-y, 0px) + 10px);
     rotate: -0.5deg;
@@ -496,6 +505,7 @@ a:hover > .arrow-nudge {
     translate: 0 calc(var(--parallax-y, 0px) - 7px);
     rotate: 0.4deg;
   }
+
   to {
     translate: 4px calc(var(--parallax-y, 0px) + 8px);
     rotate: -0.7deg;
@@ -521,6 +531,7 @@ a:hover > .arrow-nudge {
 }
 
 @media (max-width: 767px) {
+
   .float-a,
   .float-b,
   .float-c {
@@ -532,6 +543,7 @@ a:hover > .arrow-nudge {
   from {
     transform: translate3d(0, 0, 0) scale(1);
   }
+
   to {
     transform: translate3d(-10px, 14px, 0) scale(1.015);
   }
@@ -553,6 +565,7 @@ a:hover > .arrow-nudge {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .hero-rise,
   .hero-line,
   .card-in-left,
@@ -564,6 +577,7 @@ a:hover > .arrow-nudge {
     opacity: 1;
     transform: none;
   }
+
   .hero-dots {
     animation: none;
     transform: none;
@@ -574,6 +588,7 @@ a:hover > .arrow-nudge {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(calc(-100% - var(--gap)));
   }
@@ -583,6 +598,7 @@ a:hover > .arrow-nudge {
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(calc(-100% - var(--gap)));
   }
@@ -591,6 +607,7 @@ a:hover > .arrow-nudge {
 .animate-marquee {
   animation: marquee var(--duration) linear infinite;
 }
+
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration) linear infinite;
 }
