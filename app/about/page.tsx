@@ -4,7 +4,6 @@ import { Reveal } from "@/lib/motion";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
-import lifeAtHarbor from "@/assets/life-at-harbor.jpg";
 import Image from "next/image";
 
 const TEAM_MEMBERS = [
@@ -41,7 +40,7 @@ export default function AboutPage() {
       <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src={lifeAtHarbor} 
+            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546369/genMid.601054_1_1_puvswy.jpg" 
             alt="About Teen Harbor Background" 
             fill
             className="object-cover"
