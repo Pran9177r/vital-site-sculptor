@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -17,6 +17,36 @@ interface TreatmentTabsProps {
 
 export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
   const [activeId, setActiveId] = useState<string>(treatments[0]?.id || "");
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && treatments.some(t => t.id === hash)) {
+        setActiveId(hash);
+        // Add a slight delay to allow rendering before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            // Calculate offset to account for sticky header
+            const headerOffset = 100;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          }
+        }, 50);
+      }
+    };
+
+    // Run on initial mount
+    handleHashChange();
+
+    // Listen for hash changes if navigating within the same page
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [treatments]);
 
   if (!treatments.length) return null;
 
@@ -50,7 +80,11 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
           return (
             <button
               key={t.id}
-              onClick={() => setActiveId(t.id)}
+              id={t.id}
+              onClick={() => {
+                setActiveId(t.id);
+                window.history.pushState(null, "", `#${t.id}`);
+              }}
               className={`group relative flex w-full items-center justify-between rounded-lg px-4 py-3.5 text-left transition-all duration-300 ${
                 isActive
                   ? "bg-slate-50 text-primary font-semibold shadow-sm border border-slate-200/60"
