@@ -177,10 +177,10 @@ const TEAM = [
 ];
 
 const ACCREDITATIONS = [
-  { name: "The Joint Commission", detail: "Accredited — National Quality Approval", imageId: "Logo-JC-Gold-Seal-of-Approval-Accredited_cpxsyp" },
-  { name: "CDSS", detail: "California Department of Social Services", imageId: "Unknown-3_jiclcm" },
-  { name: "NAMI California", detail: "National Alliance on Mental Illness", imageId: "Unknown-2_wtmy8d" },
-  { name: "Additional Certification", detail: "Additional Certification", imageId: "Unknown_w7qcjr" },
+  { name: "The Joint Commission", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546374/Logo-JC-Gold-Seal-of-Approval-Accredited_cpxsyp.jpg" },
+  { name: "CDSS", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546379/Unknown-3_jiclcm.jpg" },
+  { name: "NAMI California", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546378/Unknown-2_wtmy8d.jpg" },
+  { name: "Additional Certification", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546381/Unknown_w7qcjr.jpg" },
 ];
 
 const TRUST = [

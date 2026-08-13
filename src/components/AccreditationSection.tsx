@@ -39,16 +39,12 @@ export function AccreditationSection({ accreditations }: AccreditationSectionPro
             {acc.logoUrl ? (
               <img
                 src={acc.logoUrl}
-                alt={acc.name}
-                className="h-16 w-auto object-contain mb-4"
+                alt={acc.name || "Accreditation Logo"}
+                className="h-24 w-auto object-contain"
                 loading="lazy"
               />
             ) : (
-              <Award className="h-12 w-12 text-sun mb-4" />
-            )}
-            <h3 className="text-sm font-semibold text-slate-800">{acc.name}</h3>
-            {acc.detail && (
-              <p className="mt-1 text-xs text-slate-500 leading-tight">{acc.detail}</p>
+              <Award className="h-16 w-16 text-sun" />
             )}
           </motion.div>
         ))}
