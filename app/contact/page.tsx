@@ -4,6 +4,7 @@ import { Reveal } from "@/lib/motion";
 import { ContactForm } from "@/components/ContactForm";
 import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import houseCta from "@/assets/house-cta.jpg";
+import Image from "next/image";
 
 export default function ContactPage() {
   return (
@@ -11,10 +12,12 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={houseCta.src} 
+          <Image 
+            src={houseCta} 
             alt="Contact Us Background" 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-slate-900/60" />
         </div>

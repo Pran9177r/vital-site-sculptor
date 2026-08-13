@@ -3,6 +3,7 @@
 import { Reveal } from "@/lib/motion";
 import { FacilityGallery } from "@/components/FacilityGallery";
 import { Map, MapMarker, MarkerContent, MarkerTooltip } from "@/components/ui/mapcn-marker-tooltip";
+import Image from "next/image";
 import houseCta from "@/assets/house-cta.jpg";
 import lifeAtHarbor from "@/assets/life-at-harbor.jpg";
 import servicesTherapy from "@/assets/services-therapy.jpg";
@@ -22,25 +23,31 @@ export default function FacilityPage() {
       <section className="relative py-32 md:py-40 lg:py-48 border-b border-slate-100 overflow-hidden">
         {/* Tri-Split Background */}
         <div className="absolute inset-0 z-0 flex w-full">
-          <div className="w-1/3 h-full">
-            <img 
+          <div className="w-1/3 h-full relative">
+            <Image 
               src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg" 
               alt="Facility Exterior" 
-              className="w-full h-full object-cover" 
+              fill
+              className="object-cover" 
+              priority
             />
           </div>
-          <div className="w-1/3 h-full">
-            <img 
+          <div className="w-1/3 h-full relative">
+            <Image 
               src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg" 
               alt="Facility Interior/Patio" 
-              className="w-full h-full object-cover" 
+              fill
+              className="object-cover" 
+              priority
             />
           </div>
-          <div className="w-1/3 h-full">
-            <img 
+          <div className="w-1/3 h-full relative">
+            <Image 
               src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-24_hpzmej.jpg" 
               alt="Facility Amenities" 
-              className="w-full h-full object-cover" 
+              fill
+              className="object-cover" 
+              priority
             />
           </div>
         </div>

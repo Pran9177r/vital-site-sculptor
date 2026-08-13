@@ -2,6 +2,7 @@
 
 import { Reveal } from "@/lib/motion";
 import { CheckCircle2, XCircle, AlertTriangle } from "lucide-react";
+import Image from "next/image";
 
 const WHAT_TO_BRING = [
   "Approximately seven days of clothing",
@@ -48,10 +49,12 @@ export default function AdmissionsPage() {
       <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613189/2152265341_sppmiw.jpg" 
             alt="Admissions Background" 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-slate-900/60" />
         </div>
@@ -116,10 +119,12 @@ export default function AdmissionsPage() {
       <section className="relative py-20 md:py-32 border-t border-slate-100 overflow-hidden">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657056/1824952462_n7twst.jpg" 
             alt="Preparing for Your Stay Background" 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-slate-900/70" />
         </div>

@@ -5,6 +5,7 @@ import { TeamMemberCard } from "@/components/TeamMemberCard";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import lifeAtHarbor from "@/assets/life-at-harbor.jpg";
+import Image from "next/image";
 
 const TEAM_MEMBERS = [
   {
@@ -39,10 +40,12 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={lifeAtHarbor.src} 
+          <Image 
+            src={lifeAtHarbor} 
             alt="About Teen Harbor Background" 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-slate-900/60" />
         </div>

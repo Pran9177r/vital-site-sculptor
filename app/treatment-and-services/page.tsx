@@ -4,6 +4,7 @@ import { Reveal } from "@/lib/motion";
 import { TreatmentTabs, Treatment } from "@/components/TreatmentTabs";
 import { BookOpen, Sparkles, Home, ShieldCheck } from "lucide-react";
 import servicesTherapy from "@/assets/services-therapy.jpg";
+import Image from "next/image";
 
 const TREATMENT_PROGRAMS: Treatment[] = [
   {
@@ -95,10 +96,12 @@ export default function TreatmentAndServicesPage() {
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={servicesTherapy.src} 
+          <Image 
+            src={servicesTherapy} 
             alt="Treatment and Services Background" 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-slate-900/60" />
         </div>
