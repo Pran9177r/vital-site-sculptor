@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import Image from "next/image";
 
 interface GalleryImage {
   src: string;
@@ -34,10 +35,12 @@ export function FacilityGallery({ images }: FacilityGalleryProps) {
             onClick={() => setSelectedImage(img)}
           >
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10" />
-            <img
+            <Image
               src={img.src}
               alt={img.alt}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </motion.div>
         ))}

@@ -28,6 +28,7 @@ export default function FacilityPage() {
               src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg" 
               alt="Facility Exterior" 
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover" 
               priority
             />
@@ -37,6 +38,7 @@ export default function FacilityPage() {
               src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg" 
               alt="Facility Interior/Patio" 
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover" 
               priority
             />
@@ -46,6 +48,7 @@ export default function FacilityPage() {
               src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-24_hpzmej.jpg" 
               alt="Facility Amenities" 
               fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover" 
               priority
             />
