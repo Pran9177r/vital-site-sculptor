@@ -70,6 +70,9 @@ export function Header() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const pathname = usePathname();
 
+  const isHome = pathname === "/";
+  const isTransparent = isHome && !scrolled;
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 12);
@@ -82,10 +85,12 @@ export function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 border-b bg-white backdrop-blur-md transition-all duration-300 ${
-          scrolled
-            ? "border-border shadow-[var(--shadow-card)]"
-            : "border-transparent"
+        className={`${isHome ? "fixed w-full" : "sticky"} top-0 z-50 border-b backdrop-blur-md transition-all duration-300 ${
+          isTransparent
+            ? "bg-transparent border-transparent"
+            : scrolled
+            ? "bg-white/95 border-border shadow-[var(--shadow-card)]"
+            : "bg-white border-transparent"
         }`}
       >
         <div
@@ -99,7 +104,7 @@ export function Header() {
               alt="Teen Harbor"
               width={700}
               height={222}
-              className="h-auto w-[130px] sm:w-[150px] md:w-[165px]"
+              className="h-auto w-[130px] sm:w-[150px] md:w-[165px] transition-all duration-300 drop-shadow-md"
             />
           </Link>
 
@@ -116,13 +121,13 @@ export function Header() {
                   href={item.href}
                   className={`flex items-center gap-1 text-[13px] font-semibold tracking-wide transition-colors py-4 ${
                     pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href))
-                      ? "text-primary"
-                      : "text-slate-700 hover:text-primary"
+                      ? (isTransparent ? "text-white" : "text-primary")
+                      : (isTransparent ? "text-white/90 hover:text-white" : "text-slate-700 hover:text-primary")
                   }`}
                 >
                   {item.label}
                   {item.subItems && (
-                    <ChevronDown className="h-4 w-4 opacity-50 group-hover:rotate-180 transition-transform duration-200" />
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 group-hover:rotate-180 ${isTransparent ? "text-white opacity-70" : "opacity-50"}`} />
                   )}
                 </Link>
 

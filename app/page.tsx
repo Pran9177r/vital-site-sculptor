@@ -56,7 +56,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
-import { HeroImageSlider } from "@/components/HeroImageSlider";
+import { PrismaHero } from "@/components/ui/prisma-hero";
 import { AccreditationSection } from "@/components/AccreditationSection";
 import { CareApproachStory } from "@/components/CareApproachStory";
 import heroClinician from "@/assets/hero-clinician.png";
@@ -70,7 +70,7 @@ import notes from "@/assets/notes.jpg";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
-import TestimonialMarquee from "@/components/ui/testimonial-marquee";
+import { TestimonialSlider } from "@/components/TestimonialSlider";
 
 
 
@@ -305,33 +305,8 @@ export default function Page() {
     <div className="page-enter min-h-screen bg-background">
       
 
-      {/* Cinematic Rotating Hero */}
-      <section className="relative isolate overflow-hidden min-h-[90vh] flex flex-col justify-center">
-        <HeroImageSlider />
-        <div className="relative z-10 mx-auto max-w-4xl px-5 py-24 text-center text-white flex flex-col items-center justify-center">
-          <Reveal>
-            <h1 className="text-4xl leading-tight md:text-5xl lg:text-7xl font-bold drop-shadow-lg">
-              <span className="hero-line block">Central Valley’s Residential</span>
-              <span className="hero-line block mt-2" style={{ "--enter-delay": "150ms" } as CSSProperties}>Treatment Center for Youth</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="hero-line mt-8 max-w-2xl mx-auto text-lg md:text-xl opacity-95 drop-shadow-md leading-relaxed" style={{ "--enter-delay": "340ms" } as CSSProperties}>
-              Teen Harbor is a compassionate residential program dedicated to supporting teens through mental health challenges with individualized care, structure, and a safe, nurturing environment. We empower adolescents to build resilience, develop healthy coping skills, and rediscover their path toward stability, confidence, and long-term success.
-            </p>
-          </Reveal>
-          <Reveal delay={400}>
-            <div className="mt-10 flex flex-col sm:flex-row items-center gap-5 justify-center">
-              <a href="/contact" className="hero-line btn-motion inline-flex items-center justify-center rounded-full bg-sun px-10 py-4 text-sm font-bold uppercase tracking-widest text-sun-foreground hover:bg-white hover:text-navy transition-all duration-300 shadow-xl" style={{ "--enter-delay": "480ms" } as CSSProperties}>
-                Get Help Now
-              </a>
-              <a href="/about" className="hero-line text-sm font-semibold transition-colors hover:text-sun text-white" style={{ "--enter-delay": "600ms" } as CSSProperties}>
-                Learn More <span className="arrow-nudge inline-block">→</span>
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* Prisma Hero */}
+      <PrismaHero />
 
       {/* Trust / credibility */}
       <section className="border-b border-border/60 bg-background">
@@ -723,7 +698,7 @@ export default function Page() {
             </p>
           </Reveal>
         </div>
-        <TestimonialMarquee />
+        <TestimonialSlider testimonials={TESTIMONIALS} />
       </section>
 
       {/* Team */}
