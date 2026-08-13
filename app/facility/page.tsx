@@ -10,22 +10,48 @@ import servicesTherapy from "@/assets/services-therapy.jpg";
 const FACILITY_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613193/5e4543af-c9d8-4375-b8b2-f65e4d7206ad_rf4irm.png", alt: "Teen Harbor Amenities" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613191/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Teen Harbor Facility" },
-  { src: houseCta.src, alt: "Additional Facility Photo (Placeholder)" },
-  { src: lifeAtHarbor.src, alt: "Additional Facility Photo (Placeholder)" },
-  { src: servicesTherapy.src, alt: "Additional Facility Photo (Placeholder)" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg", alt: "Facility Exterior" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg", alt: "Facility Interior and Patio" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-24_hpzmej.jpg", alt: "Facility Amenities" },
 ];
 
 export default function FacilityPage() {
   return (
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-100">
-        <div className="mx-auto max-w-4xl px-5 text-center">
+      <section className="relative py-32 md:py-40 lg:py-48 border-b border-slate-100 overflow-hidden">
+        {/* Tri-Split Background */}
+        <div className="absolute inset-0 z-0 flex w-full">
+          <div className="w-1/3 h-full">
+            <img 
+              src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg" 
+              alt="Facility Exterior" 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+          <div className="w-1/3 h-full">
+            <img 
+              src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg" 
+              alt="Facility Interior/Patio" 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+          <div className="w-1/3 h-full">
+            <img 
+              src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-24_hpzmej.jpg" 
+              alt="Facility Amenities" 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+        </div>
+        <div className="absolute inset-0 z-0 bg-slate-900/60" />
+
+        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white mt-8">
           <Reveal>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Our Facility</h1>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Our Facility</h1>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+            <p className="mt-6 text-lg md:text-xl leading-relaxed text-white/90 font-medium">
               A safe, comfortable, and nurturing environment designed to feel like a true home away from home.
             </p>
           </Reveal>
