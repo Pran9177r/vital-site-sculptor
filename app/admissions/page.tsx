@@ -45,13 +45,23 @@ export default function AdmissionsPage() {
   return (
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-100">
-        <div className="mx-auto max-w-4xl px-5 text-center">
+      <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657056/pexels-photo-7176291-1_mtet3m.jpg" 
+            alt="Admissions Background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-900/60" />
+        </div>
+        
+        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white">
           <Reveal>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Admissions</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">Admissions</h1>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+            <p className="mt-6 text-lg leading-relaxed text-white/90">
               Welcoming teens and families to a structured, nurturing environment that promotes safety, stability, and growth.
             </p>
           </Reveal>
@@ -103,14 +113,26 @@ export default function AdmissionsPage() {
       </section>
 
       {/* What to Bring & What NOT to Bring */}
-      <section className="bg-slate-50 py-20 md:py-32 border-t border-slate-100">
-        <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      <section className="relative py-20 md:py-32 border-t border-slate-100 overflow-hidden">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657056/1824952462_n7twst.jpg" 
+            alt="Preparing for Your Stay Background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="mx-auto max-w-6xl px-5 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16 text-white">
             <Reveal>
-              <span className="eyebrow">Packing Guide</span>
+              <span className="inline-block bg-white/20 text-white border border-white/30 backdrop-blur-md px-5 py-1.5 rounded-full text-sm font-semibold tracking-wide uppercase">
+                Packing Guide
+              </span>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">Preparing for Your Stay</h2>
+              <h2 className="mt-6 text-3xl md:text-4xl font-bold">Preparing for Your Stay</h2>
             </Reveal>
           </div>
 
