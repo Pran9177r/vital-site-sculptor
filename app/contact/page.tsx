@@ -3,18 +3,27 @@
 import { Reveal } from "@/lib/motion";
 import { ContactForm } from "@/components/ContactForm";
 import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import houseCta from "@/assets/house-cta.jpg";
 
 export default function ContactPage() {
   return (
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-100">
-        <div className="mx-auto max-w-4xl px-5 text-center">
+      <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={houseCta.src} 
+            alt="Contact Us Background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-900/60" />
+        </div>
+        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white">
           <Reveal>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">Contact Us</h1>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+            <p className="mt-6 text-lg leading-relaxed text-white/90">
               We are here to help. Reach out to our admissions team to learn more about our program, verify insurance, or begin the admissions process.
             </p>
           </Reveal>

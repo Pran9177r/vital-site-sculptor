@@ -4,6 +4,7 @@ import { Reveal } from "@/lib/motion";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
+import lifeAtHarbor from "@/assets/life-at-harbor.jpg";
 
 const TEAM_MEMBERS = [
   {
@@ -36,13 +37,21 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-100">
-        <div className="mx-auto max-w-4xl px-5 text-center">
+      <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={lifeAtHarbor.src} 
+            alt="About Teen Harbor Background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-900/60" />
+        </div>
+        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white">
           <Reveal>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">About Teen Harbor</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">About Teen Harbor</h1>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+            <p className="mt-6 text-lg leading-relaxed text-white/90">
               A compassionate, residential environment dedicated to guiding teens toward lasting mental and emotional wellness.
             </p>
           </Reveal>

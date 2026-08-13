@@ -3,6 +3,7 @@
 import { Reveal } from "@/lib/motion";
 import { TreatmentTabs, Treatment } from "@/components/TreatmentTabs";
 import { BookOpen, Sparkles, Home, ShieldCheck } from "lucide-react";
+import servicesTherapy from "@/assets/services-therapy.jpg";
 
 const TREATMENT_PROGRAMS: Treatment[] = [
   {
@@ -92,18 +93,26 @@ export default function TreatmentAndServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-sun/10 py-20 md:py-28 border-b border-border/60">
-        <div className="mx-auto max-w-4xl px-5 text-center">
+      <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={servicesTherapy.src} 
+            alt="Treatment and Services Background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-900/60" />
+        </div>
+        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white">
           <Reveal>
-            <span className="eyebrow mx-auto">Comprehensive Residential Care</span>
+            <span className="eyebrow mx-auto text-white border-white/30">Comprehensive Residential Care</span>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-slate-900">
+            <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-white">
               Treatment & Services
             </h1>
           </Reveal>
           <Reveal delay={200}>
-            <p className="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-6 text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
               Tailored, evidence-based residential care designed to support adolescents through mental health challenges and empower families toward long-term healing.
             </p>
           </Reveal>
