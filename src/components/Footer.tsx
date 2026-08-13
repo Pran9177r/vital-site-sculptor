@@ -20,10 +20,10 @@ export function Footer() {
             <img
               src={logoWordmark.src}
               alt="Teen Harbor"
-              width={700}
-              height={222}
+              width={500}
+              height={500}
               loading="lazy"
-              className="h-auto w-[160px] brightness-0 invert"
+              className="h-[60px] w-auto brightness-0 invert"
             />
           </Link>
           <p className="text-sm opacity-75 leading-relaxed">

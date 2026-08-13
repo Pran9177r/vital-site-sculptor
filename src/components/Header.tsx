@@ -98,9 +98,9 @@ export function Header() {
             <img
               src={logoWordmark.src}
               alt="Teen Harbor"
-              width={700}
-              height={222}
-              className="h-auto w-[130px] sm:w-[150px] md:w-[165px] transition-all duration-300 drop-shadow-md"
+              width={500}
+              height={500}
+              className="h-[40px] sm:h-[48px] w-auto transition-all duration-300 drop-shadow-md"
             />
           </Link>
 
@@ -200,9 +200,9 @@ export function Header() {
                 <img
                   src={logoWordmark.src}
                   alt="Teen Harbor"
-                  width={700}
-                  height={222}
-                  className="h-auto w-[130px]"
+                  width={500}
+                  height={500}
+                  className="h-[40px] w-auto"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
