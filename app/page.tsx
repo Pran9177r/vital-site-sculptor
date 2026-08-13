@@ -70,7 +70,8 @@ import notes from "@/assets/notes.jpg";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
-import TestimonialMarquee from "@/components/ui/testimonial-marquee";
+
+import { TestimonialSlider } from "@/components/TestimonialSlider";
 
 
 
@@ -698,7 +699,7 @@ export default function Page() {
             </p>
           </Reveal>
         </div>
-        <TestimonialMarquee />
+        <TestimonialSlider testimonials={TESTIMONIALS} />
       </section>
 
       {/* Team */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Reveal } from "@/lib/motion";
-import { TreatmentAccordion, Treatment } from "@/components/TreatmentAccordion";
+import { TreatmentTabs, Treatment } from "@/components/TreatmentTabs";
 import { BookOpen, Sparkles, Home, ShieldCheck } from "lucide-react";
 
 const TREATMENT_PROGRAMS: Treatment[] = [
@@ -128,6 +128,35 @@ export default function TreatmentAndServicesPage() {
         </div>
       </section>
 
+      {/* Our Program */}
+      <section className="py-20 md:py-32 bg-white border-b border-slate-100">
+        <div className="mx-auto max-w-4xl px-5">
+          <Reveal>
+            <span className="eyebrow block text-center">Healing & Growth</span>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="mt-4 text-3xl text-slate-900 text-center font-medium">Our Program</h2>
+          </Reveal>
+          <div className="mt-12 space-y-8 text-lg text-slate-600 leading-relaxed">
+            <Reveal delay={200}>
+              <p>
+                The residential program at Teen Harbor is meticulously structured to provide a balance of intensive therapeutic work, academic continuity, and restorative life-skills development. By treating the whole person rather than just a set of symptoms, we create a stable foundation where adolescents can rebuild their confidence and resilience.
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
+              <p>
+                Each day is thoughtfully designed with a blend of individual therapy, group counseling, and family integration sessions. Our clinical and medical professionals—including our dedicated Nurse Practitioners and Marriage and Family Therapists—collaborate continuously to ensure that every aspect of the teen's physical and emotional health is being supported.
+              </p>
+            </Reveal>
+            <Reveal delay={400}>
+              <p>
+                Beyond clinical care, we emphasize experiential learning and educational progress. An on-site tutor coordinates directly with each resident's home school district so they can stay on track academically. Simultaneously, structured wellness activities, mindfulness training, and life-skills workshops prepare our teens to successfully reintegrate into their daily lives with newly acquired coping mechanisms and a renewed sense of purpose.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* Treatment Programs Accordion */}
       <section id="treatment-programs" className="py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5">
@@ -145,7 +174,7 @@ export default function TreatmentAndServicesPage() {
             </Reveal>
           </div>
 
-          <TreatmentAccordion treatments={TREATMENT_PROGRAMS} />
+          <TreatmentTabs treatments={TREATMENT_PROGRAMS} />
         </div>
       </section>
 
@@ -166,7 +195,7 @@ export default function TreatmentAndServicesPage() {
             </Reveal>
           </div>
 
-          <TreatmentAccordion treatments={MENTAL_HEALTH_PROGRAMS} />
+          <TreatmentTabs treatments={MENTAL_HEALTH_PROGRAMS} />
         </div>
       </section>
 

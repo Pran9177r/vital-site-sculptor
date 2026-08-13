@@ -15,21 +15,21 @@ type NavItem = {
 
 const NAV: NavItem[] = [
   {
-    label: "Treatment Programs",
+    label: "About",
+    href: "/about",
+    subItems: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Team", href: "/about#team" },
+    ],
+  },
+  {
+    label: "Treatment and Services",
     href: "/treatment-and-services",
     subItems: [
-      { label: "All Treatment Programs", href: "/treatment-and-services" },
       { label: "Residential Treatment", href: "/treatment-and-services#residential" },
       { label: "Teen Holistic Education", href: "/treatment-and-services#education" },
       { label: "Parental Support Therapy", href: "/treatment-and-services#parental-support" },
       { label: "Life Skills Therapy", href: "/treatment-and-services#life-skills" },
-    ],
-  },
-  {
-    label: "Mental Health Programs",
-    href: "/treatment-and-services#mental-health",
-    subItems: [
-      { label: "All Mental Health Programs", href: "/treatment-and-services#mental-health" },
       { label: "Teen Anxiety Treatment", href: "/treatment-and-services#anxiety" },
       { label: "Teen Depression Treatment", href: "/treatment-and-services#depression" },
       { label: "Teen ADHD Treatment", href: "/treatment-and-services#adhd" },
@@ -39,14 +39,6 @@ const NAV: NavItem[] = [
       { label: "Dialectical Behavior Therapy", href: "/treatment-and-services#dbt" },
       { label: "Cognitive Behavioral Therapy", href: "/treatment-and-services#cbt" },
       { label: "Group Therapy", href: "/treatment-and-services#group-therapy" },
-    ],
-  },
-  {
-    label: "About",
-    href: "/about",
-    subItems: [
-      { label: "About Us", href: "/about" },
-      { label: "Our Team", href: "/about#team" },
     ],
   },
   {
