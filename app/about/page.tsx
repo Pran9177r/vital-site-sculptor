@@ -2,8 +2,6 @@
 
 import { Reveal } from "@/lib/motion";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
-import { FacilityGallery } from "@/components/FacilityGallery";
-import { Map, MapMarker, MarkerContent, MarkerTooltip } from "@/components/ui/mapcn-marker-tooltip";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 
@@ -32,14 +30,6 @@ const TEAM_MEMBERS = [
     ],
     imageUrl: team2.src,
   }
-];
-
-const FACILITY_IMAGES = [
-  { src: (require("@/assets/house-cta.jpg") as { default: { src: string } }).default.src, alt: "Teen Harbor exterior view" },
-  { src: (require("@/assets/life-at-harbor.jpg") as { default: { src: string } }).default.src, alt: "Outdoor relaxation area" },
-  { src: (require("@/assets/education.jpg") as { default: { src: string } }).default.src, alt: "Educational space" },
-  { src: (require("@/assets/services-therapy.jpg") as { default: { src: string } }).default.src, alt: "Living room" },
-  { src: (require("@/assets/group-circle.jpg") as { default: { src: string } }).default.src, alt: "Group meeting area" },
 ];
 
 export default function AboutPage() {
@@ -112,69 +102,6 @@ export default function AboutPage() {
                 delay={index * 0.2}
               />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Facility */}
-      <section className="py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Reveal>
-              <span className="eyebrow">Our Facility</span>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">A Healing Environment</h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-4 text-slate-600">
-                Located in Fresno County, our residential home provides a safe, nurturing, and comfortable setting designed to feel like a true home away from home.
-              </p>
-            </Reveal>
-          </div>
-
-          <FacilityGallery images={FACILITY_IMAGES} />
-
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="bg-navy py-20 md:py-32 text-white border-t border-white/10 relative overflow-hidden">
-        {/* Subtle dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none" />
-        
-        <div className="mx-auto max-w-5xl px-5 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <Reveal>
-              <h3 className="text-3xl md:text-4xl font-semibold text-white mb-10 text-center">Visit Us</h3>
-            </Reveal>
-            <Reveal delay={100}>
-              <div className="bg-white/5 p-4 md:p-6 rounded-[2rem] border border-white/10 backdrop-blur-md shadow-2xl">
-                <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-inner border border-white/20">
-                  <Map center={[-119.7871, 36.7468]} zoom={10}>
-                    <MapMarker longitude={-119.7871} latitude={36.7468}>
-                      <MarkerContent>
-                        <div data-mapcn-marker="Teen Harbor Residential Center" className="size-6 rounded-full border-2 border-white bg-amber-500 shadow-lg transition-transform hover:scale-125 flex items-center justify-center">
-                          <div className="size-2 rounded-full bg-white animate-ping" />
-                        </div>
-                      </MarkerContent>
-                      <MarkerTooltip>Teen Harbor Residential Center — Central Valley, CA</MarkerTooltip>
-                    </MapMarker>
-
-                    <MapMarker longitude={-119.8100} latitude={36.7550}>
-                      <MarkerContent>
-                        <div data-mapcn-marker="Admissions Center" className="size-5 rounded-full border-2 border-white bg-blue-500 shadow-lg transition-transform hover:scale-125" />
-                      </MarkerContent>
-                      <MarkerTooltip>Admissions & Family Welcome Center</MarkerTooltip>
-                    </MapMarker>
-                  </Map>
-                </div>
-                <div className="mt-8 mb-4 text-center text-white/90">
-                  <p className="font-semibold text-xl text-white mb-2">Teen Harbor</p>
-                  <p className="text-lg">895 S. Marks, Fresno, CA 93706</p>
-                </div>
-              </div>
-            </Reveal>
           </div>
         </div>
       </section>

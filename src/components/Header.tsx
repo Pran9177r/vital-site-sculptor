@@ -23,6 +23,10 @@ const NAV: NavItem[] = [
     ],
   },
   {
+    label: "Our Facility",
+    href: "/facility",
+  },
+  {
     label: "Treatment and Services",
     href: "/treatment-and-services",
     subItems: [
