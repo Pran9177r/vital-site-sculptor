@@ -3,6 +3,7 @@
 import { Reveal } from "@/lib/motion";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { FacilityGallery } from "@/components/FacilityGallery";
+import { Map, MapMarker, MarkerContent, MarkerTooltip } from "@/components/ui/mapcn-marker-tooltip";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 
@@ -137,16 +138,23 @@ export default function AboutPage() {
             <Reveal delay={100}>
               <div>
                 <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x80945e2fb6fb8b4b%3A0x8e83be69be293a38!2s895%20S%20Marks%20Ave%2C%20Fresno%2C%20CA%2093706!5e0!3m2!1sen!2sus!4v1715000000000!5m2!1sen!2sus"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Teen Harbor Location"
-                  ></iframe>
+                  <Map center={[-119.7871, 36.7468]} zoom={10}>
+                    <MapMarker longitude={-119.7871} latitude={36.7468}>
+                      <MarkerContent>
+                        <div data-mapcn-marker="Teen Harbor Residential Center" className="size-6 rounded-full border-2 border-white bg-amber-500 shadow-lg transition-transform hover:scale-125 flex items-center justify-center">
+                          <div className="size-2 rounded-full bg-white animate-ping" />
+                        </div>
+                      </MarkerContent>
+                      <MarkerTooltip>Teen Harbor Residential Center — Central Valley, CA</MarkerTooltip>
+                    </MapMarker>
+
+                    <MapMarker longitude={-119.8100} latitude={36.7550}>
+                      <MarkerContent>
+                        <div data-mapcn-marker="Admissions Center" className="size-5 rounded-full border-2 border-white bg-blue-600 shadow-lg transition-transform hover:scale-125" />
+                      </MarkerContent>
+                      <MarkerTooltip>Admissions & Family Welcome Center</MarkerTooltip>
+                    </MapMarker>
+                  </Map>
                 </div>
                 <div className="mt-6 text-center text-slate-600">
                   <p className="font-semibold text-slate-900">Teen Harbor</p>

@@ -70,7 +70,8 @@ import notes from "@/assets/notes.jpg";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
-import { TestimonialSlider } from "@/components/TestimonialSlider";
+import { BrandScroller, BrandScrollerReverse } from "@/components/ui/brand-scoller";
+import { ContactForm } from "@/components/ContactForm";
 
 
 
@@ -322,35 +323,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* What we offer */}
-      <section className="mx-auto max-w-6xl px-5 py-16 text-center">
-        <Reveal>
-          <span className="eyebrow">What We Offer</span>
-        </Reveal>
-        <Reveal delay={90}>
-          <h2 className="mx-auto mt-4 max-w-2xl text-3xl md:text-4xl">
-            Comprehensive Care For Every Teen's Needs
-          </h2>
-        </Reveal>
-        <Reveal delay={170}>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
-            Residential behavioral health services for adolescents in a safe, structured and
-            supportive environment.
-          </p>
-        </Reveal>
-        <div className="mt-10 grid gap-5 sm:grid-cols-3 lg:grid-cols-5">
-          {OFFERINGS.map(({ icon: Icon, label }, i) => (
-            <Reveal key={label} delay={i * 90}>
-              <div className="card-soft flex flex-col items-center gap-3 px-4 py-7">
-                <Icon className="h-7 w-7 text-primary" />
-                <p className="text-sm font-semibold leading-snug">{label}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Our Services / About */}
+{/* Our Services / About */}
       <section id="services" className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="relative">
@@ -549,142 +522,8 @@ export default function Page() {
           </div>
         </div>
       </section>
-
-      {/* Educational support */}
-      <section className="bg-sun/10 py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
-          <div>
-            <Reveal>
-              <h2 className="text-3xl md:text-4xl">Educational Support</h2>
-            </Reveal>
-            <span className="rule-line mt-4" />
-            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              At Teen Harbor, we believe that healing and education go hand in hand. A residential
-              treatment stay should not mean putting a student's future on hold. Continuing academic
-              progress helps provide structure, builds confidence and supports a successful
-              transition back to everyday life.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Our on-site credentialed tutor works with each adolescent to maintain educational
-              momentum throughout treatment. We collaborate closely with parents, schools and school
-              districts to develop an individualized plan that aligns with the student's academic
-              needs, credits, accommodations and graduation goals whenever possible.
-            </p>
-          </div>
-          <Reveal variant="scale" delay={120}>
-          <img
-            src={education.src}
-            alt="Credentialed tutor working with a student at Teen Harbor"
-            width={1000}
-            height={750}
-            loading="lazy"
-            className="img-zoom w-full rounded-2xl object-cover shadow-[var(--shadow-float)]"
-          />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Care journey / how it works */}
-      <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-        <div className="max-w-2xl">
-          <Reveal>
-            <span className="eyebrow">How It Works</span>
-          </Reveal>
-          <Reveal delay={90}>
-            <h2 className="mt-4 text-3xl md:text-4xl">The Care Journey, Step By Step</h2>
-          </Reveal>
-          <Reveal delay={170}>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              From the first phone call to life after discharge, families always know what comes
-              next.
-            </p>
-          </Reveal>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {JOURNEY.map(({ icon: Icon, step, title, body }, i) => (
-            <Reveal key={step} delay={i * 120}>
-              <article className="card-soft h-full p-6">
-                <div className="flex items-center justify-between">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sun/10 text-primary">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span className="text-sm font-semibold tracking-widest text-muted-foreground">
-                    {step}
-                  </span>
-                </div>
-                <h3 className="mt-5 text-lg">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Family support */}
-      <section className="bg-sun/10 py-20 md:py-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
-          <Reveal variant="scale">
-            <img
-              src={groupCircle.src}
-              alt="Family and clinician talking together in a group session"
-              width={1200}
-              height={900}
-              loading="lazy"
-              className="img-zoom w-full rounded-3xl object-cover shadow-[var(--shadow-float)]"
-            />
-          </Reveal>
-          <div>
-            <Reveal>
-              <span className="eyebrow">Family Support</span>
-            </Reveal>
-            <Reveal delay={90}>
-              <h2 className="mt-4 text-3xl md:text-4xl">Families Heal Together</h2>
-            </Reveal>
-            <span className="rule-line mt-5" />
-            <Reveal delay={150}>
-              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                Individual therapy, family therapy and ongoing communication help adolescents and
-                their loved ones strengthen relationships and build lasting skills. Families are part
-                of the journey from day one — included in the healing rather than waiting outside it.
-              </p>
-            </Reveal>
-            <Reveal delay={220}>
-              <a
-                href="/contact"
-                className="btn-motion mt-8 inline-block rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-float)] hover:opacity-90"
-              >
-                Talk With Admissions <span className="arrow-nudge">→</span>
-              </a>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Outcomes / benefits */}
-      <section className="mx-auto max-w-6xl px-5 py-20 md:py-28">
-        <div className="mx-auto max-w-2xl text-center">
-          <Reveal>
-            <span className="eyebrow">Outcomes</span>
-          </Reveal>
-          <Reveal delay={90}>
-            <h2 className="mt-4 text-3xl md:text-4xl">What Teens Take Home With Them</h2>
-          </Reveal>
-        </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {OUTCOMES.map(({ icon: Icon, title, body }, i) => (
-            <Reveal key={title} delay={i * 110}>
-              <article className="card-soft h-full p-6">
-                <Icon className="h-6 w-6 text-primary" />
-                <h3 className="mt-4 text-lg">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* Testimonials */}
-      <section className="py-16 overflow-hidden">
+      <section className="py-20 overflow-hidden bg-[#FAF7F2] border-b border-slate-200/50">
         <div className="mx-auto max-w-6xl px-5 text-center mb-10">
           <Reveal>
             <span className="eyebrow">Testimonials</span>
@@ -698,10 +537,15 @@ export default function Page() {
             </p>
           </Reveal>
         </div>
-        <TestimonialSlider testimonials={TESTIMONIALS} />
+        <Reveal delay={200}>
+          <div className="space-y-4">
+            <BrandScroller />
+            <BrandScrollerReverse />
+          </div>
+        </Reveal>
       </section>
 
-      {/* Team */}
+{/* Team */}
       <section id="team" className="bg-sun/10 py-16">
         <div className="mx-auto max-w-6xl px-5 text-center">
           <Reveal>

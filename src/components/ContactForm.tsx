@@ -82,21 +82,21 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="firstName" className="text-white">First Name</Label>
+          <Label htmlFor="firstName" className="text-slate-700 font-medium">First Name</Label>
           <Input 
             id="firstName"
             {...register("firstName")}
-            className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white focus:ring-white" 
+            className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
             placeholder="Jane"
           />
           {errors.firstName && <p className="text-red-300 text-xs mt-1">{errors.firstName.message}</p>}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="lastName" className="text-white">Last Name</Label>
+          <Label htmlFor="lastName" className="text-slate-700 font-medium">Last Name</Label>
           <Input 
             id="lastName"
             {...register("lastName")}
-            className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white focus:ring-white" 
+            className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
             placeholder="Doe"
           />
           {errors.lastName && <p className="text-red-300 text-xs mt-1">{errors.lastName.message}</p>}
@@ -104,35 +104,35 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email" className="text-white">Email Address</Label>
+        <Label htmlFor="email" className="text-slate-700 font-medium">Email Address</Label>
         <Input 
           id="email"
           type="email"
           {...register("email")}
-          className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white focus:ring-white" 
+          className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
           placeholder="jane@example.com"
         />
         {errors.email && <p className="text-red-300 text-xs mt-1">{errors.email.message}</p>}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="phone" className="text-white">Phone Number</Label>
+        <Label htmlFor="phone" className="text-slate-700 font-medium">Phone Number</Label>
         <Input 
           id="phone"
           type="tel"
           {...register("phone")}
-          className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white focus:ring-white" 
+          className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
           placeholder="(559) 000-0000"
         />
         {errors.phone && <p className="text-red-300 text-xs mt-1">{errors.phone.message}</p>}
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message" className="text-white">How can we help?</Label>
+        <Label htmlFor="message" className="text-slate-700 font-medium">How can we help?</Label>
         <Textarea 
           id="message"
           {...register("message")}
-          className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white focus:ring-white min-h-[120px]" 
+          className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors min-h-[120px] resize-y" 
           placeholder="Please describe your situation briefly..."
         />
         {errors.message && <p className="text-red-300 text-xs mt-1">{errors.message.message}</p>}
@@ -141,7 +141,7 @@ export function ContactForm() {
       <Button 
         type="submit" 
         disabled={isSubmitting}
-        className="w-full h-14 rounded-full bg-sun text-sun-foreground hover:bg-primary hover:text-primary-foreground font-semibold uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+        className="w-full h-14 rounded-xl bg-[#F97316] text-white hover:bg-[#EA580C] font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
       >
         {isSubmitting ? (
           <>

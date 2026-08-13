@@ -104,8 +104,8 @@ export default function ContactPage() {
             {/* Form */}
             <div className="lg:col-span-2">
               <Reveal delay={300}>
-                <div className="bg-navy p-8 md:p-12 rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border border-white/10">
-                  <h3 className="text-2xl font-semibold text-white mb-8">Send Us a Message</h3>
+                <div id="insurance" className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-slate-100">
+                  <h3 className="text-2xl font-semibold text-slate-900 mb-8">Send Us a Message / Verify Insurance</h3>
                   <ContactForm />
                 </div>
               </Reveal>
