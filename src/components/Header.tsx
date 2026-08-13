@@ -103,7 +103,7 @@ export function Header() {
             }`}
             aria-label="Home"
           >
-            <div className="absolute top-0 left-0 z-[60] origin-top-left transition-all duration-300">
+            <div className="absolute -top-2 sm:-top-3 md:-top-4 left-0 z-[60] origin-top-left transition-all duration-300">
               <img
                 src={logoWordmark.src}
                 alt="Teen Harbor"
