@@ -60,22 +60,26 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy / Story */}
-      <section className="py-20 md:py-32">
-        <div className="mx-auto max-w-4xl px-5">
+      <section className="py-20 md:py-32 relative overflow-hidden">
+        {/* Decorative background blur */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-100/40 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="mx-auto max-w-4xl px-5 relative z-10">
           <Reveal>
             <span className="eyebrow block text-center">Our Story</span>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="mt-4 text-3xl text-slate-900 text-center font-medium">A Foundation for Growth</h2>
+            <h2 className="mt-4 text-3xl md:text-4xl text-slate-900 text-center font-medium">A Foundation for Growth</h2>
           </Reveal>
-          <div className="mt-12 space-y-8 text-lg text-slate-600 leading-relaxed">
+          <div className="mt-16 space-y-8 text-lg md:text-xl text-slate-700 leading-relaxed font-medium bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/60 relative">
+            <div className="absolute -top-6 -left-6 text-9xl text-amber-500/20 font-serif leading-none select-none">"</div>
             <Reveal delay={200}>
-              <p>
+              <p className="relative z-10">
                 At Teen Harbor, we understand that adolescence is a critical time of development, often accompanied by complex emotional and behavioral challenges. We created Teen Harbor to be more than just a treatment center—we designed it to be a true harbor. A safe place where teens can anchor themselves, find stability, and begin the work of healing.
               </p>
             </Reveal>
             <Reveal delay={300}>
-              <p>
+              <p className="relative z-10">
                 Our philosophy is rooted in the belief that true recovery requires addressing the whole person. We don't just treat diagnoses; we treat individuals. By combining clinical excellence with a warm, home-like environment, we foster a culture of respect, empathy, and accountability.
               </p>
             </Reveal>
@@ -131,13 +135,22 @@ export default function AboutPage() {
 
           <FacilityGallery images={FACILITY_IMAGES} />
 
-          <div className="mt-20 max-w-4xl mx-auto">
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="bg-navy py-20 md:py-32 text-white border-t border-white/10 relative overflow-hidden">
+        {/* Subtle dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none" />
+        
+        <div className="mx-auto max-w-5xl px-5 relative z-10">
+          <div className="max-w-4xl mx-auto">
             <Reveal>
-              <h3 className="text-2xl font-semibold text-slate-900 mb-6 text-center">Visit Us</h3>
+              <h3 className="text-3xl md:text-4xl font-semibold text-white mb-10 text-center">Visit Us</h3>
             </Reveal>
             <Reveal delay={100}>
-              <div>
-                <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+              <div className="bg-white/5 p-4 md:p-6 rounded-[2rem] border border-white/10 backdrop-blur-md shadow-2xl">
+                <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-inner border border-white/20">
                   <Map center={[-119.7871, 36.7468]} zoom={10}>
                     <MapMarker longitude={-119.7871} latitude={36.7468}>
                       <MarkerContent>
@@ -150,16 +163,15 @@ export default function AboutPage() {
 
                     <MapMarker longitude={-119.8100} latitude={36.7550}>
                       <MarkerContent>
-                        <div data-mapcn-marker="Admissions Center" className="size-5 rounded-full border-2 border-white bg-blue-600 shadow-lg transition-transform hover:scale-125" />
+                        <div data-mapcn-marker="Admissions Center" className="size-5 rounded-full border-2 border-white bg-blue-500 shadow-lg transition-transform hover:scale-125" />
                       </MarkerContent>
                       <MarkerTooltip>Admissions & Family Welcome Center</MarkerTooltip>
                     </MapMarker>
                   </Map>
                 </div>
-                <div className="mt-6 text-center text-slate-600">
-                  <p className="font-semibold text-slate-900">Teen Harbor</p>
-                  <p>895 S. Marks</p>
-                  <p>Fresno, CA 93706</p>
+                <div className="mt-8 mb-4 text-center text-white/90">
+                  <p className="font-semibold text-xl text-white mb-2">Teen Harbor</p>
+                  <p className="text-lg">895 S. Marks, Fresno, CA 93706</p>
                 </div>
               </div>
             </Reveal>
