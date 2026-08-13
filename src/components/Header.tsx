@@ -96,7 +96,11 @@ export function Header() {
         >
           <Link 
             href="/" 
-            className="flex items-center shrink-0 relative h-[40px] sm:h-[48px] md:h-[56px] w-[80px] sm:w-[100px] md:w-[120px]"
+            className={`flex items-center shrink-0 relative transition-all duration-300 h-[40px] sm:h-[48px] md:h-[56px] ${
+              scrolled 
+                ? "w-[65px] sm:w-[80px] md:w-[90px]" 
+                : "w-[80px] sm:w-[100px] md:w-[120px]"
+            }`}
             aria-label="Home"
           >
             <div className="absolute top-0 left-0 z-[60] origin-top-left transition-all duration-300">
