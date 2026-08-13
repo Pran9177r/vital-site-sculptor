@@ -26,6 +26,8 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
   }, [testimonials.length]);
 
   if (!testimonials.length) return null;
+  const currentItem = testimonials[currentIndex] || testimonials[0];
+  if (!currentItem) return null;
 
   return (
     <div className="relative mx-auto max-w-4xl px-5 py-10 min-h-[300px] flex items-center justify-center">
@@ -40,15 +42,15 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
         >
           <Quote className="h-10 w-10 text-sun/50 mb-6 rotate-180" />
           <blockquote className="text-xl md:text-3xl font-medium text-slate-800 leading-snug mb-8">
-            "{testimonials[currentIndex].quote}"
+            "{currentItem.quote}"
           </blockquote>
           <div className="flex flex-col items-center">
             <span className="font-semibold text-primary text-lg tracking-wide">
-              {testimonials[currentIndex].name}
+              {currentItem.name}
             </span>
-            {testimonials[currentIndex].role && (
+            {currentItem.role && (
               <span className="text-sm text-slate-500 mt-1 uppercase tracking-widest">
-                {testimonials[currentIndex].role}
+                {currentItem.role}
               </span>
             )}
           </div>

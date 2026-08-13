@@ -65,64 +65,46 @@ const MENTAL_HEALTH_PROGRAMS: Treatment[] = [
   {
     id: "experiential",
     title: "Experiential Therapy",
-    subheader: "Healing Through Action and Engagement",
-    description: "Experiential therapy takes healing outside the traditional session room. Through activities like mindfulness exercises, recreational outings, and interactive challenges, teens learn to overcome obstacles and build confidence in real-world scenarios."
+    subheader: "Healing Through Active Engagement",
+    description: "Through therapeutic recreation, equine activities, art, and music, experiential therapy allows teens to process emotions, practice teamwork, and build self-esteem through hands-on, meaningful experiences."
   },
   {
     id: "dbt",
-    title: "Dialectical Behavior Therapy",
-    subheader: "Mastering Emotional Regulation",
-    description: "DBT is a powerful tool for teens struggling with intense emotions or impulsive behaviors. We teach core DBT skills—mindfulness, distress tolerance, emotion regulation, and interpersonal effectiveness—to help adolescents make healthier choices."
+    title: "Dialectical Behavior Therapy (DBT)",
+    subheader: "Mindfulness and Emotional Regulation",
+    description: "DBT provides adolescents with tangible skills for mindfulness, distress tolerance, emotion regulation, and interpersonal effectiveness, helping them manage intense emotions without turning to harmful behaviors."
   },
   {
     id: "cbt",
-    title: "Cognitive Behavioral Therapy",
+    title: "Cognitive Behavioral Therapy (CBT)",
     subheader: "Reframing Negative Thought Patterns",
-    description: "CBT helps teens understand the connection between their thoughts, feelings, and actions. By identifying and challenging negative cognitive distortions, we empower them to develop healthier perspectives and more positive behavioral responses."
+    description: "CBT helps teens recognize negative or distorted thought patterns and replace them with constructive, realistic beliefs. This structured approach empowers adolescents to develop healthy problem-solving skills."
   },
   {
     id: "group-therapy",
     title: "Group Therapy",
-    subheader: "Connection, Empathy, and Shared Growth",
-    description: "Group therapy provides a supportive peer environment where teens realize they are not alone. Guided by our clinical team, these sessions foster empathy, improve social skills, and build a strong sense of community and mutual support."
-  }
-];
-
-const PROGRAM_PILLARS = [
-  {
-    icon: ShieldCheck,
-    title: "Safe & Structured Environment",
-    body: "Healing requires safety. Our 24/7 awake overnight supervision and structured daily routines provide the stability necessary for teens to focus entirely on their recovery."
-  },
-  {
-    icon: BookOpen,
-    title: "Academic Continuity",
-    body: "Treatment shouldn't mean falling behind in school. An on-site credentialed tutor works directly with your teen's school district to ensure credits, accommodations, and graduation goals remain on track."
-  },
-  {
-    icon: Sparkles,
-    title: "Experiential & Wellness Activities",
-    body: "We incorporate fitness, mindfulness, art, music, and recreational activities. These experiential therapies help teens discover new passions and healthy outlets for stress."
-  },
-  {
-    icon: Home,
-    title: "Life Skills Development",
-    body: "Preparing for the future is vital. We teach essential life skills, including personal responsibility, healthy communication, and emotional regulation, ensuring a confident transition forward."
+    subheader: "Building Connection and Mutual Support",
+    description: "Group therapy sessions foster peer connection and reduce feelings of isolation. Guided by experienced clinicians, teens share experiences, practice social skills, and learn from one another in a safe, supportive setting."
   }
 ];
 
 export default function TreatmentAndServicesPage() {
   return (
-    <div className="flex flex-col w-full bg-white">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-slate-50 py-24 md:py-32 border-b border-slate-100">
+      <section className="bg-sun/10 py-20 md:py-28 border-b border-border/60">
         <div className="mx-auto max-w-4xl px-5 text-center">
           <Reveal>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Treatment and Services</h1>
+            <span className="eyebrow mx-auto">Comprehensive Residential Care</span>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-6 text-lg leading-relaxed text-slate-600">
-              Comprehensive, individualized care designed to support the unique needs of every teen and family.
+            <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-slate-900">
+              Treatment & Services
+            </h1>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Tailored, evidence-based residential care designed to support adolescents through mental health challenges and empower families toward long-term healing.
             </p>
           </Reveal>
         </div>
@@ -157,19 +139,21 @@ export default function TreatmentAndServicesPage() {
         </div>
       </section>
 
-      {/* Treatment Programs Accordion */}
+      {/* Treatment Programs Tabs */}
       <section id="treatment-programs" className="py-20 md:py-32">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="max-w-2xl mb-12">
             <Reveal>
-              <span className="eyebrow">Our Foundation</span>
+              <span className="eyebrow">Core Residential Care</span>
             </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">Treatment Programs</h2>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl font-bold text-slate-900">
+                Treatment Programs
+              </h2>
             </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-4 text-slate-600">
-                Core residential structures designed to foster stability, academic continuity, and familial healing in a supportive setting.
+            <Reveal delay={170}>
+              <p className="mt-4 text-base text-slate-600">
+                Comprehensive, multi-disciplinary care programs tailored to the unique needs of adolescents.
               </p>
             </Reveal>
           </div>
@@ -178,19 +162,21 @@ export default function TreatmentAndServicesPage() {
         </div>
       </section>
 
-      {/* Mental Health Programs Accordion */}
-      <section id="mental-health" className="py-20 md:py-32 bg-slate-50 border-y border-slate-100">
+      {/* Mental Health Programs Tabs */}
+      <section id="mental-health" className="py-20 md:py-32 bg-slate-50/50 border-t border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="max-w-2xl mb-12">
             <Reveal>
-              <span className="eyebrow">Clinical Excellence</span>
+              <span className="eyebrow">Specialized Therapy</span>
             </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">Mental Health Programs & Therapies</h2>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl font-bold text-slate-900">
+                Mental Health Programs & Modalities
+              </h2>
             </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-4 text-slate-600">
-                Evidence-based modalities and specialized approaches tailored to address specific diagnoses, emotional challenges, and behavioral needs.
+            <Reveal delay={170}>
+              <p className="mt-4 text-base text-slate-600">
+                Evidence-based modalities and targeted clinical approaches addressing specific mental health conditions.
               </p>
             </Reveal>
           </div>
@@ -199,36 +185,35 @@ export default function TreatmentAndServicesPage() {
         </div>
       </section>
 
-      {/* Our Program */}
-      <section className="bg-white py-20 md:py-32">
-        <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Reveal>
-              <span className="eyebrow">Our Program</span>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">A Holistic Approach to Recovery</h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-4 text-slate-600">
-                Healing happens in the therapy room and in the everyday moments. Our program balances clinical excellence with everyday life skills.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2">
-            {PROGRAM_PILLARS.map(({ icon: Icon, title, body }, i) => (
-              <Reveal key={title} delay={i * 100}>
-                <div className="card-soft flex flex-col p-8 h-full bg-white border border-slate-100">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-sun/10 text-primary mb-6">
-                    <Icon className="h-7 w-7" />
-                  </span>
-                  <h3 className="text-xl font-semibold text-slate-900">{title}</h3>
-                  <p className="mt-4 text-slate-600 leading-relaxed">{body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+      {/* Bottom CTA */}
+      <section className="bg-navy text-navy-foreground py-20">
+        <div className="mx-auto max-w-4xl px-5 text-center">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Ready to Begin the Journey to Healing?
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+              Our admissions team is available 24/7 to answer your questions and help determine if Teen Harbor is the right fit for your adolescent.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-sun px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-sun-foreground hover:bg-white hover:text-navy transition-all shadow-lg"
+              >
+                Get Help Now
+              </a>
+              <a
+                href="tel:8005001000"
+                className="inline-flex items-center justify-center rounded-full border border-white/30 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-all"
+              >
+                Call Admissions
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>

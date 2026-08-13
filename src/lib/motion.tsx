@@ -66,8 +66,7 @@ type RevealProps = {
  * extra DOM node, so layout, spacing and grid structure stay identical.
  */
 export function Reveal({ children, delay = 0, variant = "up", immediate = false }: RevealProps) {
-  const child = Children.only(children);
-  const { ref, inView } = useInView<HTMLElement>();
+  const { ref, inView } = useInView<HTMLDivElement>();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -75,30 +74,40 @@ export function Reveal({ children, delay = 0, variant = "up", immediate = false 
     return () => cancelAnimationFrame(id);
   }, []);
 
-  if (!isValidElement(child)) return <>{children}</>;
-
-  const element = child as ReactElement<{
-    className?: string;
-    style?: CSSProperties;
-    ref?: Ref<HTMLElement>;
-  }>;
-
   const visible = immediate ? mounted : inView;
 
-  return cloneElement(element, {
-    ref,
-    className: [
-      element.props.className,
-      `reveal reveal-${variant}`,
-      visible ? "is-in" : undefined,
-    ]
-      .filter(Boolean)
-      .join(" "),
-    style: {
-      ...element.props.style,
-      ...(delay ? ({ "--reveal-delay": `${delay}ms` } as CSSProperties) : null),
-    },
-  });
+  const childArray = Children.toArray(children);
+  if (childArray.length === 1 && isValidElement(childArray[0])) {
+    const element = childArray[0] as ReactElement<{
+      className?: string;
+      style?: CSSProperties;
+      ref?: Ref<HTMLElement>;
+    }>;
+    return cloneElement(element, {
+      ref: ref as unknown as Ref<HTMLElement>,
+      className: [
+        element.props.className,
+        `reveal reveal-${variant}`,
+        visible ? "is-in" : undefined,
+      ]
+        .filter(Boolean)
+        .join(" "),
+      style: {
+        ...element.props.style,
+        ...(delay ? ({ "--reveal-delay": `${delay}ms` } as CSSProperties) : null),
+      },
+    });
+  }
+
+  return (
+    <div
+      ref={ref}
+      className={[`reveal reveal-${variant}`, visible ? "is-in" : undefined].filter(Boolean).join(" ")}
+      style={delay ? ({ "--reveal-delay": `${delay}ms` } as CSSProperties) : undefined}
+    >
+      {children}
+    </div>
+  );
 }
 
 /**

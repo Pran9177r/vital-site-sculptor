@@ -16,9 +16,12 @@ interface TreatmentTabsProps {
 }
 
 export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
-  const [activeId, setActiveId] = useState<string>(treatments[0]?.id);
+  const [activeId, setActiveId] = useState<string>(treatments[0]?.id || "");
+
+  if (!treatments.length) return null;
 
   const activeTreatment = treatments.find((t) => t.id === activeId) || treatments[0];
+  if (!activeTreatment) return null;
 
   return (
     <div className="flex flex-col md:flex-row gap-8 md:gap-12 w-full">
@@ -57,7 +60,7 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
               <span>{t.title}</span>
               {isActive && (
                 <motion.div
-                  layoutId={`active-tab-${treatments[0].id}`}
+                  layoutId={`active-tab-${treatments[0]?.id || "tab"}`}
                   className="absolute -right-[1px] top-1/2 h-8 w-[3px] -translate-y-1/2 rounded-l-full bg-primary"
                 />
               )}
