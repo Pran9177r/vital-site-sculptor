@@ -94,14 +94,24 @@ export function Header() {
             scrolled ? "py-2" : "py-3.5"
           }`}
         >
-          <Link href="/" className="flex items-center link-motion shrink-0">
-            <img
-              src={logoWordmark.src}
-              alt="Teen Harbor"
-              width={500}
-              height={500}
-              className="h-[80px] sm:h-[100px] md:h-[120px] w-auto transition-all duration-300 drop-shadow-md"
-            />
+          <Link 
+            href="/" 
+            className="flex items-center shrink-0 relative h-[40px] sm:h-[48px] md:h-[56px] w-[80px] sm:w-[100px] md:w-[120px]"
+            aria-label="Home"
+          >
+            <div className="absolute top-0 left-0 z-[60] origin-top-left transition-all duration-300">
+              <img
+                src={logoWordmark.src}
+                alt="Teen Harbor"
+                width={500}
+                height={500}
+                className={`w-auto transition-all duration-300 drop-shadow-md ${
+                  scrolled 
+                    ? "h-[65px] sm:h-[80px] md:h-[90px]" 
+                    : "h-[80px] sm:h-[100px] md:h-[120px]"
+                }`}
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
