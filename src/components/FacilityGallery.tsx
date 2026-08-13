@@ -29,7 +29,7 @@ export function FacilityGallery({ images }: FacilityGalleryProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`cursor-pointer overflow-hidden rounded-xl bg-slate-100 group relative ${
+            className={`cursor-pointer overflow-hidden rounded-xl bg-slate-100 group relative aspect-square ${
               index === 0 ? "col-span-2 row-span-2 md:col-span-2 md:row-span-2" : "col-span-1 row-span-1"
             }`}
             onClick={() => setSelectedImage(img)}
