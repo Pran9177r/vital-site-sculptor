@@ -100,7 +100,7 @@ export function Header() {
               alt="Teen Harbor"
               width={500}
               height={500}
-              className="h-[60px] sm:h-[72px] md:h-[84px] w-auto transition-all duration-300 drop-shadow-md"
+              className="h-[80px] sm:h-[100px] md:h-[120px] w-auto transition-all duration-300 drop-shadow-md"
             />
           </Link>
 
@@ -202,7 +202,7 @@ export function Header() {
                   alt="Teen Harbor"
                   width={500}
                   height={500}
-                  className="h-[60px] w-auto"
+                  className="h-[90px] w-auto"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}

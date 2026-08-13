@@ -23,7 +23,7 @@ export function Footer() {
               width={500}
               height={500}
               loading="lazy"
-              className="h-[100px] w-auto brightness-0 invert"
+              className="h-[140px] w-auto brightness-0 invert"
             />
           </Link>
           <p className="text-sm opacity-75 leading-relaxed">
