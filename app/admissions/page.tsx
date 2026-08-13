@@ -121,7 +121,7 @@ export default function AdmissionsPage() {
             alt="Preparing for Your Stay Background" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-slate-900/70" />
         </div>
 
         <div className="mx-auto max-w-6xl px-5 relative z-10">
