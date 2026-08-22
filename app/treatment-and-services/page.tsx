@@ -5,6 +5,12 @@ import { TreatmentTabs, Treatment } from "@/components/TreatmentTabs";
 import { BookOpen, Sparkles, Home, ShieldCheck } from "lucide-react";
 import servicesTherapy from "@/assets/services-therapy.jpg";
 import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const TREATMENT_PROGRAMS: Treatment[] = [
   {
@@ -90,6 +96,105 @@ const MENTAL_HEALTH_PROGRAMS: Treatment[] = [
   }
 ];
 
+const CONDITIONS_TREATED = [
+  {
+    category: "Mood Disorders",
+    conditions: [
+      "Major Depressive Disorder",
+      "Persistent Depressive Disorder (Dysthymia)",
+      "Disruptive Mood Dysregulation Disorder (DMDD)",
+      "Bipolar Disorders, when clinically appropriate",
+      "Other Specified Depressive Disorders",
+    ],
+  },
+  {
+    category: "Anxiety Disorders",
+    conditions: [
+      "Generalized Anxiety Disorder",
+      "Social Anxiety Disorder",
+      "Panic Disorder",
+      "Separation Anxiety Disorder",
+      "Specific Phobias",
+      "Other Specified Anxiety Disorders",
+    ],
+  },
+  {
+    category: "Trauma & Stressor-Related Disorders",
+    conditions: [
+      "Post-Traumatic Stress Disorder (PTSD)",
+      "Acute Stress Disorder",
+      "Adjustment Disorders",
+      "Other Trauma- and Stressor-Related Disorders",
+      "Complex trauma symptoms",
+    ],
+  },
+  {
+    category: "Behavioral & Impulse-Control Disorders",
+    conditions: [
+      "Oppositional Defiant Disorder (ODD)",
+      "Conduct Disorder, when clinically appropriate",
+      "Intermittent Explosive Disorder",
+      "Impulse-control difficulties",
+      "Emotional and behavioral dysregulation",
+    ],
+  },
+  {
+    category: "Neurodevelopmental & Related Conditions",
+    conditions: [
+      "Attention-Deficit/Hyperactivity Disorder (ADHD)",
+      "Autism Spectrum Disorder, when the adolescent can safely and appropriately participate in the program",
+      "Learning disorders when occurring alongside a primary behavioral health condition",
+    ],
+  },
+  {
+    category: "Obsessive-Compulsive & Related Disorders",
+    conditions: [
+      "Obsessive-Compulsive Disorder (OCD)",
+      "Body-Focused Repetitive Behaviors",
+      "Other Specified Obsessive-Compulsive and Related Disorders",
+    ],
+  },
+  {
+    category: "Eating & Body-Image Concerns",
+    conditions: [
+      "Disordered eating behaviors when medically stable and not requiring specialized eating-disorder treatment",
+      "Body-image concerns",
+    ],
+  },
+  {
+    category: "Substance Use & Co-Occurring Disorders",
+    description: "When services are permitted under the program's current licensing/certification and scope:",
+    conditions: [
+      "Alcohol Use Disorder",
+      "Cannabis Use Disorder",
+      "Stimulant Use Disorder",
+      "Opioid Use Disorder",
+      "Other Substance Use Disorders",
+      "Co-occurring mental health and substance use disorders",
+      "Substance-related behavioral and emotional concerns",
+    ],
+  },
+  {
+    category: "Other Presenting Concerns",
+    description: "Teen Harbor may also provide treatment and stabilization for adolescents experiencing:",
+    conditions: [
+      "Suicidal ideation without need for acute inpatient hospitalization",
+      "Non-suicidal self-injury/self-harming behaviors",
+      "School refusal",
+      "Family conflict",
+      "Anger and aggression",
+      "Poor impulse control",
+      "Low self-esteem",
+      "Grief and loss",
+      "Social isolation",
+      "Difficulty with emotional regulation",
+      "Attachment and relationship difficulties",
+      "Academic and social functioning challenges",
+      "History of psychiatric hospitalization or repeated treatment placements",
+    ],
+  },
+];
+
 export default function TreatmentAndServicesPage() {
   return (
     <div className="min-h-screen bg-background">
@@ -148,6 +253,56 @@ export default function TreatmentAndServicesPage() {
               </p>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Conditions We Treat */}
+      <section id="conditions" className="py-20 md:py-32 bg-slate-50/50">
+        <div className="mx-auto max-w-4xl px-5">
+          <div className="text-center mb-16">
+            <Reveal>
+              <span className="eyebrow mx-auto">Comprehensive Support</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl font-bold text-slate-900">
+                Conditions We Treat
+              </h2>
+            </Reveal>
+            <Reveal delay={170}>
+              <p className="mt-4 text-base text-slate-600 max-w-2xl mx-auto">
+                We provide targeted, evidence-based care for a wide spectrum of behavioral health challenges, working closely with families to ensure the best possible outcomes.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal delay={200}>
+            <div className="bg-white rounded-2xl border border-slate-100 p-2 sm:p-6 shadow-sm">
+              <Accordion type="single" collapsible className="w-full">
+                {CONDITIONS_TREATED.map((item, index) => (
+                  <AccordionItem key={item.category} value={`item-${index}`} className="border-slate-100 last:border-0 px-2 sm:px-4">
+                    <AccordionTrigger className="text-left text-lg font-semibold text-slate-800 hover:text-primary hover:no-underline py-5">
+                      {item.category}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-slate-600 pb-5">
+                      {item.description && (
+                        <p className="mb-4 text-sm font-medium text-slate-700 italic">
+                          {item.description}
+                        </p>
+                      )}
+                      <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+                        {item.conditions.map((condition, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/40 shrink-0 mt-2" />
+                            <span className="leading-relaxed text-[15px]">{condition}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </Reveal>
         </div>
       </section>
 

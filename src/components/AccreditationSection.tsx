@@ -34,7 +34,7 @@ export function AccreditationSection({ accreditations }: AccreditationSectionPro
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex flex-col items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+            className="flex flex-col items-center justify-center p-2"
           >
             {acc.logoUrl ? (
               <img

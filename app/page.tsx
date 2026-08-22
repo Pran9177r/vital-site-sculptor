@@ -450,21 +450,6 @@ export default function Page() {
       {/* Sticky care-approach storytelling */}
       <CareApproachStory />
 
-      {/* Large centered statement */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-4xl px-5 py-24 text-center md:py-32">
-          <Reveal>
-            <span className="eyebrow">Our Belief</span>
-          </Reveal>
-          <Reveal delay={110}>
-            <p className="mt-6 text-2xl leading-snug md:text-4xl">
-              No two adolescents are alike, and neither are their treatment plans. We treat the whole
-              person — not just the symptoms.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       {/* What makes us different */}
       <section id="about" className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid items-center gap-12 md:grid-cols-2">

@@ -81,38 +81,42 @@ export function Header() {
   return (
     <>
       <header
-        className={`${isHome ? "fixed w-full" : "sticky"} top-0 z-50 border-b backdrop-blur-md transition-all duration-300 ${
+        className={`${isHome ? "fixed w-full" : "sticky"} top-0 z-50 border-b transition-all duration-300 ${
           isTransparent
             ? "bg-transparent border-transparent"
             : scrolled
-            ? "bg-white/95 border-border shadow-[var(--shadow-card)]"
+            ? "bg-white/95 backdrop-blur-md border-border shadow-[var(--shadow-card)]"
             : "bg-white border-transparent"
         }`}
       >
         <div
           className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 transition-all duration-300 ${
-            scrolled ? "py-2" : "py-3.5"
+            scrolled || !isHome ? "py-2" : "py-3.5"
           }`}
         >
           <Link
             href="/"
             className={`flex items-center shrink-0 relative transition-all duration-300 h-[48px] sm:h-[58px] md:h-[68px] ${
-              scrolled
-                ? "w-[78px] sm:w-[96px] md:w-[108px]"
-                : "w-[96px] sm:w-[120px] md:w-[144px]"
+              scrolled || !isHome
+                ? "w-[150px] sm:w-[180px] md:w-[210px]"
+                : "w-[144px] sm:w-[180px] md:w-[216px]"
             }`}
             aria-label="Home"
           >
-            <div className="absolute -top-2 sm:-top-3 md:-top-4 left-0 z-[60] origin-top-left transition-all duration-300">
+            <div className={`absolute left-0 z-[60] origin-left transition-all duration-300 flex items-center ${
+              scrolled || !isHome
+                ? "top-1/2 -translate-y-1/2" // Centers vertically in the navbar when scrolled or on inner pages
+                : "-top-4 sm:-top-6 md:-top-8" // Overhangs when at top of home page
+            }`}>
               <img
                 src={logoWordmark.src}
                 alt="Teen Harbor"
                 width={500}
                 height={500}
                 className={`w-auto transition-all duration-300 drop-shadow-md ${
-                  scrolled
-                    ? "h-[78px] sm:h-[96px] md:h-[108px]"
-                    : "h-[96px] sm:h-[120px] md:h-[144px]"
+                  scrolled || !isHome
+                    ? "h-[60px] sm:h-[72px] md:h-[84px]" // Static logo size
+                    : "h-[144px] sm:h-[180px] md:h-[216px]" // Large
                 }`}
               />
             </div>
@@ -216,7 +220,7 @@ export function Header() {
                   alt="Teen Harbor"
                   width={500}
                   height={500}
-                  className="h-[90px] w-auto"
+                  className="h-[120px] w-auto"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}

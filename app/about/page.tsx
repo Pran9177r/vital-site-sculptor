@@ -4,9 +4,32 @@ import { Reveal } from "@/lib/motion";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
+import team3 from "@/assets/team-3.jpg";
 import Image from "next/image";
 
 const TEAM_MEMBERS = [
+  {
+    name: "Paige Williamson",
+    title: "Chief Operating Officer",
+    bio: [
+      "Paige Williamson is an experienced healthcare and behavioral health leader with a background spanning operations, business development, clinical services, and organizational growth. Throughout her career, she has focused on building strong programs, supporting teams, and creating systems that improve both the client and employee experience.",
+      "Her experience includes leadership in behavioral healthcare, hospital business development, utilization management, senior care, and hospice services. Most recently, Paige has been involved in the development and operation of adolescent behavioral health services, helping guide programs through licensing, accreditation, compliance, and day-to-day operations.",
+      "Paige enjoys taking ideas from concept to implementation and finding practical solutions that help organizations grow while keeping quality of care at the center.",
+      "Outside of her professional work, Paige is a mom of three and enjoys pursuing new entrepreneurial projects and creating meaningful experiences with her family."
+    ],
+    imageUrl: team3.src,
+  },
+  {
+    name: "Silvia Rios",
+    title: "Administrator and Clinical Director, LMFT",
+    bio: [
+      "Silvia Rios serves as the Administrator and Clinical Director of Teen Harbor, where she has been an integral part of the program since May 2025. In her leadership role, Silvia oversees clinical programming and operations while supporting Teen Harbor’s mission to provide compassionate, structured, and individualized behavioral health treatment to adolescents and their families.",
+      "Silvia is a Licensed Marriage and Family Therapist with more than 16 years of experience across diverse mental health settings. Her clinical background includes crisis intervention, child and adolescent therapy, marriage and family therapy, trauma-informed care, domestic violence, and supporting individuals and families experiencing grief, loss, and other complex behavioral health needs.",
+      "Prior to joining Teen Harbor, Silvia held progressive leadership roles with Exodus Recovery, beginning as a Social Services Coordinator in 2018 and later serving as Clinical Director for the Fresno Exodus facilities. Her experience in both direct clinical care and program leadership provides a strong foundation for overseeing Teen Harbor's multidisciplinary treatment environment.",
+      "Silvia holds an Associate of Arts degree in Business Administration, a Bachelor's degree in Early Childhood Development, and a Master's degree in Counseling Psychology. At Teen Harbor, she combines her clinical expertise, leadership experience, and commitment to youth mental health to help create a safe and supportive environment where adolescents can develop the skills and stability needed for lasting progress."
+    ],
+    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/SilviaRios_vv8ulc.jpg",
+  },
   {
     name: "Kirandeep Sangha",
     title: "Associate Marriage and Family Therapist (#158272)",
