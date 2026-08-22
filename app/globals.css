@@ -110,8 +110,8 @@
   --mint-deep: oklch(0.9 0.035 175);
   --navy: oklch(0.24 0.075 268);
   --navy-foreground: oklch(0.98 0.01 268);
-  --pill: oklch(0.94 0.045 5);
-  --pill-foreground: oklch(0.62 0.19 8);
+  --pill: oklch(0.95 0.05 55);
+  --pill-foreground: oklch(0.5 0.17 50);
   --brand: oklch(0.24 0.075 268);
   --brand-foreground: oklch(1 0 0);
   --brand-soft: oklch(0.95 0.02 268);

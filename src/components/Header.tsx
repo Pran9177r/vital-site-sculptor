@@ -94,12 +94,12 @@ export function Header() {
             scrolled ? "py-2" : "py-3.5"
           }`}
         >
-          <Link 
-            href="/" 
-            className={`flex items-center shrink-0 relative transition-all duration-300 h-[40px] sm:h-[48px] md:h-[56px] ${
-              scrolled 
-                ? "w-[65px] sm:w-[80px] md:w-[90px]" 
-                : "w-[80px] sm:w-[100px] md:w-[120px]"
+          <Link
+            href="/"
+            className={`flex items-center shrink-0 relative transition-all duration-300 h-[48px] sm:h-[58px] md:h-[68px] ${
+              scrolled
+                ? "w-[78px] sm:w-[96px] md:w-[108px]"
+                : "w-[96px] sm:w-[120px] md:w-[144px]"
             }`}
             aria-label="Home"
           >
@@ -110,9 +110,9 @@ export function Header() {
                 width={500}
                 height={500}
                 className={`w-auto transition-all duration-300 drop-shadow-md ${
-                  scrolled 
-                    ? "h-[65px] sm:h-[80px] md:h-[90px]" 
-                    : "h-[80px] sm:h-[100px] md:h-[120px]"
+                  scrolled
+                    ? "h-[78px] sm:h-[96px] md:h-[108px]"
+                    : "h-[96px] sm:h-[120px] md:h-[144px]"
                 }`}
               />
             </div>
@@ -129,7 +129,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 text-[13px] font-semibold tracking-wide transition-colors py-4 ${
+                  className={`flex items-center gap-1 text-[15px] font-semibold tracking-wide transition-colors py-4 ${
                     pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href))
                       ? (isTransparent ? "text-white" : "text-primary")
                       : (isTransparent ? "text-white/90 hover:text-white" : "text-slate-700 hover:text-primary")
@@ -175,7 +175,7 @@ export function Header() {
           <div className="hidden xl:flex items-center gap-3 shrink-0">
             <Link
               href="/contact"
-              className="flex items-center justify-center gap-3 rounded-full bg-sun px-6 py-2.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-xl"
+              className="flex items-center justify-center gap-3 rounded-full bg-sun px-7 py-3 text-[15px] font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-xl"
             >
               Get Help Now
             </Link>

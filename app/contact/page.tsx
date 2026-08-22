@@ -34,8 +34,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 md:py-32 relative">
-        <div className="absolute inset-0 bg-navy pointer-events-none" style={{ height: '60%' }} />
+      <section className="py-20 md:py-32 relative bg-navy">
         
         <div className="mx-auto max-w-6xl px-5 relative z-10">
           <div className="grid lg:grid-cols-3 gap-10">

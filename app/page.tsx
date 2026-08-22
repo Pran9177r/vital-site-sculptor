@@ -187,7 +187,7 @@ const TRUST = [
   { value: "24/7", label: "Awake overnight supervision" },
   { value: "12–17", label: "Adolescent-only program" },
   { value: "1:1", label: "Individualized treatment plans" },
-  { value: "6 beds", label: "Small, home-like setting" },
+  { value: "6 beds", label: "Home like setting" },
 ];
 
 const JOURNEY = [
@@ -397,7 +397,7 @@ export default function Page() {
       </section>
 
       {/* Treatment */}
-      <section id="treatment" className="bg-sun/10 py-16">
+      <section id="treatment" className="bg-[#E5F3FD] py-16">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
             <span className="eyebrow">Treatment</span>
@@ -524,7 +524,7 @@ export default function Page() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 overflow-hidden bg-[#FAF7F2] border-b border-slate-200/50">
+      <section className="py-20 overflow-hidden bg-[#F5FBFF] border-b border-slate-200/50">
         <div className="mx-auto max-w-6xl px-5 text-center mb-10">
           <Reveal>
             <span className="eyebrow">Testimonials</span>
@@ -547,7 +547,7 @@ export default function Page() {
       </section>
 
 {/* Team */}
-      <section id="team" className="bg-sun/10 py-16">
+      <section id="team" className="bg-[#E5F3FD] py-16">
         <div className="mx-auto max-w-6xl px-5 text-center">
           <Reveal>
             <span className="eyebrow">Meet Our Team</span>
@@ -584,7 +584,7 @@ export default function Page() {
       </div>
 
       {/* Resources */}
-      <section className="bg-sun/10 py-20 md:py-28">
+      <section className="bg-[#E5F3FD] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5">
           <div className="max-w-2xl">
             <Reveal>
