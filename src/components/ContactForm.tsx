@@ -51,7 +51,7 @@ export function ContactForm() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
+          access_key: process.env["NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY"] || "YOUR_ACCESS_KEY_HERE",
           subject: "New Contact Form Submission - Teen Harbor",
           from_name: "Teen Harbor Website",
           // Map form fields
