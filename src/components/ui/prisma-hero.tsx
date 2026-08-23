@@ -104,7 +104,7 @@ export const PrismaHero = () => {
                 className="font-medium leading-[1.1] tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4"
                 style={{ color: "#E1E0CC" }}
               >
-                <WordsPullUp text="Central Valleys Residential Treatment Center for Youth." />
+                <WordsPullUp text="Central Valley's Residential Treatment Center for Youth." />
               </h1>
             </div>
 
