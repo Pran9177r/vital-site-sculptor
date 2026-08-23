@@ -3,6 +3,7 @@
 import { Reveal } from "@/lib/motion";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import Image from "next/image";
+import { FacilityGallery } from "@/components/FacilityGallery";
 
 const TEAM_MEMBERS = [
   {
@@ -52,6 +53,16 @@ const TEAM_MEMBERS = [
     imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787516397/salvia_lzrcrk.webp",
     objectPosition: "object-center",
   }
+];
+
+const ABOUT_IMAGES = [
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518400/IMG_8281_tskxsl.jpg", alt: "Teen Harbor Campus" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518379/IMG_8287_llksok.jpg", alt: "Comfortable Environment" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518301/IMG_6079_uz4hyj.jpg", alt: "Serene Spaces" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg", alt: "Facility Exterior" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg", alt: "Facility Interior and Patio" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470641/ChatGPT_Image_Aug_23_2026_at_03_33_19_AM_is4fzk.png", alt: "Covered Patio" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470623/987a11bf-020a-45ac-8487-a8a8962f0f36_pzctqw.png", alt: "Comfortable Bedroom" },
 ];
 
 export default function AboutPage() {
@@ -135,6 +146,26 @@ export default function AboutPage() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="bg-white py-20 md:py-32" id="gallery">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <Reveal>
+              <span className="eyebrow">Our Environment</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900 font-medium">Healing & Comfort</h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="mt-4 text-slate-600 text-lg">
+                A glimpse into the Teen Harbor campus, thoughtfully designed to foster healing, connection, and comfort.
+              </p>
+            </Reveal>
+          </div>
+          <FacilityGallery images={ABOUT_IMAGES} />
         </div>
       </section>
     </div>

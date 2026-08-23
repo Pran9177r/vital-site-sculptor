@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -17,6 +17,7 @@ interface TreatmentTabsProps {
 
 export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
   const [activeId, setActiveId] = useState<string>(treatments[0]?.id || "");
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -25,16 +26,9 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
         setActiveId(hash);
         // Add a slight delay to allow rendering before scrolling
         setTimeout(() => {
-          const element = document.getElementById(hash);
-          if (element) {
-            // Calculate offset to account for sticky header
-            const headerOffset = 100;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - headerOffset;
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth"
-            });
+          if (containerRef.current) {
+            // Scroll the whole component into the center of the screen
+            containerRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           }
         }, 50);
       }
@@ -54,7 +48,7 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
   if (!activeTreatment) return null;
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 md:gap-12 w-full">
+    <div ref={containerRef} className="flex flex-col md:flex-row gap-8 md:gap-12 w-full">
       {/* Mobile Dropdown */}
       <div className="md:hidden relative w-full">
         <select
@@ -80,7 +74,6 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
           return (
             <button
               key={t.id}
-              id={t.id}
               onClick={() => {
                 setActiveId(t.id);
                 window.history.pushState(null, "", `#${t.id}`);
@@ -112,7 +105,7 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col h-full justify-center bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm"
+            className="flex flex-col h-full justify-start bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm"
           >
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
               {activeTreatment.title}

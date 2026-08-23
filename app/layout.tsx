@@ -5,6 +5,7 @@ import Providers from "./providers";
 import { Phone } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,17 +30,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
-      <body className={`${poppins.className} min-h-screen flex flex-col`}>
+      <body className={`${poppins.className} min-h-screen flex flex-col`} suppressHydrationWarning>
         <Providers>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
+          <SmoothScrolling>
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScrolling>
         </Providers>
 
         {/* Floating Call Button */}

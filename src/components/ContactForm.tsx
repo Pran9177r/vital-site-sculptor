@@ -44,14 +44,33 @@ export function ContactForm() {
     setIsSubmitting(true);
     
     try {
-      // In a real application, you would POST this to your API route
-      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) });
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
+          subject: "New Contact Form Submission - Teen Harbor",
+          from_name: "Teen Harbor Website",
+          // Map form fields
+          name: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          phone: data.phone,
+          message: data.message,
+        }),
+      });
+
+      const result = await response.json();
       
-      // Simulate network request
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      setIsSuccess(true);
-      reset();
+      if (result.success) {
+        setIsSuccess(true);
+        reset();
+      } else {
+        console.error("Form submission failed:", result.message);
+        // Fallback to error handling here if desired, but for now we'll just log
+      }
     } catch (error) {
       console.error("Failed to submit form", error);
     } finally {

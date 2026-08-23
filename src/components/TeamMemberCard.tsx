@@ -83,7 +83,7 @@ export function TeamMemberCard({ name, title, bio, imageUrl, delay = 0, objectPo
           </div>
           
           {/* Bio Scroll Area */}
-          <div className="p-8 overflow-y-auto flex-1">
+          <div className="p-8 overflow-y-auto flex-1" data-lenis-prevent="true">
             <div className="space-y-5 text-[15px] leading-relaxed text-slate-600 font-medium">
               {bio.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
