@@ -59,8 +59,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-white">Phone</p>
-                      <a href="tel:5595895825" className="text-white/80 hover:text-sun transition-colors">
-                        559-589-5825
+                      <a href="tel:5592341001" className="text-white/80 hover:text-sun transition-colors">
+                        559-234-1001
                       </a>
                     </div>
                   </div>

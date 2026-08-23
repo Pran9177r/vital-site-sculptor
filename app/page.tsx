@@ -1,6 +1,5 @@
 "use client";
 
-import { CldImage } from "next-cloudinary";
 import type { CSSProperties } from "react";
 import {
   Award,
@@ -170,17 +169,14 @@ const TESTIMONIALS = [
   },
 ];
 
-const TEAM = [
-  { imageId: "SilviaRios_vv8ulc", name: "Silvia Rios, LMFT", role: "Clinical Director" },
-  { imageId: "KirandeepSangha_wj1fss", name: "Kirandeep Sangha, AMFT", role: "Therapist" },
-  { imageId: "SabyKirpal_zlzpkv", name: "Saby Kirpal, NP", role: "Nurse Practitioner" },
-];
-
 const ACCREDITATIONS = [
   { name: "The Joint Commission", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546374/Logo-JC-Gold-Seal-of-Approval-Accredited_cpxsyp.jpg" },
   { name: "CDSS", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546379/Unknown-3_jiclcm.jpg" },
   { name: "NAMI California", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546378/Unknown-2_wtmy8d.jpg" },
   { name: "Additional Certification", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546381/Unknown_w7qcjr.jpg" },
+  { name: "AAMFT", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787450995/AAMFT_xucfkf.jpg" },
+  { name: "Better Business Bureau", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787450995/BBB-_-Better-Business-Bureau-logo_fz4whr.png" },
+  { name: "Psychology Today", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787451033/psych_today_nllpzg.jpg" },
 ];
 
 const TRUST = [
@@ -529,38 +525,6 @@ export default function Page() {
             <BrandScrollerReverse />
           </div>
         </Reveal>
-      </section>
-
-{/* Team */}
-      <section id="team" className="bg-[#E5F3FD] py-16">
-        <div className="mx-auto max-w-6xl px-5 text-center">
-          <Reveal>
-            <span className="eyebrow">Meet Our Team</span>
-          </Reveal>
-          <Reveal delay={90}>
-            <h2 className="mt-4 text-3xl md:text-4xl">Get To Know Our Dedicated Professionals</h2>
-          </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {TEAM.map((m, i) => (
-              <Reveal key={m.name} delay={i * 120}>
-              <div className="card-soft p-6">
-                <CldImage
-                  src={m.imageId}
-                  alt={m.name}
-                  width={640}
-                  height={640}
-                  loading="lazy"
-                  className="img-zoom mx-auto h-32 w-32 rounded-full object-cover"
-                />
-                <h3 className="mt-4 text-base">{m.name}</h3>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-primary">
-                  {m.role}
-                </p>
-              </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Accreditations */}

@@ -212,10 +212,7 @@ export default function TreatmentAndServicesPage() {
         </div>
         <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white">
           <Reveal>
-            <span className="eyebrow mx-auto text-white border-white/30">Comprehensive Residential Care</span>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-white">
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-white">
               Treatment & Services
             </h1>
           </Reveal>
@@ -257,7 +254,7 @@ export default function TreatmentAndServicesPage() {
       </section>
 
       {/* Conditions We Treat */}
-      <section id="conditions" className="py-20 md:py-32 bg-slate-50/50">
+      <section id="conditions" className="py-20 md:py-32 bg-[#E5F3FD]">
         <div className="mx-auto max-w-4xl px-5">
           <div className="text-center mb-16">
             <Reveal>
@@ -330,7 +327,7 @@ export default function TreatmentAndServicesPage() {
       </section>
 
       {/* Mental Health Programs Tabs */}
-      <section id="mental-health" className="py-20 md:py-32 bg-slate-50/50 border-t border-b border-slate-100">
+      <section id="mental-health" className="py-20 md:py-32 bg-[#E5F3FD] border-t border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-5">
           <div className="max-w-2xl mb-12">
             <Reveal>
@@ -374,7 +371,7 @@ export default function TreatmentAndServicesPage() {
                 Get Help Now
               </a>
               <a
-                href="tel:8005001000"
+                href="tel:5592341001"
                 className="inline-flex items-center justify-center rounded-full border border-white/30 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-all"
               >
                 Call Admissions

@@ -2,9 +2,6 @@
 
 import { Reveal } from "@/lib/motion";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
-import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
 import Image from "next/image";
 
 const TEAM_MEMBERS = [
@@ -17,7 +14,7 @@ const TEAM_MEMBERS = [
       "Paige enjoys taking ideas from concept to implementation and finding practical solutions that help organizations grow while keeping quality of care at the center.",
       "Outside of her professional work, Paige is a mom of three and enjoys pursuing new entrepreneurial projects and creating meaningful experiences with her family."
     ],
-    imageUrl: team3.src,
+    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787468651/ChatGPT_Image_Aug_18_2026_at_08_16_28_PM_oneg2c.png",
   },
   {
     name: "Silvia Rios",
@@ -28,7 +25,7 @@ const TEAM_MEMBERS = [
       "Prior to joining Teen Harbor, Silvia held progressive leadership roles with Exodus Recovery, beginning as a Social Services Coordinator in 2018 and later serving as Clinical Director for the Fresno Exodus facilities. Her experience in both direct clinical care and program leadership provides a strong foundation for overseeing Teen Harbor's multidisciplinary treatment environment.",
       "Silvia holds an Associate of Arts degree in Business Administration, a Bachelor's degree in Early Childhood Development, and a Master's degree in Counseling Psychology. At Teen Harbor, she combines her clinical expertise, leadership experience, and commitment to youth mental health to help create a safe and supportive environment where adolescents can develop the skills and stability needed for lasting progress."
     ],
-    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/SilviaRios_vv8ulc.jpg",
+    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787515927/ChatGPT_Image_Aug_17_2026_at_11_11_54_AM_lhe9ne.png",
   },
   {
     name: "Kirandeep Sangha",
@@ -40,7 +37,7 @@ const TEAM_MEMBERS = [
       "Her approach is warm, supportive, and tailored to each individual. She uses evidence-based methods such as CBT, DBT, and Solution-Focused Therapy to help clients manage stress, build skills, and create positive changes in their lives.",
       "Her goal is to create a safe and comfortable space where clients feel heard, supported, and empowered to grow."
     ],
-    imageUrl: team1.src,
+    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787506844/image0_paqpvg.jpg",
   },
   {
     name: "Saby Kirpal",
@@ -52,7 +49,8 @@ const TEAM_MEMBERS = [
       "Her time in these major health systems strengthened her clinical judgment, adaptability, and commitment to high-quality patient care.",
       "Saby has extensive experience providing care in inpatient psychiatry, residential treatment centers (RTC), partial hospitalization programs (PHP), and intensive outpatient programs (IOP)."
     ],
-    imageUrl: team2.src,
+    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787516397/salvia_lzrcrk.webp",
+    objectPosition: "object-center",
   }
 ];
 

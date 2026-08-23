@@ -14,37 +14,99 @@ interface FacilityGalleryProps {
   images: GalleryImage[];
 }
 
+function Tile({
+  img,
+  index,
+  onClick,
+}: {
+  img: GalleryImage;
+  index: number;
+  onClick: () => void;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: (index % 6) * 0.1 }}
+      className="cursor-pointer overflow-hidden rounded-xl bg-slate-100 group relative aspect-square"
+      onClick={onClick}
+    >
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10" />
+      <Image
+        src={img.src}
+        alt={img.alt}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+    </motion.div>
+  );
+}
+
 export function FacilityGallery({ images }: FacilityGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
   if (!images || images.length === 0) return null;
 
+  const hasTrailingBlock = images.length >= 6;
+  const heroImage = images[0]!;
+  const trailingBig = hasTrailingBlock ? images[images.length - 1] : null;
+  const trailingSmall = hasTrailingBlock ? images.slice(images.length - 5, images.length - 1) : [];
+  const middleImages = hasTrailingBlock ? images.slice(1, images.length - 5) : images.slice(1);
+
   return (
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {images.map((img, index) => (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="cursor-pointer overflow-hidden rounded-xl bg-slate-100 group relative aspect-square col-span-2 row-span-2"
+          onClick={() => setSelectedImage(heroImage)}
+        >
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10" />
+          <Image
+            src={heroImage.src}
+            alt={heroImage.alt}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        </motion.div>
+
+        {middleImages.map((img, i) => (
+          <Tile key={i} img={img} index={i} onClick={() => setSelectedImage(img)} />
+        ))}
+      </div>
+
+      {hasTrailingBlock && trailingBig && (
+        <div className="mt-4 flex flex-col md:flex-row gap-4">
+          <div className="grid grid-cols-2 gap-4 md:w-1/2">
+            {trailingSmall.map((img, i) => (
+              <Tile key={i} img={img} index={i} onClick={() => setSelectedImage(img)} />
+            ))}
+          </div>
           <motion.div
-            key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`cursor-pointer overflow-hidden rounded-xl bg-slate-100 group relative aspect-square ${
-              index === 0 ? "col-span-2 row-span-2 md:col-span-2 md:row-span-2" : "col-span-1 row-span-1"
-            }`}
-            onClick={() => setSelectedImage(img)}
+            transition={{ duration: 0.5 }}
+            className="cursor-pointer overflow-hidden rounded-xl bg-slate-100 group relative aspect-square md:w-1/2"
+            onClick={() => setSelectedImage(trailingBig)}
           >
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10" />
             <Image
-              src={img.src}
-              alt={img.alt}
+              src={trailingBig.src}
+              alt={trailingBig.alt}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </motion.div>
-        ))}
-      </div>
+        </div>
+      )}
 
       <AnimatePresence>
         {selectedImage && (

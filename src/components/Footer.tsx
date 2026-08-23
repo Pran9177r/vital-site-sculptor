@@ -73,8 +73,8 @@ export function Footer() {
               <span>Fresno, CA 93706</span>
             </li>
             <li className="pt-2">
-              <a href="tel:5595895825" className="hover:text-sun transition-colors">
-                559-589-5825
+              <a href="tel:5592341001" className="hover:text-sun transition-colors">
+                559-234-1001
               </a>
             </li>
             <li>

@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
 import { Reveal } from "@/lib/motion";
 import { FacilityGallery } from "@/components/FacilityGallery";
 import { Map, MapMarker, MarkerContent, MarkerTooltip } from "@/components/ui/mapcn-marker-tooltip";
@@ -8,15 +11,52 @@ import houseCta from "@/assets/house-cta.jpg";
 import lifeAtHarbor from "@/assets/life-at-harbor.jpg";
 import servicesTherapy from "@/assets/services-therapy.jpg";
 
+const LOCATIONS = {
+  current: {
+    name: "Teen Harbor",
+    address: "895 S. Marks, Fresno, CA 93706",
+    tooltip: "Teen Harbor Residential Center — Central Valley, CA",
+    lng: -119.7871,
+    lat: 36.7468,
+    zoom: 10,
+    comingSoon: false,
+  },
+  next: {
+    name: "Teen Harbor — New Location",
+    address: "6667 N Van Ness Blvd, Fresno, CA 93711",
+    tooltip: "Opening Soon",
+    lng: -119.835441,
+    lat: 36.834797,
+    zoom: 12,
+    comingSoon: true,
+  },
+} as const;
+
 const FACILITY_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613193/5e4543af-c9d8-4375-b8b2-f65e4d7206ad_rf4irm.png", alt: "Teen Harbor Amenities" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613191/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Teen Harbor Facility" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg", alt: "Facility Exterior" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg", alt: "Facility Interior and Patio" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-24_hpzmej.jpg", alt: "Facility Amenities" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470640/ChatGPT_Image_Aug_23_2026_at_03_33_15_AM_ty5v5a.png", alt: "Expansive backyard lawn with walking path and pool area" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787472510/ChatGPT_Image_Aug_23_2026_at_04_07_16_AM_wcrwkq.png", alt: "Spacious bathroom with double vanity" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470640/ChatGPT_Image_Aug_23_2026_at_03_33_32_AM_waynhw.png", alt: "Front exterior of the Teen Harbor residence" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470641/ChatGPT_Image_Aug_23_2026_at_03_33_19_AM_is4fzk.png", alt: "Covered patio with outdoor dining area" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470641/ChatGPT_Image_Aug_23_2026_at_03_33_27_AM_kxiw3p.png", alt: "Gated entrance and driveway of the residence" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470641/ChatGPT_Image_Aug_23_2026_at_03_33_24_AM_egp0r0.png", alt: "Covered patio seating overlooking the pool and lawn" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470623/987a11bf-020a-45ac-8487-a8a8962f0f36_pzctqw.png", alt: "Bright, comfortable bedroom with two beds" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470645/ChatGPT_Image_Aug_23_2026_at_03_33_36_AM_asi9ud.png", alt: "Modern bathroom shower with built-in shelf" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470640/ChatGPT_Image_Aug_23_2026_at_03_33_10_AM_uc73bl.png", alt: "Outdoor swimming pool with water feature" },
 ];
 
 export default function FacilityPage() {
+  const [activeLocation, setActiveLocation] = useState<keyof typeof LOCATIONS>("current");
+  const location = LOCATIONS[activeLocation];
+
+  const toggleLocation = () => {
+    setActiveLocation((key) => (key === "current" ? "next" : "current"));
+  };
+
   return (
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
@@ -24,12 +64,12 @@ export default function FacilityPage() {
         {/* Tri-Split Background */}
         <div className="absolute inset-0 z-0 flex w-full">
           <div className="w-1/3 h-full relative">
-            <Image 
-              src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg" 
-              alt="Facility Exterior" 
+            <Image
+              src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470640/ChatGPT_Image_Aug_23_2026_at_03_33_15_AM_ty5v5a.png"
+              alt="Facility Exterior"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover" 
+              className="object-cover"
               priority
             />
           </div>
@@ -100,26 +140,58 @@ export default function FacilityPage() {
             <Reveal delay={100}>
               <div className="bg-white/5 p-4 md:p-6 rounded-[2rem] border border-white/10 backdrop-blur-md shadow-2xl">
                 <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-inner border border-white/20">
-                  <Map center={[-119.7871, 36.7468]} zoom={10}>
-                    <MapMarker longitude={-119.7871} latitude={36.7468}>
+                  <Map center={[location.lng, location.lat]} zoom={location.zoom}>
+                    <MapMarker longitude={location.lng} latitude={location.lat}>
                       <MarkerContent>
-                        <div data-mapcn-marker="Teen Harbor Residential Center" className="size-6 rounded-full border-2 border-white bg-amber-500 shadow-lg transition-transform hover:scale-125 flex items-center justify-center">
+                        <div
+                          data-mapcn-marker={location.name}
+                          className={`size-6 rounded-full border-2 border-white shadow-lg transition-transform hover:scale-125 flex items-center justify-center ${
+                            location.comingSoon ? "bg-blue-500" : "bg-amber-500"
+                          }`}
+                        >
                           <div className="size-2 rounded-full bg-white animate-ping" />
                         </div>
                       </MarkerContent>
-                      <MarkerTooltip>Teen Harbor Residential Center — Central Valley, CA</MarkerTooltip>
+                      <MarkerTooltip>{location.tooltip}</MarkerTooltip>
                     </MapMarker>
-                    <MapMarker longitude={-119.8100} latitude={36.7550}>
-                      <MarkerContent>
-                        <div data-mapcn-marker="Admissions Center" className="size-5 rounded-full border-2 border-white bg-blue-500 shadow-lg transition-transform hover:scale-125" />
-                      </MarkerContent>
-                      <MarkerTooltip>Admissions & Family Welcome Center</MarkerTooltip>
-                    </MapMarker>
+                    {!location.comingSoon && (
+                      <MapMarker longitude={-119.81} latitude={36.755}>
+                        <MarkerContent>
+                          <div data-mapcn-marker="Admissions Center" className="size-5 rounded-full border-2 border-white bg-blue-500 shadow-lg transition-transform hover:scale-125" />
+                        </MarkerContent>
+                        <MarkerTooltip>Admissions & Family Welcome Center</MarkerTooltip>
+                      </MapMarker>
+                    )}
                   </Map>
                 </div>
                 <div className="mt-8 mb-4 text-center text-white/90">
-                  <p className="font-semibold text-xl text-white mb-2">Teen Harbor</p>
-                  <p className="text-lg">895 S. Marks, Fresno, CA 93706</p>
+                  <div className="mb-2 flex items-center justify-center gap-3">
+                    <p className="font-semibold text-xl text-white">{location.name}</p>
+                    {location.comingSoon && (
+                      <span className="rounded-full bg-sun px-3 py-1 text-xs font-bold uppercase tracking-wide text-sun-foreground">
+                        Coming Soon
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-lg">{location.address}</p>
+
+                  <button
+                    type="button"
+                    onClick={toggleLocation}
+                    className="btn-motion mt-6 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-navy"
+                  >
+                    {location.comingSoon ? (
+                      <>
+                        <ArrowLeft className="h-4 w-4" />
+                        Back to Current Location
+                      </>
+                    ) : (
+                      <>
+                        View Our New Location
+                        <ArrowRight className="h-4 w-4" />
+                      </>
+                    )}
+                  </button>
                 </div>
               </div>
             </Reveal>

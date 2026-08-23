@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface TeamMemberProps {
   name: string;
@@ -10,9 +11,10 @@ interface TeamMemberProps {
   bio: string[]; // Array of paragraphs
   imageUrl: string;
   delay?: number;
+  objectPosition?: string;
 }
 
-export function TeamMemberCard({ name, title, bio, imageUrl, delay = 0 }: TeamMemberProps) {
+export function TeamMemberCard({ name, title, bio, imageUrl, delay = 0, objectPosition = "object-top" }: TeamMemberProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -38,7 +40,7 @@ export function TeamMemberCard({ name, title, bio, imageUrl, delay = 0 }: TeamMe
             src={imageUrl}
             alt={`Photograph of ${name}`}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
+            className={cn("absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105", objectPosition)}
           />
           
           {/* Gradient Overlay */}
