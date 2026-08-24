@@ -21,17 +21,23 @@ export function TreatmentAccordion({ treatments }: TreatmentAccordionProps) {
   
   useEffect(() => {
     // If there's a hash in the URL, open that accordion
-    if (typeof window !== "undefined" && window.location.hash) {
-      const hash = window.location.hash.replace('#', '');
-      const index = treatments.findIndex(t => t.id === hash);
-      if (index !== -1) {
-        setOpenIndex(index);
-        // Optional: scroll into view
-        setTimeout(() => {
-          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100);
+    const openFromHash = () => {
+      if (typeof window !== "undefined" && window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        const index = treatments.findIndex(t => t.id === hash);
+        if (index !== -1) {
+          setOpenIndex(index);
+          // Optional: scroll into view
+          setTimeout(() => {
+            document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
+        }
       }
-    }
+    };
+
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
   }, [treatments]);
 
   const toggleOpen = (index: number) => {

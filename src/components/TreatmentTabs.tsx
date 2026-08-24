@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 export interface Treatment {
@@ -74,10 +73,7 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
           return (
             <button
               key={t.id}
-              onClick={() => {
-                setActiveId(t.id);
-                window.history.pushState(null, "", `#${t.id}`);
-              }}
+              onClick={() => setActiveId(t.id)}
               className={`group relative flex w-full items-center justify-between rounded-lg px-4 py-3.5 text-left transition-all duration-300 ${
                 isActive
                   ? "bg-slate-50 text-primary font-semibold shadow-sm border border-slate-200/60"
@@ -86,8 +82,7 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
             >
               <span>{t.title}</span>
               {isActive && (
-                <motion.div
-                  layoutId={`active-tab-${treatments[0]?.id || "tab"}`}
+                <div
                   className="absolute -right-[1px] top-1/2 h-8 w-[3px] -translate-y-1/2 rounded-l-full bg-primary"
                 />
               )}
@@ -98,14 +93,9 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
 
       {/* Content Area */}
       <div className="w-full md:w-2/3 md:pl-4">
-        <AnimatePresence mode="wait">
-          <motion.div
+        <div
             key={activeId}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="flex flex-col h-full justify-start bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm"
+            className="flex flex-col h-full justify-start bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-300"
           >
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
               {activeTreatment.title}
@@ -120,8 +110,7 @@ export function TreatmentTabs({ treatments }: TreatmentTabsProps) {
                 {activeTreatment.description}
               </p>
             </div>
-          </motion.div>
-        </AnimatePresence>
+        </div>
       </div>
     </div>
   );

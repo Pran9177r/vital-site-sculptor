@@ -121,7 +121,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team */}
-      <section className="bg-slate-50 py-20 md:py-32 border-y border-slate-100">
+      <section id="team" className="bg-slate-50 py-20 md:py-32 border-y border-slate-100">
         <div className="mx-auto max-w-6xl px-5">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Reveal>

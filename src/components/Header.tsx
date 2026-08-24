@@ -59,6 +59,20 @@ const NAV: NavItem[] = [
   },
 ];
 
+function handleAnchorNav(pathname: string, href: string) {
+  return (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const [path, hash] = href.split("#");
+    if (hash && (path === "" || path === pathname)) {
+      e.preventDefault();
+      if (window.location.hash === `#${hash}`) {
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+      } else {
+        window.location.hash = hash;
+      }
+    }
+  };
+}
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -161,7 +175,10 @@ export function Header() {
                             <Link
                               key={sub.label}
                               href={sub.href}
-                              onClick={() => setActiveDropdown(null)}
+                              onClick={(e) => {
+                                setActiveDropdown(null);
+                                handleAnchorNav(pathname, sub.href)(e);
+                              }}
                               className="px-5 py-2.5 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors"
                             >
                               {sub.label}
@@ -181,7 +198,7 @@ export function Header() {
               href="/contact"
               className="flex items-center justify-center gap-3 rounded-full bg-sun px-7 py-3 text-[15px] font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-xl"
             >
-              Get Help Now
+              Contact
             </Link>
           </div>
 
@@ -277,7 +294,10 @@ export function Header() {
                               <Link
                                 key={sub.label}
                                 href={sub.href}
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={(e) => {
+                                  setMobileMenuOpen(false);
+                                  handleAnchorNav(pathname, sub.href)(e);
+                                }}
                                 className="text-[15px] text-slate-600 hover:text-primary transition-colors"
                               >
                                 {sub.label}
@@ -297,7 +317,7 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex w-full items-center justify-center gap-3 rounded-full bg-sun px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
                 >
-                  Get Help Now
+                  Contact
                 </Link>
               </div>
             </motion.div>
