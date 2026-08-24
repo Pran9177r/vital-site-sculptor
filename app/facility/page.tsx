@@ -33,14 +33,14 @@ const LOCATIONS = {
 } as const;
 
 const FACILITY_IMAGES = [
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613193/5e4543af-c9d8-4375-b8b2-f65e4d7206ad_rf4irm.png", alt: "Teen Harbor Amenities" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613191/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Teen Harbor Facility" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg", alt: "Facility Exterior" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg", alt: "Facility Interior and Patio" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787604327/ChatGPT_Image_Aug_24_2026_at_02_38_34_PM_g7bqkd.png", alt: "Teen Harbor Amenities" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787606131/ChatGPT_Image_Aug_23_2026_at_03_33_32_AM_e6r4ur.png", alt: "Teen Harbor Facility" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787607019/ChatGPT_Image_Aug_24_2026_at_05_29_51_PM_woadxp.png", alt: "Facility Exterior" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787607554/ChatGPT_Image_Aug_24_2026_at_05_37_23_PM_j66igq.png", alt: "Facility Interior and Patio" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787605345/ChatGPT_Image_Aug_24_2026_at_05_00_27_PM_aclxcw.png", alt: "Front exterior of the Teen Harbor residence" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-24_hpzmej.jpg", alt: "Facility Amenities" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470640/ChatGPT_Image_Aug_23_2026_at_03_33_15_AM_ty5v5a.png", alt: "Expansive backyard lawn with walking path and pool area" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787472510/ChatGPT_Image_Aug_23_2026_at_04_07_16_AM_wcrwkq.png", alt: "Spacious bathroom with double vanity" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470640/ChatGPT_Image_Aug_23_2026_at_03_33_32_AM_waynhw.png", alt: "Front exterior of the Teen Harbor residence" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470641/ChatGPT_Image_Aug_23_2026_at_03_33_19_AM_is4fzk.png", alt: "Covered patio with outdoor dining area" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470641/ChatGPT_Image_Aug_23_2026_at_03_33_27_AM_kxiw3p.png", alt: "Gated entrance and driveway of the residence" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470641/ChatGPT_Image_Aug_23_2026_at_03_33_24_AM_egp0r0.png", alt: "Covered patio seating overlooking the pool and lawn" },
