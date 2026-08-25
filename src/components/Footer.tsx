@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Facebook, Instagram } from "lucide-react";
 import logoWordmark from "@/assets/logo-teen-harbor.png";
+import { PrivacyPolicyModal } from "@/components/PrivacyPolicyModal";
+import { TermsOfServiceModal } from "@/components/TermsOfServiceModal";
 
 const NAV = [
   { label: "About", href: "/about" },
@@ -12,7 +15,11 @@ const NAV = [
 ];
 
 export function Footer() {
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [termsOpen, setTermsOpen] = useState(false);
+
   return (
+    <>
     <footer className="relative bg-navy text-navy-foreground border-t border-navy-foreground/10">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
         <div className="space-y-6">
@@ -56,10 +63,22 @@ export function Footer() {
           <h3 className="text-sm font-semibold mb-4 text-white uppercase tracking-wider">Legal</h3>
           <ul className="space-y-3 text-sm opacity-80">
             <li>
-              <Link href="/privacy" className="hover:text-sun transition-colors inline-block">Privacy Policy</Link>
+              <button
+                type="button"
+                onClick={() => setPrivacyOpen(true)}
+                className="hover:text-sun transition-colors inline-block text-left"
+              >
+                Privacy Policy
+              </button>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-sun transition-colors inline-block">Terms of Service</Link>
+              <button
+                type="button"
+                onClick={() => setTermsOpen(true)}
+                className="hover:text-sun transition-colors inline-block text-left"
+              >
+                Terms of Service
+              </button>
             </li>
           </ul>
         </div>
@@ -89,5 +108,8 @@ export function Footer() {
         © {new Date().getFullYear()} Teen Harbor. All Rights Reserved.
       </div>
     </footer>
+    <PrivacyPolicyModal open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
+    <TermsOfServiceModal open={termsOpen} onClose={() => setTermsOpen(false)} />
+    </>
   );
 }
