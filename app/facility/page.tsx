@@ -119,8 +119,8 @@ export default function FacilityPage() {
               <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">A Healing Environment</h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="mt-4 text-slate-600">
-                Located in Fresno County, our residential home provides the perfect setting for adolescents to focus on their recovery, build life skills, and find peace.
+              <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+                Located in Fresno County, our spacious 5,000-square-foot residential home offers adolescents a safe, welcoming, and supportive environment where they can focus on healing, build essential life skills, and find a renewed sense of peace and stability.
               </p>
             </Reveal>
           </div>
