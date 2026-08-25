@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
+
 import { Reveal } from "@/lib/motion";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import Image from "next/image";
-import { FacilityGallery } from "@/components/FacilityGallery";
 
 const TEAM_MEMBERS = [
   {
@@ -59,14 +62,13 @@ const ABOUT_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518400/IMG_8281_tskxsl.jpg", alt: "Teen Harbor Campus" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518379/IMG_8287_llksok.jpg", alt: "Comfortable Environment" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518301/IMG_6079_uz4hyj.jpg", alt: "Serene Spaces" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657058/895_S._Marks_Ave-19_sg3zfm.jpg", alt: "Facility Exterior" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg", alt: "Facility Interior and Patio" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470641/ChatGPT_Image_Aug_23_2026_at_03_33_19_AM_is4fzk.png", alt: "Covered Patio" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470623/987a11bf-020a-45ac-8487-a8a8962f0f36_pzctqw.png", alt: "Comfortable Bedroom" },
 ];
 
 export default function AboutPage() {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
   return (
+    <>
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 border-b border-slate-100 overflow-hidden">
@@ -165,9 +167,60 @@ export default function AboutPage() {
               </p>
             </Reveal>
           </div>
-          <FacilityGallery images={ABOUT_IMAGES} />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {ABOUT_IMAGES.map((img) => (
+              <div
+                key={img.src}
+                className="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl shadow-[var(--shadow-card)]"
+                onClick={() => setSelectedImage(img)}
+              >
+                <div className="absolute inset-0 z-10 bg-black/0 transition-colors group-hover:bg-black/10" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
+
+    <AnimatePresence>
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-6 right-6 p-2 text-white hover:bg-white/20 rounded-full transition-colors"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(null);
+            }}
+            aria-label="Close lightbox"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          <motion.img
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            src={selectedImage.src}
+            alt={selectedImage.alt}
+            className="max-h-[90vh] max-w-[100vw] object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
