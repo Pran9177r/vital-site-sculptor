@@ -105,23 +105,25 @@ export function Header() {
       >
         <div
           className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 transition-all duration-300 ${
-            scrolled || !isHome ? "py-2" : "py-3.5"
+            scrolled || !isHome ? "py-3 sm:py-3.5" : "py-4"
           }`}
         >
           <Link
             href="/"
-            className={`flex items-center shrink-0 relative transition-all duration-300 h-[48px] sm:h-[58px] md:h-[68px] ${
+            className={`flex items-center shrink-0 relative transition-all duration-300 ${
               scrolled || !isHome
-                ? "w-[150px] sm:w-[180px] md:w-[210px]"
-                : "w-[144px] sm:w-[180px] md:w-[216px]"
+                ? "h-[70px] sm:h-[82px] md:h-[92px] w-[200px] sm:w-[250px] md:w-[290px]"
+                : "h-[76px] sm:h-[90px] md:h-[100px] w-[210px] sm:w-[260px] md:w-[310px]"
             }`}
             aria-label="Home"
           >
-            <div className={`absolute left-0 z-[60] origin-left transition-all duration-300 flex items-center ${
-              scrolled || !isHome
-                ? "top-1/2 -translate-y-1/2" // Centers vertically in the navbar when scrolled or on inner pages
-                : "-top-4 sm:-top-6 md:-top-8" // Overhangs when at top of home page
-            }`}>
+            <div
+              className={`absolute left-0 z-[60] origin-left transition-all duration-300 flex items-center ${
+                scrolled || !isHome
+                  ? "top-1/2 -translate-y-1/2"
+                  : "-top-5 sm:-top-7 md:-top-9"
+              }`}
+            >
               <img
                 src={logoWordmark.src}
                 alt="Teen Harbor"
@@ -129,8 +131,8 @@ export function Header() {
                 height={500}
                 className={`w-auto transition-all duration-300 drop-shadow-md ${
                   scrolled || !isHome
-                    ? "h-[60px] sm:h-[72px] md:h-[84px]" // Static logo size
-                    : "h-[144px] sm:h-[180px] md:h-[216px]" // Large
+                    ? "h-[110px] sm:h-[135px] md:h-[155px]"
+                    : "h-[165px] sm:h-[205px] md:h-[245px]"
                 }`}
               />
             </div>

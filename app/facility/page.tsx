@@ -46,7 +46,7 @@ const FACILITY_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787613247/ChatGPT_Image_Aug_24_2026_at_07_13_52_PM_bghraf.png", alt: "Covered patio seating overlooking the pool and lawn" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470645/ChatGPT_Image_Aug_23_2026_at_03_33_36_AM_asi9ud.png", alt: "Bright, comfortable bedroom with two beds" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787472510/ChatGPT_Image_Aug_23_2026_at_04_07_16_AM_wcrwkq.png", alt: "Modern bathroom shower with built-in shelf" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470640/ChatGPT_Image_Aug_23_2026_at_03_33_10_AM_uc73bl.png", alt: "Outdoor swimming pool with water feature" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613191/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Outdoor swimming pool with water feature" },
 ];
 
 export default function FacilityPage() {
