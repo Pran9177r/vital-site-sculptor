@@ -1,6 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import {
   Award,
   BookOpen,
@@ -69,10 +70,15 @@ import notes from "@/assets/notes.jpg";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
-import { BrandScroller, BrandScrollerReverse } from "@/components/ui/brand-scoller";
 import { ContactForm } from "@/components/ContactForm";
-
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 
 const NAV = [
   { label: "Home", href: "#home" },
@@ -181,7 +187,6 @@ const ACCREDITATIONS = [
 const TRUST = [
   { value: "24/7", label: "Awake overnight supervision" },
   { value: "12–17", label: "Adolescent-only program" },
-  { value: "1:1", label: "Individualized treatment plans" },
   { value: "6 beds", label: "Home like setting" },
 ];
 
@@ -306,7 +311,7 @@ export default function Page() {
 
       {/* Trust / credibility */}
       <section className="border-b border-border/60 bg-background">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3">
           {TRUST.map((t, i) => (
             <Reveal key={t.label} delay={i * 100}>
               <div className="text-center sm:text-left">
@@ -323,22 +328,22 @@ export default function Page() {
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="relative">
             <Reveal variant="scale">
-            <img
-              src={notes.src}
+            <Image
+              src={notes}
               alt="Therapist taking notes during a session with a teen"
               width={1000}
               height={1000}
-              loading="lazy"
+              placeholder="blur"
               className="img-zoom w-2/3 rounded-2xl object-cover"
             />
             </Reveal>
             <Reveal variant="scale" delay={160}>
-            <img
-              src={servicesTherapy.src}
+            <Image
+              src={servicesTherapy}
               alt="Teen talking with a therapist in a bright living room"
               width={1200}
               height={900}
-              loading="lazy"
+              placeholder="blur"
               className="img-zoom absolute -right-2 bottom-0 w-3/5 rounded-2xl border-4 border-background object-cover shadow-[var(--shadow-float)]"
             />
             </Reveal>
@@ -477,12 +482,12 @@ export default function Page() {
           </div>
           <div className="space-y-5">
             <Reveal variant="scale">
-            <img
-              src={lifeAtHarbor.src}
+            <Image
+              src={lifeAtHarbor}
               alt="Teens relaxing on the lawn outside the Teen Harbor residence"
               width={1200}
               height={900}
-              loading="lazy"
+              placeholder="blur"
               className="img-zoom w-full rounded-2xl object-cover shadow-[var(--shadow-float)]"
             />
             </Reveal>
@@ -519,9 +524,36 @@ export default function Page() {
           </Reveal>
         </div>
         <Reveal delay={200}>
-          <div className="space-y-4">
-            <BrandScroller />
-            <BrandScrollerReverse />
+          <div className="mx-auto max-w-6xl px-12 relative">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {TESTIMONIALS.map((t, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-2 h-full">
+                      <Card className="h-full bg-white shadow-sm border-slate-100 flex flex-col justify-between">
+                        <CardContent className="p-8 flex flex-col h-full justify-between gap-6">
+                          <p className="text-muted-foreground leading-relaxed text-sm italic relative">
+                            "{t.quote}"
+                          </p>
+                          <div>
+                            <p className="font-semibold text-primary">{t.name}</p>
+                            <p className="text-xs text-muted-foreground">{t.role}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </Reveal>
       </section>

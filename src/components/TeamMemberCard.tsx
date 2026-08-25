@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface TeamMemberProps {
@@ -36,11 +37,12 @@ export function TeamMemberCard({ name, title, bio, imageUrl, delay = 0, objectPo
           onClick={() => setIsFlipped(true)}
         >
           {/* Image */}
-          <img
+          <Image
             src={imageUrl}
             alt={`Photograph of ${name}`}
-            loading="lazy"
-            className={cn("absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105", objectPosition)}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className={cn("object-cover transition-transform duration-1000 group-hover:scale-105", objectPosition)}
           />
           
           {/* Gradient Overlay */}

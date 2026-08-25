@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 import { Reveal } from "@/lib/motion";
 import notes from "@/assets/notes.jpg";
@@ -83,13 +84,13 @@ export function CareApproachStory() {
           </div>
 
           <div className="relative h-[280px] sm:h-[360px] md:h-[460px]">
-            <img
-              src={stage.img.src}
+            <Image
+              src={stage.img}
               alt={stage.alt}
-              width={1200}
-              height={900}
-              loading="lazy"
-              className="h-full w-full rounded-3xl object-cover shadow-[var(--shadow-float)]"
+              fill
+              placeholder="blur"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="rounded-3xl object-cover shadow-[var(--shadow-float)]"
             />
           </div>
         </div>
