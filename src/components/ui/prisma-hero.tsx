@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const HERO_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613193/5e4543af-c9d8-4375-b8b2-f65e4d7206ad_rf4irm.png", alt: "Teen Harbor exterior 1" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613192/1041548004-2_cjnicl.jpg", alt: "Teen Harbor facility 2" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788022683/ChatGPT_Image_Aug_28_2026_at_06_33_56_PM_2_vhrvjo.png", alt: "Teen Harbor grounds and residence" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613191/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Teen Harbor facility 3" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613189/2152265341_sppmiw.jpg", alt: "Teen Harbor facility 4" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788022683/ChatGPT_Image_Aug_28_2026_at_06_33_56_PM_1_ka2df3.png", alt: "Teen Harbor swimming pool and backyard" },
 ];
 
 /* ---------------- WordsPullUp ---------------- */
