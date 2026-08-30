@@ -53,7 +53,7 @@ const NAV: NavItem[] = [
     label: "Contact",
     href: "/contact",
     subItems: [
-      { label: "Verify Your Insurance", href: "/contact#insurance" },
+      { label: "Verify Your Insurance", href: "/contact" },
       { label: "Contact Us", href: "/contact" },
     ],
   },
@@ -95,7 +95,7 @@ export function Header() {
   return (
     <>
       <header
-        className={`${isHome ? "fixed w-full" : "sticky"} top-0 z-50 border-b transition-all duration-300 ${
+        className={`${isHome ? "fixed w-full" : "sticky"} top-0 z-50 border-b transition-all duration-500 ease-in-out ${
           isTransparent
             ? "bg-transparent border-transparent"
             : scrolled
@@ -104,24 +104,24 @@ export function Header() {
         }`}
       >
         <div
-          className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 transition-all duration-300 ${
-            scrolled || !isHome ? "py-3 sm:py-3.5" : "py-4"
+          className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 transition-all duration-500 ease-in-out ${
+            scrolled || !isHome ? "py-1.5" : "py-2.5"
           }`}
         >
           <Link
             href="/"
-            className={`flex items-center shrink-0 relative transition-all duration-300 ${
+            className={`flex items-center shrink-0 relative transition-all duration-500 ease-in-out ${
               scrolled || !isHome
-                ? "h-[70px] sm:h-[82px] md:h-[92px] w-[200px] sm:w-[250px] md:w-[290px]"
-                : "h-[76px] sm:h-[90px] md:h-[100px] w-[210px] sm:w-[260px] md:w-[310px]"
+                ? "h-[40px] sm:h-[45px] md:h-[50px] w-[120px] sm:w-[135px] md:w-[150px]"
+                : "h-[70px] sm:h-[80px] md:h-[90px] w-[210px] sm:w-[240px] md:w-[270px]"
             }`}
             aria-label="Home"
           >
             <div
-              className={`absolute left-0 z-[60] origin-left transition-all duration-300 flex items-center ${
+              className={`absolute left-0 z-[60] origin-left transition-all duration-500 ease-in-out flex items-center ${
                 scrolled || !isHome
                   ? "top-1/2 -translate-y-1/2"
-                  : "-top-5 sm:-top-7 md:-top-9"
+                  : "-top-6 sm:-top-8 md:-top-12"
               }`}
             >
               <img
@@ -129,10 +129,10 @@ export function Header() {
                 alt="Teen Harbor"
                 width={500}
                 height={500}
-                className={`w-auto transition-all duration-300 drop-shadow-md ${
+                className={`w-auto transition-all duration-500 ease-in-out drop-shadow-md ${
                   scrolled || !isHome
-                    ? "h-[110px] sm:h-[135px] md:h-[155px]"
-                    : "h-[165px] sm:h-[205px] md:h-[245px]"
+                    ? "h-[70px] sm:h-[80px] md:h-[90px]"
+                    : "h-[180px] sm:h-[220px] md:h-[260px]"
                 }`}
               />
             </div>

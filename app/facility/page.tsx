@@ -1,8 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-
 import { Reveal } from "@/lib/motion";
 import { FacilityGallery } from "@/components/FacilityGallery";
 import { Map, MapMarker, MarkerContent, MarkerTooltip } from "@/components/ui/mapcn-marker-tooltip";
@@ -50,13 +47,6 @@ const FACILITY_IMAGES = [
 ];
 
 export default function FacilityPage() {
-  const [activeLocation, setActiveLocation] = useState<keyof typeof LOCATIONS>("current");
-  const location = LOCATIONS[activeLocation];
-
-  const toggleLocation = () => {
-    setActiveLocation((key) => (key === "current" ? "next" : "current"));
-  };
-
   return (
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
@@ -129,69 +119,98 @@ export default function FacilityPage() {
       </section>
 
       {/* Map Section */}
-      <section className="bg-navy py-20 md:py-32 text-white border-y border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none" />
-        
-        <div className="mx-auto max-w-5xl px-5 relative z-10">
-          <div className="max-w-4xl mx-auto">
+      <section className="bg-white py-20 md:py-32 text-slate-900 relative overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 relative z-10">
+          <div className="text-center mb-10">
             <Reveal>
-              <h3 className="text-3xl md:text-4xl font-semibold text-white mb-10 text-center">Visit Us</h3>
+              <h3 className="text-3xl md:text-4xl font-semibold text-slate-900">Visit Us</h3>
             </Reveal>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Map 1: Current */}
             <Reveal delay={100}>
-              <div className="bg-white/5 p-4 md:p-6 rounded-[2rem] border border-white/10 backdrop-blur-md shadow-2xl">
-                <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-inner border border-white/20">
-                  <Map center={[location.lng, location.lat]} zoom={location.zoom}>
-                    <MapMarker longitude={location.lng} latitude={location.lat}>
+              <div className="bg-white p-4 md:p-6 rounded-[2rem] border border-slate-100 shadow-xl h-full flex flex-col">
+                <div className="aspect-square md:aspect-video w-full rounded-2xl overflow-hidden shadow-inner border border-slate-200 mb-6 relative">
+                  <Map center={[LOCATIONS.current.lng, LOCATIONS.current.lat]} zoom={LOCATIONS.current.zoom}>
+                    <MapMarker longitude={LOCATIONS.current.lng} latitude={LOCATIONS.current.lat}>
                       <MarkerContent>
                         <div
-                          data-mapcn-marker={location.name}
-                          className={`size-6 rounded-full border-2 border-white shadow-lg transition-transform hover:scale-125 flex items-center justify-center ${
-                            location.comingSoon ? "bg-blue-500" : "bg-amber-500"
-                          }`}
+                          data-mapcn-marker={LOCATIONS.current.name}
+                          className="size-6 rounded-full border-2 border-white shadow-lg transition-transform hover:scale-125 flex items-center justify-center bg-amber-500"
                         >
                           <div className="size-2 rounded-full bg-white animate-ping" />
                         </div>
                       </MarkerContent>
-                      <MarkerTooltip>{location.tooltip}</MarkerTooltip>
+                      <MarkerTooltip>{LOCATIONS.current.tooltip}</MarkerTooltip>
                     </MapMarker>
-                    {!location.comingSoon && (
-                      <MapMarker longitude={-119.81} latitude={36.755}>
-                        <MarkerContent>
-                          <div data-mapcn-marker="Admissions Center" className="size-5 rounded-full border-2 border-white bg-blue-500 shadow-lg transition-transform hover:scale-125" />
-                        </MarkerContent>
-                        <MarkerTooltip>Admissions & Family Welcome Center</MarkerTooltip>
-                      </MapMarker>
-                    )}
+                    <MapMarker longitude={-119.81} latitude={36.755}>
+                      <MarkerContent>
+                        <div data-mapcn-marker="Admissions Center" className="size-5 rounded-full border-2 border-white bg-blue-500 shadow-lg transition-transform hover:scale-125" />
+                      </MarkerContent>
+                      <MarkerTooltip>Admissions & Family Welcome Center</MarkerTooltip>
+                    </MapMarker>
                   </Map>
                 </div>
-                <div className="mt-8 mb-4 text-center text-white/90">
+                <div className="mt-auto text-center text-slate-600">
                   <div className="mb-2 flex items-center justify-center gap-3">
-                    <p className="font-semibold text-xl text-white">{location.name}</p>
-                    {location.comingSoon && (
-                      <span className="rounded-full bg-sun px-3 py-1 text-xs font-bold uppercase tracking-wide text-sun-foreground">
-                        Coming Soon
-                      </span>
-                    )}
+                    <p className="font-semibold text-xl text-slate-900">{LOCATIONS.current.name}</p>
                   </div>
-                  <p className="text-lg">{location.address}</p>
-
-                  <button
-                    type="button"
-                    onClick={toggleLocation}
-                    className="btn-motion mt-6 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-white hover:text-navy"
+                  <p className="text-lg">{LOCATIONS.current.address}</p>
+                  <a 
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${LOCATIONS.current.lat},${LOCATIONS.current.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 text-amber-500 hover:text-amber-600 font-semibold transition-colors"
                   >
-                    {location.comingSoon ? (
-                      <>
-                        <ArrowLeft className="h-4 w-4" />
-                        Back to Current Location
-                      </>
-                    ) : (
-                      <>
-                        View Our New Location
-                        <ArrowRight className="h-4 w-4" />
-                      </>
-                    )}
-                  </button>
+                    Get Directions <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Map 2: Next (Coming Soon) */}
+            <Reveal delay={200}>
+              <div className="bg-white p-4 md:p-6 rounded-[2rem] border border-slate-100 shadow-xl h-full flex flex-col relative">
+                <div className="aspect-square md:aspect-video w-full rounded-2xl overflow-hidden shadow-inner border border-slate-200 mb-6 relative">
+                  {/* Prominent Coming Soon Badge (Bottom Centered) */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none w-max max-w-[90%]">
+                    <div className="bg-amber-500 text-white px-5 md:px-6 py-2.5 rounded-full font-bold text-sm md:text-base tracking-[0.15em] uppercase shadow-[0_8px_30px_rgba(245,158,11,0.5)] border border-white/30 flex items-center gap-3 backdrop-blur-md">
+                      <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-white"></span>
+                      </span>
+                      Coming Soon
+                    </div>
+                  </div>
+                  
+                  <Map center={[LOCATIONS.next.lng, LOCATIONS.next.lat]} zoom={LOCATIONS.next.zoom}>
+                    <MapMarker longitude={LOCATIONS.next.lng} latitude={LOCATIONS.next.lat}>
+                      <MarkerContent>
+                        <div
+                          data-mapcn-marker={LOCATIONS.next.name}
+                          className="size-6 rounded-full border-2 border-white shadow-lg transition-transform hover:scale-125 flex items-center justify-center bg-blue-500"
+                        >
+                          <div className="size-2 rounded-full bg-white animate-ping" />
+                        </div>
+                      </MarkerContent>
+                      <MarkerTooltip>{LOCATIONS.next.tooltip}</MarkerTooltip>
+                    </MapMarker>
+                  </Map>
+                </div>
+                <div className="mt-auto text-center text-slate-600">
+                  <div className="mb-2 flex items-center justify-center gap-3">
+                    <p className="font-semibold text-xl text-slate-900">{LOCATIONS.next.name}</p>
+                  </div>
+                  <p className="text-lg">{LOCATIONS.next.address}</p>
+                  <a 
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${LOCATIONS.next.lat},${LOCATIONS.next.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 text-amber-500 hover:text-amber-600 font-semibold transition-colors"
+                  >
+                    View on Maps <span aria-hidden="true">&rarr;</span>
+                  </a>
                 </div>
               </div>
             </Reveal>

@@ -125,7 +125,7 @@ const Map = forwardRef<HTMLDivElement, MapProps>(function Map(
 
         tileList.push({
           key: `${currentZoom}-${tileX}-${tileY}-${posX}-${posY}`,
-          url: `https://basemaps.cartocdn.com/rastertiles/voyager/${currentZoom}/${tileX}/${tileY}.png`,
+          url: `https://tile.openstreetmap.org/${currentZoom}/${tileX}/${tileY}.png`,
           x: posX,
           y: posY,
         });

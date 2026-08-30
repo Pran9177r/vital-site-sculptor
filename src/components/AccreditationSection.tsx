@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
+import logoWordmark from "@/assets/logo-teen-harbor.png";
 
 interface Accreditation {
   name: string;
@@ -22,6 +23,13 @@ export function AccreditationSection({ accreditations }: AccreditationSectionPro
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5 }}
       >
+        <div className="flex justify-center mb-6">
+          <img 
+            src={logoWordmark.src} 
+            alt="Teen Harbor Branding" 
+            className="h-28 sm:h-36 md:h-48 lg:h-56 w-auto object-contain drop-shadow-sm" 
+          />
+        </div>
         <span className="eyebrow">Accreditations</span>
         <h2 className="mt-4 text-3xl md:text-4xl">Care You Can Trust</h2>
       </motion.div>

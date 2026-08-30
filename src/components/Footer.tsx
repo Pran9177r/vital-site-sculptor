@@ -20,7 +20,7 @@ export function Footer() {
 
   return (
     <>
-    <footer className="relative bg-navy text-navy-foreground border-t border-navy-foreground/10">
+    <footer className="relative bg-[#32A5DA] text-white border-t border-white/10">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
         <div className="space-y-6">
           <Link href="/" className="inline-block">
@@ -30,7 +30,7 @@ export function Footer() {
               width={500}
               height={500}
               loading="lazy"
-              className="h-[140px] w-auto brightness-0 invert"
+              className="h-[140px] w-auto"
             />
           </Link>
           <p className="text-sm opacity-75 leading-relaxed">
