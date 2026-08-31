@@ -200,7 +200,7 @@ export function Header() {
               href="/contact"
               className="flex items-center justify-center gap-3 rounded-full bg-sun px-7 py-3 text-[15px] font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-xl"
             >
-              Contact
+              Get Started
             </Link>
           </div>
 
@@ -319,7 +319,7 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex w-full items-center justify-center gap-3 rounded-full bg-sun px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
                 >
-                  Contact
+                  Get Started
                 </Link>
               </div>
             </motion.div>

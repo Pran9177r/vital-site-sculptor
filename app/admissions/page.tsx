@@ -18,28 +18,14 @@ const PROVIDED = [
 ];
 
 const DO_NOT_BRING_CATEGORIES = [
-  "Makeup, Perfume, Cologne",
-  "Electronics, including cell phones and iPods",
-  "Curling irons, hair dryers, hair straighteners",
-  "DVDs, CDs",
-  "Glass or ceramic items, mirrors",
-  "Glass toiletry containers",
-  "Rope, string, dental floss, shoelaces, drawstrings",
-  "Sharp objects, razors, needles, hooks, pins, paperclips, thumbtacks",
-  "Clothing/accessories with spikes or studs",
-  "Items containing alcohol, nail polish remover, mouthwash, hand sanitizer",
-  "Glues, bonding agents, Wite-Out, aerosol containers",
-  "Tobacco, alcohol, illegal substances, lighters, electronic cigarettes",
-  "Plastic bags, cellophane, scotch tape, duct tape",
-  "Medications",
-  "Hats, headbands, sunglasses, scarves, jewelry",
-  "Steel-toe boots, high-heeled shoes",
-  "Bedding, pillows, stuffed animals, heat wraps",
-  "Paracord items",
-  "Food, drinks, flowers, balloons",
-  "Musical instruments",
-  "Magnets",
-  "Any other items determined by staff as not therapeutic"
+  "Electronics — cell phones, tablets, iPods, personal devices",
+  "Hair appliances — dryers, straighteners, curling irons",
+  "Sharp objects — razors, needles, pins, hooks, etc.",
+  "Tobacco, vapes, alcohol, illegal substances & lighters",
+  "Medications — give all medications directly to staff at admission",
+  "Personal bedding, pillows & stuffed animals",
+  "Outside food, drinks, flowers & balloons",
+  "Any item determined by staff to present a safety concern"
 ];
 
 export default function AdmissionsPage() {
@@ -173,21 +159,29 @@ export default function AdmissionsPage() {
 
             {/* What NOT to Bring */}
             <Reveal delay={300}>
-              <div className="card-soft h-full p-8 bg-white border border-red-100 shadow-sm relative overflow-hidden">
+              <div className="card-soft h-full p-8 bg-white border border-red-100 shadow-sm relative overflow-hidden flex flex-col">
                 <div className="absolute top-0 left-0 w-full h-1 bg-red-400" />
-                <div className="flex items-center gap-3 mb-6">
-                  <XCircle className="h-8 w-8 text-red-400" />
+                <div className="flex items-center gap-3 mb-4">
+                  <XCircle className="h-8 w-8 text-red-400 shrink-0" />
                   <h3 className="text-2xl font-semibold text-slate-900">What NOT to Bring</h3>
                 </div>
-                <div className="columns-1 sm:columns-2 gap-6">
+                <p className="text-slate-600 mb-6 text-sm">
+                  For the safety of all residents, please leave the following items at home:
+                </p>
+                <div className="mb-6">
                   <ul className="space-y-3">
                     {DO_NOT_BRING_CATEGORIES.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-slate-600 break-inside-avoid">
+                      <li key={index} className="flex items-start gap-2 text-sm text-slate-600">
                         <span className="text-red-400 mt-0.5 shrink-0">×</span>
                         <span className="leading-tight">{item}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
+                <div className="mt-auto pt-6 border-t border-red-100/50">
+                  <p className="text-sm font-medium text-slate-700">
+                    Not sure about an item? <a href="/contact" className="text-primary hover:underline">Please contact Teen Harbor before packing.</a>
+                  </p>
                 </div>
               </div>
             </Reveal>

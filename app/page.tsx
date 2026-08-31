@@ -56,6 +56,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { PrismaHero } from "@/components/ui/prisma-hero";
 import { AccreditationSection } from "@/components/AccreditationSection";
 import { CareApproachStory } from "@/components/CareApproachStory";
@@ -245,16 +246,168 @@ const RESOURCES = [
     icon: FileText,
     title: "A Parent's Guide to Residential Care",
     body: "What residential treatment is, how it differs from outpatient care, and how to prepare your family.",
+    modalContent: (
+      <ScrollArea className="h-[60vh] pr-4">
+        <div className="space-y-6 text-sm text-slate-600 leading-relaxed">
+          <p>
+            Choosing residential treatment for your child can feel like a significant decision. Understanding what residential care looks like—and what your family can expect—can make the process feel more manageable.
+          </p>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">What Is Residential Treatment?</h4>
+            <p>Residential treatment provides 24-hour care in a safe, structured, and supportive environment for adolescents who need more support than traditional outpatient services can provide.</p>
+            <p>At Teen Harbor, treatment is designed to address the whole person—not simply a diagnosis or a specific behavior. Youth receive individualized clinical support while continuing to build the skills, routines, relationships, and confidence they need for life beyond treatment.</p>
+            <p>Depending on each youth’s individualized needs, care may include individual therapy, group therapy, family involvement, psychiatric and medication support, educational support, skill development, structured activities, and opportunities for recreation and connection.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Residential vs. Outpatient Care</h4>
+            <p>Outpatient treatment allows a young person to remain at home while attending scheduled therapy or treatment appointments. For many adolescents, this level of care is appropriate and effective.</p>
+            <p>Residential care may be considered when a young person needs greater structure, supervision, therapeutic intensity, or stabilization than can reasonably be provided through outpatient services alone.</p>
+            <p>The goal is not to separate a child from their family. Instead, residential treatment creates a dedicated period of support while helping the entire family prepare for a successful transition home.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">The Family Is Part of Treatment</h4>
+            <p>Healing rarely happens in isolation. Family participation is an important part of the treatment process at Teen Harbor.</p>
+            <p>Families may participate in family therapy, treatment planning, progress discussions, education, and discharge planning. Our team works to help parents and caregivers better understand their child’s needs while strengthening communication, boundaries, coping strategies, and the family’s ability to support continued progress at home.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Preparing Your Family</h4>
+            <p>Before admission, talk openly with your child about why treatment is being considered. Acknowledge that they may feel nervous, angry, uncertain, or even relieved. You do not need to have every answer.</p>
+            <p>It can also be helpful to prepare siblings and other important family members for the temporary change at home and to approach treatment as something the family will participate in together.</p>
+            <p>Most importantly, remember that residential care is one part of a larger journey. The work that begins during treatment is intended to create a foundation that can continue at home, at school, and within the community.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">What Happens Next?</h4>
+            <p>If you are wondering whether residential treatment may be appropriate for your child, you do not have to determine the right level of care on your own.</p>
+            <p>The Teen Harbor team can speak with you about your child’s current needs, answer questions about our program and admissions process, and help determine whether Teen Harbor may be an appropriate fit.</p>
+            <p>Have questions about residential care? <a href="/contact" className="text-primary hover:underline font-medium">Contact Teen Harbor</a> to speak with our admissions team.</p>
+          </div>
+        </div>
+      </ScrollArea>
+    ),
   },
   {
     icon: CalendarCheck,
     title: "What a Day Looks Like",
     body: "A walk through the daily schedule: therapy, school, wellness, recreation and personal responsibility.",
+    modalContent: (
+      <ScrollArea className="h-[60vh] pr-4">
+        <div className="space-y-6 text-sm text-slate-600 leading-relaxed">
+          <p>
+            Structure can provide stability, but adolescence still needs room for connection, growth, and simply being a kid. At Teen Harbor, each day thoughtfully balances clinical treatment, education, wellness, recreation, and personal responsibility within a supportive residential environment.
+          </p>
+          
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Morning | Starting With Intention</h4>
+            <p>Days begin with a consistent morning routine designed to build healthy habits and independence. Youth have time for personal care, room responsibilities, breakfast, medication support when applicable, and preparation for the day ahead.</p>
+            <p>Simple routines become opportunities to practice accountability, organization, and self-care.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Clinical Care | Doing the Work</h4>
+            <p>Treatment is individualized to each youth’s needs and goals. Throughout the week, residents participate in a combination of individual therapy, group therapy, family therapy, psychiatric services, and other therapeutic programming as clinically appropriate.</p>
+            <p>Sessions focus not only on what brought a young person to treatment, but on developing practical skills for emotional regulation, communication, relationships, coping, decision-making, and life beyond residential care.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Education | Staying Connected to the Future</h4>
+            <p>Treatment should support a young person’s future—not put it on hold.</p>
+            <p>Dedicated educational time helps residents remain engaged academically while receiving treatment. Our team works to provide structure and support so youth can continue making progress toward their educational goals.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Wellness | Caring for the Whole Person</h4>
+            <p>Mental health and physical well-being are deeply connected. Daily life at Teen Harbor incorporates opportunities for movement, nutritious meals, outdoor time, mindfulness, healthy routines, and restorative downtime.</p>
+            <p>Wellness is approached as something sustainable that youth can carry with them long after treatment ends.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Recreation | There Is Still Room to Be a Kid</h4>
+            <p>Residential treatment is meaningful work, but it shouldn't feel clinical every moment of the day.</p>
+            <p>Residents have opportunities for recreation, social connection, creative activities, games, outdoor experiences, and planned community outings. These moments provide more than fun—they allow youth to practice communication, build healthy relationships, discover interests, and experience success outside of therapy.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Personal Responsibility | Building Independence</h4>
+            <p>Throughout the day, residents participate in age-appropriate responsibilities such as caring for their personal space, following routines, participating in the community, and practicing everyday life skills.</p>
+            <p>Our goal isn't simply to create success within the structure of Teen Harbor. It is to help each young person develop the confidence, skills, and independence to carry that progress home.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">More Than a Schedule</h4>
+            <p>No two treatment journeys are exactly alike. Individual schedules may vary based on clinical needs, education, appointments, and treatment goals.</p>
+            <p>What remains consistent is the intention behind each day: providing a safe, structured environment where young people can heal, learn, connect, and prepare for what comes next.</p>
+          </div>
+        </div>
+      </ScrollArea>
+    ),
   },
   {
     icon: Wallet,
     title: "Insurance & Admissions FAQ",
     body: "Coverage, verification and what to expect during the first 72 hours after admission.",
+    modalContent: (
+      <ScrollArea className="h-[60vh] pr-4">
+        <div className="space-y-6 text-sm text-slate-600 leading-relaxed">
+          <p>
+            Seeking residential treatment for your child can come with a lot of questions—especially when it comes to insurance, eligibility, and what happens after admission. Our team works to make the process as clear and supportive as possible.
+          </p>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Does Insurance Cover Residential Treatment?</h4>
+            <p>Coverage varies by insurance plan, medical necessity, benefits, and authorization requirements. Teen Harbor works with families to verify available benefits and explore coverage options before admission whenever possible.</p>
+            <p>Insurance verification is not a guarantee of payment or authorization. Our team will help explain the information available from your insurance provider so you can better understand potential coverage and next steps.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">What Happens During Insurance Verification?</h4>
+            <p>With your permission, our team may contact your insurance provider to review benefits related to behavioral health and residential treatment. Depending on the plan, additional clinical information or prior authorization may be required.</p>
+            <p>We will communicate with you throughout the process and let you know if additional information is needed.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">What Is the Admissions Process?</h4>
+            <p>The process generally begins with a confidential conversation about your child’s current needs, treatment history, safety concerns, and goals for care.</p>
+            <p>From there, our clinical team reviews the information provided to determine whether Teen Harbor can safely and appropriately meet your child’s needs. When Teen Harbor is an appropriate fit, our admissions team will guide your family through the remaining paperwork, financial arrangements, arrival planning, and what to bring.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">What Should We Expect During the First 72 Hours?</h4>
+            <p>The first few days are intentionally focused on orientation, assessment, stabilization, and connection.</p>
+            <p>Your child will become familiar with the home, daily routines, expectations, staff, and other residents. Our team will begin completing appropriate clinical assessments, reviewing medications and health information, identifying immediate needs, and developing an individualized treatment plan.</p>
+            <p>We also recognize that entering residential treatment is a major transition. The first 72 hours are about more than completing assessments—they are about helping your child begin to feel safe, supported, and understood.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">When Does Treatment Begin?</h4>
+            <p>Treatment begins from the moment your child enters our care. During the initial days, the clinical team gathers information and gets to know your child so that services can be tailored to their individual strengths, needs, risks, and treatment goals.</p>
+            <p>As the assessment process progresses, the treatment plan and ongoing schedule become increasingly individualized.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Will Our Family Be Involved?</h4>
+            <p>Yes. Family involvement is an important component of residential treatment whenever clinically appropriate.</p>
+            <p>Parents and caregivers may participate in treatment planning, family therapy, progress discussions, education, and discharge planning. Our goal is to help create progress that extends beyond the residential environment and can be supported when your child returns home.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">How Quickly Can Admission Happen?</h4>
+            <p>Timing depends on several factors, including clinical appropriateness, bed availability, required documentation, insurance authorization, and financial arrangements.</p>
+            <p>Our admissions team will help you understand what is needed and move the process forward as efficiently as possible.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-semibold text-slate-900 text-base">Still Have Questions?</h4>
+            <p>You don't need to understand every part of residential treatment or insurance before reaching out. That is what our admissions team is here to help with.</p>
+            <p>Contact Teen Harbor for a confidential admissions conversation, insurance verification, or help determining whether residential treatment may be appropriate for your child.</p>
+          </div>
+        </div>
+      </ScrollArea>
+    ),
   },
 ];
 
@@ -575,18 +728,35 @@ export default function Page() {
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {RESOURCES.map(({ icon: Icon, title, body }, i) => (
+            {RESOURCES.map(({ icon: Icon, title, body, modalContent }, i) => (
               <Reveal key={title} delay={i * 120}>
-                <article className="card-soft group/arrow h-full p-6">
+                <article className="card-soft group/arrow h-full p-6 flex flex-col">
                   <Icon className="h-6 w-6 text-primary" />
                   <h3 className="mt-4 text-lg">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-                  <a
-                    href="/contact"
-                    className="mt-5 inline-block text-sm font-semibold text-primary"
-                  >
-                    Learn More <span className="arrow-nudge">→</span>
-                  </a>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-1">{body}</p>
+                  
+                  {modalContent ? (
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <button className="mt-5 text-left text-sm font-semibold text-primary inline-flex items-center group-hover/arrow:text-primary/80 transition-colors cursor-pointer">
+                          Learn More <span className="arrow-nudge ml-1">→</span>
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-5xl max-h-[90vh]">
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
+                        </DialogHeader>
+                        {modalContent}
+                      </DialogContent>
+                    </Dialog>
+                  ) : (
+                    <a
+                      href="/contact"
+                      className="mt-5 inline-block text-sm font-semibold text-primary"
+                    >
+                      Learn More <span className="arrow-nudge">→</span>
+                    </a>
+                  )}
                 </article>
               </Reveal>
             ))}

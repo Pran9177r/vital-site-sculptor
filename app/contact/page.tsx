@@ -9,17 +9,21 @@ import Image from "next/image";
 
 const INSURANCE_PROVIDERS = [
   { name: "Aetna", url: "https://logo.clearbit.com/aetna.com" },
-  { name: "Cigna", url: "https://logo.clearbit.com/cigna.com" },
-  { name: "UnitedHealthcare", url: "https://logo.clearbit.com/uhc.com" },
-  { name: "Blue Cross Blue Shield", url: "https://logo.clearbit.com/bcbs.com" },
   { name: "Anthem", url: "https://logo.clearbit.com/anthem.com" },
-  { name: "Kaiser Permanente", url: "https://logo.clearbit.com/kaiserpermanente.org" },
-  { name: "Magellan Health", url: "https://logo.clearbit.com/magellanhealth.com" },
+  { name: "Blue Shield", url: "https://logo.clearbit.com/blueshieldca.com" },
+  { name: "Carelon", url: "https://logo.clearbit.com/carelon.com" },
+  { name: "Cigna", url: "https://logo.clearbit.com/cigna.com" },
+  { name: "ComPsych", url: "https://logo.clearbit.com/compsych.com" },
+  { name: "Health Net", url: "https://logo.clearbit.com/healthnet.com" },
+  { name: "Humana", url: "https://logo.clearbit.com/humana.com" },
   { name: "Optum", url: "https://logo.clearbit.com/optum.com" },
+  { name: "UC SHIP", url: "https://logo.clearbit.com/ucop.edu" },
+  { name: "UMR", url: "https://logo.clearbit.com/umr.com" },
+  { name: "United Healthcare", url: "https://logo.clearbit.com/uhc.com" },
 ];
 
 export default function ContactPage() {
-  const [activeTab, setActiveTab] = useState<'insurance' | 'contact'>('insurance');
+  const [activeTab, setActiveTab] = useState<'insurance' | 'get-started'>('insurance');
 
   return (
     <div className="flex flex-col w-full relative min-h-screen">
@@ -67,14 +71,14 @@ export default function ContactPage() {
                 Verify Insurance
               </button>
               <button 
-                onClick={() => setActiveTab('contact')}
+                onClick={() => setActiveTab('get-started')}
                 className={`flex-1 flex items-center justify-center gap-3 px-8 py-5 rounded-full font-bold transition-all duration-300 shadow-xl border ${
-                  activeTab === 'contact' 
+                  activeTab === 'get-started' 
                     ? 'bg-blue-500 text-white border-blue-500/50 scale-105 shadow-[0_10px_30px_rgba(59,130,246,0.3)]' 
                     : 'bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-md'
                 }`}
               >
-                General Inquiry
+                Get Started
               </button>
             </div>
           </Reveal>
@@ -84,8 +88,9 @@ export default function ContactPage() {
             <div className="animate-in fade-in slide-in-from-bottom-8 duration-500">
               {/* Logos Section */}
               <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-12 backdrop-blur-md mb-10 text-center shadow-2xl">
-                <p className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-8">
-                  We work with most major providers including
+                <h2 className="text-2xl font-bold text-white mb-4">Insurance Covered Mental Health Care</h2>
+                <p className="text-white/80 leading-relaxed mb-8 max-w-3xl mx-auto">
+                  Teen Harbor exists to increase access to mental health care that helps people thrive. We accept most commercial insurance plans, including Aetna, Anthem, Blue Shield, Carelon, Cigna, ComPsych, Healthnet, Humana, Optum, UC SHIP, UMR, and United Healthcare.
                 </p>
                 <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-12 opacity-80 transition-all">
                   {INSURANCE_PROVIDERS.map((provider) => (
@@ -162,19 +167,30 @@ export default function ContactPage() {
             </div>
           )}
 
-          {/* Tab Content: General Inquiry */}
-          {activeTab === 'contact' && (
+          {/* Tab Content: Get Started */}
+          {activeTab === 'get-started' && (
             <div className="animate-in fade-in slide-in-from-bottom-8 duration-500">
               <div className="grid lg:grid-cols-3 gap-10">
                 
                 {/* Contact Info */}
                 <div className="lg:col-span-1 space-y-8 text-white bg-white/5 border border-white/10 p-8 rounded-[2.5rem] backdrop-blur-md h-fit shadow-2xl">
                   <div>
-                    <h2 className="text-3xl font-semibold mb-6">Get in Touch</h2>
+                    <h2 className="text-3xl font-semibold mb-6">Get Started</h2>
                     <p className="text-white/80 leading-relaxed">
-                      Our team is available to answer your questions and provide the support you need. 
-                      No pressure—just clear answers.
+                      Reaching out for support is a big step, so we're here to make it easier. Submit this form, and our team will walk you through the next steps toward getting your child the care they deserve.
                     </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-white/10">
+                    <h3 className="text-xl font-semibold mb-4 text-white">Conditions Treated</h3>
+                    <ul className="text-white/80 leading-relaxed list-disc list-inside space-y-2">
+                      <li>Depression & Mood Disorders</li>
+                      <li>Anxiety & Panic Disorders</li>
+                      <li>Trauma & PTSD</li>
+                      <li>ADHD & Behavioral Challenges</li>
+                      <li>Co-occurring Substance Use</li>
+                      <li>Self-Harm & Suicidal Ideation</li>
+                    </ul>
                   </div>
 
                   <div className="space-y-6 pt-4 border-t border-white/10">
@@ -222,7 +238,7 @@ export default function ContactPage() {
                 <div className="lg:col-span-2">
                   <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative overflow-hidden h-full">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-                    <h3 className="text-3xl font-bold text-slate-900 mb-2 relative z-10">Send a Message</h3>
+                    <h3 className="text-3xl font-bold text-slate-900 mb-2 relative z-10">Referral / Admissions</h3>
                     <p className="text-slate-500 mb-8 relative z-10">Fill out the form below and our admissions team will get back to you shortly.</p>
                     <div className="relative z-10">
                       <ContactForm />
