@@ -17,6 +17,10 @@ type NavItem = {
 
 const NAV: NavItem[] = [
   {
+    label: "Home",
+    href: "/",
+  },
+  {
     label: "About",
     href: "/about",
     subItems: [
@@ -246,16 +250,6 @@ export function Header() {
               </div>
               
               <div className="flex-1 overflow-y-auto py-6 px-5 flex flex-col gap-2">
-                <Link
-                  href="/"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`text-lg font-medium transition-colors py-2 ${
-                    pathname === "/" ? "text-primary" : "text-slate-800"
-                  }`}
-                >
-                  Home
-                </Link>
-                
                 {NAV.map((item) => (
                   <div key={item.label} className="flex flex-col">
                     <div className="flex items-center justify-between">
