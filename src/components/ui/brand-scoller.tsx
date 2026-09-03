@@ -10,7 +10,7 @@ export interface ReviewItem {
 }
 
 export const DEFAULT_REVIEWS: ReviewItem[] = [
-  { quote: "The team treated our daughter like a whole person. She came home with real skills.", name: "Former Parent", stars: 5 },
+  { quote: "The team treated our daughter as an individual, not a diagnosis. She came home with real skills.", name: "Former Parent", stars: 5 },
   { quote: "Family therapy changed how we talk to each other. We felt included in the healing.", name: "Teen Harbor Parent", stars: 5 },
   { quote: "The tutor kept my son on track for graduation while he focused on getting better.", name: "Parent of Resident", stars: 5 },
   { quote: "Structured days, kind staff, and a house that actually felt like a home.", name: "California Parent", stars: 5 },

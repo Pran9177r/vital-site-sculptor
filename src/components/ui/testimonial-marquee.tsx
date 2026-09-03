@@ -8,7 +8,7 @@ const reviews = [
   {
     name: "Parent of Teen",
     username: "@parent1",
-    body: "“The team treated our daughter like a whole person, not a diagnosis. She came home with real skills and real confidence.”",
+    body: "“The team treated our daughter as an individual, not a diagnosis. She came home with real skills and real confidence.”",
     profile: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=64&h=64&fit=crop&crop=faces",
   },
   {

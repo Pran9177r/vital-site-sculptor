@@ -290,7 +290,7 @@ SMS Consent: ${data.smsConsent ? 'Yes' : 'No'}
       <Button 
         type="submit" 
         disabled={isSubmitting}
-        className="w-full h-14 rounded-xl bg-[#F97316] text-white hover:bg-[#EA580C] font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-8"
+        className="w-full h-14 rounded-xl bg-[#F97316] text-white hover:bg-[#32A5DA] font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-8"
       >
         {isSubmitting ? (
           <>

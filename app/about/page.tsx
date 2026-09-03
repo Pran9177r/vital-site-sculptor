@@ -115,7 +115,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={300}>
               <p className="relative z-10">
-                Our philosophy is rooted in the belief that true recovery requires addressing the whole person. We don&apos;t just treat diagnoses; we treat individuals. By combining clinical excellence with a warm, home-like environment, we foster a culture of respect, empathy, and accountability.
+                Our philosophy is rooted in the belief that true recovery requires treating the individual, not just the diagnosis. We don&apos;t just treat diagnoses; we treat individuals. By combining clinical excellence with a warm, home-like environment, we foster a culture of respect, empathy, and accountability.
               </p>
             </Reveal>
           </div>

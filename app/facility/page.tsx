@@ -36,7 +36,7 @@ const FACILITY_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787607554/ChatGPT_Image_Aug_24_2026_at_05_37_23_PM_j66igq.png", alt: "Facility Interior and Patio" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787605345/ChatGPT_Image_Aug_24_2026_at_05_00_27_PM_aclxcw.png", alt: "Front exterior of the Teen Harbor residence" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787612552/5_ucxaeb.png", alt: "Facility Amenities" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787612562/6_zjbqkt.png", alt: "Expansive backyard lawn with walking path and pool area" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787612562/6_zjbqkt.png", alt: "Large backyard lawn with walking path and pool area" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787612570/7_rfak2v.png", alt: "Spacious bathroom with double vanity" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787614633/office_image_10MB_jvvha1.png", alt: "Administrative office with security monitoring wall" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787613005/ChatGPT_Image_Aug_24_2026_at_07_09_40_PM_dutetb.png", alt: "Gated entrance and driveway of the residence" },
@@ -44,6 +44,17 @@ const FACILITY_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470645/ChatGPT_Image_Aug_23_2026_at_03_33_36_AM_asi9ud.png", alt: "Bright, comfortable bedroom with two beds" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787472510/ChatGPT_Image_Aug_23_2026_at_04_07_16_AM_wcrwkq.png", alt: "Modern bathroom shower with built-in shelf" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613191/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Outdoor swimming pool with water feature" },
+];
+
+const VAN_NESS_IMAGES = [
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420458/1_nr2aep.jpg", alt: "Front exterior of the Van Ness residence at dusk with circular driveway" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420459/2_p7trzx.jpg", alt: "Living room with vaulted wood ceiling and doors opening to the yard" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420459/4_tu86q4.jpg", alt: "Open kitchen with large island, double ovens and quartz counters" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420459/3_ctc4vh.jpg", alt: "Great room with fireplace and floor-to-ceiling windows to the garden" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420460/5_pgdkjr.jpg", alt: "Bright bedroom with ceiling fan and hardwood floors" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420460/6_tgyyd2.jpg", alt: "Bathroom with glass shower, soaking tub and a window overlooking mature trees" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420466/8_jlf6fk.jpg", alt: "Covered back patio and landscaped lawn at dusk" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420466/7_puwx4l.jpg", alt: "Backyard swimming pool with the residence lit up at dusk" },
 ];
 
 export default function FacilityPage() {
@@ -115,6 +126,26 @@ export default function FacilityPage() {
             </Reveal>
           </div>
           <FacilityGallery images={FACILITY_IMAGES} />
+        </div>
+      </section>
+
+      {/* Van Ness House Section */}
+      <section className="py-20 md:py-32 bg-[#E8F3FC]">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <Reveal>
+              <span className="eyebrow">Opening Soon</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-4 text-3xl md:text-4xl text-slate-900">Our New Home on Van Ness</h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+                Set on a private, tree-lined lot at 6667 N Van Ness Blvd in Fresno, our second residence brings the same warm, home-like care to a bright, fully renovated single-story home with open living spaces, comfortable bedrooms, a chef&apos;s kitchen, and a large backyard with a pool.
+              </p>
+            </Reveal>
+          </div>
+          <FacilityGallery images={VAN_NESS_IMAGES} />
         </div>
       </section>
 

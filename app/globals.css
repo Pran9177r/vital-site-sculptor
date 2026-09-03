@@ -627,3 +627,48 @@ a:hover>.arrow-nudge {
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration) linear infinite;
 }
+
+/* ── Unified button interaction color ─────────────────────────────────────
+   Every button (and button-style link) turns #32A5DA on hover, keyboard
+   focus, and while being pressed/clicked.
+   Add the `no-blue-hover` class to opt an element out (e.g. plain text
+   links styled as buttons). */
+:root {
+  --btn-hover: #32a5da;
+}
+
+button:not(.no-blue-hover),
+a[role="button"]:not(.no-blue-hover),
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+button:not(:disabled):not(.no-blue-hover):hover,
+button:not(:disabled):not(.no-blue-hover):focus-visible,
+button:not(:disabled):not(.no-blue-hover):active,
+a[role="button"]:not(.no-blue-hover):hover,
+a[role="button"]:not(.no-blue-hover):focus-visible,
+a[role="button"]:not(.no-blue-hover):active,
+input[type="button"]:not(:disabled):hover,
+input[type="submit"]:not(:disabled):hover,
+input[type="reset"]:not(:disabled):hover,
+input[type="button"]:not(:disabled):active,
+input[type="submit"]:not(:disabled):active,
+input[type="reset"]:not(:disabled):active {
+  background-color: var(--btn-hover) !important;
+  border-color: var(--btn-hover) !important;
+  color: #ffffff !important;
+}
+
+/* keep nested icons / labels readable on the blue */
+button:not(:disabled):not(.no-blue-hover):hover :where(svg, span, p, strong),
+button:not(:disabled):not(.no-blue-hover):active :where(svg, span, p, strong),
+a[role="button"]:not(.no-blue-hover):hover :where(svg, span, p, strong),
+a[role="button"]:not(.no-blue-hover):active :where(svg, span, p, strong) {
+  color: #ffffff !important;
+}

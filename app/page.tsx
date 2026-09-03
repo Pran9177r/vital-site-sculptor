@@ -134,8 +134,8 @@ const TREATMENTS = [
 const DIFFERENT = [
   {
     icon: HeartHandshake,
-    title: "Individualized, Whole-Person Care",
-    body: "No two adolescents are alike, and neither are their treatment plans. Every resident receives a personalized plan based on their unique strengths, challenges, diagnoses and goals — treating the whole person rather than just the symptoms.",
+    title: "Individualized Care Plans",
+    body: "No two adolescents are alike, and neither are their treatment plans. Every resident receives a personalized plan based on their unique strengths, challenges, diagnoses and goals — addressing each adolescent's needs, not just their symptoms.",
   },
   {
     icon: Home,
@@ -152,7 +152,7 @@ const DIFFERENT = [
 const TESTIMONIALS = [
   {
     quote:
-      "The team treated our daughter like a whole person, not a diagnosis. She came home with real skills and real confidence.",
+      "The team treated our daughter as an individual, not a diagnosis. She came home with real skills and real confidence.",
     name: "Former Teen Harbor Parent",
     role: "Parent",
   },
@@ -256,7 +256,7 @@ const RESOURCES = [
           <div className="space-y-2">
             <h4 className="font-semibold text-slate-900 text-base">What Is Residential Treatment?</h4>
             <p>Residential treatment provides 24-hour care in a safe, structured, and supportive environment for adolescents who need more support than traditional outpatient services can provide.</p>
-            <p>At Teen Harbor, treatment is designed to address the whole person—not simply a diagnosis or a specific behavior. Youth receive individualized clinical support while continuing to build the skills, routines, relationships, and confidence they need for life beyond treatment.</p>
+            <p>At Teen Harbor, treatment is designed to address each adolescent's individual needs—not simply a diagnosis or a specific behavior. Youth receive individualized clinical support while continuing to build the skills, routines, relationships, and confidence they need for life beyond treatment.</p>
             <p>Depending on each youth’s individualized needs, care may include individual therapy, group therapy, family involvement, psychiatric and medication support, educational support, skill development, structured activities, and opportunities for recreation and connection.</p>
           </div>
 
@@ -320,7 +320,7 @@ const RESOURCES = [
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-semibold text-slate-900 text-base">Wellness | Caring for the Whole Person</h4>
+            <h4 className="font-semibold text-slate-900 text-base">Wellness | Caring for Mind and Body</h4>
             <p>Mental health and physical well-being are deeply connected. Daily life at Teen Harbor incorporates opportunities for movement, nutritious meals, outdoor time, mindfulness, healthy routines, and restorative downtime.</p>
             <p>Wellness is approached as something sustainable that youth can carry with them long after treatment ends.</p>
           </div>
@@ -527,7 +527,7 @@ export default function Page() {
             </p>
             <div className="mt-7 grid gap-5 sm:grid-cols-2">
               <div>
-                <p className="text-2xl font-semibold text-primary">Whole-Person</p>
+                <p className="text-2xl font-semibold text-primary">Individualized</p>
                 <p className="text-xs text-muted-foreground">
                   Care plans built around strengths, diagnoses and goals
                 </p>
@@ -738,7 +738,7 @@ export default function Page() {
                   {modalContent ? (
                     <Dialog>
                       <DialogTrigger asChild>
-                        <button className="mt-5 text-left text-sm font-semibold text-primary inline-flex items-center group-hover/arrow:text-primary/80 transition-colors cursor-pointer">
+                        <button className="no-blue-hover mt-5 text-left text-sm font-semibold text-primary inline-flex items-center group-hover/arrow:text-primary/80 transition-colors cursor-pointer">
                           Learn More <span className="arrow-nudge ml-1">→</span>
                         </button>
                       </DialogTrigger>

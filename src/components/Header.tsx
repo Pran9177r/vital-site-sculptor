@@ -11,6 +11,8 @@ type NavItem = {
   label: string;
   href: string;
   subItems?: NavItem[];
+  /** Opens the link in a new browser tab. */
+  newTab?: boolean;
 };
 
 const NAV: NavItem[] = [
@@ -55,6 +57,7 @@ const NAV: NavItem[] = [
     subItems: [
       { label: "Verify Your Insurance", href: "/contact" },
       { label: "Contact Us", href: "/contact" },
+      { label: "Referrals", href: "/referrals", newTab: true },
     ],
   },
 ];
@@ -92,6 +95,9 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Standalone pages that render without site chrome
+  if (pathname === "/referrals") return null;
+
   return (
     <>
       <header
@@ -110,32 +116,20 @@ export function Header() {
         >
           <Link
             href="/"
-            className={`flex items-center shrink-0 relative transition-all duration-500 ease-in-out ${
-              scrolled || !isHome
-                ? "h-[40px] sm:h-[45px] md:h-[50px] w-[120px] sm:w-[135px] md:w-[150px]"
-                : "h-[70px] sm:h-[80px] md:h-[90px] w-[210px] sm:w-[240px] md:w-[270px]"
-            }`}
+            className="flex items-center shrink-0"
             aria-label="Home"
           >
-            <div
-              className={`absolute left-0 z-[60] origin-left transition-all duration-500 ease-in-out flex items-center ${
+            <img
+              src={logoWordmark.src}
+              alt="Teen Harbor"
+              width={900}
+              height={539}
+              className={`w-auto transition-all duration-500 ease-in-out drop-shadow-sm ${
                 scrolled || !isHome
-                  ? "top-1/2 -translate-y-1/2"
-                  : "-top-6 sm:-top-8 md:-top-12"
+                  ? "h-10 sm:h-11 md:h-12"
+                  : "h-16 sm:h-20 md:h-24 lg:h-28"
               }`}
-            >
-              <img
-                src={logoWordmark.src}
-                alt="Teen Harbor"
-                width={500}
-                height={500}
-                className={`w-auto transition-all duration-500 ease-in-out drop-shadow-md ${
-                  scrolled || !isHome
-                    ? "h-[70px] sm:h-[80px] md:h-[90px]"
-                    : "h-[180px] sm:h-[220px] md:h-[260px]"
-                }`}
-              />
-            </div>
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -177,9 +171,11 @@ export function Header() {
                             <Link
                               key={sub.label}
                               href={sub.href}
+                              target={sub.newTab ? "_blank" : undefined}
+                              rel={sub.newTab ? "noopener noreferrer" : undefined}
                               onClick={(e) => {
                                 setActiveDropdown(null);
-                                handleAnchorNav(pathname, sub.href)(e);
+                                if (!sub.newTab) handleAnchorNav(pathname, sub.href)(e);
                               }}
                               className="px-5 py-2.5 text-sm text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors"
                             >
@@ -198,7 +194,7 @@ export function Header() {
           <div className="hidden xl:flex items-center gap-3 shrink-0">
             <Link
               href="/contact"
-              className="flex items-center justify-center gap-3 rounded-full bg-sun px-7 py-3 text-[15px] font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-xl"
+              className="flex items-center justify-center gap-3 rounded-full bg-sun px-7 py-3 text-[15px] font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-[#32A5DA] hover:text-white hover:-translate-y-0.5 hover:shadow-xl"
             >
               Get Started
             </Link>
@@ -237,9 +233,9 @@ export function Header() {
                 <img
                   src={logoWordmark.src}
                   alt="Teen Harbor"
-                  width={500}
-                  height={500}
-                  className="h-[120px] w-auto"
+                  width={900}
+                  height={539}
+                  className="h-12 w-auto"
                 />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -296,9 +292,11 @@ export function Header() {
                               <Link
                                 key={sub.label}
                                 href={sub.href}
+                                target={sub.newTab ? "_blank" : undefined}
+                                rel={sub.newTab ? "noopener noreferrer" : undefined}
                                 onClick={(e) => {
                                   setMobileMenuOpen(false);
-                                  handleAnchorNav(pathname, sub.href)(e);
+                                  if (!sub.newTab) handleAnchorNav(pathname, sub.href)(e);
                                 }}
                                 className="text-[15px] text-slate-600 hover:text-primary transition-colors"
                               >
@@ -317,7 +315,7 @@ export function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex w-full items-center justify-center gap-3 rounded-full bg-sun px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+                  className="flex w-full items-center justify-center gap-3 rounded-full bg-sun px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-sun-foreground shadow-lg transition-all duration-300 hover:bg-[#32A5DA] hover:text-white"
                 >
                   Get Started
                 </Link>

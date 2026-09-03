@@ -127,11 +127,11 @@ export const PrismaHero = () => {
               >
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-2 self-start rounded-full bg-sun py-1.5 pl-6 pr-1.5 text-sm font-bold uppercase tracking-widest text-sun-foreground transition-all hover:gap-3 sm:text-base shadow-xl"
+                  className="group inline-flex items-center gap-2 self-start rounded-full bg-sun py-1.5 pl-6 pr-1.5 text-sm font-bold uppercase tracking-widest text-sun-foreground transition-all hover:gap-3 hover:bg-[#32A5DA] hover:text-white sm:text-base shadow-xl"
                 >
                   Get Help Now
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy transition-transform group-hover:scale-110">
-                    <ArrowRight className="h-5 w-5 text-white" />
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#32A5DA] transition-transform group-hover:scale-110 group-hover:bg-white">
+                    <ArrowRight className="h-5 w-5 text-white group-hover:text-[#32A5DA]" />
                   </span>
                 </Link>
               </motion.div>

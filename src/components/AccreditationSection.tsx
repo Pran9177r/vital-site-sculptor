@@ -24,10 +24,10 @@ export function AccreditationSection({ accreditations }: AccreditationSectionPro
         transition={{ duration: 0.5 }}
       >
         <div className="flex justify-center mb-6">
-          <img 
-            src={logoWordmark.src} 
-            alt="Teen Harbor Branding" 
-            className="h-28 sm:h-36 md:h-48 lg:h-56 w-auto object-contain drop-shadow-sm" 
+          <img
+            src={logoWordmark.src}
+            alt="Teen Harbor Branding"
+            className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto object-contain drop-shadow-sm"
           />
         </div>
         <span className="eyebrow">Accreditations</span>

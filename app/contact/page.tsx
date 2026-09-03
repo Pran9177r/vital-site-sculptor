@@ -7,19 +7,19 @@ import { Mail, Phone, MapPin, Globe, ShieldCheck, MessageCircle, CheckCircle2 } 
 import houseCta from "@/assets/house-cta.jpg";
 import Image from "next/image";
 
-const INSURANCE_PROVIDERS = [
-  { name: "Aetna", url: "https://logo.clearbit.com/aetna.com" },
-  { name: "Anthem", url: "https://logo.clearbit.com/anthem.com" },
-  { name: "Blue Shield", url: "https://logo.clearbit.com/blueshieldca.com" },
-  { name: "Carelon", url: "https://logo.clearbit.com/carelon.com" },
-  { name: "Cigna", url: "https://logo.clearbit.com/cigna.com" },
-  { name: "ComPsych", url: "https://logo.clearbit.com/compsych.com" },
-  { name: "Health Net", url: "https://logo.clearbit.com/healthnet.com" },
-  { name: "Humana", url: "https://logo.clearbit.com/humana.com" },
-  { name: "Optum", url: "https://logo.clearbit.com/optum.com" },
-  { name: "UC SHIP", url: "https://logo.clearbit.com/ucop.edu" },
-  { name: "UMR", url: "https://logo.clearbit.com/umr.com" },
-  { name: "United Healthcare", url: "https://logo.clearbit.com/uhc.com" },
+const INSURANCE_PROVIDERS: { name: string; src: string; bg?: string }[] = [
+  { name: "Aetna", src: "/insurance/aetna.png" },
+  { name: "Anthem", src: "/insurance/anthem.svg" },
+  { name: "Blue Shield of California", src: "/insurance/blueshield.png" },
+  { name: "Carelon", src: "/insurance/carelon.png" },
+  { name: "Cigna Healthcare", src: "/insurance/cigna.jpg", bg: "#0033ff" },
+  { name: "ComPsych", src: "/insurance/compsych.png" },
+  { name: "Health Net", src: "/insurance/healthnet.jpg" },
+  { name: "Humana", src: "/insurance/humana.png" },
+  { name: "Optum", src: "/insurance/optum.png" },
+  { name: "UC SHIP", src: "/insurance/ucship.png" },
+  { name: "UMR", src: "/insurance/umr.png" },
+  { name: "UnitedHealthcare", src: "/insurance/unitedhealthcare.svg" },
 ];
 
 export default function ContactPage() {
@@ -29,14 +29,15 @@ export default function ContactPage() {
     <div className="flex flex-col w-full relative min-h-screen">
       {/* Global Full-Page Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <Image 
-          src={houseCta} 
-          alt="Contact Us Background" 
+        <Image
+          src={houseCta}
+          alt="Contact Us Background"
           fill
-          className="object-cover"
+          className="object-cover blur-[8px] scale-110"
           priority
         />
-        <div className="absolute inset-0 bg-navy/85 backdrop-blur-[6px]" />
+        {/* Soft readability scrim — keeps the photo visible while text stays legible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/40" />
       </div>
 
       {/* Hero Section */}
@@ -44,8 +45,8 @@ export default function ContactPage() {
         <div className="mx-auto max-w-5xl px-5 w-full">
           <Reveal>
             <div className="text-center">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight">Contact & Admissions</h1>
-              <p className="mt-6 text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl mx-auto font-medium">
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight [text-shadow:_0_2px_16px_rgba(0,0,0,0.55)]">Contact & Admissions</h1>
+              <p className="mt-6 text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl mx-auto font-medium [text-shadow:_0_1px_10px_rgba(0,0,0,0.5)]">
                 We're here to help you navigate the next steps. Choose an option below to get started.
               </p>
             </div>
@@ -60,22 +61,22 @@ export default function ContactPage() {
           {/* Tab Navigation */}
           <Reveal delay={100}>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16 max-w-2xl mx-auto">
-              <button 
+              <button
                 onClick={() => setActiveTab('insurance')}
                 className={`flex-1 flex items-center justify-center gap-3 px-8 py-5 rounded-full font-bold transition-all duration-300 shadow-xl border ${
-                  activeTab === 'insurance' 
-                    ? 'bg-sun text-white border-sun/50 scale-105 shadow-[0_10px_30px_rgba(247,165,49,0.3)]' 
-                    : 'bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-md'
+                  activeTab === 'insurance'
+                    ? 'bg-sun text-white border-sun/50 scale-105 shadow-[0_10px_30px_rgba(247,165,49,0.3)]'
+                    : 'bg-black/35 text-white border-white/25 hover:bg-black/45 backdrop-blur-md'
                 }`}
               >
                 Verify Insurance
               </button>
-              <button 
+              <button
                 onClick={() => setActiveTab('get-started')}
                 className={`flex-1 flex items-center justify-center gap-3 px-8 py-5 rounded-full font-bold transition-all duration-300 shadow-xl border ${
-                  activeTab === 'get-started' 
-                    ? 'bg-blue-500 text-white border-blue-500/50 scale-105 shadow-[0_10px_30px_rgba(59,130,246,0.3)]' 
-                    : 'bg-white/10 text-white border-white/20 hover:bg-white/20 backdrop-blur-md'
+                  activeTab === 'get-started'
+                    ? 'bg-blue-500 text-white border-blue-500/50 scale-105 shadow-[0_10px_30px_rgba(59,130,246,0.3)]'
+                    : 'bg-black/35 text-white border-white/25 hover:bg-black/45 backdrop-blur-md'
                 }`}
               >
                 Get Started
@@ -87,20 +88,25 @@ export default function ContactPage() {
           {activeTab === 'insurance' && (
             <div className="animate-in fade-in slide-in-from-bottom-8 duration-500">
               {/* Logos Section */}
-              <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-12 backdrop-blur-md mb-10 text-center shadow-2xl">
-                <h2 className="text-2xl font-bold text-white mb-4">Insurance Covered Mental Health Care</h2>
-                <p className="text-white/80 leading-relaxed mb-8 max-w-3xl mx-auto">
-                  Teen Harbor exists to increase access to mental health care that helps people thrive. We accept most commercial insurance plans, including Aetna, Anthem, Blue Shield, Carelon, Cigna, ComPsych, Healthnet, Humana, Optum, UC SHIP, UMR, and United Healthcare.
+              <div className="bg-white border border-slate-100 rounded-[2.5rem] p-8 md:p-12 mb-10 text-center shadow-2xl">
+                <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">Insurance Covered Mental Health Care</h2>
+                <p className="text-slate-600 leading-relaxed mb-10 max-w-3xl mx-auto">
+                  Teen Harbor exists to increase access to mental health care that helps people thrive. We accept most commercial insurance plans, including:
                 </p>
-                <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-12 opacity-80 transition-all">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
                   {INSURANCE_PROVIDERS.map((provider) => (
-                    <div key={provider.name} className="relative h-12 w-24 md:h-16 md:w-32 transition-transform duration-300 hover:scale-110 brightness-0 invert">
-                      <Image 
-                        src={provider.url}
+                    <div
+                      key={provider.name}
+                      style={provider.bg ? { backgroundColor: provider.bg } : undefined}
+                      className={`flex items-center justify-center rounded-2xl border p-5 h-24 md:h-28 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
+                        provider.bg ? "border-transparent" : "border-slate-200 bg-white"
+                      }`}
+                    >
+                      <img
+                        src={provider.src}
                         alt={`${provider.name} logo`}
-                        fill
-                        className="object-contain"
-                        unoptimized
+                        className="max-h-full max-w-full object-contain"
+                        loading="lazy"
                       />
                     </div>
                   ))}
@@ -173,7 +179,7 @@ export default function ContactPage() {
               <div className="grid lg:grid-cols-3 gap-10">
                 
                 {/* Contact Info */}
-                <div className="lg:col-span-1 space-y-8 text-white bg-white/5 border border-white/10 p-8 rounded-[2.5rem] backdrop-blur-md h-fit shadow-2xl">
+                <div className="lg:col-span-1 space-y-8 text-white bg-black/40 border border-white/15 p-8 rounded-[2.5rem] backdrop-blur-md h-fit shadow-2xl">
                   <div>
                     <h2 className="text-3xl font-semibold mb-6">Get Started</h2>
                     <p className="text-white/80 leading-relaxed">
@@ -245,7 +251,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
-                
+
               </div>
             </div>
           )}

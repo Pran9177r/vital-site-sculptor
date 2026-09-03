@@ -236,7 +236,7 @@ export default function TreatmentAndServicesPage() {
           <div className="mt-12 space-y-8 text-lg text-slate-600 leading-relaxed">
             <Reveal delay={200}>
               <p>
-                The residential program at Teen Harbor is meticulously structured to provide a balance of intensive therapeutic work, academic continuity, and restorative life-skills development. By treating the whole person rather than just a set of symptoms, we create a stable foundation where adolescents can rebuild their confidence and resilience.
+                The residential program at Teen Harbor is meticulously structured to provide a balance of intensive therapeutic work, academic continuity, and restorative life-skills development. By addressing each adolescent's individual needs rather than just a set of symptoms, we create a stable foundation where they can rebuild their confidence and resilience.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -350,15 +350,15 @@ export default function TreatmentAndServicesPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-navy text-navy-foreground py-20">
+      <section className="bg-white text-foreground py-20">
         <div className="mx-auto max-w-4xl px-5 text-center">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy">
               Ready to Begin the Journey to Healing?
             </h2>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
               Our admissions team is available 24/7 to answer your questions and help determine if Teen Harbor is the right fit for your adolescent.
             </p>
           </Reveal>
@@ -366,13 +366,13 @@ export default function TreatmentAndServicesPage() {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-sun px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-sun-foreground hover:bg-white hover:text-navy transition-all shadow-lg"
+                className="inline-flex items-center justify-center rounded-full bg-sun px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-sun-foreground hover:bg-[#32A5DA] hover:text-white transition-all shadow-lg"
               >
                 Get Help Now
               </a>
               <a
                 href="tel:5592341001"
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-all"
+                className="inline-flex items-center justify-center rounded-full border border-navy/25 px-8 py-3.5 text-sm font-semibold text-navy hover:bg-[#32A5DA] hover:border-[#32A5DA] hover:text-white transition-all"
               >
                 Call Admissions
               </a>

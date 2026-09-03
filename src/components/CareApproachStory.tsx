@@ -68,7 +68,7 @@ export function CareApproachStory() {
                 type="button"
                 onClick={goPrev}
                 aria-label="Previous stage"
-                className="btn-motion flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-primary shadow-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="btn-motion flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-primary shadow-sm transition-colors hover:bg-[#32A5DA] hover:text-white"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -76,7 +76,7 @@ export function CareApproachStory() {
                 type="button"
                 onClick={goNext}
                 aria-label="Next stage"
-                className="btn-motion flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-primary shadow-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="btn-motion flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-primary shadow-sm transition-colors hover:bg-[#32A5DA] hover:text-white"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
