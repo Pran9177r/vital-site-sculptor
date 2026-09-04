@@ -55,6 +55,9 @@ const VAN_NESS_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420460/6_tgyyd2.jpg", alt: "Bathroom with glass shower, soaking tub and a window overlooking mature trees" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420466/8_jlf6fk.jpg", alt: "Covered back patio and landscaped lawn at dusk" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420466/7_puwx4l.jpg", alt: "Backyard swimming pool with the residence lit up at dusk" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788564694/WhatsApp_Image_2026-09-05_at_0.51.54_hc6atl.jpg", alt: "New location photo 1" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788564695/WhatsApp_Image_2026-09-05_at_03.51.54_emiimu.jpg", alt: "New location photo 2" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788564697/WhatsApp_Image_2026-09-05_at_04.51.54_eroc50.jpg", alt: "New location photo 3" },
 ];
 
 export default function FacilityPage() {

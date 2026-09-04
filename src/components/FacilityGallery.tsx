@@ -18,10 +18,12 @@ function Tile({
   img,
   index,
   onClick,
+  className,
 }: {
   img: GalleryImage;
   index: number;
   onClick: () => void;
+  className?: string;
 }) {
   return (
     <motion.div
@@ -29,7 +31,7 @@ function Tile({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: (index % 6) * 0.1 }}
-      className="cursor-pointer overflow-hidden rounded-xl bg-slate-100 group relative aspect-square"
+      className={`cursor-pointer overflow-hidden rounded-xl bg-slate-100 group relative ${className || "aspect-square"}`}
       onClick={onClick}
     >
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10" />
@@ -139,9 +141,22 @@ export function FacilityGallery({ images }: FacilityGalleryProps) {
           />
         </motion.div>
 
-        {middleImages.map((img, i) => (
-          <Tile key={i} img={img} index={i} onClick={() => setSelectedImage(img)} />
-        ))}
+        {middleImages.map((img, i) => {
+          let extraClasses = "";
+          // To fix the gap when there are exactly 11 total images (5 middle images)
+          if (middleImages.length === 5 && i === 4) {
+            extraClasses = "col-span-2 md:col-span-1 lg:col-span-4 aspect-[2/1] md:aspect-square lg:aspect-[4/1]";
+          }
+          return (
+            <Tile 
+              key={i} 
+              img={img} 
+              index={i} 
+              onClick={() => setSelectedImage(img)} 
+              className={extraClasses} 
+            />
+          );
+        })}
       </div>
 
       <div className="mt-4 flex flex-col md:flex-row gap-4">
