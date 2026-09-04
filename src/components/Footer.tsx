@@ -12,6 +12,7 @@ const NAV = [
   { label: "About", href: "/about" },
   { label: "Treatment and Services", href: "/treatment-and-services" },
   { label: "Admissions", href: "/admissions" },
+  { label: "Referrals", href: "/referrals" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -21,7 +22,6 @@ export function Footer() {
   const pathname = usePathname();
 
   // Standalone pages that render without site chrome
-  if (pathname === "/referrals") return null;
 
   return (
     <>
