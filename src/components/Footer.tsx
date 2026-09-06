@@ -20,8 +20,7 @@ export function Footer() {
   const [termsOpen, setTermsOpen] = useState(false);
   const pathname = usePathname();
 
-  // Standalone pages that render without site chrome
-  if (pathname === "/referrals") return null;
+  // No standalone pages hiding chrome anymore
 
   return (
     <>

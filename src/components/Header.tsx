@@ -56,13 +56,12 @@ const NAV: NavItem[] = [
     href: "/admissions",
   },
   {
+    label: "Referrals",
+    href: "/referrals",
+  },
+  {
     label: "Contact",
     href: "/contact",
-    subItems: [
-      { label: "Verify Your Insurance", href: "/contact" },
-      { label: "Contact Us", href: "/contact" },
-      { label: "Referrals", href: "/referrals", newTab: true },
-    ],
   },
 ];
 
@@ -99,8 +98,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Standalone pages that render without site chrome
-  if (pathname === "/referrals") return null;
+  // No standalone pages hiding chrome anymore
 
   return (
     <>
