@@ -58,15 +58,10 @@ const NAV: NavItem[] = [
   {
     label: "Referrals",
     href: "/referrals",
-    newTab: true,
   },
   {
     label: "Contact",
     href: "/contact",
-    subItems: [
-      { label: "Verify Your Insurance", href: "/contact" },
-      { label: "Contact Us", href: "/contact" },
-    ],
   },
 ];
 
@@ -103,7 +98,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Standalone pages that render without site chrome
+  // No standalone pages hiding chrome anymore
 
   return (
     <>

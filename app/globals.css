@@ -200,10 +200,10 @@
 @utility eyebrow {
   display: inline-block;
   border-radius: 9999px;
-  background-color: var(--pill);
-  color: var(--pill-foreground);
-  padding: 0.3rem 0.9rem;
-  font-size: 0.75rem;
+  background-color: #eba94b;
+  color: #ffffff;
+  padding: 0.4rem 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.04em;
 }

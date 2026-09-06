@@ -60,6 +60,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { PrismaHero } from "@/components/ui/prisma-hero";
 import { AccreditationSection } from "@/components/AccreditationSection";
 import { CareApproachStory } from "@/components/CareApproachStory";
+import { InsuranceMarquee } from "@/components/InsuranceMarquee";
 import heroClinician from "@/assets/hero-clinician.png";
 import heroDots from "@/assets/hero-dots.png.asset.json";
 import servicesTherapy from "@/assets/services-therapy.jpg";
@@ -661,6 +662,88 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Insurance */}
+      <section className="py-16 md:py-20 overflow-hidden bg-white border-b border-slate-200/50">
+        <div className="mx-auto max-w-6xl px-5 text-center mb-10">
+          <Reveal>
+            <span className="eyebrow">Insurance</span>
+          </Reveal>
+          <Reveal delay={90}>
+            <h2 className="mt-4 text-3xl md:text-4xl">Insurance-Covered Mental Health Care</h2>
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="mt-4 text-sm md:text-base leading-relaxed text-muted-foreground max-w-2xl mx-auto">
+              Teen Harbor works with families to verify available benefits and explore coverage
+              options before admission. We accept most major commercial insurance plans, including:
+            </p>
+          </Reveal>
+        </div>
+        <Reveal delay={180}>
+          <InsuranceMarquee />
+        </Reveal>
+        <div className="mt-10 text-center">
+          <a
+            href="/contact"
+            className="btn-motion inline-flex items-center gap-2 rounded-full bg-sun px-7 py-3 text-sm font-semibold uppercase tracking-wide text-sun-foreground shadow-lg hover:bg-[#32A5DA] hover:text-white transition-colors"
+          >
+            Verify Your Insurance
+          </a>
+        </div>
+      </section>
+
+      {/* Resources */}
+      <section className="bg-[#E5F3FD] py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="max-w-2xl">
+            <Reveal>
+              <span className="eyebrow">Resources</span>
+            </Reveal>
+            <Reveal delay={90}>
+              <h2 className="mt-4 text-3xl md:text-4xl">Helpful Reading For Families</h2>
+            </Reveal>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {RESOURCES.map(({ icon: Icon, title, body, modalContent }, i) => (
+              <Reveal key={title} delay={i * 120}>
+                <article className="card-soft group/arrow h-full p-6 flex flex-col">
+                  <Icon className="h-6 w-6 text-primary" />
+                  <h3 className="mt-4 text-lg">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-1">{body}</p>
+
+                  {modalContent ? (
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <button className="no-blue-hover mt-5 text-left text-sm font-semibold text-primary inline-flex items-center group-hover/arrow:text-primary/80 transition-colors cursor-pointer">
+                          Learn More <span className="arrow-nudge ml-1">→</span>
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-5xl max-h-[90vh]">
+                        <DialogHeader>
+                          <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
+                        </DialogHeader>
+                        {modalContent}
+                      </DialogContent>
+                    </Dialog>
+                  ) : (
+                    <a
+                      href="/contact"
+                      className="mt-5 inline-block text-sm font-semibold text-primary"
+                    >
+                      Learn More <span className="arrow-nudge">→</span>
+                    </a>
+                  )}
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Accreditations */}
+      <div className="bg-white border-t border-slate-100">
+        <AccreditationSection accreditations={ACCREDITATIONS} />
+      </div>
+
       {/* Testimonials */}
       <section className="py-20 overflow-hidden bg-[#F5FBFF] border-b border-slate-200/50">
         <div className="mx-auto max-w-6xl px-5 text-center mb-10">
@@ -709,59 +792,6 @@ export default function Page() {
             </Carousel>
           </div>
         </Reveal>
-      </section>
-
-      {/* Accreditations */}
-      <div className="bg-white border-t border-slate-100">
-        <AccreditationSection accreditations={ACCREDITATIONS} />
-      </div>
-
-      {/* Resources */}
-      <section className="bg-[#E5F3FD] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5">
-          <div className="max-w-2xl">
-            <Reveal>
-              <span className="eyebrow">Resources</span>
-            </Reveal>
-            <Reveal delay={90}>
-              <h2 className="mt-4 text-3xl md:text-4xl">Helpful Reading For Families</h2>
-            </Reveal>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {RESOURCES.map(({ icon: Icon, title, body, modalContent }, i) => (
-              <Reveal key={title} delay={i * 120}>
-                <article className="card-soft group/arrow h-full p-6 flex flex-col">
-                  <Icon className="h-6 w-6 text-primary" />
-                  <h3 className="mt-4 text-lg">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-1">{body}</p>
-                  
-                  {modalContent ? (
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <button className="no-blue-hover mt-5 text-left text-sm font-semibold text-primary inline-flex items-center group-hover/arrow:text-primary/80 transition-colors cursor-pointer">
-                          Learn More <span className="arrow-nudge ml-1">→</span>
-                        </button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-5xl max-h-[90vh]">
-                        <DialogHeader>
-                          <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
-                        </DialogHeader>
-                        {modalContent}
-                      </DialogContent>
-                    </Dialog>
-                  ) : (
-                    <a
-                      href="/contact"
-                      className="mt-5 inline-block text-sm font-semibold text-primary"
-                    >
-                      Learn More <span className="arrow-nudge">→</span>
-                    </a>
-                  )}
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* FAQ */}

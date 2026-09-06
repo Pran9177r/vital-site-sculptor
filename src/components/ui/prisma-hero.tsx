@@ -101,10 +101,10 @@ export const PrismaHero = () => {
             
             <div className="col-span-12 lg:col-span-8">
               <h1
-                className="font-medium leading-[1.1] tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4"
+                className="font-medium leading-[1.1] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4"
                 style={{ color: "#E1E0CC" }}
               >
-                <WordsPullUp text="Central Valley's Residential Treatment Center for Youth." />
+                <WordsPullUp text="Central Valley's Residential Treatment Center for Youth with Mental Health and Dual Diagnosis Conditions" />
               </h1>
             </div>
 
@@ -117,7 +117,7 @@ export const PrismaHero = () => {
                 className="text-sm text-white/90 sm:text-base md:text-lg drop-shadow-md"
                 style={{ lineHeight: 1.5 }}
               >
-                Teen Harbor is a compassionate residential program dedicated to supporting teens through mental health challenges with individualized care, structure, and a safe, nurturing environment. We empower adolescents to build resilience, develop healthy coping skills, and rediscover their path toward stability, confidence, and long-term success.
+                Teen Harbor is a compassionate residential program dedicated to supporting teens through mental health and co-occurring substance use challenges with individualized care, structure, and a safe, nurturing environment. We empower adolescents to build resilience, develop healthy coping skills, and rediscover their path toward stability, confidence, and long-term success.
               </motion.p>
 
               <motion.div

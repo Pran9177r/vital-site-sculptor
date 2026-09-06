@@ -21,7 +21,7 @@ export function Footer() {
   const [termsOpen, setTermsOpen] = useState(false);
   const pathname = usePathname();
 
-  // Standalone pages that render without site chrome
+  // No standalone pages hiding chrome anymore
 
   return (
     <>
