@@ -37,7 +37,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section id="contact-tabs" className="pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-14 relative z-10">
+      <section id="contact-tabs" className="pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 relative z-10">
         <div className="mx-auto max-w-6xl px-5 relative z-10">
           
           <Reveal delay={100}>
