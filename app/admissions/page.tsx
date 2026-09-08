@@ -36,7 +36,7 @@ export default function AdmissionsPage() {
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613189/2152265341_sppmiw.jpg" 
+            src="/cloudinary/2152265341_sppmiw.jpg" 
             alt="Admissions Background" 
             fill
             className="object-cover"
@@ -106,7 +106,7 @@ export default function AdmissionsPage() {
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657056/1824952462_n7twst.jpg"
+            src="/cloudinary/1824952462_n7twst.jpg"
             alt="Preparing for Your Stay Background"
             fill
             className="object-cover"

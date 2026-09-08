@@ -18,7 +18,7 @@ const TEAM_MEMBERS = [
       "Paige enjoys taking ideas from concept to implementation and finding practical solutions that help organizations grow while keeping quality of care at the center.",
       "Outside of her professional work, Paige is a mom of three and enjoys pursuing new entrepreneurial projects and creating meaningful experiences with her family."
     ],
-    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787468651/ChatGPT_Image_Aug_18_2026_at_08_16_28_PM_oneg2c.png",
+    imageUrl: "/cloudinary/ChatGPT_Image_Aug_18_2026_at_08_16_28_PM_oneg2c.png",
   },
   {
     name: "Silvia Rios",
@@ -29,7 +29,7 @@ const TEAM_MEMBERS = [
       "Prior to joining Teen Harbor, Silvia held progressive leadership roles with Exodus Recovery, beginning as a Social Services Coordinator in 2018 and later serving as Clinical Director for the Fresno Exodus facilities. Her experience in both direct clinical care and program leadership provides a strong foundation for overseeing Teen Harbor's multidisciplinary treatment environment.",
       "Silvia holds an Associate of Arts degree in Business Administration, a Bachelor's degree in Early Childhood Development, and a Master's degree in Counseling Psychology. At Teen Harbor, she combines her clinical expertise, leadership experience, and commitment to youth mental health to help create a safe and supportive environment where adolescents can develop the skills and stability needed for lasting progress."
     ],
-    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787515927/ChatGPT_Image_Aug_17_2026_at_11_11_54_AM_lhe9ne.png",
+    imageUrl: "/cloudinary/ChatGPT_Image_Aug_17_2026_at_11_11_54_AM_lhe9ne.png",
   },
   {
     name: "Kirandeep Sangha",
@@ -41,7 +41,7 @@ const TEAM_MEMBERS = [
       "Her approach is warm, supportive, and tailored to each individual. She uses evidence-based methods such as CBT, DBT, and Solution-Focused Therapy to help clients manage stress, build skills, and create positive changes in their lives.",
       "Her goal is to create a safe and comfortable space where clients feel heard, supported, and empowered to grow."
     ],
-    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787506844/image0_paqpvg.jpg",
+    imageUrl: "/cloudinary/image0_paqpvg.jpg",
   },
   {
     name: "Saby Kirpal",
@@ -53,15 +53,15 @@ const TEAM_MEMBERS = [
       "Her time in these major health systems strengthened her clinical judgment, adaptability, and commitment to high-quality patient care.",
       "Saby has extensive experience providing care in inpatient psychiatry, residential treatment centers (RTC), partial hospitalization programs (PHP), and intensive outpatient programs (IOP)."
     ],
-    imageUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787516397/salvia_lzrcrk.webp",
+    imageUrl: "/cloudinary/salvia_lzrcrk.webp",
     objectPosition: "object-center",
   }
 ];
 
 const ABOUT_IMAGES = [
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518400/IMG_8281_tskxsl.jpg", alt: "Teen Harbor Campus" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518301/IMG_6079_uz4hyj.jpg", alt: "Serene Spaces" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788756619/WhatsApp_Image_2026-09-07_at_00.47.35_mxmixl.jpg", alt: "The Teen Harbor team at a community outreach event" },
+  { src: "/cloudinary/IMG_8281_tskxsl.jpg", alt: "Teen Harbor Campus" },
+  { src: "/cloudinary/IMG_6079_uz4hyj.jpg", alt: "Serene Spaces" },
+  { src: "/cloudinary/WhatsApp_Image_2026-09-07_at_00.47.35_mxmixl.jpg", alt: "The Teen Harbor team at a community outreach event" },
 ];
 
 export default function AboutPage() {
@@ -74,7 +74,7 @@ export default function AboutPage() {
       <section className="relative pt-32 pb-12 md:pt-44 md:pb-14 lg:pt-48 min-h-[480px] md:min-h-[560px] flex items-end justify-center border-b border-slate-100 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1787604327/ChatGPT_Image_Aug_24_2026_at_02_38_34_PM_g7bqkd.png" 
+            src="/cloudinary/ChatGPT_Image_Aug_24_2026_at_02_38_34_PM_g7bqkd.png" 
             alt="About Teen Harbor Background" 
             fill
             className="object-cover object-center"

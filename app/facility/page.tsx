@@ -30,34 +30,34 @@ const LOCATIONS = {
 } as const;
 
 const FACILITY_IMAGES = [
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787604327/ChatGPT_Image_Aug_24_2026_at_02_38_34_PM_g7bqkd.png", alt: "Teen Harbor Amenities" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787606131/ChatGPT_Image_Aug_23_2026_at_03_33_32_AM_e6r4ur.png", alt: "Teen Harbor Facility" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787607019/ChatGPT_Image_Aug_24_2026_at_05_29_51_PM_woadxp.png", alt: "Facility Exterior" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787607554/ChatGPT_Image_Aug_24_2026_at_05_37_23_PM_j66igq.png", alt: "Facility Interior and Patio" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787605345/ChatGPT_Image_Aug_24_2026_at_05_00_27_PM_aclxcw.png", alt: "Front exterior of the Teen Harbor residence" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787612552/5_ucxaeb.png", alt: "Facility Amenities" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787612562/6_zjbqkt.png", alt: "Large backyard lawn with walking path and pool area" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787612570/7_rfak2v.png", alt: "Spacious bathroom with double vanity" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787614633/office_image_10MB_jvvha1.png", alt: "Administrative office with security monitoring wall" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787613005/ChatGPT_Image_Aug_24_2026_at_07_09_40_PM_dutetb.png", alt: "Gated entrance and driveway of the residence" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787613247/ChatGPT_Image_Aug_24_2026_at_07_13_52_PM_bghraf.png", alt: "Covered patio seating overlooking the pool and lawn" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470645/ChatGPT_Image_Aug_23_2026_at_03_33_36_AM_asi9ud.png", alt: "Bright, comfortable bedroom with two beds" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787472510/ChatGPT_Image_Aug_23_2026_at_04_07_16_AM_wcrwkq.png", alt: "Modern bathroom shower with built-in shelf" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613191/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Outdoor swimming pool with water feature" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_24_2026_at_02_38_34_PM_g7bqkd.png", alt: "Teen Harbor Amenities" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_23_2026_at_03_33_32_AM_e6r4ur.png", alt: "Teen Harbor Facility" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_24_2026_at_05_29_51_PM_woadxp.png", alt: "Facility Exterior" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_24_2026_at_05_37_23_PM_j66igq.png", alt: "Facility Interior and Patio" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_24_2026_at_05_00_27_PM_aclxcw.png", alt: "Front exterior of the Teen Harbor residence" },
+  { src: "/cloudinary/5_ucxaeb.png", alt: "Facility Amenities" },
+  { src: "/cloudinary/6_zjbqkt.png", alt: "Large backyard lawn with walking path and pool area" },
+  { src: "/cloudinary/7_rfak2v.png", alt: "Spacious bathroom with double vanity" },
+  { src: "/cloudinary/office_image_10MB_jvvha1.png", alt: "Administrative office with security monitoring wall" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_24_2026_at_07_09_40_PM_dutetb.png", alt: "Gated entrance and driveway of the residence" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_24_2026_at_07_13_52_PM_bghraf.png", alt: "Covered patio seating overlooking the pool and lawn" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_23_2026_at_03_33_36_AM_asi9ud.png", alt: "Bright, comfortable bedroom with two beds" },
+  { src: "/cloudinary/ChatGPT_Image_Aug_23_2026_at_04_07_16_AM_wcrwkq.png", alt: "Modern bathroom shower with built-in shelf" },
+  { src: "/cloudinary/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Outdoor swimming pool with water feature" },
 ];
 
 const VAN_NESS_IMAGES = [
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420458/1_nr2aep.jpg", alt: "Front exterior of the Van Ness residence at dusk with circular driveway" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420459/2_p7trzx.jpg", alt: "Living room with vaulted wood ceiling and doors opening to the yard" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420459/4_tu86q4.jpg", alt: "Open kitchen with large island, double ovens and quartz counters" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420459/3_ctc4vh.jpg", alt: "Great room with fireplace and floor-to-ceiling windows to the garden" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420460/5_pgdkjr.jpg", alt: "Bright bedroom with ceiling fan and hardwood floors" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420460/6_tgyyd2.jpg", alt: "Bathroom with glass shower, soaking tub and a window overlooking mature trees" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420466/8_jlf6fk.jpg", alt: "Covered back patio and landscaped lawn at dusk" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788420466/7_puwx4l.jpg", alt: "Backyard swimming pool with the residence lit up at dusk" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788564694/WhatsApp_Image_2026-09-05_at_0.51.54_hc6atl.jpg", alt: "New location photo 1" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788564695/WhatsApp_Image_2026-09-05_at_03.51.54_emiimu.jpg", alt: "New location photo 2" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788564697/WhatsApp_Image_2026-09-05_at_04.51.54_eroc50.jpg", alt: "New location photo 3" },
+  { src: "/cloudinary/1_nr2aep.jpg", alt: "Front exterior of the Van Ness residence at dusk with circular driveway" },
+  { src: "/cloudinary/2_p7trzx.jpg", alt: "Living room with vaulted wood ceiling and doors opening to the yard" },
+  { src: "/cloudinary/4_tu86q4.jpg", alt: "Open kitchen with large island, double ovens and quartz counters" },
+  { src: "/cloudinary/3_ctc4vh.jpg", alt: "Great room with fireplace and floor-to-ceiling windows to the garden" },
+  { src: "/cloudinary/5_pgdkjr.jpg", alt: "Bright bedroom with ceiling fan and hardwood floors" },
+  { src: "/cloudinary/6_tgyyd2.jpg", alt: "Bathroom with glass shower, soaking tub and a window overlooking mature trees" },
+  { src: "/cloudinary/8_jlf6fk.jpg", alt: "Covered back patio and landscaped lawn at dusk" },
+  { src: "/cloudinary/7_puwx4l.jpg", alt: "Backyard swimming pool with the residence lit up at dusk" },
+  { src: "/cloudinary/WhatsApp_Image_2026-09-05_at_0.51.54_hc6atl.jpg", alt: "New location photo 1" },
+  { src: "/cloudinary/WhatsApp_Image_2026-09-05_at_03.51.54_emiimu.jpg", alt: "New location photo 2" },
+  { src: "/cloudinary/WhatsApp_Image_2026-09-05_at_04.51.54_eroc50.jpg", alt: "New location photo 3" },
 ];
 
 export default function FacilityPage() {
@@ -69,7 +69,7 @@ export default function FacilityPage() {
         <div className="absolute inset-0 z-0 flex w-full">
           <div className="w-1/3 h-full relative">
             <Image
-              src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1787470640/ChatGPT_Image_Aug_23_2026_at_03_33_15_AM_ty5v5a.png"
+              src="/cloudinary/ChatGPT_Image_Aug_23_2026_at_03_33_15_AM_ty5v5a.png"
               alt="Facility Exterior"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -79,7 +79,7 @@ export default function FacilityPage() {
           </div>
           <div className="w-1/3 h-full relative">
             <Image 
-              src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-16_t36cw5.jpg" 
+              src="/cloudinary/895_S._Marks_Ave-16_t36cw5.jpg" 
               alt="Facility Interior/Patio" 
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -89,7 +89,7 @@ export default function FacilityPage() {
           </div>
           <div className="w-1/3 h-full relative">
             <Image 
-              src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657057/895_S._Marks_Ave-24_hpzmej.jpg" 
+              src="/cloudinary/895_S._Marks_Ave-24_hpzmej.jpg" 
               alt="Facility Amenities" 
               fill
               sizes="(max-width: 768px) 100vw, 33vw"

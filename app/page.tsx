@@ -178,12 +178,12 @@ const TESTIMONIALS = [
 ];
 
 const ACCREDITATIONS = [
-  { name: "The Joint Commission", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546374/Logo-JC-Gold-Seal-of-Approval-Accredited_cpxsyp.jpg" },
-  { name: "CDSS", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546379/Unknown-3_jiclcm.jpg" },
-  { name: "Additional Certification", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786546381/Unknown_w7qcjr.jpg" },
-  { name: "AAMFT", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787450995/AAMFT_xucfkf.jpg" },
-  { name: "Better Business Bureau", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787450995/BBB-_-Better-Business-Bureau-logo_fz4whr.png" },
-  { name: "Psychology Today", detail: "", logoUrl: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787451033/psych_today_nllpzg.jpg" },
+  { name: "The Joint Commission", detail: "", logoUrl: "/cloudinary/Logo-JC-Gold-Seal-of-Approval-Accredited_cpxsyp.jpg" },
+  { name: "CDSS", detail: "", logoUrl: "/cloudinary/Unknown-3_jiclcm.jpg" },
+  { name: "Additional Certification", detail: "", logoUrl: "/cloudinary/Unknown_w7qcjr.jpg" },
+  { name: "AAMFT", detail: "", logoUrl: "/cloudinary/AAMFT_xucfkf.jpg" },
+  { name: "Better Business Bureau", detail: "", logoUrl: "/cloudinary/BBB-_-Better-Business-Bureau-logo_fz4whr.png" },
+  { name: "Psychology Today", detail: "", logoUrl: "/cloudinary/psych_today_nllpzg.jpg" },
 ];
 
 const TRUST = [
