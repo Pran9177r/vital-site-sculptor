@@ -1,206 +1,78 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Loader2 } from "lucide-react";
-
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-
-const formSchema = z.object({
-  firstName: z.string().min(2, "First name is required"),
-  lastName: z.string().min(2, "Last name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number is required"),
-  insuranceProvider: z.string().optional(),
-  memberId: z.string().optional(),
-  groupNumber: z.string().optional(),
-  howDidYouHear: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-  // Honeypot field for basic spam protection
-  website: z.string().max(0, "Invalid submission"),
-});
+import { Phone } from "lucide-react";
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      website: "", // honeypot
-    }
-  });
-
-  const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    // If honeypot is filled, silently reject
-    if (data.website) return;
-
-    setIsSubmitting(true);
-    
-    try {
-      // In a real application, you would POST this to your API route
-      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) });
-      
-      // Simulate network request
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      setIsSuccess(true);
-      reset();
-    } catch (error) {
-      console.error("Failed to submit form", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  if (isSuccess) {
-    return (
-      <div className="bg-green-50 text-green-800 p-8 rounded-2xl text-center border border-green-200">
-        <h3 className="text-2xl font-semibold mb-2">Message Sent</h3>
-        <p>Thank you for reaching out to Teen Harbor. Our admissions team will be in touch with you shortly.</p>
-        <Button 
-          variant="outline" 
-          className="mt-6 border-green-300 text-green-700 hover:bg-green-100"
-          onClick={() => setIsSuccess(false)}
-        >
-          Send Another Message
-        </Button>
-      </div>
-    );
-  }
+  const [showMaintenance, setShowMaintenance] = useState(false);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 w-full max-w-2xl mx-auto">
-      {/* Honeypot */}
-      <input type="text" {...register("website")} className="hidden" tabIndex={-1} autoComplete="off" />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <Label htmlFor="firstName" className="text-slate-700 font-medium">First Name</Label>
-          <Input 
-            id="firstName"
-            {...register("firstName")}
-            className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
-            placeholder="Jane"
-          />
-          {errors.firstName && <p className="text-red-300 text-xs mt-1">{errors.firstName.message}</p>}
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="lastName" className="text-slate-700 font-medium">Last Name</Label>
-          <Input 
-            id="lastName"
-            {...register("lastName")}
-            className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
-            placeholder="Doe"
-          />
-          {errors.lastName && <p className="text-red-300 text-xs mt-1">{errors.lastName.message}</p>}
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="email" className="text-slate-700 font-medium">Email Address</Label>
-        <Input 
-          id="email"
-          type="email"
-          {...register("email")}
-          className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
-          placeholder="jane@example.com"
+    <>
+      <div className="relative w-full max-w-2xl mx-auto">
+        {/* Intercept Overlay */}
+        <div 
+          className="absolute inset-0 z-10 cursor-pointer rounded-2xl hover:bg-slate-50/30 transition-colors" 
+          onClick={() => setShowMaintenance(true)}
+          aria-label="Form temporarily disabled for maintenance"
         />
-        {errors.email && <p className="text-red-300 text-xs mt-1">{errors.email.message}</p>}
+        
+        {/* Visual Form */}
+        <form className="space-y-6 opacity-80 pointer-events-none select-none">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-2 text-left">
+              <Label className="text-slate-700 font-medium">First Name</Label>
+              <Input className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400" placeholder="Jane" readOnly />
+            </div>
+            <div className="space-y-2 text-left">
+              <Label className="text-slate-700 font-medium">Last Name</Label>
+              <Input className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400" placeholder="Doe" readOnly />
+            </div>
+          </div>
+          <div className="space-y-2 text-left">
+            <Label className="text-slate-700 font-medium">Email Address</Label>
+            <Input className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400" placeholder="jane@example.com" readOnly />
+          </div>
+          <div className="space-y-2 text-left">
+            <Label className="text-slate-700 font-medium">Phone Number</Label>
+            <Input className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400" placeholder="(559) 000-0000" readOnly />
+          </div>
+          <div className="space-y-2 text-left">
+            <Label className="text-slate-700 font-medium">How can we help?</Label>
+            <Textarea className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 min-h-[120px]" placeholder="Please describe your situation briefly..." readOnly />
+          </div>
+          <Button 
+            type="button" 
+            className="w-full h-14 rounded-full bg-sun text-sun-foreground hover:bg-primary hover:text-primary-foreground font-semibold uppercase tracking-wider transition-all duration-300 shadow-lg"
+          >
+            Send Message
+          </Button>
+        </form>
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="phone" className="text-slate-700 font-medium">Phone Number</Label>
-        <Input 
-          id="phone"
-          type="tel"
-          {...register("phone")}
-          className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
-          placeholder="(559) 000-0000"
-        />
-        {errors.phone && <p className="text-red-300 text-xs mt-1">{errors.phone.message}</p>}
-      </div>
-
-      <hr className="border-slate-100 my-6" />
-
-      <div className="space-y-2">
-        <Label htmlFor="insuranceProvider" className="text-slate-700 font-medium">Insurance Provider (Optional)</Label>
-        <Input 
-          id="insuranceProvider"
-          {...register("insuranceProvider")}
-          className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
-          placeholder="e.g. Aetna, BlueCross..."
-        />
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <Label htmlFor="memberId" className="text-slate-700 font-medium">Member ID (Optional)</Label>
-          <Input 
-            id="memberId"
-            {...register("memberId")}
-            className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
-            placeholder="Member ID number"
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="groupNumber" className="text-slate-700 font-medium">Group Number (Optional)</Label>
-          <Input 
-            id="groupNumber"
-            {...register("groupNumber")}
-            className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
-            placeholder="Group number"
-          />
-        </div>
-      </div>
-
-      <hr className="border-slate-100 my-6" />
-
-      <div className="space-y-2">
-        <Label htmlFor="message" className="text-slate-700 font-medium">How can we help?</Label>
-        <Textarea 
-          id="message"
-          {...register("message")}
-          className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors min-h-[120px] resize-y" 
-          placeholder="Please describe your situation briefly..."
-        />
-        {errors.message && <p className="text-red-300 text-xs mt-1">{errors.message.message}</p>}
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="howDidYouHear" className="text-slate-700 font-medium">How did you hear about us? (Optional)</Label>
-        <Input 
-          id="howDidYouHear"
-          {...register("howDidYouHear")}
-          className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-amber-500 focus:ring-amber-500 focus:bg-white transition-colors" 
-          placeholder="e.g. Google, Referral, Friend..."
-        />
-      </div>
-
-      <Button 
-        type="submit" 
-        disabled={isSubmitting}
-        className="w-full h-14 rounded-xl bg-sun text-sun-foreground hover:bg-[#32A5DA] hover:text-white font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-      >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Sending...
-          </>
-        ) : (
-          "Send Message"
-        )}
-      </Button>
-    </form>
+      <Dialog open={showMaintenance} onOpenChange={setShowMaintenance}>
+        <DialogContent className="sm:max-w-2xl bg-white p-10 md:p-14 rounded-[2rem] border-amber-100 shadow-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Secure Portal Maintenance</DialogTitle>
+            <DialogDescription className="text-xl md:text-2xl leading-relaxed text-slate-700 text-center mt-4">
+              Our online secure submission portal is currently undergoing scheduled maintenance. For immediate admissions inquiries, please call our team directly.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-center mt-8 md:mt-10">
+            <a 
+              href="tel:5592341001" 
+              className="inline-flex items-center gap-3 bg-[#32A5DA] text-white px-8 py-4 rounded-full font-bold text-xl md:text-2xl hover:bg-[#258ab8] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1"
+            >
+              <Phone className="w-6 h-6 md:w-7 md:h-7" />
+              559-234-1001
+            </a>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

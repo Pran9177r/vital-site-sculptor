@@ -187,9 +187,9 @@ const ACCREDITATIONS = [
 ];
 
 const TRUST = [
+  { value: "Licensed", label: "By the State of California" },
+  { value: "Accredited", label: "Joint Commission Gold Seal" },
   { value: "24/7", label: "Awake overnight supervision" },
-  { value: "12–17", label: "Adolescent-only program" },
-  { value: "6 beds", label: "Home like setting" },
 ];
 
 const JOURNEY = [
@@ -249,7 +249,7 @@ const RESOURCES = [
     body: "What residential treatment is, how it differs from outpatient care, and how to prepare your family.",
     modalContent: (
       <ScrollArea className="h-[60vh] pr-4">
-        <div className="space-y-6 text-sm text-slate-600 leading-relaxed">
+        <div className="space-y-6 text-sm text-slate-700 leading-relaxed">
           <p>
             Choosing residential treatment for your child can feel like a significant decision. Understanding what residential care looks like—and what your family can expect—can make the process feel more manageable.
           </p>
@@ -297,7 +297,7 @@ const RESOURCES = [
     body: "A walk through the daily schedule: therapy, school, wellness, recreation and personal responsibility.",
     modalContent: (
       <ScrollArea className="h-[60vh] pr-4">
-        <div className="space-y-6 text-sm text-slate-600 leading-relaxed">
+        <div className="space-y-6 text-sm text-slate-700 leading-relaxed">
           <p>
             Structure can provide stability, but adolescence still needs room for connection, growth, and simply being a kid. At Teen Harbor, each day thoughtfully balances clinical treatment, education, wellness, recreation, and personal responsibility within a supportive residential environment.
           </p>
@@ -353,7 +353,7 @@ const RESOURCES = [
     body: "Coverage, verification and what to expect during the first 72 hours after admission.",
     modalContent: (
       <ScrollArea className="h-[60vh] pr-4">
-        <div className="space-y-6 text-sm text-slate-600 leading-relaxed">
+        <div className="space-y-6 text-sm text-slate-700 leading-relaxed">
           <p>
             Seeking residential treatment for your child can come with a lot of questions—especially when it comes to insurance, eligibility, and what happens after admission. Our team works to make the process as clear and supportive as possible.
           </p>
@@ -470,12 +470,14 @@ export default function Page() {
             <Reveal key={t.label} delay={i * 100}>
               <div className="text-center sm:text-left">
                 <p className="text-3xl font-semibold text-primary">{t.value}</p>
-                <p className="mt-2 text-sm text-muted-foreground">{t.label}</p>
+                <p className="mt-2 text-sm text-slate-600">{t.label}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
+
+
 
 {/* Our Services / About */}
       <section id="services" className="mx-auto max-w-6xl px-5 py-16">
@@ -512,14 +514,14 @@ export default function Page() {
               </h2>
             </Reveal>
             <span className="rule-line mt-5" />
-            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 text-sm leading-relaxed text-slate-600">
               Teen Harbor provides comprehensive residential behavioral health services for
               adolescents in a safe, structured and supportive environment. Our individualized
               approach combines evidence-based therapy, psychiatric support, family involvement,
               education assistance and meaningful wellness activities designed to promote healing,
               stability and personal growth.
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-sm leading-relaxed text-slate-600">
               Services may include individual, group and family therapy; medication support;
               academic coordination; life-skills development; therapeutic recreation; fitness; art
               and music activities; mindfulness; and experiential services such as equine therapy.
@@ -529,13 +531,13 @@ export default function Page() {
             <div className="mt-7 grid gap-5 sm:grid-cols-2">
               <div>
                 <p className="text-2xl font-semibold text-primary">Individualized</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-slate-600">
                   Care plans built around strengths, diagnoses and goals
                 </p>
               </div>
               <div>
                 <p className="text-2xl font-semibold text-primary">Family-Involved</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-slate-600">
                   Families are part of the journey from day one
                 </p>
               </div>
@@ -577,7 +579,7 @@ export default function Page() {
                     <article className="card-soft p-6">
                       <Icon className="h-6 w-6 text-navy" />
                       <h3 className="mt-4 text-lg">{title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
                     </article>
                   </Reveal>
                 ))}
@@ -591,7 +593,7 @@ export default function Page() {
                     <article className="card-soft p-6">
                       <Icon className="h-6 w-6 text-navy" />
                       <h3 className="mt-4 text-lg">{title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
                     </article>
                   </Reveal>
                 ))}
@@ -614,7 +616,7 @@ export default function Page() {
             <Reveal delay={90}>
               <h2 className="mt-4 text-3xl md:text-4xl">What Makes Us Different</h2>
             </Reveal>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-4 text-sm text-slate-600">
               We combine individualized, evidence-based care with a supportive, home-like
               environment to help adolescents heal, grow and build a foundation for lasting success.
             </p>
@@ -627,7 +629,7 @@ export default function Page() {
                   </span>
                   <div>
                     <h3 className="text-base">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-600">{body}</p>
                   </div>
                 </div>
                 </Reveal>
@@ -649,7 +651,7 @@ export default function Page() {
             <div className="card-soft p-6">
               <h3 className="text-xl">Life At Teen Harbor</h3>
               <span className="rule-line mt-3" />
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-4 text-sm leading-relaxed text-slate-600">
                 Healing happens not only in therapy sessions but also in the everyday moments that
                 create stability, confidence and connection. Each day follows a thoughtfully planned
                 schedule that balances clinical treatment, education, recreation, personal
@@ -672,7 +674,7 @@ export default function Page() {
             <h2 className="mt-4 text-3xl md:text-4xl">Insurance-Covered Mental Health Care</h2>
           </Reveal>
           <Reveal delay={140}>
-            <p className="mt-4 text-sm md:text-base leading-relaxed text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 text-sm md:text-base leading-relaxed text-slate-600 max-w-2xl mx-auto">
               Teen Harbor works with families to verify available benefits and explore coverage
               options before admission. We accept most major commercial insurance plans, including:
             </p>
@@ -708,7 +710,7 @@ export default function Page() {
                 <article className="card-soft group/arrow h-full p-6 flex flex-col">
                   <Icon className="h-6 w-6 text-primary" />
                   <h3 className="mt-4 text-lg">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-1">{body}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 flex-1">{body}</p>
 
                   {modalContent ? (
                     <Dialog>
@@ -754,7 +756,7 @@ export default function Page() {
             <h2 className="mt-4 text-3xl md:text-4xl">What Families Say About Us</h2>
           </Reveal>
           <Reveal delay={140}>
-            <p className="mt-3 text-sm text-muted-foreground">
+            <p className="mt-3 text-sm text-slate-600">
               Trusted by families across California.
             </p>
           </Reveal>
@@ -774,12 +776,12 @@ export default function Page() {
                     <div className="p-2 h-full">
                       <Card className="h-full bg-white shadow-sm border-slate-100 flex flex-col justify-between">
                         <CardContent className="p-8 flex flex-col h-full justify-between gap-6">
-                          <p className="text-muted-foreground leading-relaxed text-sm italic relative">
+                          <p className="text-slate-600 leading-relaxed text-sm italic relative">
                             "{t.quote}"
                           </p>
                           <div>
                             <p className="font-semibold text-primary">{t.name}</p>
-                            <p className="text-xs text-muted-foreground">{t.role}</p>
+                            <p className="text-xs text-slate-600">{t.role}</p>
                           </div>
                         </CardContent>
                       </Card>
@@ -811,7 +813,7 @@ export default function Page() {
                 <summary className="cursor-pointer list-none text-base font-semibold marker:hidden">
                   {f.q}
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.a}</p>
               </details>
             </Reveal>
           ))}
