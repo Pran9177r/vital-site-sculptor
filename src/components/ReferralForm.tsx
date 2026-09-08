@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Loader2, FileText } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,21 +41,6 @@ const formSchema = z.object({
   // Reason for Referral
   clinicalPresentation: z.string().min(10, "Please describe the primary concerns"),
 
-  // Mental Health History
-  currentDiagnosis: z.string().optional(),
-  previousTreatment: z.string().optional(),
-  currentMedications: z.string().optional(),
-  riskSuicidalIdeation: z.boolean().default(false),
-  riskSelfHarm: z.boolean().default(false),
-  riskAggression: z.boolean().default(false),
-  riskElopement: z.boolean().default(false),
-  riskSubstanceUse: z.boolean().default(false),
-  riskOther: z.string().optional(),
-
-  // Submitted By
-  submittedBy: z.string().min(2, "Required"),
-  submittedDate: z.string().optional(),
-
   // Honeypot
   website: z.string().max(0, "Invalid submission"),
 });
@@ -74,11 +59,6 @@ export function ReferralForm() {
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      riskSuicidalIdeation: false,
-      riskSelfHarm: false,
-      riskAggression: false,
-      riskElopement: false,
-      riskSubstanceUse: false,
       website: "",
     },
   });
@@ -86,17 +66,6 @@ export function ReferralForm() {
   const onSubmit = async (data: FormValues) => {
     if (data.website) return;
     setIsSubmitting(true);
-
-    const risks = [
-      data.riskSuicidalIdeation && "Suicidal ideation",
-      data.riskSelfHarm && "Self-harm",
-      data.riskAggression && "Aggression",
-      data.riskElopement && "Elopement risk",
-      data.riskSubstanceUse && "Substance use concerns",
-      data.riskOther && `Other: ${data.riskOther}`,
-    ]
-      .filter(Boolean)
-      .join(", ");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -138,16 +107,6 @@ Legal Guardian: ${data.legalGuardian || "N/A"}
 
 REASON FOR REFERRAL
 ${data.clinicalPresentation}
-
-MENTAL HEALTH HISTORY
-Current Diagnosis: ${data.currentDiagnosis || "N/A"}
-Previous Treatment: ${data.previousTreatment || "N/A"}
-Current Medications: ${data.currentMedications || "N/A"}
-Risk Concerns: ${risks || "None indicated"}
-
-REFERRAL SUBMITTED BY
-Name: ${data.submittedBy}
-Date: ${data.submittedDate || "N/A"}
           `,
         }),
       });
@@ -314,99 +273,10 @@ Date: ${data.submittedDate || "N/A"}
         </div>
       </div>
 
-      {/* Mental Health History */}
-      <div className="space-y-4 pt-6 border-t border-slate-100">
-        <h4 className="font-semibold text-slate-800 text-lg">Mental Health History</h4>
-        <div className="grid grid-cols-1 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="currentDiagnosis" className="text-slate-700 font-medium">Current Diagnosis (if known)</Label>
-            <Input id="currentDiagnosis" {...register("currentDiagnosis")} className={inputClass} placeholder="Diagnosis" />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="previousTreatment" className="text-slate-700 font-medium">Previous Treatment (therapy, RTC, inpatient, etc.)</Label>
-            <Textarea
-              id="previousTreatment"
-              {...register("previousTreatment")}
-              className="bg-slate-50 border-slate-200 focus:bg-white focus:ring-amber-500 min-h-[80px] resize-y"
-              placeholder="Prior levels of care, dates, and outcomes"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="currentMedications" className="text-slate-700 font-medium">Current Medications</Label>
-            <Input id="currentMedications" {...register("currentMedications")} className={inputClass} placeholder="Medication list" />
-          </div>
-        </div>
-
-        <div className="space-y-3 pt-2">
-          <p className="text-slate-700 font-medium text-sm">Risk Concerns</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {[
-              { id: "riskSuicidalIdeation", label: "Suicidal ideation" },
-              { id: "riskSelfHarm", label: "Self-harm" },
-              { id: "riskAggression", label: "Aggression" },
-              { id: "riskElopement", label: "Elopement risk" },
-              { id: "riskSubstanceUse", label: "Substance use concerns" },
-            ].map((risk) => (
-              <label key={risk.id} htmlFor={risk.id} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 cursor-pointer hover:bg-slate-100 transition-colors">
-                <input
-                  type="checkbox"
-                  id={risk.id}
-                  {...register(risk.id as keyof FormValues)}
-                  className="h-4 w-4 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
-                />
-                <span className="text-sm text-slate-700">{risk.label}</span>
-              </label>
-            ))}
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="riskOther" className="text-slate-700 font-medium">Other risk concerns</Label>
-            <Input id="riskOther" {...register("riskOther")} className={inputClass} placeholder="Describe any other concerns" />
-          </div>
-        </div>
-      </div>
-
-      {/* Supporting Documentation */}
-      <div className="space-y-3 pt-6 border-t border-slate-100">
-        <h4 className="font-semibold text-slate-800 text-lg">Supporting Documentation</h4>
-        <p className="text-sm text-slate-500 leading-relaxed">
-          If available, please send psychological evaluations, IEP / 504 documents, behavior plans,
-          treatment summaries, medication lists, and court or placement paperwork to our admissions
-          team by secure fax at <span className="font-medium text-slate-700">559-777-9929</span> or
-          secure email at{" "}
-          <a href="mailto:referrals@teenharbor.com" className="font-medium text-amber-600 hover:underline">
-            referrals@teenharbor.com
-          </a>
-          .
-        </p>
-        <div className="flex items-start gap-3 rounded-xl bg-slate-50 border border-slate-100 p-4">
-          <FileText className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-          <p className="text-xs text-slate-500 leading-relaxed">
-            All information shared is kept confidential and used solely to determine the appropriate
-            level of care. Submitting this form does not guarantee admission.
-          </p>
-        </div>
-      </div>
-
-      {/* Referral Submitted By */}
-      <div className="space-y-4 pt-6 border-t border-slate-100">
-        <h4 className="font-semibold text-slate-800 text-lg">Referral Submitted By</h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="submittedBy" className="text-slate-700 font-medium">Name *</Label>
-            <Input id="submittedBy" {...register("submittedBy")} className={inputClass} placeholder="Your name" />
-            {errors.submittedBy && <p className="text-red-500 text-xs mt-1">{errors.submittedBy.message}</p>}
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="submittedDate" className="text-slate-700 font-medium">Date</Label>
-            <Input id="submittedDate" type="date" {...register("submittedDate")} className={inputClass} />
-          </div>
-        </div>
-      </div>
-
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full h-14 rounded-xl bg-[#F97316] text-white hover:bg-[#32A5DA] font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-4"
+        className="w-full h-14 rounded-xl bg-sun text-sun-foreground hover:bg-[#32A5DA] hover:text-white font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-4"
       >
         {isSubmitting ? (
           <>

@@ -58,7 +58,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* What to Expect */}
-      <section className="py-20 md:py-32">
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-4xl px-5">
           <Reveal>
             <span className="eyebrow block text-center">The Journey Begins</span>
@@ -66,7 +66,7 @@ export default function AdmissionsPage() {
           <Reveal delay={100}>
             <h2 className="mt-4 text-3xl text-slate-900 text-center font-medium">What to Expect</h2>
           </Reveal>
-          <div className="mt-12 space-y-6 text-lg text-slate-600 leading-relaxed">
+          <div className="mt-10 md:mt-12 space-y-6 text-lg text-slate-600 leading-relaxed">
             <Reveal delay={200}>
               <p>
                 At Teen Harbor, the admission process is designed to be welcoming, supportive, and seamless for both teens and their families. From the moment of arrival, each resident receives a personalized assessment and is introduced to a structured, nurturing environment that promotes safety, stability, and growth.
@@ -102,12 +102,12 @@ export default function AdmissionsPage() {
       </section>
 
       {/* What to Bring & What NOT to Bring */}
-      <section className="relative py-20 md:py-32 border-t border-slate-100 overflow-hidden">
+      <section className="relative py-16 md:py-24 border-t border-slate-100 overflow-hidden">
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657056/1824952462_n7twst.jpg" 
-            alt="Preparing for Your Stay Background" 
+          <Image
+            src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1786657056/1824952462_n7twst.jpg"
+            alt="Preparing for Your Stay Background"
             fill
             className="object-cover"
             priority
@@ -116,7 +116,7 @@ export default function AdmissionsPage() {
         </div>
 
         <div className="mx-auto max-w-6xl px-5 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16 text-white">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12 text-white">
             <Reveal>
               <span className="inline-block bg-white/20 text-white border border-white/30 backdrop-blur-md px-5 py-1.5 rounded-full text-sm font-semibold tracking-wide uppercase">
                 Packing Guide

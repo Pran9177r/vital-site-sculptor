@@ -551,7 +551,7 @@ export default function Page() {
       </section>
 
       {/* Treatment */}
-      <section id="treatment" className="bg-[#E5F3FD] py-16">
+      <section id="treatment" className="bg-[#E5F3FD] pt-16 pb-8">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
             <span className="eyebrow">Treatment</span>
@@ -605,7 +605,7 @@ export default function Page() {
       <CareApproachStory />
 
       {/* What makes us different */}
-      <section id="about" className="mx-auto max-w-6xl px-5 py-16">
+      <section id="about" className="mx-auto max-w-6xl px-5 pt-16 pb-8">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
             <Reveal>
@@ -663,7 +663,7 @@ export default function Page() {
       </section>
 
       {/* Insurance */}
-      <section className="py-16 md:py-20 overflow-hidden bg-white border-b border-slate-200/50">
+      <section className="pt-6 md:pt-8 pb-16 md:pb-20 overflow-hidden bg-white border-b border-slate-200/50">
         <div className="mx-auto max-w-6xl px-5 text-center mb-10">
           <Reveal>
             <span className="eyebrow">Insurance</span>
@@ -745,7 +745,7 @@ export default function Page() {
       </div>
 
       {/* Testimonials */}
-      <section className="py-20 overflow-hidden bg-[#F5FBFF] border-b border-slate-200/50">
+      <section className="pt-20 pb-10 overflow-hidden bg-[#F5FBFF] border-b border-slate-200/50">
         <div className="mx-auto max-w-6xl px-5 text-center mb-10">
           <Reveal>
             <span className="eyebrow">Testimonials</span>
@@ -795,7 +795,7 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-4xl px-5 py-20 md:py-28">
+      <section className="mx-auto max-w-4xl px-5 pt-10 pb-20 md:pt-12 md:pb-28">
         <div className="text-center">
           <Reveal>
             <span className="eyebrow">FAQ</span>

@@ -41,13 +41,13 @@ export function CareApproachStory() {
   const goNext = () => setIndex((i) => (i === STAGES.length - 1 ? 0 : i + 1));
 
   return (
-    <section id="approach" className="bg-[#E5F3FD] py-16 md:py-24">
+    <section id="approach" className="bg-[#E5F3FD] pt-8 md:pt-10 pb-16 md:pb-24">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <span className="eyebrow">Our Care Approach</span>
         </Reveal>
 
-        <div className="mt-8 grid items-center gap-10 md:mt-10 md:grid-cols-2 md:gap-14">
+        <div className="mt-4 grid items-center gap-10 md:mt-5 md:grid-cols-2 md:gap-14">
           <div>
             <h2 className="text-2xl md:text-4xl">{stage.title}</h2>
             <span className="rule-line mt-5" />

@@ -7,32 +7,16 @@ import { ReferralForm } from "@/components/ReferralForm";
 import {
   Clock,
   Users,
-  HeartHandshake,
   ShieldCheck,
   Phone,
   Printer,
   Mail,
   MapPin,
   ArrowRight,
-  CheckCircle2,
 } from "lucide-react";
 
 import logoWordmark from "@/assets/logo-teen-harbor.png";
 import referralHero from "@/assets/referral-hero.jpg";
-import referralReview from "@/assets/referral-review.jpg";
-import referralFamilies from "@/assets/referral-families.jpg";
-import groupCircle from "@/assets/group-circle.jpg";
-
-const PARTNERS = [
-  "Referring providers",
-  "Hospitals",
-  "Therapists",
-  "Physicians",
-  "Schools",
-  "Case managers",
-  "Insurance partners",
-  "Existing treatment teams",
-];
 
 export default function ReferralsPage() {
   return (
@@ -45,7 +29,7 @@ export default function ReferralsPage() {
       </div>
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-4 pb-20 md:pt-6 md:pb-28 border-b border-slate-100">
+      <section className="relative overflow-hidden bg-white pt-4 pb-12 md:pt-6 md:pb-16 border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <Reveal>
@@ -108,171 +92,8 @@ export default function ReferralsPage() {
         </div>
       </section>
 
-      {/* ── Timely Referral Review ───────────────────────────── */}
-      <section className="bg-[#E8F3FC] py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <Reveal variant="scale">
-            <div className="overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-card)]">
-              <Image
-                src={referralReview}
-                alt="A family meeting with a Teen Harbor clinician"
-                className="img-zoom w-full h-[360px] md:h-[440px] object-cover"
-                placeholder="blur"
-              />
-            </div>
-          </Reveal>
-          <div>
-            <Reveal>
-              <span className="rule-line" />
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="mt-5 text-3xl md:text-4xl font-bold text-navy">Timely Referral Review</h2>
-            </Reveal>
-            <Reveal delay={140}>
-              <p className="mt-5 text-lg leading-relaxed text-slate-600">
-                Waiting days for an admission decision can delay treatment, complicate discharge
-                planning, and create additional stress for families. Our admissions team prioritizes
-                prompt communication and timely clinical review, providing an
-                <span className="font-semibold text-navy"> admission response within 24 hours</span> of
-                receiving the necessary clinical information.
-              </p>
-            </Reveal>
-            <Reveal delay={200}>
-              <div className="mt-6 rounded-2xl bg-white p-6 border border-slate-200">
-                <p className="text-slate-700 leading-relaxed">
-                  Have a patient who has been difficult to place or declined by other programs? We
-                  welcome the opportunity to review the referral. Our team approaches each adolescent
-                  individually rather than assuming a challenging history means they are not
-                  appropriate for care.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Supporting Families ──────────────────────────────── */}
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="order-2 lg:order-1">
-            <Reveal>
-              <span className="rule-line" />
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="mt-5 text-3xl md:text-4xl font-bold text-navy">
-                Supporting Families Through the Process
-              </h2>
-            </Reveal>
-            <Reveal delay={140}>
-              <p className="mt-5 text-lg leading-relaxed text-slate-600">
-                For many families, residential treatment is unfamiliar territory. Parents may be
-                navigating behavioral health terminology, insurance requirements, levels of care, and
-                difficult decisions all at once. We believe education is an important part of the
-                admissions process.
-              </p>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-4 text-lg leading-relaxed text-slate-600">
-                Our team takes the time to help families understand what residential treatment looks
-                like, what to expect from Teen Harbor, and how they can stay involved. Even when Teen
-                Harbor is not the appropriate placement, our goal is for families to leave the
-                conversation with a clearer understanding of their options and next steps.
-              </p>
-            </Reveal>
-          </div>
-          <Reveal variant="scale">
-            <div className="order-1 lg:order-2 overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-card)]">
-              <Image
-                src={referralFamilies}
-                alt="A parent supporting their child at home"
-                className="img-zoom w-full h-[360px] md:h-[440px] object-cover"
-                placeholder="blur"
-              />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Collaboration ────────────────────────────────────── */}
-      <section className="bg-[#E8F3FC] py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-5 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <Reveal variant="scale">
-            <div className="overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-card)]">
-              <Image
-                src={groupCircle}
-                alt="Group therapy session at Teen Harbor"
-                className="img-zoom w-full h-[360px] md:h-[440px] object-cover"
-                placeholder="blur"
-              />
-            </div>
-          </Reveal>
-          <div>
-            <Reveal>
-              <span className="rule-line" />
-            </Reveal>
-            <Reveal delay={80}>
-              <h2 className="mt-5 text-3xl md:text-4xl font-bold text-navy">
-                Collaboration Doesn&apos;t End at Admission
-              </h2>
-            </Reveal>
-            <Reveal delay={140}>
-              <p className="mt-5 text-lg leading-relaxed text-slate-600">
-                We view referring professionals as partners in the continuum of care. With the
-                necessary authorizations, our team works collaboratively with an adolescent&apos;s
-                existing treatment team, and that collaboration continues as we plan for their
-                transition back to the community.
-              </p>
-            </Reveal>
-            <Reveal delay={200}>
-              <div className="mt-7 flex flex-wrap gap-2.5">
-                {PARTNERS.map((partner) => (
-                  <span
-                    key={partner}
-                    className="inline-flex items-center gap-2 rounded-full bg-brand-soft px-4 py-2 text-sm font-medium text-primary"
-                  >
-                    <CheckCircle2 className="h-4 w-4" /> {partner}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Complex Referral callout ─────────────────────────── */}
-      <section className="bg-white py-20 md:py-24 border-t border-slate-100">
-        <div className="mx-auto max-w-3xl px-5 text-center">
-          <Reveal>
-            <span className="flex h-14 w-14 mx-auto items-center justify-center rounded-full bg-brand-soft text-primary">
-              <HeartHandshake className="h-7 w-7" />
-            </span>
-          </Reveal>
-          <Reveal delay={80}>
-            <h2 className="mt-6 text-3xl md:text-4xl font-bold text-navy">
-              Have a More Complex Referral?
-            </h2>
-          </Reveal>
-          <Reveal delay={140}>
-            <p className="mt-5 text-lg leading-relaxed text-slate-600">
-              A complicated treatment history, previous placement attempts, co-occurring needs,
-              behavioral concerns, or insurance barriers can make finding an appropriate program
-              challenging. Please reach out before assuming we cannot help. We are glad to review
-              complex cases and discuss clinical considerations with your team.
-            </p>
-          </Reveal>
-          <Reveal delay={200}>
-            <a
-              href="#referral-form"
-              className="btn-motion mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-sun px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-sun-foreground shadow-lg hover:bg-[#32A5DA] hover:text-white transition-colors"
-            >
-              Submit a Referral <ArrowRight className="h-4 w-4" />
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ── Referral form ────────────────────────────────────── */}
-      <section id="referral-form" className="bg-[#E8F3FC] py-20 md:py-28 scroll-mt-24">
+      <section id="referral-form" className="bg-[#E8F3FC] pt-12 pb-16 md:pt-16 md:pb-24 scroll-mt-24">
         <div className="mx-auto max-w-4xl px-5">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto">
@@ -294,7 +115,7 @@ export default function ReferralsPage() {
       </section>
 
       {/* ── Discuss first ───────────────────────────────────── */}
-      <section className="bg-white py-20 md:py-24 border-t border-slate-100">
+      <section className="bg-white pt-16 pb-14 md:pt-24 md:pb-20 border-t border-slate-100">
         <div className="mx-auto max-w-5xl px-5">
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center">
             <div>
@@ -366,7 +187,7 @@ export default function ReferralsPage() {
       </section>
 
       {/* ── Closing band ────────────────────────────────────── */}
-      <section className="bg-white py-16 md:py-20 border-t border-slate-100">
+      <section className="bg-white py-12 md:py-16 border-t border-slate-100">
         <div className="mx-auto max-w-3xl px-5 text-center">
           <Reveal>
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-navy font-semibold">

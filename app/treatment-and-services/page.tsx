@@ -65,6 +65,12 @@ const MENTAL_HEALTH_PROGRAMS: Treatment[] = [
     description: "Trauma requires a delicate, specialized approach. Our trauma-informed care environment provides a safe space for adolescents to process difficult past experiences, utilizing evidence-based modalities to foster healing, safety, and emotional resilience."
   },
   {
+    id: "dual-diagnosis",
+    title: "Teen Dual Diagnosis Treatment",
+    subheader: "Taking Control & Building Skills",
+    description: "Substance use and mental health conditions often go hand in hand. Our integrated treatment helps teens in recovery from both through individual and group therapy with a Certified SUD Counselor. Teens learn to recognize triggers, build healthy coping skills, and develop practical relapse-prevention strategies to support lasting recovery."
+  },
+  {
     id: "art-therapy",
     title: "Art Therapy",
     subheader: "Creative Expression for Emotional Processing",
@@ -210,7 +216,7 @@ export default function TreatmentAndServicesPage() {
           />
           <div className="absolute inset-0 bg-slate-900/60" />
         </div>
-        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white">
+        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white mt-24 md:mt-40">
           <Reveal>
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-white">
               Treatment & Services
@@ -225,7 +231,7 @@ export default function TreatmentAndServicesPage() {
       </section>
 
       {/* Our Program */}
-      <section className="py-20 md:py-32 bg-white border-b border-slate-100">
+      <section className="py-16 md:py-24 bg-white border-b border-slate-100">
         <div className="mx-auto max-w-4xl px-5">
           <Reveal>
             <span className="eyebrow block text-center">Healing & Growth</span>
@@ -233,7 +239,7 @@ export default function TreatmentAndServicesPage() {
           <Reveal delay={100}>
             <h2 className="mt-4 text-3xl text-slate-900 text-center font-medium">Our Program</h2>
           </Reveal>
-          <div className="mt-12 space-y-8 text-lg text-slate-600 leading-relaxed">
+          <div className="mt-10 md:mt-12 space-y-8 text-lg text-slate-600 leading-relaxed">
             <Reveal delay={200}>
               <p>
                 The residential program at Teen Harbor is meticulously structured to provide a balance of intensive therapeutic work, academic continuity, and restorative life-skills development. By addressing each adolescent's individual needs rather than just a set of symptoms, we create a stable foundation where they can rebuild their confidence and resilience.
@@ -254,9 +260,9 @@ export default function TreatmentAndServicesPage() {
       </section>
 
       {/* Conditions We Treat */}
-      <section id="conditions" className="py-20 md:py-32 bg-[#E5F3FD]">
+      <section id="conditions" className="py-16 md:py-24 bg-[#E5F3FD]">
         <div className="mx-auto max-w-4xl px-5">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <Reveal>
               <span className="eyebrow mx-auto">Comprehensive Support</span>
             </Reveal>
@@ -304,9 +310,9 @@ export default function TreatmentAndServicesPage() {
       </section>
 
       {/* Treatment Programs Tabs */}
-      <section id="treatment-programs" className="py-20 md:py-32">
+      <section id="treatment-programs" className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="max-w-2xl mb-12">
+          <div className="max-w-2xl mb-10 md:mb-12">
             <Reveal>
               <span className="eyebrow">Core Residential Care</span>
             </Reveal>
@@ -327,9 +333,9 @@ export default function TreatmentAndServicesPage() {
       </section>
 
       {/* Mental Health Programs Tabs */}
-      <section id="mental-health" className="py-20 md:py-32 bg-[#E5F3FD] border-t border-b border-slate-100">
+      <section id="mental-health" className="py-16 md:py-24 bg-[#E5F3FD] border-t border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="max-w-2xl mb-12">
+          <div className="max-w-2xl mb-10 md:mb-12">
             <Reveal>
               <span className="eyebrow">Specialized Therapy</span>
             </Reveal>
@@ -350,7 +356,7 @@ export default function TreatmentAndServicesPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-white text-foreground py-20">
+      <section className="bg-white text-foreground py-16 md:py-24">
         <div className="mx-auto max-w-4xl px-5 text-center">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-bold text-navy">

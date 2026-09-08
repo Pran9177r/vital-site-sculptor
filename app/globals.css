@@ -200,7 +200,7 @@
 @utility eyebrow {
   display: inline-block;
   border-radius: 9999px;
-  background-color: #eba94b;
+  background-color: var(--sun);
   color: #ffffff;
   padding: 0.4rem 1.1rem;
   font-size: 1rem;

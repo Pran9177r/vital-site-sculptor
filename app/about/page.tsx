@@ -60,8 +60,8 @@ const TEAM_MEMBERS = [
 
 const ABOUT_IMAGES = [
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518400/IMG_8281_tskxsl.jpg", alt: "Teen Harbor Campus" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518379/IMG_8287_llksok.jpg", alt: "Comfortable Environment" },
   { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1787518301/IMG_6079_uz4hyj.jpg", alt: "Serene Spaces" },
+  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788756619/WhatsApp_Image_2026-09-07_at_00.47.35_mxmixl.jpg", alt: "The Teen Harbor team at a community outreach event" },
 ];
 
 export default function AboutPage() {
@@ -71,7 +71,7 @@ export default function AboutPage() {
     <>
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
-      <section className="relative py-32 md:py-44 lg:py-48 min-h-[480px] md:min-h-[560px] flex items-center justify-center border-b border-slate-100 overflow-hidden">
+      <section className="relative pt-32 pb-16 md:pt-44 md:pb-20 lg:pt-48 min-h-[480px] md:min-h-[560px] flex items-end justify-center border-b border-slate-100 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
             src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1787604327/ChatGPT_Image_Aug_24_2026_at_02_38_34_PM_g7bqkd.png" 
@@ -95,7 +95,7 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy / Story */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
+      <section className="py-16 md:py-24 relative overflow-hidden">
         {/* Decorative background blur */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-100/40 rounded-full blur-3xl pointer-events-none" />
         
@@ -106,7 +106,7 @@ export default function AboutPage() {
           <Reveal delay={100}>
             <h2 className="mt-4 text-3xl md:text-4xl text-slate-900 text-center font-medium">A Foundation for Growth</h2>
           </Reveal>
-          <div className="mt-16 space-y-8 text-lg md:text-xl text-slate-700 leading-relaxed font-medium bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/60 relative">
+          <div className="mt-10 md:mt-12 space-y-8 text-lg md:text-xl text-slate-700 leading-relaxed font-medium bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100/60 relative">
             <div className="absolute -top-6 -left-6 text-9xl text-amber-500/20 font-serif leading-none select-none">&quot;</div>
             <Reveal delay={200}>
               <p className="relative z-10">
@@ -123,9 +123,9 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team */}
-      <section id="team" className="bg-slate-50 py-20 md:py-32 border-y border-slate-100">
+      <section id="team" className="bg-slate-50 py-16 md:py-24 border-y border-slate-100">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
             <Reveal>
               <span className="eyebrow">Our Team</span>
             </Reveal>
@@ -152,9 +152,9 @@ export default function AboutPage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="bg-white py-20 md:py-32" id="gallery">
+      <section className="bg-white py-16 md:py-24" id="gallery">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
             <Reveal>
               <span className="eyebrow">Our Environment</span>
             </Reveal>

@@ -27,8 +27,8 @@ export function Footer() {
     <>
     <footer className="relative bg-[#E8F3FC] text-slate-600 border-t border-slate-200">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
-        <div className="space-y-6">
-          <Link href="/" className="inline-block">
+        <div className="space-y-6 -ml-2">
+          <Link href="/" className="inline-block -ml-2">
             <img
               src={logoWordmark.src}
               alt="Teen Harbor"
@@ -38,7 +38,7 @@ export function Footer() {
               className="h-20 w-auto"
             />
           </Link>
-          <p className="text-sm text-slate-500 leading-relaxed">
+          <p className="text-base text-slate-500 leading-relaxed">
             Central Valley’s Residential Treatment Center for Youth. Compassionate care for adolescents and their families.
           </p>
           <div className="flex gap-4">
@@ -52,8 +52,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold mb-4 text-navy uppercase tracking-wider">Navigation</h3>
-          <ul className="space-y-3 text-sm text-slate-600">
+          <h3 className="text-base font-semibold mb-4 text-navy uppercase tracking-wider">Navigation</h3>
+          <ul className="space-y-3.5 text-base text-slate-600">
             {NAV.map((n) => (
               <li key={n.label}>
                 <Link href={n.href} className="hover:text-[#32A5DA] transition-colors inline-block">
@@ -65,8 +65,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold mb-4 text-navy uppercase tracking-wider">Legal</h3>
-          <ul className="space-y-3 text-sm text-slate-600">
+          <h3 className="text-base font-semibold mb-4 text-navy uppercase tracking-wider">Legal</h3>
+          <ul className="space-y-3.5 text-base text-slate-600">
             <li>
               <button
                 type="button"
@@ -89,8 +89,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold mb-4 text-navy uppercase tracking-wider">Contact</h3>
-          <ul className="space-y-3 text-sm text-slate-600">
+          <h3 className="text-base font-semibold mb-4 text-navy uppercase tracking-wider">Contact</h3>
+          <ul className="space-y-3.5 text-base text-slate-600">
             <li className="flex flex-col">
               <span className="font-semibold text-navy">Teen Harbor</span>
               <span>895 S. Marks</span>
@@ -109,7 +109,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+      <div className="border-t border-slate-200 pt-4 pb-2.5 text-center text-sm text-slate-500">
         © {new Date().getFullYear()} Teen Harbor. All Rights Reserved.
       </div>
     </footer>

@@ -64,7 +64,7 @@ export default function FacilityPage() {
   return (
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
-      <section className="relative py-32 md:py-40 lg:py-48 border-b border-slate-100 overflow-hidden">
+      <section className="relative flex items-end justify-center min-h-[500px] md:min-h-[620px] pt-32 pb-10 md:pt-40 md:pb-14 border-b border-slate-100 overflow-hidden">
         {/* Tri-Split Background */}
         <div className="absolute inset-0 z-0 flex w-full">
           <div className="w-1/3 h-full relative">
@@ -100,22 +100,23 @@ export default function FacilityPage() {
         </div>
         <div className="absolute inset-0 z-0 bg-slate-900/60" />
 
-        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white mt-8">
+        <div className="mx-auto max-w-4xl px-5 text-center relative z-10 text-white">
           <Reveal>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Our Facility</h1>
           </Reveal>
           <Reveal delay={100}>
             <p className="mt-6 text-lg md:text-xl leading-relaxed text-white/90 font-medium">
-              A safe, comfortable, and nurturing environment designed to feel like a true home away from home.
+              A safe, comfortable, and nurturing environment designed
+              <br className="hidden md:block" /> to feel like a true home away from home.
             </p>
           </Reveal>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
             <Reveal>
               <span className="eyebrow">The Residence</span>
             </Reveal>
@@ -133,9 +134,9 @@ export default function FacilityPage() {
       </section>
 
       {/* Van Ness House Section */}
-      <section className="py-20 md:py-32 bg-[#E8F3FC]">
+      <section className="py-16 md:py-24 bg-[#E8F3FC]">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
             <Reveal>
               <span className="eyebrow">Opening Soon</span>
             </Reveal>
@@ -153,7 +154,7 @@ export default function FacilityPage() {
       </section>
 
       {/* Map Section */}
-      <section className="bg-white py-20 md:py-32 text-slate-900 relative overflow-hidden">
+      <section className="bg-white py-16 md:py-24 text-slate-900 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 relative z-10">
           <div className="text-center mb-10">
             <Reveal>

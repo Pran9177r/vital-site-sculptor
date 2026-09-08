@@ -23,11 +23,11 @@ export default function ContactPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-8 md:pt-40 md:pb-12 z-10 text-white">
+      <section className="relative pt-24 pb-6 md:pt-32 md:pb-10 z-10 text-white">
         <div className="mx-auto max-w-5xl px-5 w-full">
           <Reveal>
             <div className="text-center">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight [text-shadow:_0_2px_16px_rgba(0,0,0,0.55)]">Contact & Admissions</h1>
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight [text-shadow:_0_2px_16px_rgba(0,0,0,0.55)]">Contact & Insurance</h1>
               <p className="mt-6 text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl mx-auto font-medium [text-shadow:_0_1px_10px_rgba(0,0,0,0.5)]">
                 We're here to help you navigate the next steps. Fill out the form below to get started.
               </p>
@@ -37,7 +37,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section id="contact-tabs" className="py-12 md:py-16 relative z-10">
+      <section id="contact-tabs" className="pt-6 pb-12 md:pt-8 md:pb-16 relative z-10">
         <div className="mx-auto max-w-6xl px-5 relative z-10">
           
           <Reveal delay={100}>
