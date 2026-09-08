@@ -96,9 +96,9 @@ export const PrismaHero = () => {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/80" />
 
         {/* Hero content */}
-        <div className="absolute bottom-0 left-0 right-0 px-5 pb-3 sm:px-8 md:px-12 md:pb-6 max-w-[1400px] mx-auto">
+        <div className="absolute bottom-0 left-0 right-0 px-5 pb-2 sm:px-8 md:px-12 md:pb-2 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-12 items-end gap-6 md:gap-10">
-            
+
             <div className="col-span-12 lg:col-span-7">
               <h1
                 className="font-medium leading-[1.1] tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 -ml-2 sm:-ml-3 md:-ml-5"
@@ -108,7 +108,7 @@ export const PrismaHero = () => {
               </h1>
             </div>
 
-            <div className="col-span-12 flex flex-col gap-6 pb-2 lg:col-span-5 lg:pb-8">
+            <div className="col-span-12 flex flex-col gap-6 pb-2 lg:col-span-5 lg:pb-2">
               
               <motion.p
                 initial={{ y: 20, opacity: 0 }}

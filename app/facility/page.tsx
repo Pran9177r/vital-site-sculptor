@@ -64,7 +64,7 @@ export default function FacilityPage() {
   return (
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
-      <section className="relative flex items-end justify-center min-h-[500px] md:min-h-[620px] pt-32 pb-10 md:pt-40 md:pb-14 border-b border-slate-100 overflow-hidden">
+      <section className="relative flex items-end justify-center min-h-[500px] md:min-h-[620px] pt-32 pb-6 md:pt-40 md:pb-9 border-b border-slate-100 overflow-hidden">
         {/* Tri-Split Background */}
         <div className="absolute inset-0 z-0 flex w-full">
           <div className="w-1/3 h-full relative">

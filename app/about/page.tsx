@@ -71,7 +71,7 @@ export default function AboutPage() {
     <>
     <div className="flex flex-col w-full bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-44 md:pb-20 lg:pt-48 min-h-[480px] md:min-h-[560px] flex items-end justify-center border-b border-slate-100 overflow-hidden">
+      <section className="relative pt-32 pb-12 md:pt-44 md:pb-14 lg:pt-48 min-h-[480px] md:min-h-[560px] flex items-end justify-center border-b border-slate-100 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
             src="https://res.cloudinary.com/dbeh0eisn/image/upload/v1787604327/ChatGPT_Image_Aug_24_2026_at_02_38_34_PM_g7bqkd.png" 
