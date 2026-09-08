@@ -44,6 +44,7 @@ const NAV: NavItem[] = [
       { label: "Teen Depression Treatment", href: "/treatment-and-services#depression" },
       { label: "Teen ADHD Treatment", href: "/treatment-and-services#adhd" },
       { label: "Teen Trauma Treatment", href: "/treatment-and-services#trauma" },
+      { label: "Teen Dual Diagnosis Treatment", href: "/treatment-and-services#dual-diagnosis" },
       { label: "Art Therapy", href: "/treatment-and-services#art-therapy" },
       { label: "Experiential Therapy", href: "/treatment-and-services#experiential" },
       { label: "Dialectical Behavior Therapy", href: "/treatment-and-services#dbt" },
