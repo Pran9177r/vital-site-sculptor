@@ -68,7 +68,7 @@ const MENTAL_HEALTH_PROGRAMS: Treatment[] = [
     id: "dual-diagnosis",
     title: "Teen Dual Diagnosis Treatment",
     subheader: "Taking Control & Building Skills",
-    description: "Substance use and mental health conditions often go hand in hand. Our integrated treatment helps teens in recovery from both through individual and group therapy with a Certified SUD Counselor. Teens learn to recognize triggers, build healthy coping skills, and develop practical relapse-prevention strategies to support lasting recovery."
+    description: "Substance use and mental health concerns often go hand in hand. At Teen Harbor, we provide integrated, individualized care that addresses both through evidence-based therapy, substance use education, relapse prevention, family involvement, and psychiatric support when appropriate—helping teens build healthy coping skills and a strong foundation for lasting recovery."
   },
   {
     id: "art-therapy",
