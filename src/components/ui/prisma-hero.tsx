@@ -4,12 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import hero1 from "@/assets/hero-1.png";
+import hero2 from "@/assets/hero-2.png";
+import hero3 from "@/assets/hero-3.png";
+import hero4 from "@/assets/hero-4.png";
 
 const HERO_IMAGES = [
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613193/5e4543af-c9d8-4375-b8b2-f65e4d7206ad_rf4irm.png", alt: "Teen Harbor exterior 1" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788022683/ChatGPT_Image_Aug_28_2026_at_06_33_56_PM_2_vhrvjo.png", alt: "Teen Harbor grounds and residence" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1786613191/a9ddd34c-3e2d-434e-a1b6-6c6f61180294_q6z8ke.png", alt: "Teen Harbor facility 3" },
-  { src: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1788022683/ChatGPT_Image_Aug_28_2026_at_06_33_56_PM_1_ka2df3.png", alt: "Teen Harbor swimming pool and backyard" },
+  { src: hero1, alt: "Teen Harbor exterior 1" },
+  { src: hero2, alt: "Teen Harbor grounds and residence" },
+  { src: hero3, alt: "Teen Harbor facility 3" },
+  { src: hero4, alt: "Teen Harbor swimming pool and backyard" },
 ];
 
 /* ---------------- WordsPullUp ---------------- */
@@ -79,10 +84,12 @@ export const PrismaHero = () => {
               className="absolute inset-0 h-full w-full"
             >
               {HERO_IMAGES[currentIndex] && (
-                <img
+                <Image
                   src={HERO_IMAGES[currentIndex].src}
                   alt={HERO_IMAGES[currentIndex].alt}
-                  className="h-full w-full object-cover object-center"
+                  fill
+                  priority
+                  className="object-cover object-center"
                 />
               )}
             </motion.div>
