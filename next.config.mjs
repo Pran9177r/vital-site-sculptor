@@ -16,6 +16,17 @@ const nextConfig = {
       }
     ],
   },
+  // Redirect legacy URLs (still indexed by Google) to their current pages.
+  async redirects() {
+    return [
+      { source: "/about-us", destination: "/about", permanent: true },
+      { source: "/our-program", destination: "/treatment-and-services", permanent: true },
+      { source: "/inquiries", destination: "/contact", permanent: true },
+      { source: "/amenities", destination: "/facility", permanent: true },
+      { source: "/learn-about-amenities", destination: "/facility", permanent: true },
+      { source: "/our-amenities", destination: "/facility", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
