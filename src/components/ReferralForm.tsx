@@ -22,7 +22,7 @@ export function ReferralForm() {
   }, []);
 
   return (
-    <div className="w-full relative min-h-[500px] -mt-10">
+    <div className="w-full relative min-h-[500px] overflow-hidden rounded-2xl">
       {isLoading && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10 space-y-4">
           <Loader2 className="h-10 w-10 animate-spin text-slate-400" />
@@ -38,6 +38,7 @@ export function ReferralForm() {
           minWidth: "100%",
           height: "1200px", // Initial height, dynamically adjusted
           border: "none",
+          marginTop: "-40px",
           opacity: isLoading ? 0 : 1,
           transition: "opacity 0.3s ease-in-out"
         }}
