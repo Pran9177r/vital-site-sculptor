@@ -1,13 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Loader2 } from "lucide-react";
 
 export function ContactForm() {
   const [isLoading, setIsLoading] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const handleIFrameMessage = (e: MessageEvent) => {
+      if (typeof e.data === 'string') {
+        const args = e.data.split(":");
+        // Jotform sends messages like "setHeight:1234"
+        if (args[0] === "setHeight" && iframeRef.current) {
+          iframeRef.current.style.height = `${args[1]}px`;
+        }
+      }
+    };
+    window.addEventListener("message", handleIFrameMessage);
+    return () => window.removeEventListener("message", handleIFrameMessage);
+  }, []);
 
   return (
-    <div className="w-full relative min-h-[500px] overflow-hidden rounded-2xl h-[700px] md:h-[800px]">
+    <div className="w-full relative min-h-[500px] -mt-10">
       {isLoading && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10 space-y-4">
           <Loader2 className="h-10 w-10 animate-spin text-slate-400" />
@@ -15,20 +30,20 @@ export function ContactForm() {
         </div>
       )}
       <iframe
+        ref={iframeRef}
         id="JotFormIFrame-262636469985073"
         title="Contact & Insurance"
         src="https://form.jotform.com/262636469985073?transparent=1"
         style={{
           minWidth: "100%",
-          height: "1000px",
+          height: "800px", // Initial height, dynamically adjusted
           border: "none",
-          marginTop: "-50px",
           opacity: isLoading ? 0 : 1,
           transition: "opacity 0.3s ease-in-out"
         }}
         allow="geolocation; microphone; camera"
         frameBorder="0"
-        scrolling="yes"
+        scrolling="no"
         loading="lazy"
         onLoad={() => setIsLoading(false)}
       />
