@@ -5,6 +5,7 @@ import Providers from "./providers";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import { AnalyticsGuard } from "@/components/AnalyticsGuard";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,13 +36,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${poppins.className} min-h-screen flex flex-col`} suppressHydrationWarning>
         <Providers>
-          <SmoothScrolling>
-            <Header />
-            <main className="flex-1">
-              {children}
-            </main>
-            <Footer />
-          </SmoothScrolling>
+          <AnalyticsGuard>
+            <SmoothScrolling>
+              <Header />
+              <main className="flex-1">
+                {children}
+              </main>
+              <Footer />
+            </SmoothScrolling>
+          </AnalyticsGuard>
         </Providers>
       </body>
     </html>
