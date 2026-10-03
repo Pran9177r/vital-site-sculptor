@@ -5,7 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoWordmark from "@/assets/logo-teen-harbor.png";
+
+const LOGO_URL = "https://res.cloudinary.com/dbeh0eisn/image/upload/v1791045498/Teen_Harbor_logo_in_lighter_sky_blue_svgptb.png";
 
 type NavItem = {
   label: string;
@@ -123,7 +124,7 @@ export function Header() {
             aria-label="Home"
           >
             <img
-              src={logoWordmark.src}
+              src={LOGO_URL}
               alt="Teen Harbor"
               width={900}
               height={539}
@@ -234,7 +235,7 @@ export function Header() {
             >
               <div className="flex items-center justify-between p-5 border-b border-slate-100 shrink-0">
                 <img
-                  src={logoWordmark.src}
+                  src={LOGO_URL}
                   alt="Teen Harbor"
                   width={900}
                   height={539}

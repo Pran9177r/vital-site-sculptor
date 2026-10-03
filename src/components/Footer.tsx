@@ -4,9 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Facebook, Instagram } from "lucide-react";
-import logoWordmark from "@/assets/logo-teen-harbor.png";
 import { PrivacyPolicyModal } from "@/components/PrivacyPolicyModal";
 import { TermsOfServiceModal } from "@/components/TermsOfServiceModal";
+
+const LOGO_URL = "https://res.cloudinary.com/dbeh0eisn/image/upload/v1791045498/Teen_Harbor_logo_in_lighter_sky_blue_svgptb.png";
 
 const NAV = [
   { label: "About", href: "/about" },
@@ -30,7 +31,7 @@ export function Footer() {
         <div className="space-y-6 -ml-2">
           <Link href="/" className="inline-block -ml-2">
             <img
-              src={logoWordmark.src}
+              src={LOGO_URL}
               alt="Teen Harbor"
               width={900}
               height={539}

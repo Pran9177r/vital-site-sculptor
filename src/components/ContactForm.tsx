@@ -6,14 +6,22 @@ import { Loader2 } from "lucide-react";
 export function ContactForm() {
   const [isLoading, setIsLoading] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const formId = "262636469985073";
 
   useEffect(() => {
     const handleIFrameMessage = (e: MessageEvent) => {
       if (typeof e.data === 'string') {
         const args = e.data.split(":");
-        // Jotform sends messages like "setHeight:1234"
+        // Jotform sends messages like "setHeight:1234:formId"
         if (args[0] === "setHeight" && iframeRef.current) {
-          iframeRef.current.style.height = `${args[1]}px`;
+          const messageFormId = args.length > 2 ? args[args.length - 1] : null;
+          // Ensure it's for this specific form or no form ID is provided
+          if (!messageFormId || messageFormId === formId) {
+            // Add a buffer to prevent scrollbars from showing when error messages appear
+            const newHeight = parseInt(args[1]) + 30;
+            iframeRef.current.style.height = `${newHeight}px`;
+            iframeRef.current.style.minHeight = `${newHeight}px`;
+          }
         }
       }
     };
@@ -31,14 +39,13 @@ export function ContactForm() {
       )}
       <iframe
         ref={iframeRef}
-        id="JotFormIFrame-262636469985073"
+        id={`JotFormIFrame-${formId}`}
         title="Contact & Insurance"
-        src="https://form.jotform.com/262636469985073?transparent=1"
+        src={`https://form.jotform.com/${formId}?transparent=1`}
         style={{
           minWidth: "100%",
           height: "800px", // Initial height, dynamically adjusted
           border: "none",
-          marginTop: "-40px",
           opacity: isLoading ? 0 : 1,
           transition: "opacity 0.3s ease-in-out"
         }}
