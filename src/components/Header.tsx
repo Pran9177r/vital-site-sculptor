@@ -5,8 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
-const LOGO_URL = "https://res.cloudinary.com/dbeh0eisn/image/upload/v1791045498/Teen_Harbor_logo_in_lighter_sky_blue_svgptb.png";
+/* Served from /public instead of res.cloudinary.com: the remote copy forced a
+   cross-origin DNS + TLS handshake on the critical path and shipped the full
+   700 KB original. next/image resizes it to the ~112px it is actually drawn at. */
+const LOGO_URL = "/teen-harbor-logo.png";
+const LOGO_WIDTH = 1619;
+const LOGO_HEIGHT = 971;
 
 type NavItem = {
   label: string;
@@ -109,8 +115,8 @@ export function Header() {
           isTransparent
             ? "bg-transparent border-transparent"
             : scrolled
-            ? "bg-white/95 backdrop-blur-md border-border shadow-[var(--shadow-card)]"
-            : "bg-white border-transparent"
+              ? "bg-white/95 backdrop-blur-md border-border shadow-[var(--shadow-card)]"
+              : "bg-white border-transparent"
         }`}
       >
         <div
@@ -118,20 +124,16 @@ export function Header() {
             scrolled || !isHome ? "py-1.5" : "py-2.5"
           }`}
         >
-          <Link
-            href="/"
-            className="flex items-center shrink-0"
-            aria-label="Home"
-          >
-            <img
+          <Link href="/" className="flex items-center shrink-0" aria-label="Home">
+            <Image
               src={LOGO_URL}
               alt="Teen Harbor"
-              width={900}
-              height={539}
+              width={LOGO_WIDTH}
+              height={LOGO_HEIGHT}
+              priority
+              sizes="200px"
               className={`w-auto transition-all duration-500 ease-in-out drop-shadow-sm ${
-                scrolled || !isHome
-                  ? "h-10 sm:h-11 md:h-12"
-                  : "h-16 sm:h-20 md:h-24 lg:h-28"
+                scrolled || !isHome ? "h-10 sm:h-11 md:h-12" : "h-16 sm:h-20 md:h-24 lg:h-28"
               }`}
             />
           </Link>
@@ -139,7 +141,7 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center gap-6 relative">
             {NAV.map((item) => (
-              <div 
+              <div
                 key={item.label}
                 className="relative group"
                 onMouseEnter={() => setActiveDropdown(item.label)}
@@ -148,14 +150,21 @@ export function Header() {
                 <Link
                   href={item.href}
                   className={`flex items-center gap-1 text-[15px] font-semibold tracking-wide transition-colors py-4 ${
-                    pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href))
-                      ? (isTransparent ? "text-white" : "text-primary")
-                      : (isTransparent ? "text-white/90 hover:text-white" : "text-slate-700 hover:text-primary")
+                    pathname === item.href ||
+                    (item.subItems && item.subItems.some((sub) => pathname === sub.href))
+                      ? isTransparent
+                        ? "text-white"
+                        : "text-primary"
+                      : isTransparent
+                        ? "text-white/90 hover:text-white"
+                        : "text-slate-700 hover:text-primary"
                   }`}
                 >
                   {item.label}
                   {item.subItems && (
-                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 group-hover:rotate-180 ${isTransparent ? "text-white opacity-70" : "opacity-50"}`} />
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform duration-200 group-hover:rotate-180 ${isTransparent ? "text-white opacity-70" : "opacity-50"}`}
+                    />
                   )}
                 </Link>
 
@@ -234,11 +243,12 @@ export function Header() {
               className="fixed inset-y-0 right-0 z-[70] w-[85%] max-w-sm bg-white shadow-2xl xl:hidden flex flex-col overflow-hidden"
             >
               <div className="flex items-center justify-between p-5 border-b border-slate-100 shrink-0">
-                <img
+                <Image
                   src={LOGO_URL}
                   alt="Teen Harbor"
-                  width={900}
-                  height={539}
+                  width={LOGO_WIDTH}
+                  height={LOGO_HEIGHT}
+                  sizes="100px"
                   className="h-12 w-auto"
                 />
                 <button
@@ -248,7 +258,7 @@ export function Header() {
                   <X className="h-6 w-6" />
                 </button>
               </div>
-              
+
               <div className="flex-1 overflow-y-auto py-6 px-5 flex flex-col gap-2">
                 {NAV.map((item) => (
                   <div key={item.label} className="flex flex-col">
@@ -264,14 +274,18 @@ export function Header() {
                       </Link>
                       {item.subItems && (
                         <button
-                          onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                          onClick={() =>
+                            setMobileExpanded(mobileExpanded === item.label ? null : item.label)
+                          }
                           className="p-2 text-slate-500"
                         >
-                          <ChevronDown className={`h-5 w-5 transition-transform ${mobileExpanded === item.label ? "rotate-180" : ""}`} />
+                          <ChevronDown
+                            className={`h-5 w-5 transition-transform ${mobileExpanded === item.label ? "rotate-180" : ""}`}
+                          />
                         </button>
                       )}
                     </div>
-                    
+
                     {/* Mobile Submenu */}
                     {item.subItems && (
                       <AnimatePresence>
@@ -304,7 +318,7 @@ export function Header() {
                   </div>
                 ))}
               </div>
-              
+
               <div className="p-5 border-t border-slate-100 shrink-0">
                 <Link
                   href="/contact"

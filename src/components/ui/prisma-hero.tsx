@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -25,31 +25,43 @@ interface WordsPullUpProps {
   style?: React.CSSProperties;
 }
 
-export const WordsPullUp = ({ text, className = "", showAsterisk = false, style }: WordsPullUpProps) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
+export const WordsPullUp = ({
+  text,
+  className = "",
+  showAsterisk = false,
+  style,
+}: WordsPullUpProps) => {
   const words = text.split(" ");
 
+  // The per-word stagger is a CSS animation-delay rather than a framer-motion
+  // transition, so the headline paints without waiting for hydration. The real
+  // " " text nodes between words are what make the h1 read as a sentence to
+  // crawlers; the flex container does not render them, so spacing still comes
+  // from marginRight and the layout is unchanged.
   return (
-    <span ref={ref} className={`inline-flex flex-wrap ${className}`} style={style}>
-      {words.map((word, i) => {
-        const isLast = i === words.length - 1;
-        return (
-          <motion.span
-            key={i}
-            initial={{ y: 20, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-block relative"
-            style={{ marginRight: isLast ? 0 : "0.25em" }}
-          >
-            {word}
-            {showAsterisk && isLast && (
-              <span className="absolute top-[0.65em] -right-[0.3em] text-[0.31em]">*</span>
-            )}
-          </motion.span>
-        );
-      }).flatMap((el, i) => (i === 0 ? [el] : [" ", el]))}
+    <span className={`inline-flex flex-wrap ${className}`} style={style}>
+      {words
+        .map((word, i) => {
+          const isLast = i === words.length - 1;
+          return (
+            <span
+              key={i}
+              className="hero-rise inline-block relative"
+              style={
+                {
+                  marginRight: isLast ? 0 : "0.25em",
+                  "--hero-rise-delay": `${i * 80}ms`,
+                } as React.CSSProperties
+              }
+            >
+              {word}
+              {showAsterisk && isLast && (
+                <span className="absolute top-[0.65em] -right-[0.3em] text-[0.31em]">*</span>
+              )}
+            </span>
+          );
+        })
+        .flatMap((el, i) => (i === 0 ? [el] : [" ", el]))}
     </span>
   );
 };
@@ -61,9 +73,7 @@ export const PrismaHero = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === HERO_IMAGES.length - 1 ? 0 : prevIndex + 1
-      );
+      setCurrentIndex((prevIndex) => (prevIndex === HERO_IMAGES.length - 1 ? 0 : prevIndex + 1));
     }, 7000); // 7 second slow transition
     return () => clearInterval(timer);
   }, []);
@@ -71,7 +81,6 @@ export const PrismaHero = () => {
   return (
     <section className="h-screen w-full">
       <div className="relative h-full w-full overflow-hidden">
-        
         {/* Background Image Slider */}
         <div className="absolute inset-0 h-full w-full">
           <AnimatePresence initial={false}>
@@ -105,7 +114,6 @@ export const PrismaHero = () => {
         {/* Hero content */}
         <div className="absolute bottom-0 left-0 right-0 px-5 pb-2 sm:px-8 md:px-12 md:pb-2 max-w-[1400px] mx-auto">
           <div className="grid grid-cols-12 items-end gap-6 md:gap-10">
-
             <div className="col-span-12 lg:col-span-7">
               <h1
                 className="font-medium leading-[1.1] tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 -ml-2 sm:-ml-3 md:-ml-5"
@@ -116,21 +124,31 @@ export const PrismaHero = () => {
             </div>
 
             <div className="col-span-12 flex flex-col gap-6 pb-2 lg:col-span-5 lg:pb-2">
-              
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="text-sm text-white/90 sm:text-base md:text-lg drop-shadow-md"
-                style={{ lineHeight: 1.5 }}
+              <p
+                className="hero-rise text-sm text-white/90 sm:text-base md:text-lg drop-shadow-md"
+                style={
+                  {
+                    lineHeight: 1.5,
+                    "--hero-rise-duration": "800ms",
+                    "--hero-rise-delay": "500ms",
+                  } as React.CSSProperties
+                }
               >
-                Teen Harbor is a compassionate residential program dedicated to supporting teens through mental health and co-occurring substance use challenges with individualized care, structure, and a safe, nurturing environment. We empower adolescents to build resilience, develop healthy coping skills, and rediscover their path toward stability, confidence, and long-term success.
-              </motion.p>
+                Teen Harbor is a compassionate residential program dedicated to supporting teens
+                through mental health and co-occurring substance use challenges with individualized
+                care, structure, and a safe, nurturing environment. We empower adolescents to build
+                resilience, develop healthy coping skills, and rediscover their path toward
+                stability, confidence, and long-term success.
+              </p>
 
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              <div
+                className="hero-rise"
+                style={
+                  {
+                    "--hero-rise-duration": "800ms",
+                    "--hero-rise-delay": "700ms",
+                  } as React.CSSProperties
+                }
               >
                 <Link
                   href="/contact"
@@ -141,8 +159,7 @@ export const PrismaHero = () => {
                     <ArrowRight className="h-6 w-6 text-white group-hover:text-[#32A5DA]" />
                   </span>
                 </Link>
-              </motion.div>
-
+              </div>
             </div>
           </div>
         </div>

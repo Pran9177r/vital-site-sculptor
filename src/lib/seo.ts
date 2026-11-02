@@ -46,7 +46,7 @@ export const organizationJsonLd = {
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   url: SITE_URL,
-  logo: "https://res.cloudinary.com/dbeh0eisn/image/upload/v1791045498/Teen_Harbor_logo_in_lighter_sky_blue_svgptb.png",
+  logo: `${SITE_URL}/teen-harbor-logo.png`,
   image: `${SITE_URL}/opengraph-image.jpg`,
   description:
     "Residential mental health and dual diagnosis treatment for adolescents ages 12–17 in Fresno, California.",

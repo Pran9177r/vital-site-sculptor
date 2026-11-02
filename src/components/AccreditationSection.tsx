@@ -2,11 +2,16 @@
 
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
+import Image from "next/image";
 
 interface Accreditation {
   name: string;
   detail: string;
   logoUrl?: string; // Optional: If missing, fallback to icon
+  /** Intrinsic pixel size of the source file. Required by next/image so it
+   *  can generate a correctly sized, modern-format srcset. */
+  width?: number;
+  height?: number;
 }
 
 interface AccreditationSectionProps {
@@ -36,12 +41,16 @@ export function AccreditationSection({ accreditations }: AccreditationSectionPro
             transition={{ duration: 0.5, delay: index * 0.08 }}
             className="flex flex-col shrink-0 items-center justify-center p-2"
           >
-            {acc.logoUrl ? (
-              <img
+            {acc.logoUrl && acc.width && acc.height ? (
+              <Image
                 src={acc.logoUrl}
                 alt={acc.name || "Accreditation Logo"}
+                width={acc.width}
+                height={acc.height}
+                /* Rendered at most 112px tall (lg:h-28). 200px covers the
+                   widest landscape logo at 2x without shipping the original. */
+                sizes="200px"
                 className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform duration-300 hover:scale-105"
-                loading="lazy"
               />
             ) : (
               <Award className="h-16 w-16 text-sun" />

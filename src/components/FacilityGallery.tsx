@@ -46,13 +46,7 @@ function Tile({
   );
 }
 
-function Lightbox({
-  image,
-  onClose,
-}: {
-  image: GalleryImage | null;
-  onClose: () => void;
-}) {
+function Lightbox({ image, onClose }: { image: GalleryImage | null; onClose: () => void }) {
   return (
     <AnimatePresence>
       {image && (
@@ -78,7 +72,12 @@ function Lightbox({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            src={image.src}
+            /* Routed through the image optimizer rather than loading the
+               original: some gallery sources are multi-megabyte PNGs, and at
+               full size one of them is a ~10 MB download on click. 1920px is
+               more than the max-h-[90vh] lightbox can ever display, and q=75
+               is the only quality the optimizer allows by default. */
+            src={`/_next/image?url=${encodeURIComponent(image.src)}&w=1920&q=75`}
             alt={image.alt}
             className="max-h-[90vh] max-w-[100vw] object-contain rounded-lg shadow-2xl"
             onClick={(e) => e.stopPropagation()}
@@ -145,15 +144,16 @@ export function FacilityGallery({ images }: FacilityGalleryProps) {
           let extraClasses = "";
           // To fix the gap when there are exactly 11 total images (5 middle images)
           if (middleImages.length === 5 && i === 4) {
-            extraClasses = "col-span-2 md:col-span-1 lg:col-span-4 aspect-[2/1] md:aspect-square lg:aspect-[4/1]";
+            extraClasses =
+              "col-span-2 md:col-span-1 lg:col-span-4 aspect-[2/1] md:aspect-square lg:aspect-[4/1]";
           }
           return (
-            <Tile 
-              key={i} 
-              img={img} 
-              index={i} 
-              onClick={() => setSelectedImage(img)} 
-              className={extraClasses} 
+            <Tile
+              key={i}
+              img={img}
+              index={i}
+              onClick={() => setSelectedImage(img)}
+              className={extraClasses}
             />
           );
         })}
