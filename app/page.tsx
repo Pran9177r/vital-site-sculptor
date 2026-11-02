@@ -435,6 +435,16 @@ const FAQS = [
   },
 ];
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 function Stars() {
   return (
     <div className="flex gap-1 text-sun" aria-hidden="true">
@@ -458,6 +468,10 @@ export default function Page() {
 
   return (
     <div className="page-enter min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
       
 
       {/* Prisma Hero */}

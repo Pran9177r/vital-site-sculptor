@@ -11,9 +11,9 @@ import hero3 from "@/assets/hero-3.png";
 import hero4 from "@/assets/hero-4.png";
 
 const HERO_IMAGES = [
-  { src: hero1, alt: "Teen Harbor exterior 1" },
+  { src: hero1, alt: "Exterior of the Teen Harbor residential treatment home in Fresno, CA" },
   { src: hero2, alt: "Teen Harbor grounds and residence" },
-  { src: hero3, alt: "Teen Harbor facility 3" },
+  { src: hero3, alt: "Living space inside the Teen Harbor residence" },
   { src: hero4, alt: "Teen Harbor swimming pool and backyard" },
 ];
 
@@ -26,12 +26,12 @@ interface WordsPullUpProps {
 }
 
 export const WordsPullUp = ({ text, className = "", showAsterisk = false, style }: WordsPullUpProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
   const words = text.split(" ");
 
   return (
-    <div ref={ref} className={`inline-flex flex-wrap ${className}`} style={style}>
+    <span ref={ref} className={`inline-flex flex-wrap ${className}`} style={style}>
       {words.map((word, i) => {
         const isLast = i === words.length - 1;
         return (
@@ -49,8 +49,8 @@ export const WordsPullUp = ({ text, className = "", showAsterisk = false, style 
             )}
           </motion.span>
         );
-      })}
-    </div>
+      }).flatMap((el, i) => (i === 0 ? [el] : [" ", el]))}
+    </span>
   );
 };
 

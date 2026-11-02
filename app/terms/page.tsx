@@ -1,9 +1,11 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Service | Teen Harbor",
-  description: "Terms of Service for Teen Harbor",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Terms of Service",
+  description: "Terms of use for the Teen Harbor website, including our medical disclaimer and use of services.",
+  path: "/terms",
+});
 
 export default function TermsOfServicePage() {
   return (

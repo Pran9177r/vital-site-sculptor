@@ -1,9 +1,11 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Teen Harbor",
-  description: "Privacy Policy for Teen Harbor",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy",
+  description: "How Teen Harbor collects, uses and protects personal and health information, including our HIPAA privacy practices.",
+  path: "/privacy",
+});
 
 export default function PrivacyPolicyPage() {
   return (
