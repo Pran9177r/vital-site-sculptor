@@ -26,6 +26,15 @@ const homeMeta = pageMetadata({
   absoluteTitle: true,
 });
 
+/**
+ * Search Console "HTML tag" verification. Set GOOGLE_SITE_VERIFICATION to the
+ * token Google shows (the value only, not the whole <meta> tag) and redeploy.
+ * Only needed if the domain cannot be verified by DNS; left unset, no tag is
+ * emitted. Bing's equivalent is BING_SITE_VERIFICATION.
+ */
+const googleVerification = process.env["GOOGLE_SITE_VERIFICATION"];
+const bingVerification = process.env["BING_SITE_VERIFICATION"];
+
 export const metadata: Metadata = {
   ...homeMeta,
   metadataBase: new URL(SITE_URL),
@@ -33,6 +42,14 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME }],
   robots: { index: true, follow: true },
+  ...(googleVerification || bingVerification
+    ? {
+        verification: {
+          ...(googleVerification ? { google: googleVerification } : {}),
+          ...(bingVerification ? { other: { "msvalidate.01": bingVerification } } : {}),
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -50,9 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AnalyticsGuard>
             <SmoothScrolling>
               <Header />
-              <main className="flex-1">
-                {children}
-              </main>
+              <main className="flex-1">{children}</main>
               <Footer />
             </SmoothScrolling>
           </AnalyticsGuard>
