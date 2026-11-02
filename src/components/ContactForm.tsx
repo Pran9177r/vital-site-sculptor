@@ -10,7 +10,7 @@ export function ContactForm() {
 
   useEffect(() => {
     const handleIFrameMessage = (e: MessageEvent) => {
-      if (typeof e.data === 'string') {
+      if (typeof e.data === "string") {
         const args = e.data.split(":");
         // Jotform sends messages like "setHeight:1234:formId"
         if (args[0] === "setHeight" && iframeRef.current) {
@@ -18,7 +18,9 @@ export function ContactForm() {
           // Ensure it's for this specific form or no form ID is provided
           if (!messageFormId || messageFormId === formId) {
             // Add a buffer to prevent scrollbars from showing when error messages appear
-            const newHeight = parseInt(args[1]) + 30;
+            const parsedHeight = Number.parseInt(args[1] ?? "", 10);
+            if (!Number.isFinite(parsedHeight)) return;
+            const newHeight = parsedHeight + 30;
             iframeRef.current.style.height = `${newHeight}px`;
             iframeRef.current.style.minHeight = `${newHeight}px`;
           }
@@ -47,7 +49,7 @@ export function ContactForm() {
           height: "800px", // Initial height, dynamically adjusted
           border: "none",
           opacity: isLoading ? 0 : 1,
-          transition: "opacity 0.3s ease-in-out"
+          transition: "opacity 0.3s ease-in-out",
         }}
         allow="geolocation; microphone; camera"
         frameBorder="0"

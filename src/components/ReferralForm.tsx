@@ -10,14 +10,16 @@ export function ReferralForm() {
 
   useEffect(() => {
     const handleIFrameMessage = (e: MessageEvent) => {
-      if (typeof e.data === 'string') {
+      if (typeof e.data === "string") {
         const args = e.data.split(":");
         // Jotform sends messages like "setHeight:1234:formId"
         if (args[0] === "setHeight" && iframeRef.current) {
           const messageFormId = args.length > 2 ? args[args.length - 1] : null;
           if (!messageFormId || messageFormId === formId) {
             // Add a buffer to prevent scrollbars from showing when error messages appear
-            const newHeight = parseInt(args[1]) + 30;
+            const parsedHeight = Number.parseInt(args[1] ?? "", 10);
+            if (!Number.isFinite(parsedHeight)) return;
+            const newHeight = parsedHeight + 30;
             iframeRef.current.style.height = `${newHeight}px`;
             iframeRef.current.style.minHeight = `${newHeight}px`;
           }
@@ -46,7 +48,7 @@ export function ReferralForm() {
           height: "1200px", // Initial height, dynamically adjusted
           border: "none",
           opacity: isLoading ? 0 : 1,
-          transition: "opacity 0.3s ease-in-out"
+          transition: "opacity 0.3s ease-in-out",
         }}
         allow="geolocation; microphone; camera"
         frameBorder="0"
